@@ -1,25 +1,24 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { Facebook } from '@ionic-native/facebook';
-import { NativeStorage } from '@ionic-native/native-storage';
-import { SplashScreen} from "@ionic-native/splash-screen";
-import { StatusBar} from "@ionic-native/status-bar";
 import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { Facebook } from '@ionic-native/facebook';
 
-
+import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { MapDirectionPage }  from '../pages/map-direction/map-direction';
 import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
-import { MapDirectionPage } from '../pages/map-direction/map-direction'
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage,
-    UserPage,
     HomePage,
-    MapDirectionPage
+    MapDirectionPage,
+    LoginPage,
+    UserPage
   ],
   imports: [
     BrowserModule,
@@ -28,16 +27,17 @@ import { MapDirectionPage } from '../pages/map-direction/map-direction'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage,
-    UserPage,
     HomePage,
-    MapDirectionPage
+    MapDirectionPage,
+    LoginPage,
+    UserPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
     Facebook,
-    NativeStorage
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

@@ -35,12 +35,12 @@ export class UserPage {
   }
 
   doFbLogout(){
-    var nav = this.navCtrl;
+    
     this.fb.logout()
     .then((response) => {
       //user logged out so we will remove him from the NativeStorage
       this.nativeStorage.remove('user');
-      nav.push(LoginPage);
+      this.navCtrl.push(LoginPage);
     }, (error) => {
       console.log(error);
     });
