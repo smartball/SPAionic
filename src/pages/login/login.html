@@ -1,0 +1,45 @@
+<ion-content class="background">
+    <h1>SMART PROPERT ASSESS</h1>
+    <ion-card>
+    
+      <ion-card-header>
+        
+        <a (click)="skip()" float-Right>Skip This</a><br>Login
+      </ion-card-header>
+  
+      <ion-card-content>
+        <!-- Add card content here! -->
+        <ion-list no-lines>
+          <ion-item>
+          <ion-label floating>
+            Email Address
+          </ion-label>
+            <ion-input type="text"  ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+              Password
+          </ion-label>
+            <ion-input type="password"  ></ion-input>
+        </ion-item>
+          <ion-item>
+            <p>Forgot password?<a href="">Get Here</a></p>
+          </ion-item>
+          <button ion-button color="primary" block outline (click)="login(user)">LOGIN</button>
+        </ion-list>
+        <b>OR</b>
+          <button ion-button color="primary" ion-left block (click)="doFbLogin()">
+            <ion-icon name="logo-facebook"></ion-icon>
+            <div>Login With Facebook</div>
+          </button>
+          <button ion-button color="danger" ion-left block (click)="loginwithgg()">
+            <ion-icon name="logo-googleplus"></ion-icon>
+            <div>Login With Google</div>
+          </button>
+          <hr width="80%">
+          <b><a (click)="register()" >Create an Account</a></b>
+      </ion-card-content>
+    
+    </ion-card>
+  
+  </ion-content>

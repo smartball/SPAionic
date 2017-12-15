@@ -1,0 +1,34 @@
+page-login {
+	.background{
+		width: 100%;
+		height: 100%;
+		background-image: url("../assets/imgs/esa.jpg");
+		background-size: cover; 
+		background-repeat: no-repeat;
+
+	}
+	.scroll-content{
+		text-align: center;
+	}
+	ion-card.card{
+		background: rgba(232,230,230,0.6px);
+		border-radius: 10px;
+		box-shadow: none;
+	}
+	.item{
+		background: rgba(232,230,230,0px);
+		border: medium none;
+	}
+	ion-input{
+		border-bottom: gray solid 1px;
+	}
+	a{
+		text-decoration: none;
+	}
+	h1{
+		color: #fff;
+		font-size: 2em;
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		font-weight: lighter;
+	}
+}
