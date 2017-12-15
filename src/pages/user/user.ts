@@ -40,7 +40,7 @@ export class UserPage {
     .then((response) => {
       //user logged out so we will remove him from the NativeStorage
       this.nativeStorage.remove('user');
-      this.navCtrl.push(LoginPage);
+      nav.push(LoginPage);
     }, (error) => {
       console.log(error);
     });

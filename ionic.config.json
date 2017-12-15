@@ -1,6 +1,6 @@
 {
-  "name": "testos",
-  "app_id": "8d8c45f3",
+  "name": "ionic2FbLogin",
+  "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

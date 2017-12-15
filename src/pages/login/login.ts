@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { NavController } from 'ionic-angular';
+
 import { UserPage } from '../user/user';
 import { HomePage } from '../home/home';
 
@@ -10,7 +11,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  FB_APP_ID: number = 160319811228422;
+  FB_APP_ID: number = 725261520963213;
 
   constructor(
     public navCtrl: NavController,
@@ -44,7 +45,7 @@ export class LoginPage {
           picture: user.picture
         })
         .then(() => {
-          nav.push(UserPage);
+          nav.push(HomePage);
         },(error) => {
           console.log(error);
         })
@@ -53,9 +54,7 @@ export class LoginPage {
       console.log(error);
     });
   }
-
-
-
+  
   skip(){
     this.navCtrl.setRoot(HomePage);
   }
