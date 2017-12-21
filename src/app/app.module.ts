@@ -11,6 +11,12 @@ import { HomePage } from '../pages/home/home';
 import { MapDirectionPage }  from '../pages/map-direction/map-direction';
 import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
+import { RegisterPage } from '../pages/register/register';
+
+
+import { AngularFireModule } from 'angularfire2';
+import { FIREBASE_CONFIG } from './app.firebase.config';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -18,11 +24,14 @@ import { UserPage } from '../pages/user/user';
     HomePage,
     MapDirectionPage,
     LoginPage,
-    UserPage
+    UserPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,7 +39,8 @@ import { UserPage } from '../pages/user/user';
     HomePage,
     MapDirectionPage,
     LoginPage,
-    UserPage
+    UserPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

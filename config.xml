@@ -87,4 +87,5 @@
         <variable name="APP_NAME" value="hasauth" />
     </plugin>
     <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
+    <engine name="android" spec="~6.3.0" />
 </widget>

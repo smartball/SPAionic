@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { UserPage } from '../user/user';
 import { HomePage } from '../home/home';
+import { RegisterPage } from '../register/register';
+
+import { User } from '../../models/user';
 
 @Component({
   selector: 'page-login',
@@ -11,11 +14,12 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   FB_APP_ID: number = 160319811228422;
-
+  user = {} as User;
   constructor(
     public navCtrl: NavController,
     public fb: Facebook,
-    public nativeStorage: NativeStorage
+    public nativeStorage: NativeStorage,
+    public navParams: NavParams
     ) {
     this.fb.browserInit(this.FB_APP_ID, "v2.8");
   }
@@ -54,9 +58,15 @@ export class LoginPage {
     });
   }
 
-
-
   skip(){
     this.navCtrl.setRoot(HomePage);
+  }
+
+  login(){
+
+  }
+
+  register(){
+    this.navCtrl.push(RegisterPage);
   }
 }

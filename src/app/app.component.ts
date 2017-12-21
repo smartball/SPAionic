@@ -7,6 +7,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
 import { HomePage } from '../pages/home/home';
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
