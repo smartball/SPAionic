@@ -7,6 +7,7 @@ import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 
 import { User } from '../../models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-login',
@@ -19,7 +20,8 @@ export class LoginPage {
     public navCtrl: NavController,
     public fb: Facebook,
     public nativeStorage: NativeStorage,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public afAuth: AngularFireAuth
     ) {
     this.fb.browserInit(this.FB_APP_ID, "v2.8");
   }
@@ -62,8 +64,15 @@ export class LoginPage {
     this.navCtrl.setRoot(HomePage);
   }
 
-  login(){
-
+  async login(user: User){
+    try{
+      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
+      if(result){
+        this.navCtrl.setRoot(HomePage);
+      }
+    }catch(e){
+      console.error(e);
+    }
   }
 
   register(){

@@ -1,8 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
+import { NavController, NavParams,ToastController} from 'ionic-angular';
 import { App, ModalController } from 'ionic-angular';
 
 import { MapDirectionPage } from '../map-direction/map-direction';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+
 
 declare var google: any;
 
@@ -32,6 +35,8 @@ export class HomePage {
     public navCtrl: NavController,
     public app: App, 
     public navParams: NavParams,
+    public afAuth: AngularFireAuth,
+    public toast: ToastController,
     private modal: ModalController) {
     this.navCtrl = navCtrl;
   }
@@ -152,7 +157,21 @@ export class HomePage {
     }, 200);
   }
   
-  
+  ionViewWillLoad(){
+    this.afAuth.authState.subscribe(data =>{
+      if(data.email && data.uid){
+      this.toast.create({
+        message: 'Welcome to Smart Property Assess'+ data.email,
+        duration: 3000
+      }).present();
+    }else{
+      this.toast.create({
+        message: 'fail',
+        duration: 3000
+      }).present();
+    }
+    });
+  }
   
 
 }
