@@ -17,6 +17,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class LoginPage {
   FB_APP_ID: number = 160319811228422;
   user = {} as User;
+  public email: string;
+  public password: string;
   constructor(
     public navCtrl: NavController,
     public fb: Facebook,
@@ -70,19 +72,34 @@ export class LoginPage {
   }
 
   async login(user: User){
-    try{
-      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
-      if(result){
-        this.navCtrl.setRoot(HomePage);
-      }
-    }catch(e){
-      console.error(e);
-    }
+      var loader = this.loadingCtrl.create({
+        content: "Please wait..."
+      });
+      loader.present();
+      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password).then(authData =>{
+        loader.dismiss();  
+        if(result){
+          this.navCtrl.setRoot(HomePage);
+        }
+      }, error => {
+        loader.dismiss();
+      // Unable to log in
+        let alert = this.alertCtrl.create({
+          message: error,
+          buttons: ['OK']
+        })
+        alert.present();
+        this.user.password = ""//empty the password field
+      });
+      
+    
   }
 
   register(){
     this.navCtrl.push(RegisterPage);
   }
+
+  
   ForgotPassword(){
     let prompt = this.alertCtrl.create({
       title: 'Enter Your Email',
