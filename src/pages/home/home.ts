@@ -161,7 +161,7 @@ export class HomePage {
     this.afAuth.authState.subscribe(data =>{
       if(data.email && data.uid){
       this.toast.create({
-        message: 'Welcome to Smart Property Assess</br>'+ data.email,
+        message: 'Welcome to Smart Property Assess: '+ data.email,
         duration: 3000
       }).present();
     }else{

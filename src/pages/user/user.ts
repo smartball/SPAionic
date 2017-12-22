@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { LoginPage } from '../login/login';
+
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-user',
@@ -17,7 +19,9 @@ export class UserPage {
   constructor(
     public navCtrl: NavController,
     public fb: Facebook,
-    public nativeStorage: NativeStorage
+    public loadingCtrl: LoadingController,
+    public nativeStorage: NativeStorage,
+    public afAuth: AngularFireAuth
   ) {}
 
   ionViewCanEnter(){
@@ -44,5 +48,19 @@ export class UserPage {
     }, (error) => {
       console.log(error);
     });
+  }
+
+  logout(){
+    var loader = this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+    loader.present();
+    const result = this.afAuth.auth.signOut();
+    if(result){
+      loader.dismiss();
+      setTimeout(() => {
+        this.navCtrl.setRoot(LoginPage);
+        },1000);
+    }
   }
 }

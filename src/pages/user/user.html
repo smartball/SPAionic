@@ -12,8 +12,8 @@
 </ion-header>
   
   
-  <ion-content *ngIf='userReady'>
-    <ion-card>
+  <ion-content>
+    <ion-card *ngIf='userReady'>
       <img [src]="user.picture"/>
       <ion-card-content>
         <ion-card-title>
@@ -23,10 +23,15 @@
           Your gender is: {{user.gender}}
         </p>
       </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button block (click)="doFbLogout()">Logout</button>
+        </ion-col>
+      </ion-row>
     </ion-card>
     <ion-row>
       <ion-col>
-        <button ion-button block (click)="doFbLogout()">Logout</button>
+        <button ion-button block (click)="logout()">Logout</button>
       </ion-col>
     </ion-row>
   </ion-content>

@@ -16,8 +16,7 @@ export class AuthProvider {
   public data:any;
   public fireAuth: any;
   public userProfile: any;
-  constructor(
-              public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth) {
     this.userProfile = firebase.database().ref('users');
   }
   signupUserService(account: {}){
