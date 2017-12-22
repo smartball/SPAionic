@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import { UserPage } from '../user/user';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 
 import { User } from '../../models/user';
+import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
@@ -21,7 +22,11 @@ export class LoginPage {
     public fb: Facebook,
     public nativeStorage: NativeStorage,
     public navParams: NavParams,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
+    public authprovider: AuthProvider,
+    private alertCtrl: AlertController,
+    public loadingCtrl: LoadingController, 
+    public toastCtrl: ToastController,  
     ) {
     this.fb.browserInit(this.FB_APP_ID, "v2.8");
   }
@@ -77,5 +82,54 @@ export class LoginPage {
 
   register(){
     this.navCtrl.push(RegisterPage);
+  }
+  ForgotPassword(){
+    let prompt = this.alertCtrl.create({
+      title: 'Enter Your Email',
+      message: "A new password will be sent to you",
+      inputs:[
+        {
+          name: 'recoverEmail',
+          placeholder: 'you@email.com'
+        },
+      ],
+      buttons:[
+        {
+          text:'Cancel',
+          handler: data =>{
+            console.log('Cancel Clicked');
+          }
+        },
+        {
+          text:'Submit',
+          handler: data=>{
+            console.log("A title sentence to it "+ data.recoverEmail);
+            //
+            let loading = this.loadingCtrl.create({
+                dismissOnPageChange: true,
+                content: 'Reseting Your Password..'
+            });
+            this.authprovider.forgotPasswordUser(data.recoverEmail).then(() =>{
+                loading.dismiss().then(() =>{
+                  let alert = this.alertCtrl.create({
+                      title: 'Check your Email',
+                      subTitle: 'Password reset successful',
+                      buttons: ['OK']
+                });
+                alert.present();
+                })
+              }, error =>{
+                let alert = this.alertCtrl.create({
+                    title: 'Error reseting password',
+                    subTitle: error.message,
+                    buttons: ['OK']
+                });
+                alert.present();
+            });
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }

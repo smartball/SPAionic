@@ -17,6 +17,7 @@ import { RegisterPage } from '../pages/register/register';
 import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     SplashScreen,
     NativeStorage,
     Facebook,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}
