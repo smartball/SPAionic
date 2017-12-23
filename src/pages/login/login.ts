@@ -87,11 +87,25 @@ export class LoginPage {
         content: "Please wait..."
       });
       loader.present();
+      if(user.email == null && user.password == null){
+        let alert = this.alertCtrl.create({
+          message: 'Please fill email and password',
+          buttons: ['OK']
+        })
+        alert.present();
+        loader.dismiss();
+      }
       const result = this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password).then(authData =>{
-        loader.dismiss();  
-        if(result){
+        loader.dismiss();
+        this.nativeStorage.setItem('user',
+        {
+          email: user.email
+        }).then(() => {
           this.navCtrl.setRoot(HomePage);
-        }
+        },(error) => {
+          console.log(error);
+        })  
+        
       }, error => {
         loader.dismiss();
       // Unable to log in

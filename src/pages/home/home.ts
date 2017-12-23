@@ -30,9 +30,8 @@ export class HomePage {
   search: boolean = false;
   error: any;
   switch: string = "map";
-
-  regionals: any = [];
-  currentregional: any;
+  user: any;
+  userReady: boolean = false;
   constructor(
     public navCtrl: NavController,
     public app: App, 
@@ -161,18 +160,33 @@ export class HomePage {
   }
   
   ionViewWillLoad(){
-    this.nativeStorage.getItem('user') || this.afAuth.authState.subscribe(data =>{
+    this.afAuth.authState.subscribe(data =>{
       if(data.email && data.uid){
       this.toast.create({
         message: 'Welcome to Smart Property Assess: '+ data.email,
         duration: 3000
       }).present();
     }else{
-      this.toast.create({
-        message: 'fail',
-        duration: 3000
-      }).present();
+      
     }
+    });
+    this.nativeStorage.getItem('user')
+    .then((data) => {
+      this.user = {
+        name: data.name,
+        gender: data.gender,
+        picture: data.picture,
+        email: data.email
+      };
+      if(data.email && data.uid){
+        this.toast.create({
+          message: 'Welcome to Smart Property Assess: '+ data.name,
+          duration: 3000
+        }).present();
+      }
+      this.userReady = true;
+    }, (error) => {
+      console.log(error);
     });
   }
   

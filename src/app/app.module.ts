@@ -18,6 +18,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth';
+import { ParallaxDirective } from '../directives/parallax/parallax';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthProvider } from '../providers/auth/auth';
     MapDirectionPage,
     LoginPage,
     UserPage,
-    RegisterPage
+    RegisterPage,
+    ParallaxDirective
   ],
   imports: [
     BrowserModule,

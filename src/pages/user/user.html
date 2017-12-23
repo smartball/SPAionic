@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar>
+<ion-header header-ios>
+  <ion-navbar transparent>
     <button ion-button menuToggle>
       <ion-icon name="menu" color="primary"></ion-icon>
     </button>
@@ -10,16 +10,18 @@
 </ion-header>
   
   
-  <ion-content>
-    <ion-card *ngIf='userReady'>
-      <img [src]="user.picture"/>
+  <ion-content parallax *ngIf='userReady'>
+    <div class="bg">
+
+    </div>
+    <div class="main-cnt">
+      <img [src]="user.picture" class="dp">
+    </div>
+    <ion-card >
       <ion-card-content>
         <ion-card-title>
           Welcome {{user.name}}!
           </ion-card-title>
-        <p>
-          Your gender is: {{user.gender}}
-        </p>
         <p>
           {{user.email}}
         </p>
@@ -30,10 +32,6 @@
         </ion-col>
       </ion-row>
     </ion-card>
-    <ion-row>
-      <ion-col>
-        <button ion-button block (click)="logout()">Logout</button>
-      </ion-col>
-    </ion-row>
+   
   </ion-content>
   

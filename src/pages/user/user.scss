@@ -1,3 +1,28 @@
-page-user {
-
+.ios,.md{
+    page-user {
+        .bg{
+            background-image: url('../assets/imgs/bg.png');
+            height: 200px;
+            background-size: cover;
+            filter: blur(1px);
+            background-position: center center;
+        }
+        .main-cnt{
+            width: 100%;
+            height: 5px;
+            background-color: ghostwhite;
+        }
+        .dp{
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            z-index: 10;
+            margin-top: -100px;
+            position: relative;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%,-50%);
+            box-shadow: -6px 15px 81px 3px rgba(0, 0, 0, 0.75);
+        }
+}
 }

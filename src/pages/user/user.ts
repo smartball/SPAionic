@@ -42,12 +42,20 @@ export class UserPage {
   }
 
   doFbLogout(){
-    
+    var loader = this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+    loader.present();
+    const result = this.afAuth.auth.signOut();
     this.fb.logout()
     .then((response) => {
       //user logged out so we will remove him from the NativeStorage
       this.nativeStorage.remove('user');
-      this.navCtrl.push(LoginPage);
+      
+      setTimeout(() => {
+        this.navCtrl.setRoot(LoginPage);
+        },1000);
+        loader.dismiss();
     }, (error) => {
       console.log(error);
     });
@@ -55,6 +63,7 @@ export class UserPage {
 
   doGoogleLogout(){
     let nav = this.navCtrl;
+    const result = this.afAuth.auth.signOut();
     this.googlePlus.logout()
     .then((response) => {
       this.nativeStorage.remove('user');

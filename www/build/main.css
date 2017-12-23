@@ -25883,3 +25883,33 @@ page-login h1 {
   position: absolute;
   z-index: 1;
 }
+
+.ios page-user .bg, .md page-user .bg {
+  background-image: url("../assets/imgs/bg.png");
+  height: 200px;
+  background-size: cover;
+  -webkit-filter: blur(1px);
+  filter: blur(1px);
+  background-position: center center;
+}
+
+.ios page-user .main-cnt, .md page-user .main-cnt {
+  width: 100%;
+  height: 5px;
+  background-color: ghostwhite;
+}
+
+.ios page-user .dp, .md page-user .dp {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  z-index: 10;
+  margin-top: -100px;
+  position: relative;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: -6px 15px 81px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: -6px 15px 81px 3px rgba(0, 0, 0, 0.75);
+}

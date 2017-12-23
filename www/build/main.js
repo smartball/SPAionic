@@ -40,7 +40,7 @@ var HomePage = (function () {
         this.listSearch = '';
         this.search = false;
         this.switch = "map";
-        this.regionals = [];
+        this.userReady = false;
         this.navCtrl = navCtrl;
     }
     HomePage.prototype.onLoadUser = function (name) {
@@ -143,7 +143,7 @@ var HomePage = (function () {
     };
     HomePage.prototype.ionViewWillLoad = function () {
         var _this = this;
-        this.nativeStorage.getItem('user') || this.afAuth.authState.subscribe(function (data) {
+        this.afAuth.authState.subscribe(function (data) {
             if (data.email && data.uid) {
                 _this.toast.create({
                     message: 'Welcome to Smart Property Assess: ' + data.email,
@@ -151,11 +151,25 @@ var HomePage = (function () {
                 }).present();
             }
             else {
+            }
+        });
+        this.nativeStorage.getItem('user')
+            .then(function (data) {
+            _this.user = {
+                name: data.name,
+                gender: data.gender,
+                picture: data.picture,
+                email: data.email
+            };
+            if (data.email && data.uid) {
                 _this.toast.create({
-                    message: 'fail',
+                    message: 'Welcome to Smart Property Assess: ' + data.name,
                     duration: 3000
                 }).present();
             }
+            _this.userReady = true;
+        }, function (error) {
+            console.log(error);
         });
     };
     HomePage.prototype.nextProfile = function () {
@@ -243,11 +257,19 @@ var UserPage = (function () {
     };
     UserPage.prototype.doFbLogout = function () {
         var _this = this;
+        var loader = this.loadingCtrl.create({
+            content: "Please wait..."
+        });
+        loader.present();
+        var result = this.afAuth.auth.signOut();
         this.fb.logout()
             .then(function (response) {
             //user logged out so we will remove him from the NativeStorage
             _this.nativeStorage.remove('user');
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+            setTimeout(function () {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+            }, 1000);
+            loader.dismiss();
         }, function (error) {
             console.log(error);
         });
@@ -255,6 +277,7 @@ var UserPage = (function () {
     UserPage.prototype.doGoogleLogout = function () {
         var _this = this;
         var nav = this.navCtrl;
+        var result = this.afAuth.auth.signOut();
         this.googlePlus.logout()
             .then(function (response) {
             _this.nativeStorage.remove('user');
@@ -280,7 +303,7 @@ var UserPage = (function () {
     };
     UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-user',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/user/user.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-toolbar>\n      User Details\n    </ion-toolbar>\n  </ion-navbar>\n</ion-header>\n  \n  \n  <ion-content>\n    <ion-card *ngIf=\'userReady\'>\n      <img [src]="user.picture"/>\n      <ion-card-content>\n        <ion-card-title>\n          Welcome {{user.name}}!\n          </ion-card-title>\n        <p>\n          Your gender is: {{user.gender}}\n        </p>\n        <p>\n          {{user.email}}\n        </p>\n      </ion-card-content>\n      <ion-row>\n        <ion-col>\n          <button ion-button block (click)="doFbLogout()">Logout</button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n    <ion-row>\n      <ion-col>\n        <button ion-button block (click)="logout()">Logout</button>\n      </ion-col>\n    </ion-row>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/user/user.html"*/
+            selector: 'page-user',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/user/user.html"*/'<ion-header header-ios>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-toolbar>\n      User Details\n    </ion-toolbar>\n  </ion-navbar>\n</ion-header>\n  \n  \n  <ion-content parallax *ngIf=\'userReady\'>\n    <div class="bg">\n\n    </div>\n    <div class="main-cnt">\n      <img [src]="user.picture" class="dp">\n    </div>\n    <ion-card >\n      <ion-card-content>\n        <ion-card-title>\n          Welcome {{user.name}}!\n          </ion-card-title>\n        <p>\n          {{user.email}}\n        </p>\n      </ion-card-content>\n      <ion-row>\n        <ion-col>\n          <button ion-button block (click)="doFbLogout()">Logout</button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n   \n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/user/user.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__["a" /* Facebook */],
@@ -646,11 +669,11 @@ webpackEmptyAsyncContext.id = 162;
 
 var map = {
 	"../pages/map-direction/map-direction.module": [
-		465,
+		466,
 		1
 	],
 	"../pages/register/register.module": [
-		466,
+		467,
 		0
 	]
 };
@@ -707,12 +730,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_firebase_config__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_auth__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_auth_auth__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__directives_parallax_parallax__ = __webpack_require__(465);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -742,7 +767,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_9__pages_map_direction_map_direction__["a" /* MapDirectionPage */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_user_user__["a" /* UserPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_register_register__["a" /* RegisterPage */]
+                __WEBPACK_IMPORTED_MODULE_12__pages_register_register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_18__directives_parallax_parallax__["a" /* ParallaxDirective */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -866,7 +892,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <div header-background-image padding style="background-image: url(\n          https://mir-s3-cdn-cf.behance.net/project_modules/disp/1748dd9618379.560d6fa69fa87.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n    </ion-header>\n  \n    <ion-content>\n      <ion-list>\n          <ion-item>\n            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n                <ion-icon icon-small item-left name="{{p.icon}}" style="color:aquamarine"></ion-icon>\n              {{p.title}}\n            </button>\n          </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/superball/SPAionic-master/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <div header-background-image padding style="background-image: url(\n          assets/imgs/bg.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n    </ion-header>\n  \n    <ion-content>\n      <ion-list>\n          <ion-item>\n            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n                <ion-icon icon-small item-left name="{{p.icon}}" style="color:aquamarine"></ion-icon>\n              {{p.title}}\n            </button>\n          </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/superball/SPAionic-master/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
@@ -895,6 +921,66 @@ var FIREBASE_CONFIG = {
     messagingSenderId: "291100550318"
 };
 //# sourceMappingURL=app.firebase.config.js.map
+
+/***/ }),
+
+/***/ 465:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParallaxDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ParallaxDirective = (function () {
+    function ParallaxDirective(el, re) {
+        this.el = el;
+        this.re = re;
+        console.log('Hello ParallaxDirective Directive');
+    }
+    ParallaxDirective.prototype.ngOnInit = function () {
+        var cnt = this.el.nativeElement.getElementsByClassName('scroll-content')[0];
+        this.header = cnt.getElementsByClassName('bg')[0];
+        this.main_cnt = cnt.getElementsByClassName('main-cnt')[0];
+        this.re.setElementStyle(this.header, 'webTransformOrigin', 'center bottom');
+        this.re.setElementStyle(this.header, 'background-size', 'cover');
+        this.re.setElementStyle(this.main_cnt, 'position', 'absolute');
+    };
+    ParallaxDirective.prototype.onCntscroll = function (ev) {
+        var _this = this;
+        ev.domWrite(function () {
+            _this.update(ev);
+        });
+    };
+    ParallaxDirective.prototype.update = function (ev) {
+        if (ev.scrollTop > 0) {
+            this.ta = ev.scrollTop / 2;
+            this.ta = 1;
+        }
+        this.re.setElementStyle(this.header, 'webkitTransform', 'translate3d(0,' + this.ta + 'px,0)scale(1,1)');
+    };
+    ParallaxDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* Directive */])({
+            selector: '[parallax]',
+            host: {
+                '(ionScroll)': 'onCntscroll($event)'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["V" /* Renderer */]])
+    ], ParallaxDirective);
+    return ParallaxDirective;
+}());
+
+//# sourceMappingURL=parallax.js.map
 
 /***/ }),
 
@@ -1028,17 +1114,29 @@ var LoginPage = (function () {
     LoginPage.prototype.login = function (user) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            var loader, result;
+            var loader, alert_1, result;
             return __generator(this, function (_a) {
                 loader = this.loadingCtrl.create({
                     content: "Please wait..."
                 });
                 loader.present();
+                if (user.email == null && user.password == null) {
+                    alert_1 = this.alertCtrl.create({
+                        message: 'Please fill email and password',
+                        buttons: ['OK']
+                    });
+                    alert_1.present();
+                    loader.dismiss();
+                }
                 result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(function (authData) {
                     loader.dismiss();
-                    if (result) {
+                    _this.nativeStorage.setItem('user', {
+                        email: user.email
+                    }).then(function () {
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                    }
+                    }, function (error) {
+                        console.log(error);
+                    });
                 }, function (error) {
                     loader.dismiss();
                     // Unable to log in
