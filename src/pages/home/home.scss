@@ -66,4 +66,36 @@ page-home {
         line-height: 30px;
         
       }
+      [header-background-image] {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        
+        [header-title] {
+            padding-right: 10%;
+        }
+        img {
+            position: relative;
+            display: block;
+            padding-top: 24px;
+            max-width: 250px;
+        }
+        p {
+            font-size: 14px !important;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: lighter;
+        }
+        h2{
+            color: #fff;
+            font-size: 2.3em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: lighter;
+        }
+    }
+    
+    // Settings Style distance icon text
+    [main-menu] .item-inner {
+        margin-left: 6px !important;
+    }
 }

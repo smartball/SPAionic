@@ -1,20 +1,23 @@
 <ion-menu [content]="content">
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
+        <div header-background-image padding style="background-image: url(
+          https://mir-s3-cdn-cf.behance.net/project_modules/disp/1748dd9618379.560d6fa69fa87.png);">
+          <img src="assets/imgs/logo-reales-bg.png"/>
+          <h2 ion-text color="light" header-title>Smart Property Assess</h2>
+          <p>Welcome to our Application for Real Estate Appraisal</p>
+      </div>
     </ion-header>
   
     <ion-content>
       <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
-        
+          <ion-item>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon icon-small item-left name="{{p.icon}}" style="color:aquamarine"></ion-icon>
+              {{p.title}}
+            </button>
+          </ion-item>
       </ion-list>
     </ion-content>
-  
   </ion-menu>
-  
   <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
   <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

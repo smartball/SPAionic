@@ -50,6 +50,14 @@ module.exports = [
       "cordova.plugins.Keyboard"
     ],
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-googleplus.GooglePlus",
+    "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+    "pluginId": "cordova-plugin-googleplus",
+    "clobbers": [
+      "window.plugins.googleplus"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -61,7 +69,8 @@ module.exports.metadata =
   "cordova-plugin-nativestorage": "2.2.2",
   "cordova-plugin-splashscreen": "4.0.3",
   "cordova-plugin-whitelist": "1.3.1",
-  "ionic-plugin-keyboard": "2.2.1"
+  "ionic-plugin-keyboard": "2.2.1",
+  "cordova-plugin-googleplus": "5.1.1"
 };
 // BOTTOM OF METADATA
 });

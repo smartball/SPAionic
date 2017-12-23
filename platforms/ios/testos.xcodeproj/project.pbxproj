@@ -44,6 +44,20 @@
 		BEE338CE4D02407EA6327650 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919B6DA9479E429AA49936C1 /* FBSDKLoginKit.framework */; };
 		81AE41F93B9E45A9966780F6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9151F10BC74A47866D4C34 /* FBSDKShareKit.framework */; };
 		68C54E2145AC4FAEB38BC1C0 /* NativeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C260A7265241DE88A234C2 /* NativeStorage.m */; };
+		37E4D04322F5478D8ED25128 /* GooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF1C2A7CF2476C8CB5FC53 /* GooglePlus.m */; };
+		4718D922B5B1446C833B9BD4 /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FB988223C44333857D6577 /* GoogleAppUtilities.framework */; };
+		E23CE8FE24AD4D1A80563BC9 /* GoogleAuthUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B48230C6DC4A479B7B6E92 /* GoogleAuthUtilities.framework */; };
+		2107BA6D531944AEA4EB8485 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C3E2D29A864352B65DDCFF /* GoogleNetworkingUtilities.framework */; };
+		219F95EEDDC8466BB39088D9 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6271CD646EED4703BF88A984 /* GoogleSignIn.framework */; };
+		2B47FBB9D94E4764BEA088FA /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A9A0CF1BE40DDB3D4A50F /* GoogleSymbolUtilities.framework */; };
+		2BD77F94E21B40C0A9EECB20 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372938F282B14AE0877385D6 /* GoogleUtilities.framework */; };
+		3E9B1499B8934BAC90B733B5 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F158700FF9D4438A91F85099 /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D1A43A7AC2EB4C3D803B64FD /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD56265A823497189F6FF0C /* CoreText.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5194A27FC4DF4D4BA168DE45 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975BEA94E7834FAC9761C445 /* SafariServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D806F80AA9A348EF98CF4F0B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD01C10DEC14CF69D83887C /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6E27BEB3C3EC45E29F0D1FAC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BE38776ED24BF39B236EFD /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A54F4BB82FC64A48AA4319DD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5511AEDA6741FFB6A15246 /* libz.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FA5D028536AF4779B377926F /* testos.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 0E5FC19307EB463087AB6D0D /* testos.entitlements */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +150,21 @@
 		FC9151F10BC74A47866D4C34 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "testos/Plugins/cordova-plugin-facebook4/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		B2C260A7265241DE88A234C2 /* NativeStorage.m */ = {isa = PBXFileReference; name = "NativeStorage.m"; path = "cordova-plugin-nativestorage/NativeStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		A023B164733E4E109DCFA699 /* NativeStorage.h */ = {isa = PBXFileReference; name = "NativeStorage.h"; path = "cordova-plugin-nativestorage/NativeStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		D5BF1C2A7CF2476C8CB5FC53 /* GooglePlus.m */ = {isa = PBXFileReference; name = "GooglePlus.m"; path = "cordova-plugin-googleplus/GooglePlus.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		C38003F4BAE4421694FAD4D6 /* GooglePlus.h */ = {isa = PBXFileReference; name = "GooglePlus.h"; path = "cordova-plugin-googleplus/GooglePlus.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		75FB988223C44333857D6577 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; name = "GoogleAppUtilities.framework"; path = "testos/Plugins/cordova-plugin-googleplus/GoogleAppUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		F6B48230C6DC4A479B7B6E92 /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; name = "GoogleAuthUtilities.framework"; path = "testos/Plugins/cordova-plugin-googleplus/GoogleAuthUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		E3C3E2D29A864352B65DDCFF /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; name = "GoogleNetworkingUtilities.framework"; path = "testos/Plugins/cordova-plugin-googleplus/GoogleNetworkingUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		6271CD646EED4703BF88A984 /* GoogleSignIn.framework */ = {isa = PBXFileReference; name = "GoogleSignIn.framework"; path = "testos/Plugins/cordova-plugin-googleplus/GoogleSignIn.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		1D9A9A0CF1BE40DDB3D4A50F /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; name = "GoogleSymbolUtilities.framework"; path = "testos/Plugins/cordova-plugin-googleplus/GoogleSymbolUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		372938F282B14AE0877385D6 /* GoogleUtilities.framework */ = {isa = PBXFileReference; name = "GoogleUtilities.framework"; path = "testos/Plugins/cordova-plugin-googleplus/GoogleUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		F158700FF9D4438A91F85099 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		EFD56265A823497189F6FF0C /* CoreText.framework */ = {isa = PBXFileReference; name = "CoreText.framework"; path = "System/Library/Frameworks/CoreText.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		975BEA94E7834FAC9761C445 /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		3BD01C10DEC14CF69D83887C /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		A3BE38776ED24BF39B236EFD /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		CA5511AEDA6741FFB6A15246 /* libz.dylib */ = {isa = PBXFileReference; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		0E5FC19307EB463087AB6D0D /* testos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "testos.entitlements"; path = "testos.entitlements"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +179,18 @@
 				1AF31CD839A14A8B8BA84F99 /* FBSDKCoreKit.framework in Frameworks */,
 				BEE338CE4D02407EA6327650 /* FBSDKLoginKit.framework in Frameworks */,
 				81AE41F93B9E45A9966780F6 /* FBSDKShareKit.framework in Frameworks */,
+				4718D922B5B1446C833B9BD4 /* GoogleAppUtilities.framework in Frameworks */,
+				E23CE8FE24AD4D1A80563BC9 /* GoogleAuthUtilities.framework in Frameworks */,
+				2107BA6D531944AEA4EB8485 /* GoogleNetworkingUtilities.framework in Frameworks */,
+				219F95EEDDC8466BB39088D9 /* GoogleSignIn.framework in Frameworks */,
+				2B47FBB9D94E4764BEA088FA /* GoogleSymbolUtilities.framework in Frameworks */,
+				2BD77F94E21B40C0A9EECB20 /* GoogleUtilities.framework in Frameworks */,
+				3E9B1499B8934BAC90B733B5 /* AddressBook.framework in Frameworks */,
+				D1A43A7AC2EB4C3D803B64FD /* CoreText.framework in Frameworks */,
+				5194A27FC4DF4D4BA168DE45 /* SafariServices.framework in Frameworks */,
+				D806F80AA9A348EF98CF4F0B /* Security.framework in Frameworks */,
+				6E27BEB3C3EC45E29F0D1FAC /* SystemConfiguration.framework in Frameworks */,
+				A54F4BB82FC64A48AA4319DD /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +253,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* testos-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				0E5FC19307EB463087AB6D0D /* testos.entitlements */,
 			);
 			name = Resources;
 			path = "testos/Resources";
@@ -226,6 +268,18 @@
 				C35E800669184B8283DCE7F0 /* FBSDKCoreKit.framework */,
 				919B6DA9479E429AA49936C1 /* FBSDKLoginKit.framework */,
 				FC9151F10BC74A47866D4C34 /* FBSDKShareKit.framework */,
+				75FB988223C44333857D6577 /* GoogleAppUtilities.framework */,
+				F6B48230C6DC4A479B7B6E92 /* GoogleAuthUtilities.framework */,
+				E3C3E2D29A864352B65DDCFF /* GoogleNetworkingUtilities.framework */,
+				6271CD646EED4703BF88A984 /* GoogleSignIn.framework */,
+				1D9A9A0CF1BE40DDB3D4A50F /* GoogleSymbolUtilities.framework */,
+				372938F282B14AE0877385D6 /* GoogleUtilities.framework */,
+				F158700FF9D4438A91F85099 /* AddressBook.framework */,
+				EFD56265A823497189F6FF0C /* CoreText.framework */,
+				975BEA94E7834FAC9761C445 /* SafariServices.framework */,
+				3BD01C10DEC14CF69D83887C /* Security.framework */,
+				A3BE38776ED24BF39B236EFD /* SystemConfiguration.framework */,
+				CA5511AEDA6741FFB6A15246 /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -297,6 +351,8 @@
 				A3D62B079E0D4003A7688CEC /* FacebookConnectPlugin.h */,
 				B2C260A7265241DE88A234C2 /* NativeStorage.m */,
 				A023B164733E4E109DCFA699 /* NativeStorage.h */,
+				D5BF1C2A7CF2476C8CB5FC53 /* GooglePlus.m */,
+				C38003F4BAE4421694FAD4D6 /* GooglePlus.h */,
 			);
 			name = Plugins;
 			path = "testos/Plugins";
@@ -378,6 +434,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				FA5D028536AF4779B377926F /* testos.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +488,7 @@
 				550FEFBAFEF846A5B272C744 /* GCDWebServerStreamedResponse.m in Sources */,
 				38ADDE514D8A4AF2AD52CAD8 /* FacebookConnectPlugin.m in Sources */,
 				68C54E2145AC4FAEB38BC1C0 /* NativeStorage.m in Sources */,
+				37E4D04322F5478D8ED25128 /* GooglePlus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +530,14 @@
 					"\"testos/Plugins/cordova-plugin-facebook4\"",
 					"\"testos/Plugins/cordova-plugin-facebook4\"",
 					"\"testos/Plugins/cordova-plugin-facebook4\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
 				);
+				CODE_SIGN_ENTITLEMENTS = "testos/Resources/testos.entitlements";
 			};
 			name = Debug;
 		};
@@ -501,7 +566,14 @@
 					"\"testos/Plugins/cordova-plugin-facebook4\"",
 					"\"testos/Plugins/cordova-plugin-facebook4\"",
 					"\"testos/Plugins/cordova-plugin-facebook4\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
+					"\"testos/Plugins/cordova-plugin-googleplus\"",
 				);
+				CODE_SIGN_ENTITLEMENTS = "testos/Resources/testos.entitlements";
 			};
 			name = Release;
 		};
@@ -528,6 +600,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				CODE_SIGN_ENTITLEMENTS = "testos/Resources/testos.entitlements";
 			};
 			name = Debug;
 		};
@@ -553,6 +626,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
+				CODE_SIGN_ENTITLEMENTS = "testos/Resources/testos.entitlements";
 			};
 			name = Release;
 		};

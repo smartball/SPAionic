@@ -9,12 +9,15 @@ import { RegisterPage } from '../register/register';
 import { User } from '../../models/user';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  fireauth = firebase.auth();
   FB_APP_ID: number = 160319811228422;
   user = {} as User;
   public email: string;
@@ -29,22 +32,29 @@ export class LoginPage {
     private alertCtrl: AlertController,
     public loadingCtrl: LoadingController, 
     public toastCtrl: ToastController,  
+    public facebook: Facebook,
+    public googlePlus: GooglePlus
     ) {
     this.fb.browserInit(this.FB_APP_ID, "v2.8");
   }
 
   doFbLogin(){
     let permissions = new Array<string>();
-    
-
     //the permissions your facebook app needs from the user
-    permissions = ["public_profile"];
+    permissions = ["public_profile","email"];
 
     this.fb.login(permissions)
     .then((response) => {
       let userId = response.authResponse.userID;
       let params = new Array<string>();
 
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+      .credential(response.authResponse.accessToken);
+
+      firebase.auth().signInWithCredential(facebookCredential)
+      .then( success => { 
+        console.log("Firebase success: " + JSON.stringify(success)); 
+      });
       //Getting name and gender properties
       this.fb.api("/me?fields=name,gender", params)
       .then((user) => {
@@ -52,12 +62,13 @@ export class LoginPage {
         //now we have the users info, let's save it in the NativeStorage
         this.nativeStorage.setItem('user',
         {
+          email: user.email,
           name: user.name,
           gender: user.gender,
           picture: user.picture
         })
         .then(() => {
-          this.navCtrl.setRoot(UserPage);
+          this.navCtrl.setRoot(HomePage);
         },(error) => {
           console.log(error);
         })
@@ -148,5 +159,28 @@ export class LoginPage {
       ]
     });
     prompt.present();
+  }
+
+  
+  
+  googlelogin(){
+    this.googlePlus.login({
+      'webClientId':'291100550318-svo1bs2lov8loea9djc2ca1c6kt2ac2g.apps.googleusercontent.com',
+      'offline': true
+    }).then(res =>{
+       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+       .then((user)=>{
+         this.nativeStorage.setItem('user',{
+           name: user.displayName,
+           email: user.email,
+           gender: user.gender,
+           picture: user.picture
+         }).then(succ =>{
+           this.navCtrl.setRoot(HomePage);
+         });
+       }).catch(non =>{
+         alert("Failed")
+       });
+    })
   }
 }

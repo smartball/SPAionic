@@ -13,7 +13,7 @@ import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
 import { RegisterPage } from '../pages/register/register';
 
-
+import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -48,6 +48,7 @@ import { AuthProvider } from '../providers/auth/auth';
     SplashScreen,
     NativeStorage,
     Facebook,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     AuthProvider

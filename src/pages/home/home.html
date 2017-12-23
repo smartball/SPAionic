@@ -17,7 +17,7 @@
 	<div class="switch">
 	  <button ion-button icon-only color="light" (click)='toggleSearch()'><ion-icon name="search"></ion-icon></button>
 	  <button ion-button color="light" (click)="(switch = 'map'); resizeMap()" [class.active]="(switch == 'map')" icon-only><ion-icon name="map"></ion-icon></button>
-	  <button ion-button color="light" icon-only menuToggle><ion-icon name="list"></ion-icon></button>
+    <button ion-button color="light" (click)="(switch = 'list'); " [class.active]="(switch == 'list')" icon-only><ion-icon name="list"></ion-icon></button>
 	</div>
 
 	<div class="currentitem" *ngIf="currentregional">
@@ -27,26 +27,51 @@
 	  </button>
 	</div>
 <ion-content>
+  
 
-	
-    <ion-row>
-    
-    
-    <input id="address" type="text" value="{{ topic }}" placeholder="Infomation" *ngFor="let topic of topics" style="display: none;">
-    </ion-row>
-    
-    <ion-row #searchbar id="floating-panel" [hidden]="!search" style="padding-top:15px">
-        <ion-col col-8 style="padding-top:9px">
-          <ion-searchbar  #searchbar (ionInput)="getTopics($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" [hidden]="!search"></ion-searchbar>
-      </ion-col>
-      <ion-col col-4>
-          <button id="submit" ion-button  value="Geocode" >Search</button>
-      </ion-col>
-    </ion-row>
-    
+    <div [hidden]="!(switch == 'list')">
+      <div header-background-image padding style="background-image: url(
+        assets/imgs/bg.png);">
+        <img src="assets/imgs/logo-reales-bg.png"/>
+        <h2 ion-text color="light" header-title>Smart Property Assess</h2>
+        <p>Welcome to our Application for Real Estate Appraisal</p>
+      </div>
       
-
-	 
-  <div #map id="map"></div>
+      <ion-list>
+        <ion-item>
+            <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">
+                <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>
+                Profile
+            </button>
+        </ion-item>
+        <ion-item>
+            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">
+                <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>
+                Market Place
+            </button>
+        </ion-item>
+        <ion-item>
+            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">
+                <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>
+                About Us
+            </button>
+        </ion-item>
+      </ion-list>
+    </div>
+    
+    <div class="map" [class.hidemap]="!((switch == 'map') || error)">
+        <ion-row>
+            <input id="address" type="text" value="{{ topic }}" placeholder="Infomation" *ngFor="let topic of topics" style="display: none;">
+            </ion-row>
+            <ion-row #searchbar id="floating-panel" [hidden]="!search" style="padding-top:15px">
+                <ion-col col-8 style="padding-top:9px">
+                  <ion-searchbar  #searchbar (ionInput)="getTopics($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" [hidden]="!search"></ion-searchbar>
+              </ion-col>
+              <ion-col col-4>
+                  <button id="submit" ion-button  value="Geocode" >Search</button>
+              </ion-col>
+            </ion-row>
+      <div id="map" #map></div>
+    </div>
   
 </ion-content>

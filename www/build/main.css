@@ -25678,6 +25678,41 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+[header-background-image] {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+[header-background-image] [header-title] {
+  padding-right: 10%;
+}
+
+[header-background-image] img {
+  position: relative;
+  display: block;
+  padding-top: 24px;
+  max-width: 250px;
+}
+
+[header-background-image] p {
+  font-size: 12px !important;
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: lighter;
+}
+
+[header-background-image] h2 {
+  color: #fff;
+  font-size: 1.8em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: lighter;
+}
+
+[main-menu] .item-inner {
+  margin-left: 6px !important;
+}
+
 page-home #map {
   height: 100%;
   width: 100%;
@@ -25749,10 +25784,45 @@ page-home #floating-panel {
   line-height: 30px;
 }
 
+page-home [header-background-image] {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+page-home [header-background-image] [header-title] {
+  padding-right: 10%;
+}
+
+page-home [header-background-image] img {
+  position: relative;
+  display: block;
+  padding-top: 24px;
+  max-width: 250px;
+}
+
+page-home [header-background-image] p {
+  font-size: 14px !important;
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: lighter;
+}
+
+page-home [header-background-image] h2 {
+  color: #fff;
+  font-size: 2.3em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: lighter;
+}
+
+page-home [main-menu] .item-inner {
+  margin-left: 6px !important;
+}
+
 page-login .background {
   width: 100%;
   height: 100%;
-  background-image: url("../assets/imgs/esa.jpg");
+  background-image: url("../assets/imgs/esa-small.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }

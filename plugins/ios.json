@@ -29,6 +29,10 @@
     },
     "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-googleplus": {
+      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.944197303320-e43hc4m1in499h8t83jgqpfth1f8eqt3",
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {}

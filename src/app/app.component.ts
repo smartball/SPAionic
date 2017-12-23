@@ -11,15 +11,17 @@ import { HomePage } from '../pages/home/home';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { state } from '@angular/core/src/animation/dsl';
 
+declare var google: any;
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  map: any;
   rootPage:any = LoginPage;
   authenticated: boolean;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,icon: any}>;
   constructor(
     platform: Platform,
     public nativeStorage: NativeStorage,
@@ -28,8 +30,10 @@ export class MyApp {
     public afAuth: AngularFireAuth) {
       this.authenticated = false;
       this.pages = [
-        { title: 'Home', component: HomePage },
-        { title: 'Profile', component: UserPage }
+        { title: 'Home', component: HomePage, icon:'ios-home' },
+        { title: 'Profile', component: UserPage, icon:'md-contact' },
+        { title: 'Market Place', component: UserPage, icon:'md-basket' },
+        { title: 'About Us', component: UserPage, icon:'md-information-circle' },
       ];
         platform.ready().then(() => {
             // Here we will check if the user is already logged in
@@ -43,14 +47,15 @@ export class MyApp {
             // because we don't want to ask users to log in each time they open the app
             let env = this;
             this.nativeStorage.getItem('user')
-            .then( function (data) {
+            .then((data)=> {
               // user is previously logged and we have his data
               // we will let him access the app
-              env.nav.push(UserPage);
+              google.maps.event.trigger(this.map, 'resize');
+              
               env.splashScreen.hide();
-            }, function (error) {
+            },(error)=> {
               //we don't have the user data so we will ask him to log in
-              env.nav.push(LoginPage);
+              env.nav.setRoot(LoginPage);
               env.splashScreen.hide();
             });
       

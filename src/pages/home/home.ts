@@ -1,6 +1,8 @@
+import {UserPage} from '../user/user';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams,ToastController} from 'ionic-angular';
 import { App, ModalController } from 'ionic-angular';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 import { MapDirectionPage } from '../map-direction/map-direction';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -36,6 +38,7 @@ export class HomePage {
     public app: App, 
     public navParams: NavParams,
     public afAuth: AngularFireAuth,
+    public nativeStorage: NativeStorage,
     public toast: ToastController,
     private modal: ModalController) {
     this.navCtrl = navCtrl;
@@ -158,7 +161,7 @@ export class HomePage {
   }
   
   ionViewWillLoad(){
-    this.afAuth.authState.subscribe(data =>{
+    this.nativeStorage.getItem('user') || this.afAuth.authState.subscribe(data =>{
       if(data.email && data.uid){
       this.toast.create({
         message: 'Welcome to Smart Property Assess: '+ data.email,
@@ -173,5 +176,8 @@ export class HomePage {
     });
   }
   
+  nextProfile(){
+    this.navCtrl.setRoot(UserPage);
+  }
 
 }

@@ -25,17 +25,18 @@
           <ion-item>
             <p>Forgot password?<a href="#" (click)="ForgotPassword()">Get Here</a></p>
           </ion-item>
-          <button ion-button color="primary" block outline (click)="login(user)">LOGIN</button>
+          <button ion-button color="danger" ion-left block (click)="login(user)">LOGIN</button>
         </ion-list>
         <b>OR</b>
           <button ion-button color="primary" ion-left block (click)="doFbLogin()">
             <ion-icon name="logo-facebook"></ion-icon>
             <div>Login With Facebook</div>
           </button>
-          <button ion-button color="danger" ion-left block (click)="loginwithgg()">
+          <!--
+          <button ion-button color="danger" ion-left block (click)="googlelogin()">
             <ion-icon name="logo-googleplus"></ion-icon>
             <div>Login With Google</div>
-          </button>
+          </button> -->
           <hr width="80%">
           <b><a (click)="register()" >Create an Account</a></b>
       </ion-card-content>

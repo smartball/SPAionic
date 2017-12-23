@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { LoginPage } from '../login/login';
 
@@ -21,7 +22,8 @@ export class UserPage {
     public fb: Facebook,
     public loadingCtrl: LoadingController,
     public nativeStorage: NativeStorage,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
+    public googlePlus: GooglePlus
   ) {}
 
   ionViewCanEnter(){
@@ -30,7 +32,8 @@ export class UserPage {
       this.user = {
         name: data.name,
         gender: data.gender,
-        picture: data.picture
+        picture: data.picture,
+        email: data.email
       };
       this.userReady = true;
     }, (error) => {
@@ -50,12 +53,24 @@ export class UserPage {
     });
   }
 
+  doGoogleLogout(){
+    let nav = this.navCtrl;
+    this.googlePlus.logout()
+    .then((response) => {
+      this.nativeStorage.remove('user');
+      nav.push(LoginPage);
+    },(error) => {
+      console.log(error);
+    })
+  }
+
   logout(){
     var loader = this.loadingCtrl.create({
       content: "Please wait..."
     });
     loader.present();
     const result = this.afAuth.auth.signOut();
+    this.nativeStorage.remove('user');
     if(result){
       loader.dismiss();
       setTimeout(() => {
