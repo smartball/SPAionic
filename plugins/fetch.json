@@ -42,12 +42,12 @@
   "cordova-plugin-facebook4": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-facebook4"
+      "id": "cordova-plugin-facebook4@^1.9.1"
     },
     "is_top_level": true,
     "variables": {
-      "APP_ID": "160319811228422",
-      "APP_NAME": "hasauth"
+      "APP_ID": "122621955076543",
+      "APP_NAME": "Login"
     }
   },
   "cordova-plugin-nativestorage": {

@@ -1,16 +1,20 @@
-webpackJsonp([2],{
+webpackJsonp([4],{
 
-/***/ 115:
+/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__user_user__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__user_user__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_storage__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__map_direction_map_direction__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_storage__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__map_direction_map_direction__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__estimate_estimate__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jquery__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,54 +31,71 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var HomePage = (function () {
-    function HomePage(navCtrl, app, navParams, afAuth, nativeStorage, toast, modal) {
+    function HomePage(navCtrl, app, navParams, afAuth, nativeStorage, toast, modalCtrl) {
         this.navCtrl = navCtrl;
         this.app = app;
         this.navParams = navParams;
         this.afAuth = afAuth;
         this.nativeStorage = nativeStorage;
         this.toast = toast;
-        this.modal = modal;
-        this.addressElement = null;
-        this.listSearch = '';
-        this.search = false;
+        this.modalCtrl = modalCtrl;
         this.switch = "map";
+        this.search = false;
         this.userReady = false;
         this.navCtrl = navCtrl;
     }
-    HomePage.prototype.onLoadUser = function (name) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__map_direction_map_direction__["a" /* MapDirectionPage */], { userName: name });
-    };
-    HomePage.prototype.generateTopics = function () {
-        this.topics = [
-            'USA',
-            '40.714224,-73.961452',
-            '13.720170,100.772072',
-            '12.61134,102.1038545999999',
-            '15.1851971,100.1251250000000',
-            'Procedure to remove back button text',
-            'How to reposition ionic tabs on top position.',
-            'Override Hardware back button in cordova based application - Ionic',
-            'Drupal 8: Enabling Facets for Restful web services',
-            'Drupal 8: Get current user session',
-            'Drupal 8: Programatically create Add another field - Example',
-        ];
-    };
-    HomePage.prototype.getTopics = function (ev) {
-        this.generateTopics();
-        var serVal = ev.target.value;
-        if (serVal && serVal.trim() != '') {
-            this.topics = this.topics.filter(function (topic) {
-                return (topic.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
-            });
-        }
-    };
-    HomePage.prototype.openModal = function () {
-        var myModal = this.modal.create('ModalPage');
-        myModal.present();
-    };
     HomePage.prototype.ionViewDidLoad = function () {
+        this.typesearch = "1";
+        this.place = [{
+                ord: '1001',
+                title: 'สวนอาหาร บุญนิยม',
+                name: 'บุญนิยม',
+                appraisal: '20000',
+                measure: '3103',
+                address: 'บุญนิยม',
+                type: 'ร้านอาหาร',
+                lat: '15.228885',
+                lng: '104.864746'
+            },
+            {
+                ord: '1002',
+                title: 'จำปลา',
+                name: 'บุญนิยม',
+                appraisal: '10000',
+                measure: '99',
+                address: 'บุญนิยม',
+                type: 'ร้านอาหาร',
+                lat: '15.228671',
+                lng: '104.853226'
+            },
+            {
+                ord: '1003',
+                title: 'หมูยอดาวทอง',
+                name: 'คุณกันยา',
+                appraisal: '30000',
+                measure: '60',
+                nearroad: '',
+                well: '',
+                height_road: '',
+                type: 'ร้านอาหาร',
+                lat: '14.1655573774964',
+                lng: '100.7000488394'
+            },
+            {
+                ord: '1004',
+                title: 'หมูยอดาวทอง',
+                name: 'คุณกันยา',
+                appraisal: '1650',
+                measure: '11132',
+                address: 'หมูยอดาวทอง 173/2-3 ถ.ศรีณรงค์ ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 บริหารงานโดย คุณกันยา ดาวทองวรกิจ โทร 045-262344 จำหน่าย หมูยอ ใส้กรอก แหนมซี่โครง แหนมใบมะยม และของฝาก',
+                type: 'ร้านอาหาร',
+                lat: '13.720170',
+                lng: '100.772072'
+            }];
         this.showMap();
     };
     HomePage.prototype.toggleSearch = function () {
@@ -85,61 +106,131 @@ var HomePage = (function () {
             this.search = true;
         }
     };
-    HomePage.prototype.showMap = function () {
-        //Location
-        var _this = this;
-        this.map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 9,
-            disableDoubleClickZoom: false,
-            disableDefaultUI: true,
-            zoomControl: true,
-            scaleControl: true,
-            center: { lat: 13.75633, lng: 100.50177 }
-        });
-        var geocoder = new google.maps.Geocoder();
-        document.getElementById('submit').addEventListener("click", function () {
-            _this.geocodeAddress(geocoder, _this.map);
-        });
-    };
-    HomePage.prototype.geocodeAddress = function (geocoder, resultsMap) {
-        var _this = this;
-        var getposition_lat;
-        var getposition_lng;
-        var address = document.getElementById('address').value;
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status === 'OK') {
-                resultsMap.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: resultsMap,
-                    icon: 'assets/imgs/pin-home.png',
-                    position: results[0].geometry.location
-                });
-                marker.setMap(_this.map);
-                getposition_lat = marker.getPosition().lat();
-                getposition_lng = marker.getPosition().lng();
-                var infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">Test</h1></div>';
-                var infoWindow = new google.maps.InfoWindow({
-                    content: infoWindowContent + results[0].formatted_address + '<button id = "myid" style="background-color:red;color:white;width:100%;height:30px;font-size:16px;">ประเมินราคา</button>'
-                });
-                var sendLatLng = getposition_lat + ',' + getposition_lng;
-                google.maps.event.addListenerOnce(infoWindow, 'domready', function () {
-                    document.getElementById('myid').addEventListener('click', function () {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__map_direction_map_direction__["a" /* MapDirectionPage */], { userName: sendLatLng });
-                    });
-                });
-                infoWindow.open(_this.map, marker);
-            }
-            else {
-                alert('Geocode was not successful for the following reason: ' + status);
-            }
-        });
-        // save 
-    };
     HomePage.prototype.resizeMap = function () {
         var _this = this;
         setTimeout(function () {
             google.maps.event.trigger(_this.map, 'resize');
         }, 200);
+    };
+    HomePage.prototype.showMap = function () {
+        var location = new google.maps.LatLng(51.507351, -0.127758);
+        var options = {
+            center: { lat: 13.75633, lng: 100.50177 },
+            zoom: 10,
+            disableDefaultUI: true,
+            streetViewControl: false,
+            mapTypeId: 'roadmap' //roadmap , satellite , hybrid , terrain
+        };
+        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+        this.marker = new google.maps.Marker({ position: location, icon: 'assets/imgs/pinx.png', map: this.map });
+    };
+    HomePage.prototype.changePosition = function (_data) {
+        var _this = this;
+        this.marker.setPosition(new google.maps.LatLng(_data.lat, _data.lng));
+        this.map.setCenter(new google.maps.LatLng(_data.lat, _data.lng));
+        this.textSearch = _data.ord;
+        var infoWindow = new google.maps.InfoWindow({ content: '<div id="iw-container">' +
+                '<div class="iw-title"><center>Smart Property Assess</center></div>' +
+                '<div class="iw-content">' +
+                '<div class="iw-subTitle">History</div>' +
+                '<img src="assets/imgs/logo-real.png" alt="Porcelain Factory of Vista Alegre" height="83" width="83">' +
+                '<p>ราคาประเมินกรมที่ดิน : <br><font color="blue">' + _data.appraisal + ' บาท</font></p>' +
+                '<p>พิกัดที่ดิน : <br><font color="blue">' + _data.lat + ',' + _data.lng + ' บาท</font></p>' +
+                '<div class="iw-subTitle">Contacts</div>' +
+                '<p>VISTA ALEGRE ATLANTIS, SA<br>3830-292 Ílhavo - Portugal<br>' +
+                '<br>Phone. +351 234 320 600<br>e-mail: geral@vaa.pt<br>www: www.myvistaalegre.com</p>' +
+                '</div>' +
+                '<div class="iw-bottom-gradient"></div>' +
+                '<div class="row" style="background-color:orange;">' +
+                '<button id = "myid" style="background-color:green;color:white;width:140px;height:30px;font-size:16px;">ประเมินราคา</button>' +
+                '<button id = "closeid" style="background-color:orange;color:white;width:140px;height:30px;font-size:16px;border-radius: 0px 0px 10px 0px;">ปิด</button>' +
+                '</div>' +
+                '</div>',
+            maxWidth: 350 });
+        var sendLatLng = _data.lat + ',' + _data.lng;
+        google.maps.event.addListenerOnce(infoWindow, 'domready', function () {
+            document.getElementById('closeid').addEventListener('click', function () {
+                infoWindow.close(_this.map, _this.marker);
+            });
+            document.getElementById('myid').addEventListener('click', function () {
+                _this.nativeStorage.setItem('std', {
+                    lattitude: _data.lat,
+                    longitude: _data.lng,
+                    appraisal: _data.appraisal,
+                    name: _data.name,
+                    measure: _data.measure,
+                    nearroad: _data.nearroad,
+                    well: _data.well,
+                    height_road: _data.height_road
+                }).then(function () {
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__map_direction_map_direction__["a" /* MapDirectionPage */]);
+                }, function (error) {
+                    console.log(error);
+                });
+            });
+        });
+        infoWindow.open(this.map, this.marker);
+        this.marker.addListener('click', function () {
+            infoWindow.open(this.map, this.marker);
+        });
+        google.maps.event.addListener(infoWindow, 'domready', function () {
+            // Reference to the DIV that wraps the bottom of infowindow
+            var iwOuter = __WEBPACK_IMPORTED_MODULE_8_jquery__('.gm-style-iw');
+            /* Since this div is in a position prior to .gm-div style-iw.
+             * We use jQuery and create a iwBackground variable,
+             * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
+            */
+            var iwBackground = iwOuter.prev();
+            // Removes background shadow DIV
+            iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
+            // Removes white background DIV
+            iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
+            // Moves the infowindow 115px to the right.
+            // Moves the shadow of the arrow 76px to the left margin.
+            iwBackground.children(':nth-child(1)').attr('style', function (i, s) { return s; });
+            // Moves the arrow 76px to the left margin.
+            iwBackground.children(':nth-child(3)').attr('style', function (i, s) { return s; });
+            // Changes the desired tail shadow color.
+            iwBackground.children(':nth-child(3)').find('div').children().css({ display: 'none' });
+            // Reference to the div that groups the close button elements.
+            var iwCloseBtn = iwOuter.next();
+            iwCloseBtn.css({ display: 'none' });
+            // Apply the desired effect to the close button
+            // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
+            if (__WEBPACK_IMPORTED_MODULE_8_jquery__('.iw-content').height() < 140) {
+                __WEBPACK_IMPORTED_MODULE_8_jquery__('.iw-bottom-gradient').css({ display: 'none' });
+            }
+            // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
+            iwCloseBtn.mouseout(function () {
+                __WEBPACK_IMPORTED_MODULE_8_jquery__(this).css({ opacity: '1' });
+            });
+        });
+    };
+    HomePage.prototype.viewList = function () {
+        var ListModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__pages_list_list__["a" /* ListPage */], { place: this.place });
+        ListModal.present();
+    };
+    HomePage.prototype.goSearch = function () {
+        if (this.textSearch != "" && this.textSearch != undefined) {
+            if (this.searchStringInArray(this.textSearch, this.place) == '-1') {
+                alert('ไม่พบสถานที่ในฐานข้อมูล');
+            }
+            else {
+                this.changePosition(this.searchStringInArray(this.textSearch, this.place));
+                this.search = false;
+            }
+        }
+        else {
+            alert('กรุณากรอกข้อมูล');
+        }
+    };
+    HomePage.prototype.searchStringInArray = function (str, strArray) {
+        for (var i = 0; i < strArray.length; i++) {
+            if (strArray[i].ord.match(str) == strArray[i].ord) {
+                return strArray[i];
+            }
+        }
+        return -1;
     };
     HomePage.prototype.ionViewWillLoad = function () {
         var _this = this;
@@ -175,17 +266,16 @@ var HomePage = (function () {
     HomePage.prototype.nextProfile = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__user_user__["a" /* UserPage */]);
     };
+    HomePage.prototype.openEs = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__estimate_estimate__["a" /* EstimatePage */]);
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('map'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */])
     ], HomePage.prototype, "mapRef", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('searchbar', { read: __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */] }),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */])
-    ], HomePage.prototype, "searchbar", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/home/home.html"*/'<ion-header hidden>\n  <ion-navbar color="secondary">\n  	\n    <ion-title>\n      Map\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)=\'toggleSearch()\'>\n        <ion-icon name="search"></ion-icon>\n      </button>\n      <button ion-button icon-only (click)=\'choosePosition()\'>\n        <ion-icon name="ios-locate-outline"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n	<div class="switch">\n	  <button ion-button icon-only color="light" (click)=\'toggleSearch()\'><ion-icon name="search"></ion-icon></button>\n	  <button ion-button color="light" (click)="(switch = \'map\'); resizeMap()" [class.active]="(switch == \'map\')" icon-only><ion-icon name="map"></ion-icon></button>\n    <button ion-button color="light" (click)="(switch = \'list\'); " [class.active]="(switch == \'list\')" icon-only><ion-icon name="list"></ion-icon></button>\n	</div>\n\n	<div class="currentitem" *ngIf="currentregional">\n	  <button ion-item no-lines (click)="viewPlace(currentregional.title)">\n	    <h2>{{ currentregional.title }}</h2>\n	    <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>\n	  </button>\n	</div>\n<ion-content>\n  \n\n    <div [hidden]="!(switch == \'list\')">\n      <div header-background-image padding style="background-image: url(\n        assets/imgs/bg.png);">\n        <img src="assets/imgs/logo-reales-bg.png"/>\n        <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n        <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n      \n      <ion-list>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">\n                <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>\n                Profile\n            </button>\n        </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>\n                Market Place\n            </button>\n        </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>\n                About Us\n            </button>\n        </ion-item>\n      </ion-list>\n    </div>\n    \n    <div class="map" [class.hidemap]="!((switch == \'map\') || error)">\n        <ion-row>\n            <input id="address" type="text" value="{{ topic }}" placeholder="Infomation" *ngFor="let topic of topics" style="display: none;">\n            </ion-row>\n            <ion-row #searchbar id="floating-panel" [hidden]="!search" style="padding-top:15px">\n                <ion-col col-8 style="padding-top:9px">\n                  <ion-searchbar  #searchbar (ionInput)="getTopics($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" [hidden]="!search"></ion-searchbar>\n              </ion-col>\n              <ion-col col-4>\n                  <button id="submit" ion-button  value="Geocode" >Search</button>\n              </ion-col>\n            </ion-row>\n      <div id="map" #map></div>\n    </div>\n  \n</ion-content>\n'/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/home/home.html"*/'<ion-header hidden>\n    <ion-navbar color="secondary">\n      \n      <ion-title>\n        Map\n      </ion-title>\n      <ion-buttons end>\n        <button ion-button icon-only (click)=\'toggleSearch()\'>\n          <ion-icon name="search"></ion-icon>\n        </button>\n        <button ion-button icon-only (click)=\'choosePosition()\'>\n          <ion-icon name="ios-locate-outline"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-navbar>\n  </ion-header>\n    <div class="switch">\n      <button ion-button icon-only color="light" (click)=\'toggleSearch()\'><ion-icon name="search"></ion-icon></button>\n      <button ion-button color="light" (click)="(switch = \'map\'); resizeMap()" [class.active]="(switch == \'map\')" icon-only><ion-icon name="map"></ion-icon></button>\n      <button ion-button color="light" (click)="(switch = \'list\'); " [class.active]="(switch == \'list\')" icon-only><ion-icon name="list"></ion-icon></button>\n    </div>\n  \n    <div class="currentitem" *ngIf="currentregional">\n      <button ion-item no-lines (click)="viewPlace(currentregional.title)">\n        <h2>{{ currentregional.title }}</h2>\n        <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>\n      </button>\n    </div>\n  <ion-content>\n    \n  \n      <div [hidden]="!(switch == \'list\')">\n        <div header-background-image padding style="background-image: url(\n          assets/imgs/bg.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n        </div>\n        \n        <ion-list>\n          <ion-item>\n              <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">\n                  <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>\n                  Profile\n              </button>\n          </ion-item>\n          <ion-item>\n              <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                  <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>\n                  Market Place\n              </button>\n          </ion-item>\n          <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openEs()">\n                <ion-icon icon-small item-left name="md-exit" style="color:aquamarine"></ion-icon>\n                Appraisal\n            </button>\n        </ion-item>\n          <ion-item>\n              <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                  <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>\n                  About Us\n              </button>\n          </ion-item>\n        </ion-list>\n      </div>\n      \n      <div class="map" [class.hidemap]="!((switch == \'map\') || error)">\n        <div style="padding-top:40px;">\n            <div #searchbar id="floating-panel" [hidden]="!search">\n              <img src="assets/imgs/logo-real.png" alt="">\n                <ion-row padding>\n                    <ion-list no-lines>\n                        <ion-item>        \n                            <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                            <ion-input clearInput type="text" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>\n                    </ion-item>\n                      </ion-list>\n                      <button ion-button block (click)="goSearch()" #searchbar [hidden]="!search">ค้นหาทันที</button>\n                      \n                </ion-row>\n                <ion-row padding>\n                </ion-row>  \n            </div>\n        </div>\n        \n              \n        <div id="map" #map></div>\n      </div>\n    \n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* App */],
@@ -202,18 +292,18 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 116:
+/***/ 117:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -319,16 +409,16 @@ var UserPage = (function () {
 
 /***/ }),
 
-/***/ 118:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(389);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -376,14 +466,13 @@ var AuthProvider = (function () {
 
 /***/ }),
 
-/***/ 150:
+/***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapDirectionPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -395,118 +484,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Generated class for the MapDirectionPage page.
+ * Generated class for the ListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var MapDirectionPage = (function () {
-    function MapDirectionPage(navCtrl, navParams, plt) {
-        var _this = this;
+var ListPage = (function () {
+    function ListPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.plt = plt;
-        this.plt.ready().then(function () {
-            _this.start = 'penn station, new york, ny'; //{lat:xxxx,lng:xxxxxx}
-            _this.end = 'grand central station, new york, ny';
-            _this.showMap();
-        });
     }
-    MapDirectionPage.prototype.ngOnInit = function () {
-        this.name = this.navParams.get('userName');
+    ListPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ListPage');
     };
-    MapDirectionPage.prototype.ionViewWillEnter = function () {
-        this.showMap();
-    };
-    MapDirectionPage.prototype.showMap = function () {
-        var markerArray = [];
-        //declear>>>
-        var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
-        //declear<<<
-        var options = {
-            zoom: 13,
-            center: { lat: 40.771, lng: -73.974 }
-        };
-        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-        directionsDisplay.setMap(this.map);
-        // Instantiate an info window to hold step text.
-        var stepDisplay = new google.maps.InfoWindow;
-        // Display the route between the initial start and end selections.
-        this.calculateAndDisplayRoute(directionsDisplay, directionsService, markerArray, stepDisplay, this.map);
-    };
-    MapDirectionPage.prototype.calculateAndDisplayRoute = function (directionsDisplay, directionsService, markerArray, stepDisplay, map) {
-        // First, remove any existing markers from the map.
-        for (var i = 0; i < markerArray.length; i++) {
-            markerArray[i].setMap(null);
-        }
-        // Retrieve the start and end locations and create a DirectionsRequest using
-        // WALKING directions.
-        directionsService.route({
-            origin: 'Bangkok',
-            destination: this.name,
-            travelMode: 'DRIVING'
-        }, function (response, status) {
-            // Route the directions and pass the response to a function to create
-            // markers for each step.
-            if (status === 'OK') {
-                directionsDisplay.setDirections(response);
-                //showSteps(response, markerArray, stepDisplay, map);
-                //>>>>
-                var myRoute = response.routes[0].legs[0];
-                for (var i = 0; i < myRoute.steps.length; i++) {
-                    var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
-                    marker.setMap(map);
-                    marker.setPosition(myRoute.steps[i].start_location);
-                    //attachInstructionText(stepDisplay, marker, myRoute.steps[i].instructions, map);
-                    //>>>
-                    google.maps.event.addListener(marker, 'click', function () {
-                        // Open an info window when the marker is clicked on, containing the text
-                        // of the step.
-                        var getposition_lat = marker.getPosition().lat();
-                        var getposition_lng = marker.getPosition().lng();
-                        alert(JSON.stringify(myRoute));
-                        stepDisplay.setContent(myRoute.steps[0].instructions + "<br>" + getposition_lat + "<br>" + getposition_lng + "<br>");
-                        stepDisplay.open(map, marker);
-                    });
-                    //>>>
-                }
-                //>>>
-            }
-            else {
-                alert('ไม่สามารถระบุแผนที่ได้');
-            }
-        });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
-    ], MapDirectionPage.prototype, "mapRef", void 0);
-    MapDirectionPage = __decorate([
+    ListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-map-direction',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/map-direction/map-direction.html"*/'<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-toolbar>\n        <ion-title>\n          MapDirection\n        </ion-title>\n      </ion-toolbar>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content>\n	<ion-card id="floating-panel">\n        <ion-card-content>\n          <p>{{ name }} </p>\n            <div #directionsPanel></div>\n        </ion-card-content>\n    </ion-card>\n  \n    <div #map id="map"></div>\n</ion-content>\n'/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/map-direction/map-direction.html"*/,
+            selector: 'page-list',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/list/list.html"*/'<!--\n  Generated template for the ListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>list</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/list/list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
-    ], MapDirectionPage);
-    return MapDirectionPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], ListPage);
+    return ListPage;
 }());
 
-//# sourceMappingURL=map-direction.js.map
+//# sourceMappingURL=list.js.map
 
 /***/ }),
 
-/***/ 151:
+/***/ 152:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(119);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -647,7 +661,359 @@ var RegisterPage = (function () {
 
 /***/ }),
 
-/***/ 162:
+/***/ 153:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapDirectionPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_storage__ = __webpack_require__(40);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the MapDirectionPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var MapDirectionPage = (function () {
+    function MapDirectionPage(navCtrl, navParams, plt, nativeStorage) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.plt = plt;
+        this.nativeStorage = nativeStorage;
+        this.dataReady = false;
+        this.lon1 = 100.772072;
+        this.lon2 = 100.77227210000001;
+        this.lat2 = 13.7217572;
+        this.lat1 = 13.7201804;
+        this.plt.ready().then(function () {
+            _this.start = 'penn station, new york, ny'; //{lat:xxxx,lng:xxxxxx}
+            _this.end = 'grand central station, new york, ny';
+            _this.showMap();
+        });
+    }
+    MapDirectionPage.prototype.ngOnInit = function () {
+        this.name = this.navParams.get('userName');
+    };
+    MapDirectionPage.prototype.ionViewWillEnter = function () {
+        this.showMap();
+    };
+    MapDirectionPage.prototype.showMap = function () {
+        var markerArray = [];
+        //declear>>>
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        //declear<<<
+        var options = {
+            disableDefaultUI: true,
+            zoom: 13,
+            center: { lat: 40.771, lng: -73.974 }
+        };
+        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+        directionsDisplay.setMap(this.map);
+        var stepDisplay = new google.maps.InfoWindow;
+        this.calculateAndDisplayRoute(directionsDisplay, directionsService, markerArray, stepDisplay, this.map);
+    };
+    MapDirectionPage.prototype.calculateAndDisplayRoute = function (directionsDisplay, directionsService, markerArray, stepDisplay, map) {
+        var _this = this;
+        for (var i = 0; i < markerArray.length; i++) {
+            markerArray[i].setMap(null);
+        }
+        this.nativeStorage.getItem('std').then(function (data) {
+            _this.std = {
+                appraisal: data.appraisal,
+                lattitude: data.lattitude,
+                longitude: data.longitude,
+                name: data.name
+            };
+            _this.dataReady = true;
+        }, function (error) {
+            console.log(error);
+        });
+        var pot = this.std.lattitude + ',' + this.std.longitude;
+        directionsService.route({
+            origin: pot,
+            destination: 'Bangkok',
+            travelMode: 'DRIVING'
+        }, function (response, status) {
+            if (status === 'OK') {
+                document.getElementById('warnings-panel').innerHTML =
+                    '<b>' + response.routes[0].warnings + '</b>';
+                directionsDisplay.setDirections(response);
+                var myRoute = response.routes[0].legs[0];
+                _this.showSteps(response, markerArray, stepDisplay, map);
+            }
+            else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        });
+    };
+    MapDirectionPage.prototype.showSteps = function (directionResult, markerArray, stepDisplay, map) {
+        var myRoute = directionResult.routes[0].legs[0];
+        var j = [];
+        var k = 0;
+        var l = 0;
+        for (var i = 0; i < myRoute.steps.length; i++) {
+            var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
+            marker.setMap(map);
+            var positiontext = myRoute.steps[i].instructions; // เก็บคำอธิบายการเดินทางแต่ละ step
+            var mainroad = positiontext.search("เข้าสู่"); //find step key word "เข้าสู่"
+            if (mainroad != -1 && i == 0) {
+                l = i;
+                l = ++l;
+                j[k] = l;
+                k++;
+            }
+            else if (mainroad != -1 && i != 0) {
+                j[k] = i;
+                k++;
+            }
+        }
+        marker.setPosition(myRoute.steps[j[0]].start_location);
+        var getposition_lat = marker.getPosition().lat();
+        var getposition_lng = marker.getPosition().lng();
+        this.attachInstructionText(stepDisplay, marker, myRoute.steps[j[0]].instructions, getposition_lat, getposition_lng, map);
+    };
+    MapDirectionPage.prototype.attachInstructionText = function (stepDisplay, marker, text, getposition_lat, getposition_lng, map) {
+        var _this = this;
+        this.nativeStorage.getItem('std').then(function (data) {
+            _this.std = {
+                appraisal: data.appraisal,
+                lattitude: data.lattitude,
+                longitude: data.longitude,
+                name: data.name,
+                measure: data.measure,
+                nearroad: data.nearroad,
+                well: data.well,
+                height_road: data.height_road
+            };
+            var we = 0; // เป็นบ่อ
+            var hr = 1; // สูงจากถนน
+            var dis = _this.km;
+            var train = 1; // รถไฟ
+            var mall = 1; // ห้าง
+            var tem = 1; // วัด
+            var hos = 1; // โรงพยาบาล
+            var uni = 1; // มหาลัย
+            var ex = 1; // ทางด่วน
+            var nikom = 1; // นิคม
+            var con = 0; // ถนนคอนกรีต
+            var lad = 1; // ถนนลาดยาง
+            var width_road = 1; // ถนนกว้าง
+            var narrow_road = 0; // ถนนแคบ
+            //ไม่มีถนน ยังไม่ได้เขียน
+            var papa = 1; // ประปา
+            var fire = 1; // ไฟฟ้า
+            var tel = 1; // โทรศัพท์
+            var square = 1; // สี่เหลี่ยม
+            var n_square = 0; // ด้านไม่เท่า
+            var a_square = 0; // รูปร่างอื่นๆ
+            var area_narrow = 0; //หน้าแคบ
+            var area_width = 1; //หน้ากว้าง
+            var measure_l = 1; // ขนาดทื่ดินใหญ่
+            var measure_s = 0; // ขนาดที่ดินเล็ก
+            //#region ทำเลที่ตั้ง
+            if (dis < 0.5) {
+                _this.ax1 = 10;
+            }
+            if (dis > 0.5) {
+                _this.ax1 = 0;
+            }
+            if (we == 1) {
+                _this.ax2 = 10;
+            }
+            if (we != 1) {
+                _this.ax2 = 0;
+            }
+            if (hr == 1) {
+                _this.ax3 = 10;
+            }
+            if (hr != 1) {
+                _this.ax3 = 0;
+            }
+            if (_this.ax1 == 10 || _this.ax2 == 10 || _this.ax3 == 10) {
+                _this.test = (_this.ax1 + _this.ax2 + _this.ax3 + 40) / 100;
+            }
+            else {
+                _this.test = 40 / 100;
+            }
+            //#endregion
+            //#region สภาพแวดล้อม
+            if (train == 1) {
+                _this.bx1 = 10;
+            }
+            if (train != 1) {
+                _this.bx1 = 0;
+            }
+            if (mall == 1) {
+                _this.bx2 = 10;
+            }
+            if (mall != 1) {
+                _this.bx2 = 0;
+            }
+            if (tem == 1) {
+                _this.bx3 = 0;
+            }
+            if (tem != 1) {
+                _this.bx3 = 0;
+            }
+            if (hos == 1) {
+                _this.bx4 = 10;
+            }
+            if (hos != 1) {
+                _this.bx4 = 0;
+            }
+            if (uni == 1) {
+                _this.bx5 = 10;
+            }
+            if (uni != 1) {
+                _this.bx5 = 0;
+            }
+            if (ex == 1) {
+                _this.bx6 = 10;
+            }
+            if (ex != 1) {
+                _this.bx6 = 0;
+            }
+            if (nikom == 1) {
+                _this.bx7 = 10;
+            }
+            if (nikom != 1) {
+                _this.bx7 = 0;
+            }
+            if (_this.bx1 == 10 || _this.bx2 == 10 || _this.bx3 == 10 || _this.bx4 == 10 || _this.bx5 == 10 || _this.bx6 == 10 || _this.bx7 == 10) {
+                _this.btest = (_this.bx1 + _this.bx2 + _this.bx3 + _this.bx4 + _this.bx5 + _this.bx6 + _this.bx7) / 100;
+            }
+            //#endregion
+            //#region คมนาคม
+            if (con == 1) {
+                _this.cx1 = 30;
+            }
+            if (con != 1) {
+                _this.cx1 = 0;
+            }
+            if (lad == 1) {
+                _this.cx1 = 20;
+            }
+            if (lad != 1) {
+                _this.cx1 = 0;
+            }
+            if (width_road == 1) {
+                _this.cx2 = 20;
+            }
+            if (width_road != 1) {
+                _this.cx2 = 0;
+            }
+            if (narrow_road == 1) {
+                _this.cx2 = 10;
+            }
+            if (narrow_road != 1) {
+                _this.cx2 = 0;
+            }
+            //#endregion
+            //#region สาธารณูปโภค
+            if (papa == 1) {
+                var dx1 = 10;
+            }
+            if (fire == 1) {
+                var dx2 = 10;
+            }
+            if (tel == 1) {
+                var dx3 = 10;
+            }
+            //#endregion
+            //รูปร่างที่ดิน
+            var ex1;
+            var ex2;
+            var ex3;
+            if (square == 1) {
+                ex1 = 20;
+            }
+            if (n_square == 1) {
+                ex1 = 10;
+            }
+            if (a_square == 1) {
+                ex1 = 5;
+            }
+            if (area_narrow == 1) {
+                ex2 = 10;
+            }
+            if (area_width == 1) {
+                ex2 = 20;
+            }
+            if (measure_l == 1) {
+                ex3 = 20;
+            }
+            if (measure_s == 1) {
+                ex3 = 20;
+            }
+            _this.atest = _this.test;
+            _this.bxtest = _this.btest;
+            _this.ctest = (_this.cx1 + _this.cx2 + 30) / 100;
+            _this.dtest = (dx1 + dx2 + dx3 + 30) / 100;
+            _this.etest = (ex1 + ex2 + ex3 + 40) / 100;
+            var esti = _this.std.appraisal * 1; // รับราคาประเมิน
+            _this.Sum_estimate = (esti * _this.atest) + (esti * _this.bxtest) + (esti * _this.ctest) + (esti * _this.dtest) + (esti * _this.etest);
+            _this.Sum = _this.std.measure * _this.Sum_estimate;
+            _this.appraisal_scale = esti.toLocaleString();
+            _this.estimate_scale = _this.Sum_estimate.toLocaleString();
+            var mes = _this.std.measure * 1;
+            _this.measure_scale = mes.toLocaleString();
+            _this.Sum_scale = _this.Sum.toLocaleString();
+            _this.xtest = _this.test; // ค่าทำเล
+            _this.dataReady = true;
+        }, function (error) {
+            console.log(error);
+        });
+        var rk = 6373;
+        var dlon1 = this.std.longitude * Math.PI / 180;
+        var dlon2 = (getposition_lng * Math.PI) / 180;
+        var dlat1 = this.std.lattitude * Math.PI / 180;
+        var dlat2 = (getposition_lat * Math.PI) / 180;
+        this.dlon = dlon2 - dlon1;
+        this.dlat = dlat2 - dlat1;
+        this.a = Math.pow(Math.sin(this.dlat / 2), 2) + Math.cos(this.std.lattitude) * Math.cos(getposition_lat) * Math.pow(Math.sin(this.dlon / 2), 2);
+        this.c = 2 * Math.atan2(Math.sqrt(this.a), Math.sqrt(1 - this.a));
+        this.dk = this.c * rk;
+        this.km = Math.max(this.dk * 1000 / 1000).toFixed(3);
+        google.maps.event.addListener(marker, 'click', function () {
+            stepDisplay.setContent(text + getposition_lat + ',' + getposition_lng);
+            stepDisplay.open(map, marker);
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+    ], MapDirectionPage.prototype, "mapRef", void 0);
+    MapDirectionPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-map-direction',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/map-direction/map-direction.html"*/'<ion-header header-ios>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n    </ion-navbar>\n  </ion-header>\n<ion-content padding >\n    <div #map id="map"></div>\n    <div id="warnings-panel"></div>\n    <ion-col col-12 map-content transparent *ngIf=\'dataReady\'>\n        <ion-item-group>\n            <ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>\n                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินกรมที่ดิน</h5>\n                <span>{{ appraisal_scale }} บาท/ตารางวา</span>\n            </ion-item>\n            <ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>\n                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินราคาขายต่อตารางวา</h5>\n                <span>{{ estimate_scale }} บาท/ตารางวา</span>\n            </ion-item>\n            <ion-item border>\n              <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>\n              <h5 no-paddnig style="color:rgb(104, 104, 104)">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n              <span>{{ km }} กิโลเมตร</span>\n          </ion-item>\n            <ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>\n                <h5 no-paddnig style="color:rgb(104, 104, 104)">ขนาดที่ดิน</h5>\n                <span>{{ measure_scale }} ตารางวา</span>\n            </ion-item>\n            <ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>\n                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินราคาขาย(ตลาด)</h5>\n                <span> {{ Sum_scale }} บาท</span>\n            </ion-item>\n            <button ion-button float-right margin-top round outline color="color:rgb(72, 181, 233);" style="color:rgb(72, 181, 233);width:120px;height:50px;font-size:24px;">ลงขาย</button>\n        </ion-item-group>\n    </ion-col>\n</ion-content>\n'/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/map-direction/map-direction.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_native_storage__["a" /* NativeStorage */]])
+    ], MapDirectionPage);
+    return MapDirectionPage;
+}());
+
+//# sourceMappingURL=map-direction.js.map
+
+/***/ }),
+
+/***/ 164:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -660,20 +1026,28 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 162;
+webpackEmptyAsyncContext.id = 164;
 
 /***/ }),
 
-/***/ 205:
+/***/ 207:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../pages/estimate/estimate.module": [
+		470,
+		3
+	],
+	"../pages/list/list.module": [
+		471,
+		2
+	],
 	"../pages/map-direction/map-direction.module": [
-		466,
+		473,
 		1
 	],
 	"../pages/register/register.module": [
-		467,
+		472,
 		0
 	]
 };
@@ -688,18 +1062,18 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 205;
+webpackAsyncContext.id = 207;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 291:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(316);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -707,36 +1081,42 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 314:
+/***/ 316:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_map_direction_map_direction__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_user_user__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_register_register__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_google_plus__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angularfire2__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_firebase_config__ = __webpack_require__(464);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_auth_auth__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__directives_parallax_parallax__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_map_direction_map_direction__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_user_user__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_register_register__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_estimate_estimate__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_google_plus__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_firebase_config__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2_auth__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_auth__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__directives_parallax_parallax__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_list_list__ = __webpack_require__(151);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -762,43 +1142,50 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_map_direction_map_direction__["a" /* MapDirectionPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_user_user__["a" /* UserPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_register_register__["a" /* RegisterPage */],
-                __WEBPACK_IMPORTED_MODULE_18__directives_parallax_parallax__["a" /* ParallaxDirective */]
+                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_map_direction_map_direction__["a" /* MapDirectionPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_user_user__["a" /* UserPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_register_register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_20__directives_parallax_parallax__["a" /* ParallaxDirective */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_estimate_estimate__["a" /* EstimatePage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_list_list__["a" /* ListPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/map-direction/map-direction.module#MapDirectionPageModule', name: 'MapDirectionPage', segment: 'map-direction', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/estimate/estimate.module#EstimatePageModule', name: 'EstimatePage', segment: 'estimate', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/list/list.module#ListPageModule', name: 'ListPage', segment: 'list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/map-direction/map-direction.module#MapDirectionPageModule', name: 'MapDirectionPage', segment: 'map-direction', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_14_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_15__app_firebase_config__["a" /* FIREBASE_CONFIG */]),
-                __WEBPACK_IMPORTED_MODULE_16_angularfire2_auth__["b" /* AngularFireAuthModule */]
+                __WEBPACK_IMPORTED_MODULE_16_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_17__app_firebase_config__["a" /* FIREBASE_CONFIG */]),
+                __WEBPACK_IMPORTED_MODULE_18_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_http__["a" /* HttpModule */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_map_direction_map_direction__["a" /* MapDirectionPage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_user_user__["a" /* UserPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_register_register__["a" /* RegisterPage */]
+                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_map_direction_map_direction__["a" /* MapDirectionPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_user_user__["a" /* UserPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_register_register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_estimate_estimate__["a" /* EstimatePage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_list_list__["a" /* ListPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__["a" /* NativeStorage */],
                 __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__["a" /* Facebook */],
-                __WEBPACK_IMPORTED_MODULE_13__ionic_native_google_plus__["a" /* GooglePlus */],
+                __WEBPACK_IMPORTED_MODULE_15__ionic_native_google_plus__["a" /* GooglePlus */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_17__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_17__providers_auth_auth__["a" /* AuthProvider */]
+                __WEBPACK_IMPORTED_MODULE_19__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_19__providers_auth_auth__["a" /* AuthProvider */]
             ]
         })
     ], AppModule);
@@ -809,20 +1196,21 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 463:
+/***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_user_user__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_user_user__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_estimate_estimate__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2_auth__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -832,6 +1220,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -855,6 +1244,7 @@ var MyApp = (function () {
             { title: 'Profile', component: __WEBPACK_IMPORTED_MODULE_6__pages_user_user__["a" /* UserPage */], icon: 'md-contact' },
             { title: 'Market Place', component: __WEBPACK_IMPORTED_MODULE_6__pages_user_user__["a" /* UserPage */], icon: 'md-basket' },
             { title: 'About Us', component: __WEBPACK_IMPORTED_MODULE_6__pages_user_user__["a" /* UserPage */], icon: 'md-information-circle' },
+            { title: 'Es', component: __WEBPACK_IMPORTED_MODULE_8__pages_estimate_estimate__["a" /* EstimatePage */], icon: 'md-information-circle' }
         ];
         platform.ready().then(function () {
             // Here we will check if the user is already logged in
@@ -883,9 +1273,12 @@ var MyApp = (function () {
         });
     }
     MyApp.prototype.openPage = function (page) {
+        var _this = this;
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
-        this.nav.setRoot(page.component);
+        this.nav.setRoot(page.component).then(function () {
+            _this.nativeStorage.remove('std');
+        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
@@ -898,7 +1291,7 @@ var MyApp = (function () {
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__["a" /* AngularFireAuth */]])
+            __WEBPACK_IMPORTED_MODULE_9_angularfire2_auth__["a" /* AngularFireAuth */]])
     ], MyApp);
     return MyApp;
 }());
@@ -907,7 +1300,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 464:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -924,7 +1317,7 @@ var FIREBASE_CONFIG = {
 
 /***/ }),
 
-/***/ 465:
+/***/ 469:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -990,16 +1383,16 @@ var ParallaxDirective = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__register_register__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__register_register__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_google_plus__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_google_plus__ = __webpack_require__(118);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1068,7 +1461,7 @@ var LoginPage = (function () {
         this.facebook = facebook;
         this.googlePlus = googlePlus;
         this.fireauth = __WEBPACK_IMPORTED_MODULE_8_firebase__["auth"]();
-        this.FB_APP_ID = 160319811228422;
+        this.FB_APP_ID = 122621955076543;
         this.user = {};
         this.fb.browserInit(this.FB_APP_ID, "v2.8");
     }
@@ -1246,7 +1639,108 @@ var LoginPage = (function () {
 
 //# sourceMappingURL=login.js.map
 
+/***/ }),
+
+/***/ 85:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EstimatePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(40);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the EstimatePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EstimatePage = (function () {
+    function EstimatePage(navCtrl, navParams, nativeStorage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.nativeStorage = nativeStorage;
+        this.dataReady = false;
+        this.lon1 = 100.772072;
+        this.lon2 = 100.77227210000001;
+        this.lat2 = 13.7217572;
+        this.lat1 = 13.7201804;
+    }
+    EstimatePage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.nativeStorage.getItem('std').then(function (data) {
+            _this.std = {
+                appraisal: data.appraisal,
+                lattitude: data.lattitude,
+                longitude: data.longitude,
+                name: data.name
+            };
+            _this.dataReady = true;
+        }, function (error) {
+            console.log(error);
+        });
+        var rk = 6373;
+        var dlon1 = this.std.longitude * Math.PI / 180;
+        var dlon2 = (this.lon2 * Math.PI) / 180;
+        var dlat1 = this.std.lattitude * Math.PI / 180;
+        var dlat2 = (this.lat2 * Math.PI) / 180;
+        this.dlon = dlon2 - dlon1;
+        this.dlat = dlat2 - dlat1;
+        this.a = Math.pow(Math.sin(this.dlat / 2), 2) + Math.cos(this.lat1) * Math.cos(this.lat2) * Math.pow(Math.sin(this.dlon / 2), 2);
+        this.c = 2 * Math.atan2(Math.sqrt(this.a), Math.sqrt(1 - this.a));
+        this.dk = this.c * rk;
+        this.km = Math.max(this.dk * 1000 / 1000).toFixed(3);
+        var pot = this.std.lattitude + ',' + this.std.longitude;
+    };
+    EstimatePage.prototype.calculate = function () {
+        var _this = this;
+        this.nativeStorage.getItem('std').then(function (data) {
+            _this.std = {
+                appraisal: data.appraisal,
+                lattitude: data.lattitude,
+                longitude: data.longitude,
+                name: data.name
+            };
+            _this.dataReady = true;
+        }, function (error) {
+            console.log(error);
+        });
+        var rk = 6373;
+        var dlon1 = this.std.longitude * Math.PI / 180;
+        var dlon2 = (this.lon2 * Math.PI) / 180;
+        var dlat1 = this.std.lattitude * Math.PI / 180;
+        var dlat2 = (this.lat2 * Math.PI) / 180;
+        this.dlon = dlon2 - dlon1;
+        this.dlat = dlat2 - dlat1;
+        this.a = Math.pow(Math.sin(this.dlat / 2), 2) + Math.cos(this.lat1) * Math.cos(this.lat2) * Math.pow(Math.sin(this.dlon / 2), 2);
+        this.c = 2 * Math.atan2(Math.sqrt(this.a), Math.sqrt(1 - this.a));
+        this.dk = this.c * rk;
+        this.km = Math.max(this.dk * 1000 / 1000).toFixed(3);
+    };
+    EstimatePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-estimate',template:/*ion-inline-start:"/Users/superball/SPAionic-master/src/pages/estimate/estimate.html"*/'<!--\n  Generated template for the EstimatePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header header-ios>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n  </ion-navbar>\n</ion-header>\n  <ion-content padding *ngIf=\'dataReady\'>\n      <p> {{ std.lattitude }} {{ std.longitude }} </p>\n      <p>{{ std.name }} </p>\n      <p>{{ std.appraisal }}</p>\n      <ion-col col-12 map-content transparent >\n          <ion-item-group >\n              <!--Info Location-->\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>\n                  <span>{{ std.appraisal }} บาท/ตาราวา</span>\n              </ion-item>\n              <ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n                <span>{{ km }} กิโลเมตร</span>\n            </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>\n                  <span>99 ตารางวา</span>\n              </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>\n                  <span>8,900,000 บาท</span>\n              </ion-item>\n              <button ion-button float-right margin-top round outline color="light" style="color:aquamarine;width:120px;height:50px;font-size:24px;">ลงขาย</button>\n          </ion-item-group>\n      </ion-col>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/SPAionic-master/src/pages/estimate/estimate.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */]])
+    ], EstimatePage);
+    return EstimatePage;
+}());
+
+//# sourceMappingURL=estimate.js.map
+
 /***/ })
 
-},[291]);
+},[293]);
 //# sourceMappingURL=main.js.map

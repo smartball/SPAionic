@@ -1,23 +1,42 @@
-<ion-header>
-    <ion-navbar>
+<ion-header header-ios>
+    <ion-navbar transparent>
       <button ion-button menuToggle>
         <ion-icon name="menu" color="primary"></ion-icon>
       </button>
-      <ion-toolbar>
-        <ion-title>
-          MapDirection
-        </ion-title>
-      </ion-toolbar>
+      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>
     </ion-navbar>
   </ion-header>
-
-<ion-content>
-	<ion-card id="floating-panel">
-        <ion-card-content>
-          <p>{{ name }} </p>
-            <div #directionsPanel></div>
-        </ion-card-content>
-    </ion-card>
-  
+<ion-content padding >
     <div #map id="map"></div>
+    <div id="warnings-panel"></div>
+    <ion-col col-12 map-content transparent *ngIf='dataReady'>
+        <ion-item-group>
+            <ion-item border>
+                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
+                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินกรมที่ดิน</h5>
+                <span>{{ appraisal_scale }} บาท/ตารางวา</span>
+            </ion-item>
+            <ion-item border>
+                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
+                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินราคาขายต่อตารางวา</h5>
+                <span>{{ estimate_scale }} บาท/ตารางวา</span>
+            </ion-item>
+            <ion-item border>
+              <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
+              <h5 no-paddnig style="color:rgb(104, 104, 104)">ระยะห่างจากที่ดินถึงถนนหลัก</h5>
+              <span>{{ km }} กิโลเมตร</span>
+          </ion-item>
+            <ion-item border>
+                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
+                <h5 no-paddnig style="color:rgb(104, 104, 104)">ขนาดที่ดิน</h5>
+                <span>{{ measure_scale }} ตารางวา</span>
+            </ion-item>
+            <ion-item border>
+                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
+                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินราคาขาย(ตลาด)</h5>
+                <span> {{ Sum_scale }} บาท</span>
+            </ion-item>
+            <button ion-button float-right margin-top round outline color="color:rgb(72, 181, 233);" style="color:rgb(72, 181, 233);width:120px;height:50px;font-size:24px;">ลงขาย</button>
+        </ion-item-group>
+    </ion-col>
 </ion-content>

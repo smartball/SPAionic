@@ -18,7 +18,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 })
 export class LoginPage {
   fireauth = firebase.auth();
-  FB_APP_ID: number = 160319811228422;
+  FB_APP_ID: number = 122621955076543;
   user = {} as User;
   public email: string;
   public password: string;

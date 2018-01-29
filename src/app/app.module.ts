@@ -5,13 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Facebook } from '@ionic-native/facebook';
-
+import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MapDirectionPage }  from '../pages/map-direction/map-direction';
 import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
 import { RegisterPage } from '../pages/register/register';
+import { EstimatePage } from '../pages/estimate/estimate';
 
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireModule } from 'angularfire2';
@@ -19,6 +20,7 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth';
 import { ParallaxDirective } from '../directives/parallax/parallax';
+import { ListPage } from '../pages/list/list';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,16 @@ import { ParallaxDirective } from '../directives/parallax/parallax';
     LoginPage,
     UserPage,
     RegisterPage,
-    ParallaxDirective
+    ParallaxDirective,
+    EstimatePage,
+    ListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,7 +48,9 @@ import { ParallaxDirective } from '../directives/parallax/parallax';
     MapDirectionPage,
     LoginPage,
     UserPage,
-    RegisterPage
+    RegisterPage,
+    EstimatePage,
+    ListPage
   ],
   providers: [
     StatusBar,

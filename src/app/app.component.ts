@@ -7,6 +7,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
 import { HomePage } from '../pages/home/home';
+import { EstimatePage } from '../pages/estimate/estimate';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { state } from '@angular/core/src/animation/dsl';
@@ -34,6 +35,7 @@ export class MyApp {
         { title: 'Profile', component: UserPage, icon:'md-contact' },
         { title: 'Market Place', component: UserPage, icon:'md-basket' },
         { title: 'About Us', component: UserPage, icon:'md-information-circle' },
+        { title: 'Es', component: EstimatePage, icon:'md-information-circle' }
       ];
         platform.ready().then(() => {
             // Here we will check if the user is already logged in
@@ -65,6 +67,8 @@ export class MyApp {
         openPage(page) {
           // Reset the content nav to have just this page
           // we wouldn't want the back button to show in this scenario
-          this.nav.setRoot(page.component);
+          this.nav.setRoot(page.component).then(()=>{
+            this.nativeStorage.remove('std');
+          }) ;
         }
       }

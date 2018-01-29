@@ -1,0 +1,32 @@
+page-estimate {
+    #map {
+        height: 30%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute!important;
+        overflow: hidden!important;
+    }
+    .sebm-google-map-container {
+        height: 350px;
+      }
+    
+      .item-inner {
+        margin-left: 0 !important;
+      }
+    
+      [maps-title] {
+          font-weight: bold !important;
+      }
+    
+      [span-small] {
+        margin-top: 6px;
+        display: block;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+    
+      .icon-star::before {
+        margin: 0 !important;
+      }
+}
