@@ -11,7 +11,9 @@ import { EstimatePage } from '../pages/estimate/estimate';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { state } from '@angular/core/src/animation/dsl';
-
+import { AppraisalPage } from '../pages/appraisal/appraisal';
+import { IonDigitKeyboardCmp } from '../components/ion-digit-keyboard';
+import { MapDirectionPage } from '../pages/map-direction/map-direction';
 declare var google: any;
 
 @Component({

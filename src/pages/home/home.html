@@ -68,16 +68,37 @@
       <div class="map" [class.hidemap]="!((switch == 'map') || error)">
         <div style="padding-top:40px;">
             <div #searchbar id="floating-panel" [hidden]="!search">
-              <img src="assets/imgs/logo-real.png" alt="">
+              <img src="assets/imgs/logo-real.png" style="width: 150px;height:140px;" alt="">
                 <ion-row padding>
                     <ion-list no-lines>
+                        <!--<ion-item [class.active]="focus === 'textSearch'" (touchend)="setFocus('textSearch')">
+                            <ion-label><ion-icon name="ios-map-outline"></ion-icon></ion-label>
+                            <ion-input type="number" disabled [ngModel]="textSearch" placeholder="ระบุเลขโฉนด" clearInput></ion-input>
+                        </ion-item>-->
                         <ion-item>        
                             <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>
-                            <ion-input clearInput type="text" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>
-                    </ion-item>
-                      </ion-list>
-                      <button ion-button block (click)="goSearch()" #searchbar [hidden]="!search">ค้นหาทันที</button>
-                      
+                            <ion-input clearInput type="number" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>
+                        </ion-item>
+                        <br>
+                        <ion-item>
+                          <ion-label stacked>จังหวัด</ion-label>
+                          <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุจังหวัด">
+                            <ion-option *ngFor="let item of items_prov" (ionSelect)="select(item)" [value]="item">{{ item.province_name }}</ion-option>
+                          </ion-select>
+                        </ion-item>
+                        
+                        <ion-item>
+                          <ion-label stacked>เขต/อำเภอ</ion-label>
+                          <ion-select [(ngModel)]="provincec" interface="action-sheet" id="amphur" placeholder="กรุณาระบุเขต/อำเภอ">
+                            <ion-option *ngFor="let amphur of amphur" (ionSelect)="selectAmphur(amphur)" [value]="amphur" >{{ amphur.amphur_name }}</ion-option>
+                          </ion-select>
+                        </ion-item>
+                    </ion-list>
+                    
+                    
+                    
+                    <button ion-button block (click)="btnSearch()" #searchbar [hidden]="!search">ค้นหา</button>
+                    
                 </ion-row>
                 <ion-row padding>
                 </ion-row>  

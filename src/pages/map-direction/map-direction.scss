@@ -15,9 +15,9 @@
         padding-left: 10px;
       }
       #map{
-        height: 30%;
+        height: 100%;
         width: 100%;
-        //display: none;
+        display: none;
     }
         
     
@@ -50,5 +50,59 @@
                 position: absolute;
                 z-index: 1;
             }
+    }
+    * {
+      box-sizing: border-box;
+    }
+    
+    
+    h1 {
+      text-align: center;  
+    }
+    
+    
+    /* Hide all steps by default: */
+    .tab {
+      display: none;
+    }
+    
+    #nextBtn {
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      font-family: Raleway;
+      cursor: pointer;
+    }
+    
+    #nextBtn:hover {
+      opacity: 0.8;
+    }
+    
+    #prevBtn {
+      background-color: #bbbbbb;
+    }
+    
+    /* Make circles that indicate the steps of the form: */
+    .step {
+      height: 30px;
+      width: 30px;
+      margin: 20px;
+      margin: 0 2px;
+      background-color: #bbbbbb;
+      border: none;  
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+    }
+    
+    .step.active {
+      opacity: 1;
+    }
+    
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+      background-color: #4CAF50;
     }
     }

@@ -13,18 +13,18 @@
   </ion-navbar>
 </ion-header>
   <ion-content padding *ngIf='dataReady'>
-      <p> {{ std.lattitude }} {{ std.longitude }} </p>
+      <!--<p> {{ std.lattitude }} {{ std.longitude }} </p>
       <p>{{ std.name }} </p>
-      <p>{{ std.appraisal }}</p>
+      <p>{{ std.appraisal }}</p>-->
       <ion-col col-12 map-content transparent >
           <ion-item-group >
-              <!--Info Location-->
+              
               <ion-item border>
                   <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
                   <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>
-                  <span>{{ std.appraisal }} บาท/ตาราวา</span>
+                  <span>{{ result }} บาท/ตาราวา</span>
               </ion-item>
-              <ion-item border>
+              <!--<ion-item border>
                 <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
                 <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>
                 <span>{{ km }} กิโลเมตร</span>
@@ -38,7 +38,7 @@
                   <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
                   <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>
                   <span>8,900,000 บาท</span>
-              </ion-item>
+              </ion-item>-->
               <button ion-button float-right margin-top round outline color="light" style="color:aquamarine;width:120px;height:50px;font-size:24px;">ลงขาย</button>
           </ion-item-group>
       </ion-col>

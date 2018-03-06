@@ -1,4 +1,11 @@
 page-home {
+    .select-md .select-icon,.select-ios.select-icon {
+        position: absolute;
+        width: 82px;
+        height: 19px;
+        left: 15px;
+        top: 26px;
+    }
     // map style
     #map {
         height: 100%;

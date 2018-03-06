@@ -4,7 +4,8 @@ import { NavController, Platform} from 'ionic-angular';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { EstimatePage } from '../estimate/estimate';
 import { NativeStorage } from '@ionic-native/native-storage';
-
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { RestProvider } from '../../providers/rest/rest';
 declare var google;
 /**
  * Generated class for the MapDirectionPage page.
@@ -19,69 +20,62 @@ declare var google;
   templateUrl: 'map-direction.html',
 })
 export class MapDirectionPage {
-  measure_scale: any;
-  estimate_scale: any;
-  appraisal_scale: any;
-  Sum_scale: any;
-  Sum: any;
-  atest: any;
-  Sum_estimate: any;
-  dtest: any;
-  ctest: any;
-  cx4: any;
-  cx3: any;
-  cx2: any;
-  cx1: any;
-  bxtest: any;
-  btest: any;
-  bx7: any;
-  bx6: any;
-  bx5: any;
-  bx4: any;
-  bx3: any;
-  bx2: any;
-  bx1: any;
-  ax4: any;
-  ax3: any;
-  ax2: any;
-  ax1: any;
-
+  pot: any;
+  
     @ViewChild('map') mapRef : ElementRef;
+    size:any;
+    lat:any;
+    lon:any;
     a:any;
     c:any;
     dk:any;
     km:any;
-    dlon:any;
-    dlat:any;
-    dlon1:any;
-    dlon2:any;
-    name: DoubleRange;
-    start:string;
-    end:string;
-    map:any;
+    id_13:any;
+    id_14:any;
+    result_distance:any;
+    getposition_lat:any;
+    getposition_lng:any;
+    pos_lat:any;
+    pos_lng:any;
+    data_well:any;
+    data_road:any;
+    data_shape:any;
+    data_width:any;
+    well:any;
+    road:any;
+    shape:any;
+    width:any;
+    items_well:any;
+    items_shape:any;
     std:any;
-    test:any;
-    xtest:any;
-    etest:any;
+    name: DoubleRange;
+    amphur_code:any;
+    province_id: any;
+    map:any;
     dataReady: boolean = false;
-    public lon1:any = 100.772072;
-    public lon2:any = 100.77227210000001;
-    public lat2:any = 13.7217572;
-    public lat1:any = 13.7201804;
-  constructor(public navCtrl: NavController, public navParams: NavParams , public plt : Platform, public nativeStorage: NativeStorage) {
+    currentTab = 0;
+    loading:any;
+    public itemChecked_well;
+    public itemChecked_height_road;
+    public itemChecked_shape;
+    public itemChecked_width;
+    public lattitude:string;
+    public longitude:string;
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams , 
+              public plt : Platform, 
+              public nativeStorage: NativeStorage,
+              public loadingCtrl: LoadingController,
+              public restProvider: RestProvider) {
     this.plt.ready().then(() =>{
-       this.start = 'penn station, new york, ny'; //{lat:xxxx,lng:xxxxxx}
-       this.end = 'grand central station, new york, ny';
+       
       this.showMap();
     });
+   
   }
-  ngOnInit(){
-    this.name = this.navParams.get('userName');
-  }
+ 
 
-  ionViewWillEnter(){
-  	this.showMap();
-  }
+  
 
   showMap(){
     var markerArray = [];
@@ -109,17 +103,24 @@ export class MapDirectionPage {
           appraisal: data.appraisal,
           lattitude: data.lattitude,
           longitude: data.longitude,
-          name: data.name
+          size: data.size,
+          province_id: data.province_id,
+          amphur_code: data.amphur_code
         };
-        
+        this.size = this.std.size;
+        this.amphur_code = this.std.amphur_code;
+        this.province_id = this.std.province_id;
+        this.pot = this.std.lattitude + ',' + this.std.longitude;
+        this.lat = this.std.lattitude;
+        this.lon = this.std.longitude;
         this.dataReady = true;
       },(error) => {
-        console.log(error);
+        console.log("error");
       })
+      console.log(this.size);
       
-      var pot = this.std.lattitude+','+this.std.longitude;
     directionsService.route({
-      origin: pot,
+      origin: this.pot,
       destination: 'Bangkok',
       travelMode: 'DRIVING'
     }, (response, status) => {
@@ -131,7 +132,7 @@ export class MapDirectionPage {
         this.showSteps(response, markerArray, stepDisplay, map);
         
       } else {
-        window.alert('Directions request failed due to ' + status);
+       
       }
     });
   }
@@ -161,224 +162,127 @@ export class MapDirectionPage {
       
     }
     marker.setPosition(myRoute.steps[j[0]].start_location);
-    var getposition_lat = marker.getPosition().lat();
-    var getposition_lng = marker.getPosition().lng();
+    this.getposition_lat = marker.getPosition().lat();
+    this.getposition_lng = marker.getPosition().lng();
+    
+    this.calDistance(this.getposition_lat,this.getposition_lng)
     this.attachInstructionText(
-      stepDisplay, marker, myRoute.steps[j[0]].instructions, getposition_lat, getposition_lng, map);
+      stepDisplay, marker, myRoute.steps[j[0]].instructions, this.getposition_lat, this.getposition_lng, map);
   }
 
   attachInstructionText(stepDisplay, marker, text, getposition_lat, getposition_lng, map) {
-    this.nativeStorage.getItem('std').then((data)=>{
-      this.std ={
-        appraisal: data.appraisal,
-        lattitude: data.lattitude,
-        longitude: data.longitude,
-        name: data.name,
-        measure: data.measure,
-        nearroad: data.nearroad,
-        well: data.well,
-        height_road: data.height_road
-      };
-     
-      
-      var we = 0; // เป็นบ่อ
-      var hr = 1; // สูงจากถนน
-      var dis = this.km;
-      var train = 1; // รถไฟ
-      var mall = 1; // ห้าง
-      var tem = 1; // วัด
-      var hos = 1; // โรงพยาบาล
-      var uni = 1;  // มหาลัย
-      var ex = 1; // ทางด่วน
-      var nikom = 1; // นิคม
-      var con = 0; // ถนนคอนกรีต
-      var lad = 1; // ถนนลาดยาง
-      var width_road = 1; // ถนนกว้าง
-      var narrow_road = 0; // ถนนแคบ
-      //ไม่มีถนน ยังไม่ได้เขียน
-      var papa = 1; // ประปา
-      var fire = 1; // ไฟฟ้า
-      var tel = 1; // โทรศัพท์
-      var square = 1; // สี่เหลี่ยม
-      var n_square = 0;// ด้านไม่เท่า
-      var a_square = 0;// รูปร่างอื่นๆ
-      var area_narrow = 0; //หน้าแคบ
-      var area_width = 1; //หน้ากว้าง
-      var measure_l = 1; // ขนาดทื่ดินใหญ่
-      var measure_s = 0; // ขนาดที่ดินเล็ก
-
-      //#region ทำเลที่ตั้ง
-      if(dis < 0.5){
-        this.ax1 = 10;
-      }
-      if(dis > 0.5){
-        this.ax1 = 0;
-      }
-      if(we == 1){
-        this.ax2 = 10;
-      }
-      if(we != 1){
-        this.ax2 = 0;
-      }
-      if(hr == 1){
-        this.ax3 = 10;
-      }
-      if(hr != 1){
-        this.ax3 = 0;
-      }
-      if(this.ax1 == 10 || this.ax2 == 10 || this.ax3 == 10){
-        this.test = (this.ax1+this.ax2+this.ax3+40)/100;
-      }
-      else{
-        this.test = 40/100;
-      }
-      //#endregion
-      //#region สภาพแวดล้อม
-      if(train == 1){
-        this.bx1 = 10;
-      }
-      if(train != 1){
-        this.bx1 = 0;
-      }
-      if(mall == 1){
-        this.bx2 = 10;
-      }
-      if(mall != 1){
-        this.bx2 = 0;
-      }
-      if(tem == 1){
-        this.bx3 = 0;
-      }
-      if(tem != 1){
-        this.bx3 = 0;
-      }
-      if(hos == 1){
-        this.bx4 = 10;
-      }
-      if(hos != 1){
-        this.bx4 = 0;
-      }
-      if(uni == 1){
-        this.bx5 = 10;
-      }
-      if(uni != 1){
-        this.bx5 = 0;
-      }
-      if(ex == 1){
-        this.bx6 = 10;
-      }
-      if(ex != 1){
-        this.bx6 = 0;
-      }
-      if(nikom == 1){
-        this.bx7 = 10;
-      }
-      if(nikom != 1){
-        this.bx7 = 0;
-      }
-      if(this.bx1 == 10 || this.bx2 == 10 || this.bx3 == 10 || this.bx4 == 10 || this.bx5 == 10 || this.bx6 == 10 || this.bx7 == 10){
-        this.btest = (this.bx1+this.bx2+this.bx3+this.bx4+this.bx5+this.bx6+this.bx7)/100;
-      }
-      //#endregion
-      //#region คมนาคม
-      if(con == 1){
-        this.cx1 = 30;
-      }
-      if(con != 1){
-        this.cx1 = 0;
-      }
-      if(lad == 1){
-        this.cx1 = 20;
-      }
-      if(lad != 1){
-        this.cx1 = 0;
-      }
-      if(width_road == 1){
-        this.cx2 = 20;
-      }
-      if(width_road != 1){
-        this.cx2 = 0;
-      }
-      if(narrow_road == 1){
-        this.cx2 = 10;
-      }
-      if(narrow_road != 1){
-        this.cx2 = 0
-      }
-      //#endregion
-      //#region สาธารณูปโภค
-      if(papa == 1){
-        var dx1 = 10
-      }
-      if(fire == 1){
-        var dx2 = 10
-      }
-      if(tel == 1){
-        var dx3 = 10
-      }
-      //#endregion
-      //รูปร่างที่ดิน
-      var ex1:any;
-      var ex2:any;
-      var ex3:any;
-      
-      if(square == 1){
-        ex1 = 20;
-      }
-      if(n_square == 1){
-        ex1 = 10;
-      }
-      if(a_square == 1){
-        ex1 = 5;
-      }
-      if(area_narrow == 1){
-        ex2 = 10;
-      }
-      if(area_width == 1){
-        ex2 = 20;
-      }
-      if(measure_l == 1){
-        ex3 = 20;
-      }
-      if(measure_s == 1){
-        ex3 = 20; 
-      }
-      this.atest = this.test
-      this.bxtest = this.btest;
-      this.ctest = (this.cx1+this.cx2+30)/100;
-      this.dtest = (dx1+dx2+dx3+30)/100;
-      this.etest = (ex1+ex2+ex3+40)/100;
-      var esti = this.std.appraisal*1; // รับราคาประเมิน
-      this.Sum_estimate = (esti*this.atest)+(esti*this.bxtest)+(esti*this.ctest)+(esti*this.dtest)+(esti*this.etest);
-      this.Sum = this.std.measure*this.Sum_estimate;
-      this.appraisal_scale = esti.toLocaleString();
-      this.estimate_scale = this.Sum_estimate.toLocaleString();
-      var mes = this.std.measure*1;
-      this.measure_scale = mes.toLocaleString();
-      this.Sum_scale =this.Sum.toLocaleString();
-      this.xtest = this.test; // ค่าทำเล
-      this.dataReady = true;
-    },(error) => {
-      console.log(error);
-    })
-    
-    var rk = 6373;
-    var dlon1 = this.std.longitude * Math.PI/180;
-    var dlon2 = (getposition_lng * Math.PI)/180;
-    var dlat1 = this.std.lattitude * Math.PI/180;
-    var dlat2 = (getposition_lat * Math.PI)/180;
-    this.dlon =  dlon2 - dlon1;
-    this.dlat = dlat2 - dlat1;
-
-    this.a = Math.pow(Math.sin(this.dlat/2),2) + Math.cos(this.std.lattitude) * Math.cos(getposition_lat) * Math.pow(Math.sin(this.dlon/2),2);
-    this.c = 2 * Math.atan2(Math.sqrt(this.a),Math.sqrt(1-this.a));
-    this.dk = this.c *  rk;
-    this.km = Math.max( this.dk * 1000/1000).toFixed(3);
     
     google.maps.event.addListener(marker, 'click', () => {
       stepDisplay.setContent(text+getposition_lat+','+getposition_lng);
       stepDisplay.open(map, marker);
     });
   }
+   calDistance(position_lat,position_lng){
+    this.pos_lat = position_lat;
+    this.pos_lng = position_lng;
+    console.log(this.pos_lat,"x1");
+    console.log(this.pos_lng,"x2");
+    var rk = 6373;
+    var dlon1 = this.lon * Math.PI/180;
+    var dlon2 = (this.pos_lng * Math.PI)/180;
+    var dlat1 = this.lat * Math.PI/180;
+    var dlat2 = (this.pos_lat * Math.PI)/180;
+    var dlon =  dlon2 - dlon1;
+    var dlat = dlat2 - dlat1;
+    this.a = Math.pow(Math.sin(dlat/2),2) + Math.cos(this.lat) * Math.cos(this.pos_lat) * Math.pow(Math.sin(dlon/2),2);
+    this.c = 2 * Math.atan2(Math.sqrt(this.a),Math.sqrt(1-this.a));
+    this.dk = this.c *  rk;
+    this.km = Math.max(this.dk * 1000/1000).toFixed(3);
+    this.result_distance = this.km;
+    console.log(this.result_distance,"re");
+    if(this.result_distance < 0.5)
+    {
+      this.id_13 = 13
+      return this.id_13;
+    }
+    else
+    {
+      this.id_13 = 14;
+      return this.id_13;
+    }
+    
+   }
+   clickservice(){
+     this.nativeStorage.setItem('data_service',{
+       id: this.id_13,
+       well: this.well,
+       road: this.road,
+       shape: this.shape,
+       width: this.width,
+       size: this.size
+     }).then(()=>{
+       /*console.log(this.id_13);
+       console.log(this.well);
+       console.log(this.road);
+       console.log(this.shape);
+       console.log(this.width);
+       console.log(this.size);*/
+       this.navCtrl.push(EstimatePage);
+     },(error)=>{
+       console.log('พัง')
+     })
+   }
+   ionViewWillEnter(){
+    
+    //console.log(this.result_distance,"result");
+    console.log(this.lat,"d1");
+    //console.log(this.pos_lat,"d2");
+    
+    this.showMap();
+    this.presentLoading();
+    this.restProvider.getWell(this.province_id,this.amphur_code)
+    .then(well =>{
+      this.data_well = well;
       
+      console.log(this.data_well);
+    });
+    this.restProvider.getRoad(this.province_id,this.amphur_code)
+    .then(road =>{
+      this.data_road = road;
+      
+      console.log(this.data_road);
+    });
+    this.restProvider.getShape(this.province_id,this.amphur_code)
+    .then(shape =>{
+      this.data_shape = shape;
+      
+      console.log(this.data_shape);
+    });
+    this.restProvider.getWidth(this.province_id,this.amphur_code)
+    .then(width =>{
+      this.data_width = width;
+      this.loading.dismiss();
+      console.log(this.data_width);
+    });
+    
+  }
+  presentLoading() {
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+    this.loading.present();
+}
+  select(item) {
+    this.well = item.id;
+    return this.well;
+  }
+  select_hr(item_hr){
+  this.road = item_hr.id;
+  console.log(this.road);
+  return this.road;
+  }
+  select_sp(item_sp) {
+    this.shape = item_sp.id;
+    return this.shape;
+  }
+  select_wd(item_wd) {
+    this.width = item_wd.id;
+    return this.width;
+  }
+  
 }

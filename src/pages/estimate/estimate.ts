@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { RestProvider } from '../../providers/rest/rest';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 /**
  * Generated class for the EstimatePage page.
  *
@@ -15,88 +17,76 @@ import { NativeStorage } from '@ionic-native/native-storage';
 })
 export class EstimatePage {
  
-  a:any;
-  c:any;
-  dk:any;
-  km:any;
-  dlon:any;
+  id:any;
+  well:any;
+  road:any;
+  shape:any;
+  width:any;
+  size:any;
   dlat:any;
   dlon1:any;
   dlon2:any;
-  std:any;
-  gstd:any;
+  data_service:any;
+  loading:any;
   dataReady: boolean = false;
+  result:any;
   public lon1:any = 100.772072;
   public lon2:any = 100.77227210000001;
   public lat2:any = 13.7217572;
   public lat1:any = 13.7201804;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public nativeStorage: NativeStorage) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public nativeStorage: NativeStorage,
+              public restProvider: RestProvider,
+              public loadingCtrl: LoadingController) {
+              this.retrieveData()
   }
   
-  
-  ionViewDidLoad(){
-    
-    this.nativeStorage.getItem('std').then((data)=>{
-      this.std ={
-        appraisal: data.appraisal,
-        lattitude: data.lattitude,
-        longitude: data.longitude,
-        name: data.name
+  retrieveData(){
+    this.nativeStorage.getItem('data_service').then((data)=>{
+      this.data_service ={
+        id: data.id,
+        well: data.well,
+        road: data.road,
+        shape: data.shape,
+        width: data.width,
+        size: data.size
       };
-      
+      this.id     = this.data_service.id;
+      this.well   = this.data_service.well;
+      this.road   = this.data_service.road;
+      this.shape  = this.data_service.shape;
+      this.width  = this.data_service.width;
+      this.size   = this.data_service.size;
       this.dataReady = true;
+      console.log(this.size);
+      /*console.log(this.id);
+      console.log(this.well);
+      console.log(this.road);
+      console.log(this.shape);
+      console.log(this.width);*/
+      this.getInfo(this.id);
     },(error) => {
       console.log(error);
     })
-    var rk = 6373;
-    var dlon1 = this.std.longitude * Math.PI/180;
-    var dlon2 = (this.lon2 * Math.PI)/180;
-    var dlat1 = this.std.lattitude * Math.PI/180;
-    var dlat2 = (this.lat2 * Math.PI)/180;
-    this.dlon =  dlon2 - dlon1;
-    this.dlat = dlat2 - dlat1;
-
-    this.a = Math.pow(Math.sin(this.dlat/2),2) + Math.cos(this.lat1) * Math.cos(this.lat2) * Math.pow(Math.sin(this.dlon/2),2);
-    this.c = 2 * Math.atan2(Math.sqrt(this.a),Math.sqrt(1-this.a));
-    this.dk = this.c *  rk;
-    this.km = Math.max( this.dk * 1000/1000).toFixed(3);
-    var pot = this.std.lattitude+','+this.std.longitude;
-    
-    
   }
-
-  calculate(){
-    this.nativeStorage.getItem('std').then((data)=>{
-      this.std ={
-        appraisal: data.appraisal,
-        lattitude: data.lattitude,
-        longitude: data.longitude,
-        name: data.name
-      };
-      
-      this.dataReady = true;
-      
-    },(error) => {
-      console.log(error);
-    })
-    var rk = 6373;
-    var dlon1 = this.std.longitude * Math.PI/180;
-    var dlon2 = (this.lon2 * Math.PI)/180;
-    var dlat1 = this.std.lattitude * Math.PI/180;
-    var dlat2 = (this.lat2 * Math.PI)/180;
-    this.dlon =  dlon2 - dlon1;
-    this.dlat = dlat2 - dlat1;
-
-    this.a = Math.pow(Math.sin(this.dlat/2),2) + Math.cos(this.lat1) * Math.cos(this.lat2) * Math.pow(Math.sin(this.dlon/2),2);
-    this.c = 2 * Math.atan2(Math.sqrt(this.a),Math.sqrt(1-this.a));
-    this.dk = this.c *  rk;
-    this.km = Math.max( this.dk * 1000/1000).toFixed(3);
-    
-
-    
-    
-    
+  getInfo(id){
+    /*this.presentLoading();
+    this.restProvider.getTotal()
+    .then(data =>{
+      this.result = data;
+      console.log(this.result);
+      this.loading.dismiss();
+    })*/
+    console.log(id);
   }
+  presentLoading() {
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+    this.loading.present();
+}
+  
 
  
 }

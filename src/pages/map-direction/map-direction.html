@@ -1,42 +1,80 @@
 <ion-header header-ios>
-    <ion-navbar transparent>
-      <button ion-button menuToggle>
-        <ion-icon name="menu" color="primary"></ion-icon>
-      </button>
-      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>
-    </ion-navbar>
-  </ion-header>
-<ion-content padding >
-    <div #map id="map"></div>
-    <div id="warnings-panel"></div>
-    <ion-col col-12 map-content transparent *ngIf='dataReady'>
-        <ion-item-group>
-            <ion-item border>
-                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
-                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินกรมที่ดิน</h5>
-                <span>{{ appraisal_scale }} บาท/ตารางวา</span>
+        <ion-navbar transparent>
+          <button ion-button menuToggle>
+            <ion-icon name="menu" color="primary"></ion-icon>
+          </button>
+          <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>
+        </ion-navbar>
+      </ion-header>
+    <ion-content padding >
+        <div #map id="map"></div>
+        <div id="warnings-panel"></div>
+        
+            
+    <form >
+        
+        <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>
+        
+            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> 
+                <ion-item *ngFor="let item of data_well" >
+                    <ion-label>{{item.factor_name}}</ion-label>
+                    <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>
+                </ion-item>
+            </ion-list>
+        
+        
+            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> 
+                <ion-item *ngFor="let item_hr of data_road" >
+                    <ion-label>{{item_hr.factor_name}}</ion-label>
+                    <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>
+                </ion-item>
+            </ion-list>
+        
+        
+            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> 
+                <ion-item *ngFor="let item_sp of data_shape" >
+                    <ion-label>{{item_sp.factor_name}}</ion-label>
+                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>
+                </ion-item>
+            </ion-list>
+        
+        
+            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> 
+                <ion-item *ngFor="let item_wd of data_width" >
+                    <ion-label>{{item_wd.factor_name}}</ion-label>
+                    <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>
+                </ion-item>
+            </ion-list>
+        
+            <button ion-button (click)="clickservice()"></button>
+    </form>
+            <!--<ion-list radio-group>
+                  <ion-item *ngFor="let item of data_well">
+                    <ion-label>{{ item.factor_name }}</ion-label>
+                    <ion-radio value="item"></ion-radio>
+                  </ion-item>
+            </ion-list>
+            <ion-list radio-group >
+                    <ion-item *ngFor="let item_hr of data_road">
+                    <ion-label>{{ item_hr.factor_name }}</ion-label>
+                    <ion-radio value="item_hr"></ion-radio>
+                    </ion-item>
+            </ion-list>-->
+            
+        <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> 
+            <ion-item *ngFor="let item_hr of items_height_road" >
+                <ion-label>{{item_hr.name}}</ion-label>
+                <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>
             </ion-item>
-            <ion-item border>
-                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
-                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินราคาขายต่อตารางวา</h5>
-                <span>{{ estimate_scale }} บาท/ตารางวา</span>
-            </ion-item>
-            <ion-item border>
-              <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
-              <h5 no-paddnig style="color:rgb(104, 104, 104)">ระยะห่างจากที่ดินถึงถนนหลัก</h5>
-              <span>{{ km }} กิโลเมตร</span>
-          </ion-item>
-            <ion-item border>
-                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
-                <h5 no-paddnig style="color:rgb(104, 104, 104)">ขนาดที่ดิน</h5>
-                <span>{{ measure_scale }} ตารางวา</span>
-            </ion-item>
-            <ion-item border>
-                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:rgb(72, 181, 233)" item-start></ion-icon>
-                <h5 no-paddnig style="color:rgb(104, 104, 104)">ราคาประเมินราคาขาย(ตลาด)</h5>
-                <span> {{ Sum_scale }} บาท</span>
-            </ion-item>
-            <button ion-button float-right margin-top round outline color="color:rgb(72, 181, 233);" style="color:rgb(72, 181, 233);width:120px;height:50px;font-size:24px;">ลงขาย</button>
-        </ion-item-group>
-    </ion-col>
-</ion-content>
+        </ion-list>-->
+        
+            <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> 
+                <ion-item *ngFor="let item_sp of items_shape" >
+                    <ion-label>{{item_sp.name}}</ion-label>
+                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>
+                </ion-item>
+            </ion-list>-->
+        
+        
+  
+    </ion-content>

@@ -1,8 +1,10 @@
 import {UserPage} from '../user/user';
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams,ToastController} from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+import { Component, ViewChild, ElementRef, Injectable } from '@angular/core';
+import { NavController, NavParams,ToastController ,LoadingController} from 'ionic-angular';
 import { App, ModalController } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { RestProvider } from '../../providers/rest/rest';
 
 import { MapDirectionPage } from '../map-direction/map-direction';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -10,25 +12,44 @@ import { EstimatePage } from '../estimate/estimate';
 import { ListPage } from '../../pages/list/list';
 
 import * as $ from 'jquery';
-
+import * as jQuery from 'jquery';
+import { AppraisalPage } from '../appraisal/appraisal';
+import { Select } from 'ionic-angular/components/select/select';
+import { IonDigitKeyboardCmp, IonDigitKeyboardOptions } from '../../components/ion-digit-keyboard';
 declare var google:any;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+@Injectable()
+
 export class HomePage {
-	@ViewChild('map') mapRef : ElementRef;
+  @ViewChild(IonDigitKeyboardCmp) keyboard;
+  
+  
+  @ViewChild('map') mapRef : ElementRef;
+  province_id:any;
+  amphur_code:any;
 	map:any;
   marker:any;
   typesearch:any;
   place:any;
-  textSearch:string;
+  textSearch:string = '';
   switch: string = "map";
   search: boolean = false;
   userReady: boolean = false;
   user: any;
+  data: any;
   std:any;
+  items_prov: any;
+  amphur: any;
+  selectOptions: any;
+  loading:any
+  
+  public log_hr;
+  public itemChecked_prov;
+  public log_amphur;
   constructor(
     public navCtrl: NavController,
     public app: App, 
@@ -36,61 +57,54 @@ export class HomePage {
     public afAuth: AngularFireAuth,
     public nativeStorage: NativeStorage,
     public toast: ToastController,
-    private modalCtrl: ModalController) {
+    private modalCtrl: ModalController,
+    public restProvider: RestProvider,
+    public http: HttpClient,
+    public loadingCtrl: LoadingController) {
     this.navCtrl = navCtrl;
+    this.presentLoading();
+    this.restProvider.getProvince()
+    .then(prov =>{
+      this.items_prov = prov;
+      this.loading.dismiss();
+    });
+    
+    
   }
+  
 
-  ionViewDidLoad(){
+    ionViewDidLoad(){
     this.typesearch = "1";
-    this.place = [{
-      ord:'1001',
-      title:'สวนอาหาร บุญนิยม',
-      name:'บุญนิยม',
-      appraisal:'20000',
-      measure:'3103',
-      address:'บุญนิยม',
-      type:'ร้านอาหาร',
-      lat:'15.228885',
-      lng:'104.864746'
-    },
-    {
-      ord:'1002',
-      title:'จำปลา',
-      name:'บุญนิยม',
-      appraisal:'10000',
-      measure:'99',
-      address:'บุญนิยม',
-      type:'ร้านอาหาร',
-      lat:'15.228671',
-      lng:'104.853226'
-    },
-    {
-      ord:'1003',
-      title:'หมูยอดาวทอง',
-      name:'คุณกันยา',
-      appraisal:'30000',
-      measure:'60',
-      nearroad: '',
-      well: '',
-      height_road: '',
-      
-      type:'ร้านอาหาร',
-      lat:'14.1655573774964',
-      lng:'100.7000488394'
-    },
-    {
-      ord:'1004',
-      title:'หมูยอดาวทอง',
-      name:'คุณกันยา',
-      appraisal:'1650',
-      measure:'11132',
-      address:'หมูยอดาวทอง 173/2-3 ถ.ศรีณรงค์ ต.ในเมือง อ.เมือง จ.อุบลราชธานี 34000 บริหารงานโดย คุณกันยา ดาวทองวรกิจ โทร 045-262344 จำหน่าย หมูยอ ใส้กรอก แหนมซี่โครง แหนมใบมะยม และของฝาก',
-      type:'ร้านอาหาร',
-      lat:'13.720170',
-      lng:'100.772072'
-    }];
   	this.showMap();
   }
+  select(item){
+    
+    this.log_hr = item.province_id;
+    this.presentLoading();
+    //this.restProvider.addUser(this.log_hr);
+    //this.restProvider.getAmphur(this.log_hr);
+    this.restProvider.getAmphur(this.log_hr)
+    .then(amp =>{
+      this.amphur = amp;
+      this.loading.dismiss();
+    });
+    this.province_id = this.log_hr
+    return this.province_id;
+  }
+  selectAmphur(amphur){
+    this.log_amphur = amphur.amphur_code;
+    
+    this.amphur_code = this.log_amphur;
+    return this.amphur_code;
+  }
+  
+  presentLoading() {
+           this.loading = this.loadingCtrl.create({
+               content: 'Please wait...'
+           });
+           this.loading.present();
+       }
+
   toggleSearch() {
     if (this.search) {
       this.search = false;
@@ -114,34 +128,45 @@ export class HomePage {
   		mapTypeId:'roadmap'//roadmap , satellite , hybrid , terrain
   	};
   	this.map = new google.maps.Map(this.mapRef.nativeElement,options);
-    this.marker = new google.maps.Marker({position:location,icon: 'assets/imgs/pinx.png',map:this.map});
+    this.marker = new google.maps.Marker({position:location,
+                                          //icon: 'assets/imgs/pinx.png',
+                                          animation: google.maps.Animation.DROP,
+                                          map:this.map});
     
   }
-
+  toggleBounce() {
+    if (this.marker.getAnimation() !== null) {
+      this.marker.setAnimation(null);
+    } else {
+      this.marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
   changePosition(_data){
     
     this.marker.setPosition( new google.maps.LatLng( _data.lat,_data.lng ) );
     this.map.setCenter(new google.maps.LatLng( _data.lat,_data.lng ));
+    this.map.setZoom(18);
     
-    this.textSearch = _data.ord;
+    this.textSearch = _data.deed_number;
+    
     var infoWindow = new google.maps.InfoWindow({content: '<div id="iw-container">' +
     '<div class="iw-title"><center>Smart Property Assess</center></div>' +
     '<div class="iw-content">' +
-      '<div class="iw-subTitle">History</div>' +
-      '<img src="assets/imgs/logo-real.png" alt="Porcelain Factory of Vista Alegre" height="83" width="83">' +
-      '<p>ราคาประเมินกรมที่ดิน : <br><font color="blue">'+_data.appraisal+' บาท</font></p>' +
-      '<p>พิกัดที่ดิน : <br><font color="blue">'+_data.lat+','+_data.lng+' บาท</font></p>' +
-      '<div class="iw-subTitle">Contacts</div>' +
-      '<p>VISTA ALEGRE ATLANTIS, SA<br>3830-292 Ílhavo - Portugal<br>'+
-      '<br>Phone. +351 234 320 600<br>e-mail: geral@vaa.pt<br>www: www.myvistaalegre.com</p>'+
+      
+      
+      '<p>ราคาประเมินกรมที่ดิน : <font color="blue">'+_data.cost_appraisal.toLocaleString()+' บาท</font></p>' +
+      '<p>ขนาดที่ดิน : <font color="blue">'+_data.size +' ตารางวา </font></p>' +
+      '<p>พิกัดที่ดิน : <font color="blue">'+_data.lat+','+_data.lng+' </font></p>' +
+      
     '</div>' +
     '<div class="iw-bottom-gradient"></div>' +
     '<div class="row" style="background-color:orange;">'+
     '<button id = "myid" style="background-color:green;color:white;width:140px;height:30px;font-size:16px;">ประเมินราคา</button>'+
-    '<button id = "closeid" style="background-color:orange;color:white;width:140px;height:30px;font-size:16px;border-radius: 0px 0px 10px 0px;">ปิด</button>'+
+    '<button id = "closeid" style="background-color:orange;color:white;width:140px;height:30px;font-size:16px;bider-radius: 0px 0px 10px 0px;">ปิด</button>'+
     '</div>'+
     '</div>',
           maxWidth: 350});
+          
           var sendLatLng = _data.lat+','+_data.lng;
           google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
             document.getElementById('closeid').addEventListener('click', () => {
@@ -151,24 +176,35 @@ export class HomePage {
               this.nativeStorage.setItem('std',{
                 lattitude: _data.lat,
                 longitude: _data.lng,
-                appraisal: _data.appraisal,
-                name: _data.name,
-                measure: _data.measure,
-                nearroad: _data.nearroad,
-                well: _data.well,
-                height_road: _data.height_road
+                appraisal: _data.cost_appraisal,
+                size: _data.size,
+                province_id: _data.province_id,
+                amphur_code: _data.amphur_code
               }).then(()=>{
-                this.navCtrl.setRoot(MapDirectionPage);
+                let loading = this.loadingCtrl.create({
+                  
+                  content: 'กำลังประเมินราคา'
+                });
+              
+                loading.present();
+                
+                setTimeout(() => {
+                  this.navCtrl.push(MapDirectionPage)
+                }, 1000);
+              
+                setTimeout(() => {
+                  loading.dismiss();
+                }, 1000);
               },(error) =>{
                 console.log(error);
               })
            });
-          });      
+          });    
     infoWindow.open(this.map, this.marker);
-    this.marker.addListener('click', function() {
-      infoWindow.open(this.map, this.marker);
+    this.marker.addListener('click', this.toggleBounce(), () => {
+      //infoWindow.open(this.map, this.marker);
     });
-    google.maps.event.addListener(infoWindow, 'domready', function() {
+    google.maps.event.addListener(infoWindow, 'domready', () => {
       // Reference to the DIV that wraps the bottom of infowindow
     var iwOuter = $('.gm-style-iw');
 
@@ -211,29 +247,32 @@ export class HomePage {
     });
     });
   }
-
-  viewList(){
-    let ListModal = this.modalCtrl.create(ListPage, { place: this.place });
-     ListModal.present();
-  }
-
-  goSearch(){
-    if(this.textSearch != "" && this.textSearch != undefined){
-      if(this.searchStringInArray(this.textSearch,this.place) == '-1'){
-        alert('ไม่พบสถานที่ในฐานข้อมูล');
-      }else{
-        this.changePosition(this.searchStringInArray(this.textSearch,this.place));
-        this.search = false;
-        
-      }
+  btnSearch(){
+    
+    if(this.textSearch != "" && this.textSearch != undefined)
+    {
+      this.presentLoading();
+      this.restProvider.getMarker(this.textSearch,this.province_id, this.amphur_code)
+      .then(data => {
+        this.place = data;
+        this.loading.dismiss();
+        if(this.searchStringInArray(this.place) == '-1'){
+          alert('ไม่พบสถานที่ในฐานข้อมูล');
+        }else{
+          this.changePosition(this.searchStringInArray(this.place));
+          this.search = false;
+        }
+      });
     }else{
       alert('กรุณากรอกข้อมูล');
     }
+    
   }
-  searchStringInArray(str, strArray){ 
+  
+  searchStringInArray(strArray){ 
     
     for(var i=0; i<strArray.length; i++){
-      if(strArray[i].ord.match(str) == strArray[i].ord){
+      if(strArray[i].id){
         return strArray[i];
       }
     }
@@ -245,7 +284,7 @@ export class HomePage {
       if(data.email && data.uid){
       this.toast.create({
         message: 'Welcome to Smart Property Assess: '+ data.email,
-        duration: 3000
+        duration: 1000
       }).present();
     }else{
       

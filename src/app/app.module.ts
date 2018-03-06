@@ -6,13 +6,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Facebook } from '@ionic-native/facebook';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HomePage} from '../pages/home/home';
 import { MapDirectionPage }  from '../pages/map-direction/map-direction';
 import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
 import { RegisterPage } from '../pages/register/register';
 import { EstimatePage } from '../pages/estimate/estimate';
+import { AppraisalPage } from '../pages/appraisal/appraisal';
 
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireModule } from 'angularfire2';
@@ -21,6 +24,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth';
 import { ParallaxDirective } from '../directives/parallax/parallax';
 import { ListPage } from '../pages/list/list';
+import { RestProvider } from '../providers/rest/rest';
+import { IonDigitKeyboard } from '../components/ion-digit-keyboard/ion-digit-keyboard.module';
 
 @NgModule({
   declarations: [
@@ -32,10 +37,13 @@ import { ListPage } from '../pages/list/list';
     RegisterPage,
     ParallaxDirective,
     EstimatePage,
-    ListPage
+    ListPage,
+    AppraisalPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    IonDigitKeyboard,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
@@ -50,7 +58,8 @@ import { ListPage } from '../pages/list/list';
     UserPage,
     RegisterPage,
     EstimatePage,
-    ListPage
+    ListPage,
+    AppraisalPage
   ],
   providers: [
     StatusBar,
@@ -60,7 +69,8 @@ import { ListPage } from '../pages/list/list';
     GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    AuthProvider
+    RestProvider
+    
   ]
 })
 export class AppModule {}
