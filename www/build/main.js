@@ -343,6 +343,7 @@ var MapDirectionPage = (function () {
                 province_id: data.province_id,
                 amphur_code: data.amphur_code
             };
+            _this.appraisal = _this.std.appraisal;
             _this.size = _this.std.size;
             _this.amphur_code = _this.std.amphur_code;
             _this.province_id = _this.std.province_id;
@@ -353,7 +354,7 @@ var MapDirectionPage = (function () {
         }, function (error) {
             console.log("error");
         });
-        console.log(this.size);
+        console.log(this.lat);
         directionsService.route({
             origin: this.pot,
             destination: 'Bangkok',
@@ -369,6 +370,14 @@ var MapDirectionPage = (function () {
             else {
             }
         });
+        if (this.size > 100) {
+            this.type_size = 10;
+            return this.type_size;
+        }
+        else {
+            this.type_size = 9;
+            return this.type_size;
+        }
     };
     MapDirectionPage.prototype.showSteps = function (directionResult, markerArray, stepDisplay, map) {
         var myRoute = directionResult.routes[0].legs[0];
@@ -433,20 +442,36 @@ var MapDirectionPage = (function () {
     MapDirectionPage.prototype.clickservice = function () {
         var _this = this;
         this.nativeStorage.setItem('data_service', {
+            lat: this.lat,
+            lon: this.lon,
             id: this.id_13,
             well: this.well,
             road: this.road,
             shape: this.shape,
             width: this.width,
-            size: this.size
+            size: this.size,
+            appraisal: this.appraisal,
+            distance: this.result_distance,
+            type_size: this.type_size,
+            province_id: this.province_id,
+            amphur_code: this.amphur_code
         }).then(function () {
-            /*console.log(this.id_13);
-            console.log(this.well);
+            //console.log(this.type_size);
+            /*console.log(this.well);
             console.log(this.road);
             console.log(this.shape);
             console.log(this.width);
             console.log(this.size);*/
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__estimate_estimate__["a" /* EstimatePage */]);
+            var loading = _this.loadingCtrl.create({
+                content: 'กำลังประเมินราคา'
+            });
+            loading.present();
+            setTimeout(function () {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__estimate_estimate__["a" /* EstimatePage */]);
+            }, 1000);
+            setTimeout(function () {
+                loading.dismiss();
+            }, 1000);
         }, function (error) {
             console.log('พัง');
         });
@@ -505,20 +530,16 @@ var MapDirectionPage = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], MapDirectionPage.prototype, "mapRef", void 0);
     MapDirectionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-map-direction',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/map-direction/map-direction.html"*/'<ion-header header-ios>\n        <ion-navbar transparent>\n          <button ion-button menuToggle>\n            <ion-icon name="menu" color="primary"></ion-icon>\n          </button>\n          <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n        </ion-navbar>\n      </ion-header>\n    <ion-content padding >\n        <div #map id="map"></div>\n        <div id="warnings-panel"></div>\n        \n            \n    <form >\n        \n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>\n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n                <ion-item *ngFor="let item of data_well" >\n                    <ion-label>{{item.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n                <ion-item *ngFor="let item_hr of data_road" >\n                    <ion-label>{{item_hr.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                <ion-item *ngFor="let item_sp of data_shape" >\n                    <ion-label>{{item_sp.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n                <ion-item *ngFor="let item_wd of data_width" >\n                    <ion-label>{{item_wd.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n            <button ion-button (click)="clickservice()"></button>\n    </form>\n            <!--<ion-list radio-group>\n                  <ion-item *ngFor="let item of data_well">\n                    <ion-label>{{ item.factor_name }}</ion-label>\n                    <ion-radio value="item"></ion-radio>\n                  </ion-item>\n            </ion-list>\n            <ion-list radio-group >\n                    <ion-item *ngFor="let item_hr of data_road">\n                    <ion-label>{{ item_hr.factor_name }}</ion-label>\n                    <ion-radio value="item_hr"></ion-radio>\n                    </ion-item>\n            </ion-list>-->\n            \n        <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n            <ion-item *ngFor="let item_hr of items_height_road" >\n                <ion-label>{{item_hr.name}}</ion-label>\n                <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n            </ion-item>\n        </ion-list>-->\n        \n            <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                <ion-item *ngFor="let item_sp of items_shape" >\n                    <ion-label>{{item_sp.name}}</ion-label>\n                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                </ion-item>\n            </ion-list>-->\n        \n        \n  \n    </ion-content>'/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/map-direction/map-direction.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
-            __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__["a" /* RestProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__["a" /* RestProvider */]) === "function" && _g || Object])
     ], MapDirectionPage);
     return MapDirectionPage;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=map-direction.js.map
@@ -665,7 +686,7 @@ var HomePage = (function () {
                 '<div class="iw-content">' +
                 '<p>ราคาประเมินกรมที่ดิน : <font color="blue">' + _data.cost_appraisal.toLocaleString() + ' บาท</font></p>' +
                 '<p>ขนาดที่ดิน : <font color="blue">' + _data.size + ' ตารางวา </font></p>' +
-                '<p>พิกัดที่ดิน : <font color="blue">' + _data.lat + ',' + _data.lng + ' </font></p>' +
+                '<p>พิกัดที่ดิน : <font color="blue">' + _data.lat.toFixed(6) + ',' + _data.lng + ' </font></p>' +
                 '</div>' +
                 '<div class="iw-bottom-gradient"></div>' +
                 '<div class="row" style="background-color:orange;">' +
@@ -681,13 +702,15 @@ var HomePage = (function () {
             });
             document.getElementById('myid').addEventListener('click', function () {
                 _this.nativeStorage.setItem('std', {
-                    lattitude: _data.lat,
-                    longitude: _data.lng,
+                    lattitude: _data.lat.toFixed(6),
+                    longitude: _data.lng.toFixed(6),
                     appraisal: _data.cost_appraisal,
                     size: _data.size,
                     province_id: _data.province_id,
                     amphur_code: _data.amphur_code
                 }).then(function () {
+                    var tes = parseFloat(_data.lat).toFixed(6);
+                    console.log(tes);
                     var loading = _this.loadingCtrl.create({
                         content: 'กำลังประเมินราคา'
                     });
@@ -1179,15 +1202,15 @@ var map = {
 		4
 	],
 	"../pages/estimate/estimate.module": [
-		858,
+		860,
 		3
 	],
 	"../pages/list/list.module": [
-		859,
+		858,
 		2
 	],
 	"../pages/map-direction/map-direction.module": [
-		860,
+		859,
 		1
 	],
 	"../pages/register/register.module": [
@@ -1637,9 +1660,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/appraisal/appraisal.module#AppraisalPageModule', name: 'AppraisalPage', segment: 'appraisal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/estimate/estimate.module#EstimatePageModule', name: 'EstimatePage', segment: 'estimate', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list/list.module#ListPageModule', name: 'ListPage', segment: 'list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/map-direction/map-direction.module#MapDirectionPageModule', name: 'MapDirectionPage', segment: 'map-direction', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/estimate/estimate.module#EstimatePageModule', name: 'EstimatePage', segment: 'estimate', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -2109,7 +2132,7 @@ var RestProvider = (function () {
         this.UrlRoad = 'http://services-spa.azurewebsites.net/api/road';
         this.UrlShape = 'http://services-spa.azurewebsites.net/api/shape';
         this.UrlWidth = 'http://services-spa.azurewebsites.net/api/width';
-        this.UrlTotal = 'http://services-spa.azurewebsites.net/api/search/13.726959,100.776388';
+        this.UrlTotal = 'http://services-spa.azurewebsites.net/api/search';
     }
     RestProvider.prototype.getData = function () {
         var _this = this;
@@ -2203,10 +2226,12 @@ var RestProvider = (function () {
             });
         });
     };
-    RestProvider.prototype.getTotal = function () {
+    RestProvider.prototype.getTotal = function (lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size) {
         var _this = this;
+        var url = this.UrlTotal + '/' + lat + ',' + lon + ',' + province_id + ',' + amphur_code + ',' + well + ',' + road + ',' + shape + ',' + width + ',' + type_size + ',' + id + ',' + appraisal + ',' + size;
+        console.log(url);
         return new Promise(function (resolve) {
-            _this.http.get(_this.UrlTotal).subscribe(function (data) {
+            _this.http.get(url).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);
@@ -2215,10 +2240,10 @@ var RestProvider = (function () {
     };
     RestProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */]) === "function" && _b || Object])
     ], RestProvider);
     return RestProvider;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=rest.js.map
@@ -2273,12 +2298,19 @@ var EstimatePage = (function () {
         var _this = this;
         this.nativeStorage.getItem('data_service').then(function (data) {
             _this.data_service = {
+                lat: data.lat,
+                lon: data.lon,
                 id: data.id,
                 well: data.well,
                 road: data.road,
                 shape: data.shape,
                 width: data.width,
-                size: data.size
+                size: data.size,
+                appraisal: data.appraisal,
+                distance: data.distance,
+                type_size: data.type_size,
+                province_id: data.province_id,
+                amphur_code: data.amphur_code
             };
             _this.id = _this.data_service.id;
             _this.well = _this.data_service.well;
@@ -2286,27 +2318,38 @@ var EstimatePage = (function () {
             _this.shape = _this.data_service.shape;
             _this.width = _this.data_service.width;
             _this.size = _this.data_service.size;
+            _this.appraisal = _this.data_service.appraisal;
+            _this.appraisal_parse = _this.appraisal.toLocaleString();
+            _this.distance = _this.data_service.distance;
+            _this.type_size = _this.data_service.type_size;
+            _this.lat = _this.data_service.lat;
+            _this.lon = _this.data_service.lon;
+            _this.province_id = _this.data_service.province_id;
+            _this.amphur_code = _this.data_service.amphur_code;
             _this.dataReady = true;
-            console.log(_this.size);
-            /*console.log(this.id);
-            console.log(this.well);
+            /*console.log(this.type_size);
+            console.log(this.lat);
+            console.log(this.lon);
             console.log(this.road);
             console.log(this.shape);
             console.log(this.width);*/
-            _this.getInfo(_this.id);
+            _this.getInfo(_this.lat, _this.lon, _this.province_id, _this.amphur_code, _this.well, _this.road, _this.shape, _this.width, _this.type_size, _this.id, _this.appraisal, _this.size);
         }, function (error) {
             console.log(error);
         });
     };
-    EstimatePage.prototype.getInfo = function (id) {
-        /*this.presentLoading();
-        this.restProvider.getTotal()
-        .then(data =>{
-          this.result = data;
-          console.log(this.result);
-          this.loading.dismiss();
-        })*/
-        console.log(id);
+    EstimatePage.prototype.getInfo = function (lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size) {
+        var _this = this;
+        this.presentLoading();
+        this.restProvider.getTotal(lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size)
+            .then(function (data) {
+            var results = data;
+            _this.result = results.toLocaleString();
+            console.log(_this.result);
+            _this.loading.dismiss();
+        }, function (error) {
+            console.log("พัง");
+        });
     };
     EstimatePage.prototype.presentLoading = function () {
         this.loading = this.loadingCtrl.create({
@@ -2316,15 +2359,12 @@ var EstimatePage = (function () {
     };
     EstimatePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-estimate',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/estimate/estimate.html"*/'<!--\n  Generated template for the EstimatePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header header-ios>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n  </ion-navbar>\n</ion-header>\n  <ion-content padding *ngIf=\'dataReady\'>\n      <!--<p> {{ std.lattitude }} {{ std.longitude }} </p>\n      <p>{{ std.name }} </p>\n      <p>{{ std.appraisal }}</p>-->\n      <ion-col col-12 map-content transparent >\n          <ion-item-group >\n              \n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>\n                  <span>{{ result }} บาท/ตาราวา</span>\n              </ion-item>\n              <!--<ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n                <span>{{ km }} กิโลเมตร</span>\n            </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>\n                  <span>99 ตารางวา</span>\n              </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>\n                  <span>8,900,000 บาท</span>\n              </ion-item>-->\n              <button ion-button float-right margin-top round outline color="light" style="color:aquamarine;width:120px;height:50px;font-size:24px;">ลงขาย</button>\n          </ion-item-group>\n      </ion-col>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/estimate/estimate.html"*/,
+            selector: 'page-estimate',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/estimate/estimate.html"*/'<!--\n  Generated template for the EstimatePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header header-ios>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n  </ion-navbar>\n</ion-header>\n  <ion-content padding *ngIf=\'dataReady\'>\n      <!--<p> {{ std.lattitude }} {{ std.longitude }} </p>\n      <p>{{ std.name }} </p>\n      <p>{{ std.appraisal }}</p>-->\n      <ion-col col-12 map-content transparent >\n          <ion-item-group >\n              \n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>\n                  <span>{{ appraisal_parse }} บาท/ตาราวา</span>\n              </ion-item>\n              <ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n                <span>{{ distance }} กิโลเมตร</span>\n            </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>\n                  <span>{{ size }} ตารางวา</span>\n              </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>\n                  <span>{{ result }} บาท</span>\n              </ion-item>\n              <button ion-button float-right margin-top round outline color="light" style="color:aquamarine;width:120px;height:50px;font-size:24px;">ลงขาย</button>\n          </ion-item-group>\n      </ion-col>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/estimate/estimate.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */]) === "function" && _e || Object])
     ], EstimatePage);
     return EstimatePage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=estimate.js.map

@@ -23,6 +23,14 @@ export class EstimatePage {
   shape:any;
   width:any;
   size:any;
+  type_size:any;
+  appraisal:any;
+  appraisal_parse:any;
+  distance:any;
+  lat:any;
+  lon:any;
+  province_id:any;
+  amphur_code:any;
   dlat:any;
   dlon1:any;
   dlon2:any;
@@ -45,12 +53,19 @@ export class EstimatePage {
   retrieveData(){
     this.nativeStorage.getItem('data_service').then((data)=>{
       this.data_service ={
+        lat: data.lat,
+        lon: data.lon,
         id: data.id,
         well: data.well,
         road: data.road,
         shape: data.shape,
         width: data.width,
-        size: data.size
+        size: data.size,
+        appraisal: data.appraisal,
+        distance: data.distance,
+        type_size: data.type_size,
+        province_id: data.province_id,
+        amphur_code: data.amphur_code
       };
       this.id     = this.data_service.id;
       this.well   = this.data_service.well;
@@ -58,27 +73,38 @@ export class EstimatePage {
       this.shape  = this.data_service.shape;
       this.width  = this.data_service.width;
       this.size   = this.data_service.size;
+      this.appraisal = this.data_service.appraisal;
+      this.appraisal_parse = this.appraisal.toLocaleString();
+      this.distance = this.data_service.distance;
+      this.type_size = this.data_service.type_size;
+      this.lat = this.data_service.lat;
+      this.lon = this.data_service.lon;
+      this.province_id = this.data_service.province_id;
+      this.amphur_code = this.data_service.amphur_code;
       this.dataReady = true;
-      console.log(this.size);
-      /*console.log(this.id);
-      console.log(this.well);
+      /*console.log(this.type_size);
+      console.log(this.lat);
+      console.log(this.lon);
       console.log(this.road);
       console.log(this.shape);
       console.log(this.width);*/
-      this.getInfo(this.id);
+      this.getInfo(this.lat, this.lon, this.province_id, this.amphur_code, this.well, this.road, this.shape, this.width, this.type_size, this.id, this.appraisal, this.size);
     },(error) => {
       console.log(error);
     })
   }
-  getInfo(id){
-    /*this.presentLoading();
-    this.restProvider.getTotal()
+  getInfo(lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size){
+    this.presentLoading();
+    this.restProvider.getTotal(lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size)
     .then(data =>{
-      this.result = data;
+      var results = data;
+      this.result = results.toLocaleString();
       console.log(this.result);
       this.loading.dismiss();
-    })*/
-    console.log(id);
+    },error =>{
+      console.log("พัง");
+    })
+    
   }
   presentLoading() {
     this.loading = this.loadingCtrl.create({

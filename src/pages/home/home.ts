@@ -156,7 +156,7 @@ export class HomePage {
       
       '<p>ราคาประเมินกรมที่ดิน : <font color="blue">'+_data.cost_appraisal.toLocaleString()+' บาท</font></p>' +
       '<p>ขนาดที่ดิน : <font color="blue">'+_data.size +' ตารางวา </font></p>' +
-      '<p>พิกัดที่ดิน : <font color="blue">'+_data.lat+','+_data.lng+' </font></p>' +
+      '<p>พิกัดที่ดิน : <font color="blue">'+_data.lat.toFixed(6)+','+_data.lng+' </font></p>' +
       
     '</div>' +
     '<div class="iw-bottom-gradient"></div>' +
@@ -174,13 +174,15 @@ export class HomePage {
             });
             document.getElementById('myid').addEventListener('click', () => {
               this.nativeStorage.setItem('std',{
-                lattitude: _data.lat,
-                longitude: _data.lng,
+                lattitude: _data.lat.toFixed(6),
+                longitude: _data.lng.toFixed(6),
                 appraisal: _data.cost_appraisal,
                 size: _data.size,
                 province_id: _data.province_id,
                 amphur_code: _data.amphur_code
               }).then(()=>{
+                var tes = parseFloat(_data.lat).toFixed(6);
+                console.log(tes);
                 let loading = this.loadingCtrl.create({
                   
                   content: 'กำลังประเมินราคา'

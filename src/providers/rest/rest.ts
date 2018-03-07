@@ -26,7 +26,7 @@ export class RestProvider {
   UrlRoad = 'http://services-spa.azurewebsites.net/api/road';
   UrlShape = 'http://services-spa.azurewebsites.net/api/shape';
   UrlWidth = 'http://services-spa.azurewebsites.net/api/width';
-  UrlTotal = 'http://services-spa.azurewebsites.net/api/search/13.726959,100.776388'
+  UrlTotal = 'http://services-spa.azurewebsites.net/api/search';
   constructor(public http: HttpClient,
               public nativeStorage: NativeStorage,
               //public homeProvider: homeProvider
@@ -127,9 +127,12 @@ export class RestProvider {
           });
         });
       }    
-  getTotal(){
+  getTotal(lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size){
+   
+    var url = this.UrlTotal+'/'+ lat+','+lon+','+province_id+','+amphur_code+','+well+','+road+','+shape+','+width+','+type_size+','+id+','+appraisal+','+size;
+    console.log(url);
     return new Promise(resolve => {
-      this.http.get(this.UrlTotal).subscribe(data => {
+      this.http.get(url).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

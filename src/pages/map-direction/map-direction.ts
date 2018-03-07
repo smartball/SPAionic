@@ -24,6 +24,7 @@ export class MapDirectionPage {
   
     @ViewChild('map') mapRef : ElementRef;
     size:any;
+    appraisal:any;
     lat:any;
     lon:any;
     a:any;
@@ -31,7 +32,7 @@ export class MapDirectionPage {
     dk:any;
     km:any;
     id_13:any;
-    id_14:any;
+    type_size:any;
     result_distance:any;
     getposition_lat:any;
     getposition_lng:any;
@@ -107,6 +108,7 @@ export class MapDirectionPage {
           province_id: data.province_id,
           amphur_code: data.amphur_code
         };
+        this.appraisal = this.std.appraisal;
         this.size = this.std.size;
         this.amphur_code = this.std.amphur_code;
         this.province_id = this.std.province_id;
@@ -117,7 +119,8 @@ export class MapDirectionPage {
       },(error) => {
         console.log("error");
       })
-      console.log(this.size);
+      
+      console.log(this.lat);
       
     directionsService.route({
       origin: this.pot,
@@ -135,6 +138,15 @@ export class MapDirectionPage {
        
       }
     });
+    if(this.size > 100)
+    {
+      this.type_size = 10
+      return this.type_size;
+    }
+    else{
+      this.type_size = 9
+      return this.type_size;
+    }
   }
   showSteps(directionResult, markerArray, stepDisplay, map) {
     var myRoute = directionResult.routes[0].legs[0];
@@ -209,20 +221,41 @@ export class MapDirectionPage {
    }
    clickservice(){
      this.nativeStorage.setItem('data_service',{
+       lat: this.lat,
+       lon: this.lon,
        id: this.id_13,
        well: this.well,
        road: this.road,
        shape: this.shape,
        width: this.width,
-       size: this.size
+       size: this.size,
+       appraisal: this.appraisal,
+       distance: this.result_distance,
+       type_size: this.type_size,
+       province_id: this.province_id,
+       amphur_code: this.amphur_code
      }).then(()=>{
-       /*console.log(this.id_13);
-       console.log(this.well);
+       //console.log(this.type_size);
+       /*console.log(this.well);
        console.log(this.road);
        console.log(this.shape);
        console.log(this.width);
        console.log(this.size);*/
-       this.navCtrl.push(EstimatePage);
+       let loading = this.loadingCtrl.create({
+        
+        content: 'กำลังประเมินราคา'
+      });
+    
+      loading.present();
+      
+      setTimeout(() => {
+        this.navCtrl.setRoot(EstimatePage);
+      }, 1000);
+    
+      setTimeout(() => {
+        loading.dismiss();
+      }, 1000);
+       
      },(error)=>{
        console.log('พัง')
      })
