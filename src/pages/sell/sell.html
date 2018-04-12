@@ -1,0 +1,86 @@
+<!--
+  Generated template for the SellPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar transparent>
+  <button ion-button menuToggle>
+    <ion-icon name="menu" color="primary"></ion-icon>
+  </button>
+  <ion-title>ลงขาย</ion-title>
+</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      
+      <ion-row>
+          <ion-col col-12>
+              <ion-label color="primary" style="font-size: 16px;" stacked>ตั้งชื่อประกาศขาย</ion-label>
+              <ion-input required placeholder="ex.ขายบ้านถูกราคา 1 ล้านบาท"  type="text"  [(ngModel)]="name"></ion-input>
+          </ion-col>
+      </ion-row>
+     
+      <ion-row>
+        <ion-col col-6>
+            <ion-label color="primary" style="font-size: 16px;" stacked>ขนาดที่ดิน</ion-label>
+            <ion-input required type="text" [value]="dataMaps.area_size" style="color:blue" disabled></ion-input>
+        </ion-col>
+        <ion-col col-6>
+            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาประเมิน</ion-label>
+            <ion-input required type="text" [value]="result" style="color:blue" disabled></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาขาย</ion-label>
+            <ion-input required placeholder="999,999"  type="number"  [(ngModel)]="sell_price"></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+            <ion-label color="primary" style="font-size: 16px;" stacked>เบอร์โทร</ion-label>
+            <ion-input required placeholder="0895555555"  type="tel" [(ngModel)]="phone"></ion-input>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>      
+            <ion-label color="primary" style="font-size: 16px;" stacked>รายละเอียด</ion-label>
+            <textarea name="" id="" style="width:100%" placeholder="ใส่รายละเอียดของอสังหาริมทรัพย์เพิ่มเติม" rows="10" [(ngModel)]="description"></textarea>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+              <div *ngIf="imageChosen == 1 " >
+                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>
+                <ion-grid style="border: gray solid 2px;border-radius:5px;" >
+                    <ion-row>
+                      <ion-col width-50 *ngFor="let myphoto of myphoto" col-4>
+                          <ion-card class="block">
+                            
+                              <ion-icon name="ios-trash" class="deleteIcon" (click)="deletePhoto(index)"></ion-icon>
+                              <img [src]="myphoto" (click)="getImage()" class="img-st" alt="">
+                                
+                          </ion-card>
+                      </ion-col>
+                    </ion-row>
+                    <div class="border-st"> 
+                        <ion-icon name="ios-reverse-camera-outline" class="plus" (click)="takePhoto()"></ion-icon>
+                    </div>
+                </ion-grid>  
+            </div>   
+            <div class="uploadWrap" *ngIf="imageChosen == 0" >
+                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>
+                <ion-icon (click)="takePhoto()" name="md-images" class="img-grad" style="color:#b9b8b8;"></ion-icon>
+            </div>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-12>
+          <button ion-button round (click)="up()" full class="grad1">Upload</button>
+        </ion-col>
+    </ion-row>
+</ion-content>

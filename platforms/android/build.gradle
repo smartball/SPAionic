@@ -92,6 +92,9 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "com.synconset.imagepicker/starter-ignorelinterrors.gradle"
+apply from: "com.synconset.imagepicker/starter-androidtarget.gradle"
+apply from: "com-sarriaroman-photoviewer/starter-photoviewer.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -256,6 +259,9 @@ dependencies {
     compile "com.facebook.android:facebook-android-sdk:4.+"
     compile "com.google.android.gms:play-services-auth:+"
     compile "com.google.android.gms:play-services-identity:+"
+    compile "com.android.support:appcompat-v7:23+"
+    compile "com.squareup.okhttp3:okhttp:3+"
+    compile "com.android.support:support-v4:24.1.1+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

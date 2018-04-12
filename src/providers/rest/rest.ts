@@ -20,13 +20,15 @@ export class RestProvider {
   province_id: any;
   amphur_code: any;
   apiUrl = 'http://services-spa.azurewebsites.net/api/values';
-  UrlProvince = 'http://services-spa.azurewebsites.net/api/province';
+  UrlProvince = 'https://smartball.000webhostapp.com/uploads/get_province.php'
+  UrlAmphur = 'http://services-spa.azurewebsites.net/api/province'
   UrlMarker = 'http://services-spa.azurewebsites.net/api/marker';
   UrlWell = 'http://services-spa.azurewebsites.net/api/well';
   UrlRoad = 'http://services-spa.azurewebsites.net/api/road';
   UrlShape = 'http://services-spa.azurewebsites.net/api/shape';
   UrlWidth = 'http://services-spa.azurewebsites.net/api/width';
   UrlTotal = 'http://services-spa.azurewebsites.net/api/search';
+  UrlProduct = 'https://smartball.000webhostapp.com/uploads/get_product.php';
   constructor(public http: HttpClient,
               public nativeStorage: NativeStorage,
               //public homeProvider: homeProvider
@@ -71,7 +73,7 @@ export class RestProvider {
       return new Promise(resolve => {
         this.id = log_hr; 
 
-        this.http.get(this.UrlProvince+'/'+this.id).subscribe(data => {
+        this.http.get(this.UrlAmphur+'/'+this.id).subscribe(data => {
           resolve(data);
         }, err => {
           console.log(err);
@@ -133,6 +135,16 @@ export class RestProvider {
     console.log(url);
     return new Promise(resolve => {
       this.http.get(url).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  getProduct(){
+    
+    return new Promise(resolve => {
+      this.http.get(this.UrlProduct).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

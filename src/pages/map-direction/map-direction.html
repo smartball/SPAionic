@@ -1,80 +1,146 @@
 <ion-header header-ios>
-        <ion-navbar transparent>
-          <button ion-button menuToggle>
-            <ion-icon name="menu" color="primary"></ion-icon>
-          </button>
-          <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>
-        </ion-navbar>
-      </ion-header>
-    <ion-content padding >
-        <div #map id="map"></div>
-        <div id="warnings-panel"></div>
+    <ion-navbar transparent>
+      <button ion-button menuToggle>
+        <ion-icon name="menu" color="primary"></ion-icon>
+      </button>
+      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>
+    </ion-navbar>
+  </ion-header>
+<!--<ion-content padding >
+    <div #map id="map"></div>
+    <div id="warnings-panel"></div>
+    
         
-            
-    <form >
-        
+<div *ngIf="load_success == 1 ">
+        <div style="text-align:center;">
+                <span class="step" id="step1"></span>
+                <span class="step" id="step2"></span>
+                <span class="step" id="step3"></span>
+                <span class="step" id="step4"></span>
+        </div>
         <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>
-        
-            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> 
-                <ion-item *ngFor="let item of data_well" >
-                    <ion-label>{{item.factor_name}}</ion-label>
-                    <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>
-                </ion-item>
-            </ion-list>
-        
-        
-            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> 
-                <ion-item *ngFor="let item_hr of data_road" >
-                    <ion-label>{{item_hr.factor_name}}</ion-label>
-                    <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>
-                </ion-item>
-            </ion-list>
-        
-        
-            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> 
-                <ion-item *ngFor="let item_sp of data_shape" >
-                    <ion-label>{{item_sp.factor_name}}</ion-label>
-                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>
-                </ion-item>
-            </ion-list>
-        
-        
-            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> 
-                <ion-item *ngFor="let item_wd of data_width" >
-                    <ion-label>{{item_wd.factor_name}}</ion-label>
-                    <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>
-                </ion-item>
-            </ion-list>
-        
-            <button ion-button (click)="clickservice()"></button>
-    </form>
-            <!--<ion-list radio-group>
-                  <ion-item *ngFor="let item of data_well">
-                    <ion-label>{{ item.factor_name }}</ion-label>
-                    <ion-radio value="item"></ion-radio>
-                  </ion-item>
-            </ion-list>
-            <ion-list radio-group >
-                    <ion-item *ngFor="let item_hr of data_road">
-                    <ion-label>{{ item_hr.factor_name }}</ion-label>
-                    <ion-radio value="item_hr"></ion-radio>
-                    </ion-item>
-            </ion-list>-->
-            
-        <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> 
-            <ion-item *ngFor="let item_hr of items_height_road" >
-                <ion-label>{{item_hr.name}}</ion-label>
+        <div class="tab">
+            <p>sadasd</p>
+        </div>
+        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> 
+            <ion-item *ngFor="let item of data_well" >
+                <ion-label>{{item.factor_name}}</ion-label>
+                <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>
+            </ion-item>
+        </ion-list>
+    
+    
+        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> 
+            <ion-item *ngFor="let item_hr of data_road" >
+                <ion-label>{{item_hr.factor_name}}</ion-label>
                 <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>
             </ion-item>
-        </ion-list>-->
+        </ion-list>
+    
+    
+        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> 
+            <ion-item *ngFor="let item_sp of data_shape" >
+                <ion-label>{{item_sp.factor_name}}</ion-label>
+                <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>
+            </ion-item>
+        </ion-list>
+    
+    
+        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> 
+            <ion-item *ngFor="let item_wd of data_width" >
+                <ion-label>{{item_wd.factor_name}}</ion-label>
+                <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>
+            </ion-item>
+        </ion-list>
         
-            <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> 
-                <ion-item *ngFor="let item_sp of items_shape" >
-                    <ion-label>{{item_sp.name}}</ion-label>
-                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>
-                </ion-item>
-            </ion-list>-->
+        <div style="float:left;">
+                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">
+                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    
+                </button>
+            </div>
+            <div style="float:right;">
+                <button ion-button round class="grad" id="nextBtn" (click)="nextPrev(1)">
+                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    
+                </button>
+                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>
+            </div>
+</div>
+</ion-content>-->
+<ion-content padding>
+        <div #map id="map"></div>
+        <div id="warnings-panel"></div>
+        <form (ngSubmit)="logForm(form)">
         
+        <div style="text-align:center;">
+            <span class="step" id="step1">1</span>
+            <span class="step" id="step2">2</span>
+            <span class="step" id="step1">3</span>
+            <span class="step" id="step2">4</span>
+        </div>
+        <div *ngIf="load_success == 1 ">
+        <h1 id="h1">กรอกข้อมูลเพิ่มเติม</h1>
+        </div>
+        <div class="tab">
+                
+                <div *ngIf="load_success == 1 ">
+                <h2>1. ที่ดินของคุณมีลักษณะเป็นบ่อน้ำหรือไม่ ?</h2>
+                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> 
+                        <ion-item *ngFor="let item of data_well" >
+                            <ion-label>{{item.FACTOR_NAME}}</ion-label>
+                            <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>
+                        </ion-item>
+                </ion-list>
+                </div>
+        </div>
+        <div class="tab">
+                <h2>2. ที่ดินของคุณมีลักษณะที่สูงกว่าถนนหรือไม่ ?</h2>
+                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> 
+                        <ion-item *ngFor="let item_hr of data_road" >
+                            <ion-label>{{item_hr.FACTOR_NAME}}</ion-label>
+                            <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>
+                        </ion-item>
+                </ion-list>
+        </div>
+        <div class="tab">
+                <h2>3. ที่ดินของคุณมีลักษณะของรูปแปลงที่ดินเป็นอย่างไร ?</h2>
+                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> 
+                        <ion-item *ngFor="let item_sp of data_shape" >
+                            <ion-label>{{item_sp.FACTOR_NAME}}</ion-label>
+                            <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>
+                        </ion-item>
+                </ion-list>
+        </div>
+        <div class="tab">
+                <h2 style="text-align:center">4. ขนาดของที่ดินมีหน้ากว้างหรือหน้าแคบ ?</h2>
+                <ion-row>
+                    
+                    <ion-col style="text-align:right"  col-2>
+                        <p>Notice:</p>
+                    </ion-col>
+                    <ion-col style="text-align:left" col-8>
+                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวมากกว่า 50 เมตร คือ <b style="color:blue">หน้ากว้าง</b></p>
+                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวน้อยกว่า 50 เมตร คือ <b style="color:blue">หน้าแคบ</b></p>        
+                    </ion-col>
+                </ion-row>
+                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> 
+                        <ion-item *ngFor="let item_wd of data_width" >
+                            <ion-label>{{item_wd.FACTOR_NAME}}</ion-label>
+                            <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>
+                        </ion-item>
+                </ion-list>
+        </div>
+        <div style="float:left;">
+                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">
+                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    
+                </button>
+            </div>
+            <div style="float:right;">
+                <button ion-button round class="grad" *ngIf="load_success == 1 " id="nextBtn" (click)="nextPrev(1)">
+                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    
+                </button>
+                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>
+            </div>
+            <a href="" id="nextBtn" style="display:none"></a>
+    </form> 
         
-  
     </ion-content>

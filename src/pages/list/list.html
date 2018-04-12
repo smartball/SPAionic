@@ -5,14 +5,48 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>list</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+  
+    <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu" color="primary"></ion-icon>
+      </button>
+      <ion-title>
+          <ion-icon name="md-basket"></ion-icon>
+        Market Place
+      </ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    <ion-card *ngFor="let product of product" (click)="event(product)">
+      
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}">
+          </ion-avatar>
+          <h2>{{ product.name }}</h2>
+          <p></p>
+        </ion-item>
+      
+        <img src="https://smartball.000webhostapp.com/uploads/images_product/{{product.NAME_IMG}}" style="height:300px" >
+        
+        <ion-card-content>
+          
+          <ion-item>
+              <ion-icon name="md-text" style="color:cornflowerblue" item-left large ></ion-icon>
+              
+              <h2 style="color:cornflowerblue">{{ product.NAME }}</h2>
+        </ion-item>
+          <ion-item>
+          <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>
+          
+          <h2 style="color:orangered">{{product.SELL_PRICE | number: '1.0-0'}} บาท</h2>
+        </ion-item>
+        </ion-card-content>
+      
+        
+      </ion-card>
+  </ion-content>
+  

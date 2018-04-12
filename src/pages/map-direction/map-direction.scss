@@ -1,5 +1,25 @@
 .ios, .md {
     page-map-direction {
+      .grad{
+        
+        background: linear-gradient(to bottom right, aquamarine, #19b8f7);
+        
+      }
+      .grad-prev{
+        background: linear-gradient(to bottom right, rgb(243, 243, 243), #505050);
+      }
+      ion-list{
+        border: gray solid 1px;
+        border-radius: 5px;
+      }
+      h1 {
+        text-align: center;
+        padding-top: 50%;  
+      }
+      h2{
+        font-size: 18px;
+        text-align: center;
+      }
     #floating-panel {
         margin-top: 50px;
         position: absolute;
@@ -50,59 +70,51 @@
                 position: absolute;
                 z-index: 1;
             }
-    }
-    * {
-      box-sizing: border-box;
-    }
-    
-    
-    h1 {
-      text-align: center;  
-    }
-    
-    
-    /* Hide all steps by default: */
-    .tab {
-      display: none;
-    }
-    
-    #nextBtn {
-      background-color: #4CAF50;
-      color: #ffffff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 17px;
-      font-family: Raleway;
-      cursor: pointer;
-    }
-    
-    #nextBtn:hover {
-      opacity: 0.8;
-    }
-    
-    #prevBtn {
-      background-color: #bbbbbb;
-    }
-    
-    /* Make circles that indicate the steps of the form: */
-    .step {
-      height: 30px;
-      width: 30px;
-      margin: 20px;
-      margin: 0 2px;
-      background-color: #bbbbbb;
-      border: none;  
-      border-radius: 50%;
-      display: inline-block;
-      opacity: 0.5;
-    }
-    
-    .step.active {
-      opacity: 1;
+            * {
+              box-sizing: border-box;
+            }
+            
+            
+            
+            
+            
+            /* Hide all steps by default: */
+            .tab {
+              display: none;
+            }
+            
+            
+            
+            #nextBtn:hover {
+              opacity: 0.8;
+            }
+            
+            #prevBtn {
+              background-color: #bbbbbb;
+            }
+            
+            /* Make circles that indicate the steps of the form: */
+            .step {
+              height: 30px;
+              width: 30px;
+              margin: 20px;
+              margin: 0 2px;
+              background-color: #bbbbbb;
+              border: none;  
+              
+              display: none;
+              opacity: 0.5;
+            }
+            
+            .step.active {
+              opacity: 1;
+            }
+            
+            /* Mark the steps that are finished and valid: */
+            .step.finish {
+              background-color: #4CAF50;
+            }
+            
     }
     
-    /* Mark the steps that are finished and valid: */
-    .step.finish {
-      background-color: #4CAF50;
-    }
-    }
+}

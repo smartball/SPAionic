@@ -1,3 +1,47 @@
 page-register {
-
+    .img-grad{
+        font-size: 20px;
+        font:bold;
+        background: linear-gradient(to bottom right, aquamarine, #19b8f7);
+        margin-top:20px; 
+    }
+    .uploadWrap{
+        
+        position: relative;
+        
+            .camera{
+                position: absolute;
+                right: 44%;
+                bottom: 8px;
+                font-size: 50px;
+                margin-top: 2px;
+                color:white;
+            
+        }
+    }
+    .user{
+        color:#777;
+        font-size: 150px;
+        text-align: center !important;
+        display: block;
+    }
+    .imgWrap{
+        position: relative;
+        text-align: center !important;
+            .img-user{
+                
+                height: 125px;
+                width: 125px;
+                border-radius: 150px;
+            }
+            .camera{
+                position: absolute;
+                right: 43%;
+                bottom: 5px;
+                font-size: 50px;
+                margin-top: 2px;
+                color:white;
+            
+        }
+    }
 }

@@ -116,6 +116,26 @@
           <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
+        <key>10.110.157.60</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>169.254.241.151</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>161.246.26.238</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>10.110.142.95</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
         <key>m.facebook.com</key>
         <dict/>
         <key>graph.facebook.com</key>
@@ -140,16 +160,18 @@
     </dict>
     <key>UILaunchStoryboardName</key>
     <string>CDVLaunchScreen</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>image</string>
     <key>FacebookAppID</key>
-    <string>160319811228422</string>
+    <string>122621955076543</string>
     <key>FacebookDisplayName</key>
-    <string>hasauth</string>
+    <string>Login</string>
     <key>CFBundleURLTypes</key>
     <array>
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>fb160319811228422</string>
+          <string>fb122621955076543</string>
         </array>
       </dict>
       <dict>
@@ -159,7 +181,7 @@
         <string>REVERSED_CLIENT_ID</string>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.googleusercontent.apps.944197303320-e43hc4m1in499h8t83jgqpfth1f8eqt3</string>
+          <string>com.googleusercontent.apps.291100550318-svo1bs2lov8loea9djc2ca1c6kt2ac2g</string>
         </array>
       </dict>
     </array>
@@ -169,6 +191,25 @@
       <string>fb-messenger-api</string>
       <string>fbauth2</string>
       <string>fbshareextension</string>
+      <string>citymapper</string>
+      <string>comgooglemaps</string>
+      <string>navigon</string>
+      <string>transit</string>
+      <string>waze</string>
+      <string>yandexnavi</string>
+      <string>uber</string>
+      <string>tomtomhome</string>
+      <string>com.sygic.aura</string>
+      <string>here-route</string>
+      <string>moovit</string>
+      <string>lyft</string>
+      <string>mapsme</string>
+      <string>cabify</string>
+      <string>baidumap</string>
+      <string>taxis99</string>
+      <string>iosamap</string>
     </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app requires access to your location for navigation purposes</string>
   </dict>
 </plist>

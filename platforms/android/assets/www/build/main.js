@@ -1,21 +1,24 @@
-webpackJsonp([5],{
+webpackJsonp([6],{
 
-/***/ 103:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__register_register__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_google_plus__ = __webpack_require__(173);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__user_user__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_direction_map_direction__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__estimate_estimate__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery__ = __webpack_require__(580);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_ion_digit_keyboard__ = __webpack_require__(581);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_auth_auth__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,41 +28,279 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var HomePage = (function () {
+    function HomePage(navCtrl, app, navParams, afAuth, nativeStorage, toast, restProvider, http, authprovider, statusBar, loadingCtrl) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.app = app;
+        this.navParams = navParams;
+        this.afAuth = afAuth;
+        this.nativeStorage = nativeStorage;
+        this.toast = toast;
+        this.restProvider = restProvider;
+        this.http = http;
+        this.authprovider = authprovider;
+        this.statusBar = statusBar;
+        this.loadingCtrl = loadingCtrl;
+        this.textSearch = '';
+        this.switch = "map";
+        this.search = false;
+        this.userReady = false;
+        this.navCtrl = navCtrl;
+        this.presentLoading();
+        this.restProvider.getProvince()
+            .then(function (prov) {
+            _this.items_prov = prov;
+            _this.loading.dismiss();
+        });
+        this.statusBar.hide();
     }
+    HomePage.prototype.ionViewDidLoad = function () {
+        this.typesearch = "1";
+        this.showMap();
+    };
+    HomePage.prototype.select = function (item) {
+        var _this = this;
+        this.dataSend = { "province": item.PROVINCE_ID };
+        this.log_hr = item.PROVINCE_ID;
+        this.presentLoading();
+        this.authprovider.postData(this.dataSend, 'getAmphur').then(function (result) {
+            _this.amphur = result;
+            _this.loading.dismiss();
+        }, function (err) {
+            // Error log
+        });
+        this.province_id = this.log_hr;
+        return this.province_id;
+    };
+    HomePage.prototype.selectAmphur = function (amphur) {
+        this.log_amphur = amphur.AMPHUR_CODE;
+        this.amphur_code = this.log_amphur;
+        return this.amphur_code;
+    };
+    HomePage.prototype.presentLoading = function () {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        this.loading.present();
+    };
+    HomePage.prototype.toggleSearch = function () {
+        if (this.search) {
+            this.search = false;
+        }
+        else {
+            this.search = true;
+        }
+    };
+    HomePage.prototype.resizeMap = function () {
+        var _this = this;
+        setTimeout(function () {
+            google.maps.event.trigger(_this.map, 'resize');
+        }, 200);
+    };
+    HomePage.prototype.showMap = function () {
+        var location = new google.maps.LatLng(51.507351, -0.127758);
+        var options = {
+            center: { lat: 13.75633, lng: 100.50177 },
+            zoom: 10,
+            disableDefaultUI: true,
+            streetViewControl: false,
+            mapTypeId: 'roadmap' //roadmap , satellite , hybrid , terrain
+        };
+        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+        this.marker = new google.maps.Marker({ position: location,
+            //icon: 'assets/imgs/pinx.png',
+            animation: google.maps.Animation.DROP,
+            map: this.map });
+    };
+    HomePage.prototype.toggleBounce = function () {
+        if (this.marker.getAnimation() !== null) {
+            this.marker.setAnimation(null);
+        }
+        else {
+            this.marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    };
+    HomePage.prototype.changePosition = function (_data) {
+        var _this = this;
+        this.marker.setPosition(new google.maps.LatLng(_data.lat, _data.lng));
+        this.map.setCenter(new google.maps.LatLng(_data.lat, _data.lng));
+        this.map.setZoom(18);
+        this.textSearch = _data.deed_number;
+        var infoWindow = new google.maps.InfoWindow({ content: '<div id="iw-container">' +
+                '<div class="iw-title"><center>Smart Property Assess</center></div>' +
+                '<div class="iw-content">' +
+                '<p>ราคาประเมินกรมที่ดิน : <font color="blue">' + _data.cost_appraisal.toLocaleString() + ' บาท</font></p>' +
+                '<p>ขนาดที่ดิน : <font color="blue">' + _data.size + ' ตารางวา </font></p>' +
+                '<p>พิกัดที่ดิน : <font color="blue">' + _data.lat.toFixed(6) + ',' + _data.lng + ' </font></p>' +
+                '</div>' +
+                '<div class="iw-bottom-gradient"></div>' +
+                '<div class="row" style="background-color:orange;">' +
+                '<button id = "myid" style="background-color:green;color:white;width:140px;height:30px;font-size:16px;">ประเมินราคา</button>' +
+                '<button id = "closeid" style="background-color:orange;color:white;width:140px;height:30px;font-size:16px;bider-radius: 0px 0px 10px 0px;">ปิด</button>' +
+                '</div>' +
+                '</div>',
+            maxWidth: 350 });
+        google.maps.event.addListenerOnce(infoWindow, 'domready', function () {
+            document.getElementById('closeid').addEventListener('click', function () {
+                infoWindow.close(_this.map, _this.marker);
+            });
+            document.getElementById('myid').addEventListener('click', function () {
+                _this.nativeStorage.setItem('std', {
+                    lattitude: _data.lat.toFixed(6),
+                    longitude: _data.lng.toFixed(6),
+                    appraisal: _data.cost_appraisal,
+                    size: _data.size,
+                    province_id: _data.province_id,
+                    amphur_code: _data.amphur_code,
+                    deed_number: _data.deed_number,
+                }).then(function () {
+                    var tes = parseFloat(_data.lat).toFixed(6);
+                    var loading = _this.loadingCtrl.create({
+                        content: 'กำลังประเมินราคา'
+                    });
+                    loading.present();
+                    setTimeout(function () {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__map_direction_map_direction__["a" /* MapDirectionPage */]);
+                    }, 1000);
+                    setTimeout(function () {
+                        loading.dismiss();
+                    }, 1000);
+                }, function (error) {
+                    console.log(error);
+                });
+            });
+        });
+        infoWindow.open(this.map, this.marker);
+        this.marker.addListener('click', this.toggleBounce(), function () {
+            //infoWindow.open(this.map, this.marker);
+        });
+        google.maps.event.addListener(infoWindow, 'domready', function () {
+            var iwOuter = __WEBPACK_IMPORTED_MODULE_9_jquery__('.gm-style-iw');
+            var iwBackground = iwOuter.prev();
+            iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
+            iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
+            iwBackground.children(':nth-child(1)').attr('style', function (i, s) { return s; });
+            iwBackground.children(':nth-child(3)').attr('style', function (i, s) { return s; });
+            iwBackground.children(':nth-child(3)').find('div').children().css({ display: 'none' });
+            var iwCloseBtn = iwOuter.next();
+            iwCloseBtn.css({ display: 'none' });
+            if (__WEBPACK_IMPORTED_MODULE_9_jquery__('.iw-content').height() < 140) {
+                __WEBPACK_IMPORTED_MODULE_9_jquery__('.iw-bottom-gradient').css({ display: 'none' });
+            }
+            iwCloseBtn.mouseout(function () {
+                __WEBPACK_IMPORTED_MODULE_9_jquery__(this).css({ opacity: '1' });
+            });
+        });
+    };
+    HomePage.prototype.btnSearch = function () {
+        var _this = this;
+        if (this.textSearch != "" && this.textSearch != undefined) {
+            this.presentLoading();
+            this.restProvider.getMarker(this.textSearch, this.province_id, this.amphur_code)
+                .then(function (data) {
+                _this.place = data;
+                _this.loading.dismiss();
+                if (_this.searchStringInArray(_this.place) == '-1') {
+                    alert('ไม่พบสถานที่ในฐานข้อมูล');
+                }
+                else {
+                    _this.changePosition(_this.searchStringInArray(_this.place));
+                    _this.search = false;
+                }
+            });
+        }
+        else {
+            alert('กรุณากรอกข้อมูล');
+        }
+    };
+    HomePage.prototype.searchStringInArray = function (strArray) {
+        for (var i = 0; i < strArray.length; i++) {
+            if (strArray[i].deed_number) {
+                return strArray[i];
+            }
+        }
+        return -1;
+    };
+    HomePage.prototype.nextProfile = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__user_user__["a" /* UserPage */]);
+    };
+    HomePage.prototype.openEs = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__estimate_estimate__["a" /* EstimatePage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_10__components_ion_digit_keyboard__["a" /* IonDigitKeyboardCmp */]),
+        __metadata("design:type", Object)
+    ], HomePage.prototype, "keyboard", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('map'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_core__["t" /* ElementRef */])
+    ], HomePage.prototype, "mapRef", void 0);
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/home/home.html"*/'<ion-header hidden>\n  <ion-navbar color="secondary">\n    \n    <ion-title>\n      Map\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)=\'toggleSearch()\'>\n        <ion-icon name="search"></ion-icon>\n      </button>\n      <button ion-button icon-only (click)=\'choosePosition()\'>\n        <ion-icon name="ios-locate-outline"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n  <div class="switch">\n    <button ion-button icon-only color="light" (click)=\'toggleSearch()\'><ion-icon name="search"></ion-icon></button>\n    <button ion-button color="light" class="grad" (click)="(switch = \'map\'); resizeMap()" [class.active]="(switch == \'map\')" icon-only><ion-icon name="map"></ion-icon></button>\n    <button ion-button color="light" menuToggle icon-only><ion-icon name="list"></ion-icon></button>\n  </div>\n\n  <div class="currentitem" *ngIf="currentregional">\n    <button ion-item no-lines (click)="viewPlace(currentregional.title)">\n      <h2>{{ currentregional.title }}</h2>\n      <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>\n    </button>\n  </div>\n<ion-content fullscreen>\n  \n\n    <div [hidden]="!(switch == \'list\')">\n      <div header-background-image padding style="background-image: url(\n        assets/imgs/bg.png);">\n        <img src="assets/imgs/logo-reales-bg.png"/>\n        <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n        <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n      \n      <ion-list>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">\n                <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>\n                Profile\n            </button>\n        </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>\n                Market Place\n            </button>\n        </ion-item>\n        <ion-item>\n          <button menuClose ion-item item-title main-menu no-lines border (click)="openEs()">\n              <ion-icon icon-small item-left name="md-exit" style="color:aquamarine"></ion-icon>\n              Appraisal\n          </button>\n      </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>\n                About Us\n            </button>\n        </ion-item>\n      </ion-list>\n    </div>\n    \n    <div class="map" [class.hidemap]="!((switch == \'map\') || error)">\n      <div style="padding-top:40px;">\n          <div #searchbar id="floating-panel" [hidden]="!search">\n            <img src="assets/imgs/logo-real.png" style="width: 150px;height:140px;" alt="">\n              <ion-row padding>\n                  <ion-list no-lines>\n                      <!--<ion-item [class.active]="focus === \'textSearch\'" (touchend)="setFocus(\'textSearch\')">\n                          <ion-label><ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                          <ion-input type="number" disabled [ngModel]="textSearch" placeholder="ระบุเลขโฉนด" clearInput></ion-input>\n                      </ion-item>-->\n                      <ion-item>        \n                          <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                          <ion-input clearInput type="number" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>\n                      </ion-item>\n                      <br>\n                      <ion-item>\n                        <ion-label stacked>จังหวัด</ion-label>\n                        <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุจังหวัด">\n                          <ion-option *ngFor="let item of items_prov" (ionSelect)="select(item)" [value]="item">{{ item.PROVINCE_NAME }}</ion-option>\n                        </ion-select>\n                      </ion-item>\n                      \n                      <ion-item>\n                        <ion-label stacked>เขต/อำเภอ</ion-label>\n                        <ion-select [(ngModel)]="provincec" interface="action-sheet" id="amphur" placeholder="กรุณาระบุเขต/อำเภอ">\n                          <ion-option *ngFor="let amphur of amphur" (ionSelect)="selectAmphur(amphur)" [value]="amphur" >{{ amphur.AMPHUR_NAME }}</ion-option>\n                        </ion-select>\n                      </ion-item>\n                  </ion-list>\n                  \n                  \n                  \n                  <button ion-button block (click)="btnSearch()" #searchbar [hidden]="!search">ค้นหา</button>\n                  \n              </ion-row>\n              <ion-row padding>\n              </ion-row>  \n          </div>\n      </div>\n      \n            \n      <div id="map" #map></div>\n    </div>\n  \n</ion-content>\n'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/home/home.html"*/
+        }),
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["r" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* App */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["s" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["v" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__["a" /* RestProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_12__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["o" /* LoadingController */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 107:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__register_register__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_google_plus__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(108);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 
 
@@ -71,7 +312,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 var LoginPage = (function () {
-    function LoginPage(navCtrl, fb, nativeStorage, navParams, afAuth, authprovider, alertCtrl, loadingCtrl, toastCtrl, facebook, googlePlus) {
+    function LoginPage(navCtrl, fb, nativeStorage, navParams, afAuth, authprovider, alertCtrl, loadingCtrl, toastCtrl, facebook, statusBar, googlePlus) {
         this.navCtrl = navCtrl;
         this.fb = fb;
         this.nativeStorage = nativeStorage;
@@ -82,179 +323,58 @@ var LoginPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.toastCtrl = toastCtrl;
         this.facebook = facebook;
+        this.statusBar = statusBar;
         this.googlePlus = googlePlus;
         this.fireauth = __WEBPACK_IMPORTED_MODULE_8_firebase__["auth"]();
         this.FB_APP_ID = 122621955076543;
         this.user = {};
+        this.userData = { "username": "", "password": "" };
+        this.statusBar.hide();
         this.fb.browserInit(this.FB_APP_ID, "v2.8");
     }
-    LoginPage.prototype.doFbLogin = function () {
-        var _this = this;
-        var permissions = new Array();
-        //the permissions your facebook app needs from the user
-        permissions = ["public_profile", "email"];
-        this.fb.login(permissions)
-            .then(function (response) {
-            var userId = response.authResponse.userID;
-            var params = new Array();
-            var facebookCredential = __WEBPACK_IMPORTED_MODULE_8_firebase__["auth"].FacebookAuthProvider
-                .credential(response.authResponse.accessToken);
-            __WEBPACK_IMPORTED_MODULE_8_firebase__["auth"]().signInWithCredential(facebookCredential)
-                .then(function (success) {
-                console.log("Firebase success: " + JSON.stringify(success));
-            });
-            //Getting name and gender properties
-            _this.fb.api("/me?fields=name,gender", params)
-                .then(function (user) {
-                user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
-                //now we have the users info, let's save it in the NativeStorage
-                _this.nativeStorage.setItem('user', {
-                    email: user.email,
-                    name: user.name,
-                    gender: user.gender,
-                    picture: user.picture
-                })
-                    .then(function () {
-                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                }, function (error) {
-                    console.log(error);
-                });
-            });
-        }, function (error) {
-            console.log(error);
-        });
-    };
     LoginPage.prototype.skip = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-    };
-    LoginPage.prototype.login = function (user) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var loader, alert_1, result;
-            return __generator(this, function (_a) {
-                loader = this.loadingCtrl.create({
-                    content: "Please wait..."
-                });
-                loader.present();
-                if (user.email == null && user.password == null) {
-                    alert_1 = this.alertCtrl.create({
-                        message: 'Please fill email and password',
-                        buttons: ['OK']
-                    });
-                    alert_1.present();
-                    loader.dismiss();
-                }
-                result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(function (authData) {
-                    loader.dismiss();
-                    _this.nativeStorage.setItem('user', {
-                        email: user.email
-                    }).then(function () {
-                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                    }, function (error) {
-                        console.log(error);
-                    });
-                }, function (error) {
-                    loader.dismiss();
-                    // Unable to log in
-                    var alert = _this.alertCtrl.create({
-                        message: error,
-                        buttons: ['OK']
-                    });
-                    alert.present();
-                    _this.user.password = ""; //empty the password field
-                });
-                return [2 /*return*/];
-            });
-        });
     };
     LoginPage.prototype.register = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__register_register__["a" /* RegisterPage */]);
     };
-    LoginPage.prototype.ForgotPassword = function () {
+    LoginPage.prototype.loginSql = function () {
         var _this = this;
-        var prompt = this.alertCtrl.create({
-            title: 'Enter Your Email',
-            message: "A new password will be sent to you",
-            inputs: [
-                {
-                    name: 'recoverEmail',
-                    placeholder: 'you@email.com'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function (data) {
-                        console.log('Cancel Clicked');
-                    }
-                },
-                {
-                    text: 'Submit',
-                    handler: function (data) {
-                        console.log("A title sentence to it " + data.recoverEmail);
-                        //
-                        var loading = _this.loadingCtrl.create({
-                            dismissOnPageChange: true,
-                            content: 'Reseting Your Password..'
-                        });
-                        _this.authprovider.forgotPasswordUser(data.recoverEmail).then(function () {
-                            loading.dismiss().then(function () {
-                                var alert = _this.alertCtrl.create({
-                                    title: 'Check your Email',
-                                    subTitle: 'Password reset successful',
-                                    buttons: ['OK']
-                                });
-                                alert.present();
-                            });
-                        }, function (error) {
-                            var alert = _this.alertCtrl.create({
-                                title: 'Error reseting password',
-                                subTitle: error.message,
-                                buttons: ['OK']
-                            });
-                            alert.present();
-                        });
-                    }
-                }
-            ]
+        var loader = this.loadingCtrl.create({
+            content: "Please wait..."
         });
-        prompt.present();
-    };
-    LoginPage.prototype.googlelogin = function () {
-        var _this = this;
-        this.googlePlus.login({
-            'webClientId': '291100550318-svo1bs2lov8loea9djc2ca1c6kt2ac2g.apps.googleusercontent.com',
-            'offline': true
-        }).then(function (res) {
-            __WEBPACK_IMPORTED_MODULE_8_firebase__["auth"]().signInWithCredential(__WEBPACK_IMPORTED_MODULE_8_firebase__["auth"].GoogleAuthProvider.credential(res.idToken))
-                .then(function (user) {
-                _this.nativeStorage.setItem('user', {
-                    name: user.displayName,
-                    email: user.email,
-                    gender: user.gender,
-                    picture: user.picture
-                }).then(function (succ) {
-                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                });
-            }).catch(function (non) {
-                alert("Failed");
-            });
+        loader.present();
+        this.authprovider.postData(this.userData, 'login').then(function (result) {
+            _this.responseData = result;
+            if (_this.responseData.userData) {
+                console.log(_this.responseData);
+                loader.dismiss();
+                localStorage.setItem('userData', JSON.stringify(_this.responseData));
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+            }
+            else {
+                loader.dismiss();
+                alert("Username or Password Invalid");
+            }
+        }, function (err) {
+            // Error log
         });
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/login/login.html"*/'<ion-content class="background">\n    <h1 style="margin-top:80px;">SMART PROPERT ASSESS</h1>\n    <ion-card>\n    \n      <ion-card-header>\n        \n        <a (click)="skip()" float-Right>Skip This</a><br>Login\n      </ion-card-header>\n  \n      <ion-card-content>\n        <!-- Add card content here! -->\n        <ion-list no-lines>\n          <ion-item>\n          <ion-label floating>\n            Email Address\n          </ion-label>\n            <ion-input type="text" [(ngModel)]="user.email"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>\n              Password\n          </ion-label>\n            <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n          <ion-item>\n            <p>Forgot password?<a href="#" (click)="ForgotPassword()">Get Here</a></p>\n          </ion-item>\n          <button ion-button color="danger" ion-left block (click)="login(user)">LOGIN</button>\n        </ion-list>\n        <b>OR</b>\n          <button ion-button color="primary" ion-left block (click)="doFbLogin()">\n            <ion-icon name="logo-facebook"></ion-icon>\n            <div>Login With Facebook</div>\n          </button>\n          <!--\n          <button ion-button color="danger" ion-left block (click)="googlelogin()">\n            <ion-icon name="logo-googleplus"></ion-icon>\n            <div>Login With Google</div>\n          </button> -->\n          <hr width="80%">\n          <b><a (click)="register()" >Create an Account</a></b>\n      </ion-card-content>\n    \n    </ion-card>\n  \n  </ion-content>'/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/login/login.html"*/'<ion-content class="background">\n  \n  <h1 style="margin-top:80px;">SMART PROPERTY ASSESS</h1>\n  <ion-card>\n  \n    <ion-card-header>\n      \n      <a (click)="skip()" float-Right>Skip This</a>\n    </ion-card-header>\n\n    <ion-card-content >\n      <!-- Add card content here! -->\n      <ion-list no-lines>\n        <ion-item>\n        <ion-label floating>\n          Email or Username\n        </ion-label>\n          <ion-input type="text" [(ngModel)]="userData.username"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>\n            Password\n        </ion-label>\n          <ion-input type="password" [(ngModel)]="userData.password"></ion-input>\n      </ion-item>\n        <ion-item>\n          <p>Forgot password?<a href="#" (click)="ForgotPassword()">Get Here</a></p>\n        </ion-item>\n        <ion-row style="margin-left:12%;margin-right:12%">\n        <button ion-button block round full class="btn" style="height:50px;" (click)="loginSql()">LOGIN</button>\n        </ion-row>\n      </ion-list>\n      <!--<b>OR</b>\n        <button ion-button color="primary" ion-left block (click)="doFbLogin()">\n          <ion-icon name="logo-facebook"></ion-icon>\n          <div>Login With Facebook</div>\n        </button>-->\n        <!--\n        <button ion-button color="danger" ion-left block (click)="googlelogin()">\n          <ion-icon name="logo-googleplus"></ion-icon>\n          <div>Login With Google</div>\n        </button> -->\n        <hr width="80%">\n        <a (click)="register()" style="font-size:20px" >Create an Account</a>\n    </ion-card-content>\n  \n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__["a" /* Facebook */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["s" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["o" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["v" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__["a" /* Facebook */],
+            __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_9__ionic_native_google_plus__["a" /* GooglePlus */]])
     ], LoginPage);
     return LoginPage;
@@ -264,18 +384,18 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 118:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapDirectionPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EstimatePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__estimate_estimate__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_loading_loading_controller__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sell_sell__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -293,26 +413,1008 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
+ * Generated class for the EstimatePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EstimatePage = (function () {
+    function EstimatePage(navCtrl, navParams, nativeStorage, restProvider, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.nativeStorage = nativeStorage;
+        this.restProvider = restProvider;
+        this.loadingCtrl = loadingCtrl;
+        this.dataReady = false;
+        this.load_success = 0;
+        this.lon1 = 100.772072;
+        this.lon2 = 100.77227210000001;
+        this.lat2 = 13.7217572;
+        this.lat1 = 13.7201804;
+        this.retrieveData();
+        this.data = JSON.parse(localStorage.getItem('dataMap'));
+    }
+    EstimatePage.prototype.retrieveData = function () {
+        var _this = this;
+        this.nativeStorage.getItem('data_service').then(function (data) {
+            _this.data_service = {
+                lat: data.lat,
+                lon: data.lon,
+                id: data.id,
+                well: data.well,
+                road: data.road,
+                shape: data.shape,
+                width: data.width,
+                size: data.size,
+                appraisal: data.appraisal,
+                distance: data.distance,
+                type_size: data.type_size,
+                province_id: data.province_id,
+                amphur_code: data.amphur_code
+            };
+            _this.id = _this.data_service.id; //ระยะทางจาการวัด
+            _this.well = _this.data_service.well;
+            _this.road = _this.data_service.road;
+            _this.shape = _this.data_service.shape;
+            _this.width = _this.data_service.width;
+            _this.size = _this.data_service.size;
+            _this.appraisal = _this.data_service.appraisal;
+            _this.appraisal_parse = _this.appraisal.toLocaleString();
+            _this.distance = _this.data_service.distance;
+            _this.type_size = _this.data_service.type_size;
+            _this.lat = _this.data_service.lat;
+            _this.lon = _this.data_service.lon;
+            _this.province_id = _this.data_service.province_id;
+            _this.amphur_code = _this.data_service.amphur_code;
+            _this.dataReady = true;
+            /*console.log(this.type_size);
+            console.log(this.lat);
+            console.log(this.lon);
+            console.log(this.road);
+            console.log(this.shape);
+            console.log(this.width);*/
+            _this.getInfo(_this.lat, _this.lon, _this.province_id, _this.amphur_code, _this.well, _this.road, _this.shape, _this.width, _this.type_size, _this.id, _this.appraisal, _this.size);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    EstimatePage.prototype.getInfo = function (lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size) {
+        var _this = this;
+        this.presentLoading();
+        this.restProvider.getTotal(lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size)
+            .then(function (data) {
+            var results = data;
+            _this.result = results.toLocaleString();
+            console.log(_this.result);
+            var dataResults = { "results": results };
+            var dataResultsJson = JSON.stringify(dataResults);
+            localStorage.setItem('dataResults', dataResultsJson);
+            console.log(dataResultsJson);
+            _this.loading.dismiss();
+            _this.load_success = 1;
+        }, function (error) {
+            console.log("พัง");
+        });
+    };
+    EstimatePage.prototype.presentLoading = function () {
+        this.loading = this.loadingCtrl.create({
+            spinner: "dots",
+            content: 'กำลังประมวลผลข้อมูล'
+        });
+        this.loading.present();
+    };
+    EstimatePage.prototype.toSell = function () {
+        var _this = this;
+        this.presentLoading();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__sell_sell__["a" /* SellPage */]);
+        setTimeout(function () {
+            _this.loading.dismiss();
+        }, 2000);
+    };
+    EstimatePage.prototype.toHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__home_home__["a" /* HomePage */]);
+    };
+    EstimatePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-estimate',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/estimate/estimate.html"*/'\n<ion-header header-ios hidden>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n    </ion-navbar>\n  </ion-header>\n    <ion-content padding *ngIf=\'dataReady\'>\n        <div *ngIf=\'load_success == 1\'>\n            <h2 style="text-align:center;margin-top:15%">ผลการประเมินราคาอสังหาริมทรัพย์</h2>\n        <ion-col col-12 map-content transparent >\n            <ion-item-group>\n                \n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>\n                    <span>{{ appraisal_parse }} บาท/ตาราวา</span>\n                </ion-item>\n                <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n                  <span>{{ distance }} กิโลเมตร</span>\n              </ion-item>\n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>\n                    <span>{{ size }} ตารางวา</span>\n                </ion-item>\n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>\n                    <span style="color:blue">{{ result }} บาท</span>\n                </ion-item>\n                <ion-row style="text-align:center">\n                    <ion-col col-12 style="padding-left:15%;padding-right:15%">\n                        <button ion-button round full color="light" (click)="toSell()" style="color:white;font-size:24px;height:50px;" class="grad">ลงขาย</button>\n                    </ion-col>\n                </ion-row>\n            </ion-item-group>\n            <a (click)="toHome()" >กลับสู่หน้าหลัก</a>\n        </ion-col>\n            \n        </div>\n    </ion-content>\n    '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/estimate/estimate.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */]])
+    ], EstimatePage);
+    return EstimatePage;
+}());
+
+//# sourceMappingURL=estimate.js.map
+
+/***/ }),
+
+/***/ 121:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SellPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file_transfer__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_file__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_image_picker__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_auth_auth__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__list_list__ = __webpack_require__(122);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the SellPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SellPage = (function () {
+    function SellPage(navCtrl, transfer, file, nativeStorage, alert, imagePicker, sanitizer, authprovider, currencyPipe, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.transfer = transfer;
+        this.file = file;
+        this.nativeStorage = nativeStorage;
+        this.alert = alert;
+        this.imagePicker = imagePicker;
+        this.sanitizer = sanitizer;
+        this.authprovider = authprovider;
+        this.currencyPipe = currencyPipe;
+        this.loadingCtrl = loadingCtrl;
+        this.myphoto = [];
+        this.imageChosen = 0;
+        this.a = 0;
+        this.xxx = [];
+        this.dataReady = false;
+        this.test = 30;
+        var data = JSON.parse(localStorage.getItem('userData'));
+        this.userDetails = data.userData;
+        console.log(this.userDetails);
+        this.dataMaps = JSON.parse(localStorage.getItem('dataMap'));
+        //console.log(this.data.lon);
+        this.dataResult = JSON.parse(localStorage.getItem('dataResults'));
+        this.result = this.dataResult.results.toLocaleString();
+    }
+    SellPage.prototype.up = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            spinner: "dots",
+            content: 'กำลังอัพโหลดข้อมูล'
+        });
+        this.presentLoading();
+        this.sellData = { "name": this.name,
+            "area_size": this.dataMaps.area_size,
+            "area_appraisal": this.dataResult.results,
+            "dpm_appraisal": this.dataMaps.dpm_appraisal,
+            "distance": this.dataMaps.distance,
+            "sell_price": this.sell_price,
+            "phone": this.phone,
+            "province": this.dataMaps.province,
+            "amphur": this.dataMaps.amphur,
+            "deed_number": this.dataMaps.deed_number,
+            "road": this.dataMaps.road,
+            "width": this.dataMaps.width,
+            "shape": this.dataMaps.shape,
+            "description": this.description,
+            "user_id": this.userDetails.user_id };
+        if (this.name == null || this.sell_price == null || this.phone == null || this.description == null) {
+            alert("กรุณากรอกข้อมูลให้ครบ");
+            //loader.dismiss();
+        }
+        else {
+            this.authprovider.postData(this.sellData, 'sellUpload').then(function (result) {
+                _this.responseData = result;
+                _this.uploadImage();
+                //alert("สำเร็จ");
+                /*setTimeout(() => {
+                  loader.dismiss();
+                }, 6000);*/
+            }, function (err) {
+                // Error log
+            });
+        }
+        console.log(this.phone);
+        console.log(this.name);
+        console.log(this.description);
+    };
+    SellPage.prototype.presentLoading = function () {
+        this.loading = this.loadingCtrl.create({
+            spinner: "dots",
+            content: 'กำลังอัพโหลดข้อมูล'
+        });
+        this.loading.present();
+    };
+    SellPage.prototype.takePhoto = function () {
+        var _this = this;
+        /*const options: CameraOptions = {
+          quality: 70,
+          destinationType: this.camera.DestinationType.DATA_URL,
+          encodingType: this.camera.EncodingType.JPEG,
+          mediaType: this.camera.MediaType.PICTURE
+        }
+    
+        this.camera.getPicture(options).then((imageData) => {
+          // imageData is either a base64 encoded string or a file URI
+          // If it's base64:
+          //this.myphoto = 'data:image/jpeg;base64,' + imageData;
+        }, (err) => {
+          // Handle error
+        });*/
+        var options = {
+            maximumImagesCount: 5,
+            width: 500,
+            height: 500,
+            quality: 50,
+        };
+        this.imagePicker.getPictures(options).then(function (imgUrl) {
+            for (var i = 0; i < imgUrl.length; i++) {
+                //this.myphoto = imgUrl;
+                //this.myphoto = imgUrl[i].replace('file://', '');
+                _this.myphoto.push(imgUrl[i].replace('file://', ''));
+            }
+            //this.myphoto = imgUrl;
+            console.log(_this.myphoto);
+            _this.imageChosen = 1;
+        });
+    };
+    SellPage.prototype.startUpload = function () {
+        console.log("in start uploads");
+        this.uploadImage();
+    };
+    SellPage.prototype.loader = function () {
+    };
+    SellPage.prototype.uploadImage = function () {
+        //Show loading
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            spinner: "dots",
+            content: 'กำลังอัพโหลดข้อมูล'
+        });
+        //create file transfer object
+        var fileTransfer = this.transfer.create();
+        //random int
+        var random = Math.floor(Math.random() * 100);
+        //option transfer
+        var options = {
+            fileKey: 'photo',
+            fileName: "myImage_" + random + ".jpg",
+            chunkedMode: false,
+            httpMethod: 'post',
+            mimeType: "image/jpeg",
+            headers: {}
+        };
+        //file transfer action
+        console.log("in this section");
+        var xx = [1, 2, 3, 4, 5];
+        fileTransfer.upload(this.myphoto[0], 'https://smartball.000webhostapp.com/uploads/upload_product.php', options)
+            .then(function (data) {
+            console.log(data);
+        }, function (err) {
+            console.log(err);
+        });
+        for (var i = 0; i < xx.length;) {
+            (function (i) {
+                setTimeout(function () {
+                    fileTransfer.upload(_this.myphoto[i], 'https://smartball.000webhostapp.com/uploads/upload.php', options)
+                        .then(function (data) {
+                        console.log(data);
+                        //alert("Success");
+                        //loader.dismiss();
+                    }, function (err) {
+                        console.log(err);
+                        //alert("Error");
+                        //loader.dismiss();
+                    });
+                }, 800 * i);
+            })(i++);
+        }
+        setTimeout(function () {
+            _this.loading.dismiss();
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_9__list_list__["a" /* ListPage */]);
+        }, 7000);
+    };
+    SellPage.prototype.deletePhoto = function (index) {
+        var _this = this;
+        var confirm = this.alert.create({
+            title: index,
+            message: 'คุณต้องการลบรูปภาพนี้ใช้ไหม?',
+            buttons: [
+                {
+                    text: 'ไม่ใช่',
+                    handler: function () {
+                        console.log('cancel');
+                    }
+                },
+                {
+                    text: 'ตกลง',
+                    handler: function () {
+                        _this.myphoto.splice(index, 1);
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    SellPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-sell',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/sell/sell.html"*/'<!--\n  Generated template for the SellPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar transparent>\n  <button ion-button menuToggle>\n    <ion-icon name="menu" color="primary"></ion-icon>\n  </button>\n  <ion-title>ลงขาย</ion-title>\n</ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n      \n      <ion-row>\n          <ion-col col-12>\n              <ion-label color="primary" style="font-size: 16px;" stacked>ตั้งชื่อประกาศขาย</ion-label>\n              <ion-input required placeholder="ex.ขายบ้านถูกราคา 1 ล้านบาท"  type="text"  [(ngModel)]="name"></ion-input>\n          </ion-col>\n      </ion-row>\n     \n      <ion-row>\n        <ion-col col-6>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ขนาดที่ดิน</ion-label>\n            <ion-input required type="text" [value]="dataMaps.area_size" style="color:blue" disabled></ion-input>\n        </ion-col>\n        <ion-col col-6>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาประเมิน</ion-label>\n            <ion-input required type="text" [value]="result" style="color:blue" disabled></ion-input>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาขาย</ion-label>\n            <ion-input required placeholder="999,999"  type="number"  [(ngModel)]="sell_price"></ion-input>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n            <ion-label color="primary" style="font-size: 16px;" stacked>เบอร์โทร</ion-label>\n            <ion-input required placeholder="0895555555"  type="tel" [(ngModel)]="phone"></ion-input>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>      \n            <ion-label color="primary" style="font-size: 16px;" stacked>รายละเอียด</ion-label>\n            <textarea name="" id="" style="width:100%" placeholder="ใส่รายละเอียดของอสังหาริมทรัพย์เพิ่มเติม" rows="10" [(ngModel)]="description"></textarea>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n              <div *ngIf="imageChosen == 1 " >\n                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>\n                <ion-grid style="border: gray solid 2px;border-radius:5px;" >\n                    <ion-row>\n                      <ion-col width-50 *ngFor="let myphoto of myphoto" col-4>\n                          <ion-card class="block">\n                            \n                              <ion-icon name="ios-trash" class="deleteIcon" (click)="deletePhoto(index)"></ion-icon>\n                              <img [src]="myphoto" (click)="getImage()" class="img-st" alt="">\n                                \n                          </ion-card>\n                      </ion-col>\n                    </ion-row>\n                    <div class="border-st"> \n                        <ion-icon name="ios-reverse-camera-outline" class="plus" (click)="takePhoto()"></ion-icon>\n                    </div>\n                </ion-grid>  \n            </div>   \n            <div class="uploadWrap" *ngIf="imageChosen == 0" >\n                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>\n                <ion-icon (click)="takePhoto()" name="md-images" class="img-grad" style="color:#b9b8b8;"></ion-icon>\n            </div>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col col-12>\n          <button ion-button round (click)="up()" full class="grad1">Upload</button>\n        </ion-col>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/sell/sell.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_8__angular_common__["c" /* CurrencyPipe */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_file_transfer__["a" /* FileTransfer */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_file__["a" /* File */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_native_storage__["a" /* NativeStorage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_image_picker__["a" /* ImagePicker */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["c" /* DomSanitizer */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_common__["c" /* CurrencyPipe */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */]])
+    ], SellPage);
+    return SellPage;
+}());
+
+//# sourceMappingURL=sell.js.map
+
+/***/ }),
+
+/***/ 122:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__appraisal_appraisal__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(39);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the ListPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ListPage = (function () {
+    function ListPage(navCtrl, navParams, authprovider, currencyPipe, restProvider) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.authprovider = authprovider;
+        this.currencyPipe = currencyPipe;
+        this.restProvider = restProvider;
+        this.restProvider.getProduct()
+            .then(function (prod) {
+            _this.product = prod;
+            //console.log(this.product);
+            _this.data(prod);
+        });
+        var data = JSON.parse(localStorage.getItem('userData'));
+        this.userDetails = data.userData;
+    }
+    ListPage.prototype.event = function (product) {
+        var _this = this;
+        this.coordinate = { "lat": product.LAT, "lng": product.LNG };
+        this.dataSend = { "id": product.ID };
+        console.log(JSON.stringify(this.coordinate));
+        //this.navCtrl.push(AppraisalPage,{id:product.ID});
+        //console.log(product.ID);
+        //console.log(JSON.stringify(this.dataSend));
+        this.authprovider.postData(this.dataSend, 'getProduct').then(function (result) {
+            _this.responseData = result;
+            if (_this.responseData) {
+                _this.productSend = JSON.stringify(_this.responseData);
+                //console.log(this.productSend);
+                localStorage.setItem('itemData', _this.productSend);
+                //this.navCtrl.push(AppraisalPage);
+            }
+            else {
+                alert("");
+            }
+        }, function (err) {
+            // Error log
+        });
+        this.authprovider.postData(this.dataSend, 'getImg').then(function (result) {
+            _this.responseData = result;
+            if (_this.responseData) {
+                _this.imgSend = JSON.stringify(_this.responseData);
+                //console.log(this.imgSend);
+                localStorage.setItem('imgData', _this.imgSend);
+                //this.navCtrl.push(AppraisalPage);
+            }
+            else {
+                alert("");
+            }
+        }, function (err) {
+            // Error log
+        });
+        this.authprovider.postData(this.coordinate, 'nearBy').then(function (result) {
+            _this.responseData = result;
+            if (_this.responseData) {
+                _this.nearSend = JSON.stringify(_this.responseData);
+                //console.log(this.nearSend);
+                localStorage.setItem('near', _this.nearSend);
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__appraisal_appraisal__["a" /* AppraisalPage */]);
+            }
+            else {
+                alert("");
+            }
+        }, function (err) {
+            // Error log
+        });
+    };
+    ListPage.prototype.data = function (_data) {
+        for (var i = 0; i < _data.length; i++) {
+            this.price = this.currencyPipe.transform(_data[i].SELL_PRICE, 'THB ', true, '1.0-2');
+            console.log(this.price);
+        }
+    };
+    ListPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-list',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/list/list.html"*/'<!--\n  Generated template for the ListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  \n    <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title>\n          <ion-icon name="md-basket"></ion-icon>\n        Market Place\n      </ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-card *ngFor="let product of product" (click)="event(product)">\n      \n        <ion-item>\n          <ion-avatar item-start>\n            <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}">\n          </ion-avatar>\n          <h2>{{ product.name }}</h2>\n          <p></p>\n        </ion-item>\n      \n        <img src="https://smartball.000webhostapp.com/uploads/images_product/{{product.NAME_IMG}}" style="height:300px" >\n        \n        <ion-card-content>\n          \n          <ion-item>\n              <ion-icon name="md-text" style="color:cornflowerblue" item-left large ></ion-icon>\n              \n              <h2 style="color:cornflowerblue">{{ product.NAME }}</h2>\n        </ion-item>\n          <ion-item>\n          <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>\n          \n          <h2 style="color:orangered">{{product.SELL_PRICE | number: \'1.0-0\'}} บาท</h2>\n        </ion-item>\n        </ion-card-content>\n      \n        \n      </ion-card>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/list/list.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_5__angular_common__["c" /* CurrencyPipe */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_common__["c" /* CurrencyPipe */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]])
+    ], ListPage);
+    return ListPage;
+}());
+
+//# sourceMappingURL=list.js.map
+
+/***/ }),
+
+/***/ 176:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(56);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var UserPage = (function () {
+    function UserPage(navCtrl, fb, loadingCtrl, nativeStorage, afAuth, googlePlus) {
+        this.navCtrl = navCtrl;
+        this.fb = fb;
+        this.loadingCtrl = loadingCtrl;
+        this.nativeStorage = nativeStorage;
+        this.afAuth = afAuth;
+        this.googlePlus = googlePlus;
+        this.userReady = false;
+        this.success = 0;
+        this.imgs = 'assets/imgs/bg.png';
+        if (localStorage.getItem('userData')) {
+            this.success = 1;
+            var data = JSON.parse(localStorage.getItem('userData'));
+            this.userDetails = data.userData;
+            console.log(this.userDetails.NAME_IMG);
+        }
+        else {
+            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+        }
+    }
+    UserPage.prototype.logout = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            spinner: "dots",
+            content: "Please wait..."
+        });
+        loader.present();
+        localStorage.clear();
+        setTimeout(function () {
+            loader.dismiss();
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+        }, 2000);
+    };
+    UserPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-user',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/user/user.html"*/'<ion-header header-ios>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-toolbar>\n        User Details\n      </ion-toolbar>\n    </ion-navbar>\n  </ion-header>\n    \n    \n    <ion-content parallax *ngIf=\'success == 1\'>\n      <div>\n          <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="bg">\n      </div>\n      <div class="main-cnt">\n        <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="dp">\n      </div>\n      <ion-card *ngIf=\'success == 1\'>\n        <ion-card-content>\n          <ion-card-title>\n              Welcome to {{userDetails.name}}\n            </ion-card-title>\n          <p>\n              Email: {{userDetails.email}}\n          </p>\n        </ion-card-content>\n        <ion-row>\n          <ion-col>\n            <button ion-button block (click)="logout()">Logout</button>\n          </ion-col>\n        </ion-row>\n      </ion-card>\n     \n    </ion-content>\n    '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/user/user.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__["a" /* Facebook */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
+            __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */]])
+    ], UserPage);
+    return UserPage;
+}());
+
+//# sourceMappingURL=user.js.map
+
+/***/ }),
+
+/***/ 213:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppraisalPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__ = __webpack_require__(577);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_call_number__ = __webpack_require__(578);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the AppraisalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AppraisalPage = (function () {
+    function AppraisalPage(navCtrl, navParams, view, modalCtrl, nativeStorage, authprovider, platform, launchNavigator, loadingCtrl, currencyPipe, callNumber, restProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.view = view;
+        this.modalCtrl = modalCtrl;
+        this.nativeStorage = nativeStorage;
+        this.authprovider = authprovider;
+        this.platform = platform;
+        this.launchNavigator = launchNavigator;
+        this.loadingCtrl = loadingCtrl;
+        this.currencyPipe = currencyPipe;
+        this.callNumber = callNumber;
+        this.restProvider = restProvider;
+        this.product = JSON.parse(localStorage.getItem('itemData'));
+        this.product_img = JSON.parse(localStorage.getItem('imgData'));
+        var near = JSON.parse(localStorage.getItem('near'));
+        this.start = "";
+        var count = Object.keys(near).length;
+        console.log(count);
+        if (count == 2) {
+            this.load = 1;
+            this.nearBy = JSON.parse(localStorage.getItem('near'));
+            console.log('sdad');
+        }
+        else if (count > 2) {
+            this.load = 2;
+            this.nearBy = JSON.parse(localStorage.getItem('near'));
+        }
+        else {
+            this.load = 2;
+            this.nearBy = JSON.parse(localStorage.getItem('near'));
+        }
+        var ph = this.product.PHONE;
+        this.phone = ph.slice(0, 3) + "-" + ph.slice(3, 6) + "-" + ph.slice(6);
+    }
+    AppraisalPage.prototype.event = function (product) {
+        this.destination = product.LAT + ',' + product.LNG;
+        console.log(this.destination);
+        var options = {
+            start: this.start,
+        };
+        this.launchNavigator.navigate(this.destination, options)
+            .then(function (success) { return console.log('Launched navigator'); }, function (error) { return console.log('Error launching navigator', error); });
+    };
+    AppraisalPage.prototype.call = function () {
+        console.log("hi");
+        this.callNumber.callNumber(this.product.PHONE, true)
+            .then(function (res) { return console.log('Launched dialer!', res); })
+            .catch(function (err) { return console.log('Error launching dialer', err); });
+    };
+    AppraisalPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-appraisal',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/appraisal/appraisal.html"*/'<ion-header>\n    \n      <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title>\n          <ion-icon name="md-basket"></ion-icon>\n        Market Place\n      </ion-title>\n    </ion-navbar>\n    \n    </ion-header>\n    \n    <ion-content>\n       <ion-card>\n        <div class="block">\n            <ion-slides class="image-slider" loop="true" effect="coverflow" autoplay="10000" pager="true" zoom="true">\n                <ion-slide *ngFor="let img of product_img">\n                    <img src="https://smartball.000webhostapp.com/uploads/images/{{img.NAME_IMG}}" class="thumb-img" imageViewer>\n                </ion-slide>\n            </ion-slides>\n      <ion-fab right top class="Icon">\n        <button ion-fab (click)="event(product)">\n          <ion-icon name="pin"></ion-icon>\n        </button>\n      </ion-fab>\n      </div>\n      <ion-item>\n            \n            <button ion-button icon-left clear item-end>\n              <ion-icon  name="md-pin"></ion-icon>\n              {{ product.PROVINCE_NAME }}, {{ product.AMPHUR_NAME }}\n            </button>\n          </ion-item>\n      <ion-item>\n        <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>\n        <label stacked>ราคาประกาศขาย</label>\n        <h2 style="color:orangered">{{product.SELL_PRICE | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-pricetags" style="color:orange" item-left large ></ion-icon>\n        <label stacked>ราคาประเมิน</label>\n        <h2 style="color:orange">{{product.AREA_APPRAISAL | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-pricetag" style="color:cornflowerblue" item-left large ></ion-icon>\n        <label stacked>ราคาประเมินกรมที่ดิน</label>\n        <h2 style="color:cornflowerblue">{{product.DPM_APPRAISAL | number: \'1.0-0\'}} บาท</h2>\n      </ion-item> \n      <ion-item>\n        <ion-icon name="md-map" style="color:cornflowerblue" item-left large ></ion-icon>\n        <label stacked>ขนาดที่ดิน</label>\n        <h2 style="color:cornflowerblue">{{ product.SIZE }} ตารางวา</h2>\n      </ion-item>\n          \n      <ion-item>\n        <ion-icon name="navigate" style="color:cornflowerblue" item-left large ></ion-icon>\n        <label stacked>ระยะห่างที่ดินถึงถนนหลัก</label>\n        <h2 style="color:cornflowerblue">{{ product.DISTANCE }} กิโลเมตร</h2>\n      </ion-item>\n      <ion-item>\n            <ion-icon name="ios-phone-portrait-outline" style="color:cornflowerblue" item-left large ></ion-icon>\n            <label stacked>เบอร์โทรติดต่อ</label>\n            <h2 style="color:cornflowerblue" (click)="call()">{{ phone }}</h2>\n            \n      </ion-item>\n      <ion-item>\n            <ion-icon name="md-text" style="color:cornflowerblue" item-left large ></ion-icon>\n            <label stacked>รายละเอียดเพิ่มเติม</label>\n            <h2 style="color:cornflowerblue">{{ product.DESCRIPTION }}</h2>\n      </ion-item>\n      <ion-row style="text-align:center">\n            <ion-item>\n                    <ion-icon name="ios-compass" style="color:cornflowerblue" item-left large ></ion-icon>\n                    <label stacked>สถานที่ใกล้เคียงกับที่ดิน</label>\n                    <p>ภายในระยะ 2 กิโลเมตร</p>\n              </ion-item>\n      <ion-grid *ngIf=\'load == 2\'>\n            <ion-row *ngFor="let nearBy of nearBy">\n              \n              <ion-col col-6 style="border: lightgray solid 1px;">\n                    <h2>{{nearBy.NAME}}</h2>\n              </ion-col>\n              <ion-col col-6 style="border: lightgray solid 1px;">\n                    <h2>{{nearBy.distance | number: \'1.3-3\'}} กิโลเมตร</h2>\n                </ion-col>\n            </ion-row>\n            \n        </ion-grid>   \n        <ion-grid *ngIf=\'load == 1\'>\n          <ion-row style="border: lightgray solid 1px;">\n            \n            <ion-col col-6 >\n                  <h2>{{nearBy.NAME}}</h2>\n            </ion-col>\n            <ion-col col-6 >\n                  <h2>{{nearBy.distance}} ในระยะ 2 กิโลเมตร</h2>\n              </ion-col>\n          </ion-row>\n          \n      </ion-grid>   \n      </ion-row>  \n      \n    \n    </ion-card>\n    </ion-content>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/appraisal/appraisal.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__["a" /* LaunchNavigator */], __WEBPACK_IMPORTED_MODULE_6__angular_common__["c" /* CurrencyPipe */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_call_number__["a" /* CallNumber */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["x" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__["a" /* LaunchNavigator */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_common__["c" /* CurrencyPipe */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_call_number__["a" /* CallNumber */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */]])
+    ], AppraisalPage);
+    return AppraisalPage;
+}());
+
+//# sourceMappingURL=appraisal.js.map
+
+/***/ }),
+
+/***/ 214:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file_transfer__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_file__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(579);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the RegisterPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var RegisterPage = (function () {
+    function RegisterPage(navCtrl, navParams, afAuth, authprovider, loadingCtrl, alertCtrl, camera, transfer, file, actionSheet, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.afAuth = afAuth;
+        this.authprovider = authprovider;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.camera = camera;
+        this.transfer = transfer;
+        this.file = file;
+        this.actionSheet = actionSheet;
+        this.toastCtrl = toastCtrl;
+        this.user = {};
+        this.imageChosen = 0;
+        this.userData = { "username": "", "password": "", "name": "", "email": "" };
+    }
+    RegisterPage.prototype.signup = function () {
+        var _this = this;
+        var loader = this.loadingCtrl.create({
+            spinner: "dots",
+            content: 'กำลังสมัครสมาชิก'
+        });
+        loader.present();
+        this.authprovider.postData(this.userData, 'signup').then(function (result) {
+            _this.responseData = result;
+            if (_this.responseData.userData) {
+                //console.log(this.responseData);
+                //localStorage.setItem('userData', JSON.stringify(this.responseData));
+                loader.dismiss();
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+            }
+            else {
+                alert("User already exists");
+            }
+        }, function (err) {
+            // Error log
+        });
+        this.upload();
+    };
+    RegisterPage.prototype.login = function () {
+        //Login page link
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+    };
+    RegisterPage.prototype.chooseImage = function () {
+        var _this = this;
+        var actionSheet = this.actionSheet.create({
+            title: 'Choose Picture Source',
+            buttons: [
+                {
+                    text: 'Gallery',
+                    icon: 'albums',
+                    handler: function () {
+                        _this.actionHandler(1);
+                    }
+                }, {
+                    text: 'Camera',
+                    icon: 'camera',
+                    handler: function () {
+                        _this.actionHandler(2);
+                    }
+                }, {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    RegisterPage.prototype.actionHandler = function (selection) {
+        var _this = this;
+        var options;
+        if (selection == 1) {
+            options = {
+                quality: 100,
+                destinationType: this.camera.DestinationType.DATA_URL,
+                sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit: true,
+                encodingType: this.camera.EncodingType.JPEG,
+                saveToPhotoAlbum: false,
+                targetWidth: 600,
+                targetHeight: 850,
+            };
+        }
+        else {
+            options = {
+                quality: 100,
+                destinationType: this.camera.DestinationType.DATA_URL,
+                sourceType: this.camera.PictureSourceType.CAMERA,
+                allowEdit: true,
+                encodingType: this.camera.EncodingType.JPEG,
+                saveToPhotoAlbum: true,
+                targetWidth: 600,
+                targetHeight: 850,
+            };
+        }
+        this.camera.getPicture(options).then(function (imageData) {
+            var base64Image = 'data:image/jpeg;base64,' + imageData;
+            _this.imageChosen = 1;
+            _this.imagePath = base64Image;
+        });
+    };
+    RegisterPage.prototype.upload = function () {
+        //create file transfer object
+        var fileTransfer = this.transfer.create();
+        //random int
+        var random = Math.floor(Math.random() * 100);
+        //option transfer
+        var options = {
+            fileKey: 'photo',
+            fileName: "myImage_" + random + ".jpg",
+            chunkedMode: false,
+            httpMethod: 'post',
+            mimeType: "image/jpeg",
+            headers: {}
+        };
+        //file transfer action
+        console.log("in this section");
+        fileTransfer.upload(this.imagePath, 'https://smartball.000webhostapp.com/uploads/user_upload.php', options)
+            .then(function (data) {
+            console.log(data);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    RegisterPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-register',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/register/register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header hidden>\n  \n    <ion-navbar>\n      <ion-title>Register</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content padding>\n    <ion-grid>\n      <ion-row padding-horizontal align-items-start>\n          \n          <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>\n              \n              \n              <h1 ion-text style="color:lightgray;font-size:35px;" title>Register your new Account</h1>\n              <div class="uploadWrap" *ngIf="imageChosen == 0" >\n                  <ion-icon (click)="chooseImage()" name="ios-camera" class="camera" ></ion-icon>\n                  <ion-icon (click)="chooseImage()" class="user" name="ios-contact" style="color:#b9b8b8;"></ion-icon>\n              </div>\n              <div class="imgWrap" *ngIf="imageChosen == 1" >\n                  <ion-icon (click)="chooseImage()" name="ios-camera-outline" class="camera"></ion-icon>\n                  <img [src]="imagePath" class="img-user" (click)="chooseImage()" alt="">\n              </div>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>EMAIL</ion-label>\n                  <ion-input required placeholder="Your e-mail address" type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="userData.email"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>USERNAME</ion-label>\n                  <ion-input required placeholder="Your Lastname" type="text" required [(ngModel)]="userData.username"></ion-input>\n              </ion-item>\n              \n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>FULL NAME</ion-label>\n                  <ion-input required placeholder="Your Firstname & Lastname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="userData.name"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>PASSWORD</ion-label>\n                  <ion-input required placeholder="Enter your password" type="password" [(ngModel)]="userData.password"></ion-input>\n                </ion-item>\n              \n              \n              <button ion-button full round (click)="signup()" class="img-grad">Register</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n    \n  </ion-content>\n  <!--<ion-content padding class="appBackground">\n    <ion-card>\n      <ion-card-header>\n        Registration\n      </ion-card-header>\n      <ion-card-content>\n        <ion-list>\n          <ion-item>\n            <ion-label stacked>Name</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.name"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Email</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.email"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Username</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.username"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="userData.password"></ion-input>\n          </ion-item>\n  \n          <button ion-button full color="success" (click)="signup()">Sign up</button>\n          <a href="#" (click)="login()">Login Page</a>\n        </ion-list>\n      </ion-card-content>\n    </ion-card>\n  </ion-content>-->\n  '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/register/register.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_file_transfer__["a" /* FileTransfer */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_file__["a" /* File */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* ToastController */]])
+    ], RegisterPage);
+    return RegisterPage;
+}());
+
+//# sourceMappingURL=register.js.map
+
+/***/ }),
+
+/***/ 215:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapDirectionPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__estimate_estimate__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_loading_loading_controller__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_auth_auth__ = __webpack_require__(51);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+/**
  * Generated class for the MapDirectionPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 var MapDirectionPage = (function () {
-    function MapDirectionPage(navCtrl, navParams, plt, nativeStorage, loadingCtrl, restProvider) {
+    function MapDirectionPage(navCtrl, navParams, plt, authprovider, nativeStorage, loadingCtrl, restProvider) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.plt = plt;
+        this.authprovider = authprovider;
         this.nativeStorage = nativeStorage;
         this.loadingCtrl = loadingCtrl;
         this.restProvider = restProvider;
         this.dataReady = false;
         this.currentTab = 0;
+        this.n = 0;
+        this.load_success = 0;
         this.plt.ready().then(function () {
             _this.showMap();
         });
     }
+    MapDirectionPage.prototype.logForm = function (form) {
+    };
+    MapDirectionPage.prototype.ionViewDidLoad = function () {
+        this.showTab(this.currentTab);
+    };
+    MapDirectionPage.prototype.showTab = function (n) {
+        // This function will display the specified tab of the form...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        //... and fix the Previous/Next buttons:
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+            document.getElementById("succ").style.display = "none";
+        }
+        else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("succ").style.display = "inline";
+            document.getElementById("nextBtn").style.display = "none";
+        }
+        else {
+            document.getElementById("nextBtn").style.display = "inline";
+            document.getElementById("succ").style.display = "none";
+        }
+        //... and run a function that will display the correct step indicator:
+        this.fixStepIndicator(n);
+    };
+    MapDirectionPage.prototype.nextPrev = function (n) {
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !this.validateForm())
+            return false;
+        // Hide the current tab:
+        x[this.currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+        this.currentTab = this.currentTab + n;
+        // if you have reached the end of the form...
+        if (this.currentTab >= x.length) {
+            // ... the form gets submitted:
+            return false;
+        }
+        // Otherwise, display the correct tab:
+        this.showTab(this.currentTab);
+    };
+    MapDirectionPage.prototype.validateForm = function () {
+        // This function deals with validation of the form fields
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[this.currentTab].getElementsByTagName("input");
+        // A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+            // If a field is empty...
+            if (y[i].value == "") {
+                // add an "invalid" class to the field:
+                y[i].className += " invalid";
+                // and set the current valid status to false
+                valid = false;
+            }
+        }
+        // If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+            document.getElementsByClassName("step")[this.currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+    };
+    MapDirectionPage.prototype.fixStepIndicator = function (n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class on the current step:
+        x[n].className += " active";
+    };
     MapDirectionPage.prototype.showMap = function () {
         var markerArray = [];
         //declear>>>
@@ -341,8 +1443,11 @@ var MapDirectionPage = (function () {
                 longitude: data.longitude,
                 size: data.size,
                 province_id: data.province_id,
-                amphur_code: data.amphur_code
+                amphur_code: data.amphur_code,
+                deed_number: data.deed_number
             };
+            _this.deed_number = _this.std.deed_number;
+            _this.appraisal = _this.std.appraisal;
             _this.size = _this.std.size;
             _this.amphur_code = _this.std.amphur_code;
             _this.province_id = _this.std.province_id;
@@ -353,7 +1458,7 @@ var MapDirectionPage = (function () {
         }, function (error) {
             console.log("error");
         });
-        console.log(this.size);
+        console.log(this.lat);
         directionsService.route({
             origin: this.pot,
             destination: 'Bangkok',
@@ -369,6 +1474,14 @@ var MapDirectionPage = (function () {
             else {
             }
         });
+        if (this.size > 100) {
+            this.type_size = 10;
+            return this.type_size;
+        }
+        else {
+            this.type_size = 9;
+            return this.type_size;
+        }
     };
     MapDirectionPage.prototype.showSteps = function (directionResult, markerArray, stepDisplay, map) {
         var myRoute = directionResult.routes[0].legs[0];
@@ -433,52 +1546,112 @@ var MapDirectionPage = (function () {
     MapDirectionPage.prototype.clickservice = function () {
         var _this = this;
         this.nativeStorage.setItem('data_service', {
+            lat: this.lat,
+            lon: this.lon,
             id: this.id_13,
             well: this.well,
             road: this.road,
             shape: this.shape,
             width: this.width,
-            size: this.size
+            size: this.size,
+            appraisal: this.appraisal,
+            distance: this.result_distance,
+            type_size: this.type_size,
+            province_id: this.province_id,
+            amphur_code: this.amphur_code,
+            deed_number: this.deed_number
         }).then(function () {
-            /*console.log(this.id_13);
-            console.log(this.well);
+            _this.dataMap = {
+                "deed_number": _this.deed_number,
+                "lat": _this.lat,
+                "lon": _this.lon,
+                "area_size": _this.size,
+                "dpm_appraisal": _this.appraisal,
+                "province": _this.province_id,
+                "amphur": _this.amphur_code,
+                "shape": _this.shape,
+                "road": _this.road,
+                "width": _this.width,
+                "distance": _this.result_distance
+            };
+            _this.dataMapJson = JSON.stringify(_this.dataMap);
+            console.log(_this.dataMapJson);
+            localStorage.setItem('dataMap', _this.dataMapJson);
+            //console.log(this.type_size);
+            /*console.log(this.well);
             console.log(this.road);
             console.log(this.shape);
             console.log(this.width);
             console.log(this.size);*/
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__estimate_estimate__["a" /* EstimatePage */]);
+            var loading = _this.loadingCtrl.create({
+                content: 'กำลังประเมินราคา'
+            });
+            loading.present();
+            setTimeout(function () {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__estimate_estimate__["a" /* EstimatePage */]);
+            }, 1000);
+            setTimeout(function () {
+                loading.dismiss();
+            }, 1000);
         }, function (error) {
             console.log('พัง');
         });
     };
     MapDirectionPage.prototype.ionViewWillEnter = function () {
-        var _this = this;
         //console.log(this.result_distance,"result");
-        console.log(this.lat, "d1");
+        //console.log(this.lat,"d1");
         //console.log(this.pos_lat,"d2");
+        var _this = this;
         this.showMap();
         this.presentLoading();
-        this.restProvider.getWell(this.province_id, this.amphur_code)
-            .then(function (well) {
-            _this.data_well = well;
-            console.log(_this.data_well);
+        this.dataSend = { "province": this.province_id, "amphur": this.amphur_code };
+        this.authprovider.postData(this.dataSend, 'checkWell').then(function (result) {
+            _this.data_well = result;
+        }, function (err) {
+            // Error log
         });
-        this.restProvider.getRoad(this.province_id, this.amphur_code)
-            .then(function (road) {
-            _this.data_road = road;
-            console.log(_this.data_road);
+        this.authprovider.postData(this.dataSend, 'checkRoad').then(function (result) {
+            _this.data_road = result;
+        }, function (err) {
+            // Error log
         });
-        this.restProvider.getShape(this.province_id, this.amphur_code)
-            .then(function (shape) {
-            _this.data_shape = shape;
-            console.log(_this.data_shape);
+        this.authprovider.postData(this.dataSend, 'checkShape').then(function (result) {
+            _this.data_shape = result;
+        }, function (err) {
+            // Error log
         });
-        this.restProvider.getWidth(this.province_id, this.amphur_code)
-            .then(function (width) {
-            _this.data_width = width;
+        this.authprovider.postData(this.dataSend, 'checkWidth').then(function (result) {
+            _this.data_width = result;
+            _this.load_success = 1;
             _this.loading.dismiss();
-            console.log(_this.data_width);
+        }, function (err) {
+            // Error log
         });
+        /*this.restProvider.getWell(this.province_id,this.amphur_code)
+        .then(well =>{
+          this.data_well = well;
+          
+          console.log(this.data_well);
+        });
+        this.restProvider.getRoad(this.province_id,this.amphur_code)
+        .then(road =>{
+          this.data_road = road;
+          
+          console.log(this.data_road);
+        });
+        this.restProvider.getShape(this.province_id,this.amphur_code)
+        .then(shape =>{
+          this.data_shape = shape;
+          
+          console.log(this.data_shape);
+        });
+        this.restProvider.getWidth(this.province_id,this.amphur_code)
+        .then(width =>{
+          this.data_width = width;
+          this.loading.dismiss();
+          this.load_success = 1;
+          console.log(this.data_width);
+        });*/
     };
     MapDirectionPage.prototype.presentLoading = function () {
         this.loading = this.loadingCtrl.create({
@@ -487,20 +1660,20 @@ var MapDirectionPage = (function () {
         this.loading.present();
     };
     MapDirectionPage.prototype.select = function (item) {
-        this.well = item.id;
+        this.well = item.ID;
         return this.well;
     };
     MapDirectionPage.prototype.select_hr = function (item_hr) {
-        this.road = item_hr.id;
+        this.road = item_hr.ID;
         console.log(this.road);
         return this.road;
     };
     MapDirectionPage.prototype.select_sp = function (item_sp) {
-        this.shape = item_sp.id;
+        this.shape = item_sp.ID;
         return this.shape;
     };
     MapDirectionPage.prototype.select_wd = function (item_wd) {
-        this.width = item_wd.id;
+        this.width = item_wd.ID;
         return this.width;
     };
     __decorate([
@@ -509,11 +1682,12 @@ var MapDirectionPage = (function () {
     ], MapDirectionPage.prototype, "mapRef", void 0);
     MapDirectionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-map-direction',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/map-direction/map-direction.html"*/'<ion-header header-ios>\n        <ion-navbar transparent>\n          <button ion-button menuToggle>\n            <ion-icon name="menu" color="primary"></ion-icon>\n          </button>\n          <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n        </ion-navbar>\n      </ion-header>\n    <ion-content padding >\n        <div #map id="map"></div>\n        <div id="warnings-panel"></div>\n        \n            \n    <form >\n        \n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>\n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n                <ion-item *ngFor="let item of data_well" >\n                    <ion-label>{{item.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n                <ion-item *ngFor="let item_hr of data_road" >\n                    <ion-label>{{item_hr.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                <ion-item *ngFor="let item_sp of data_shape" >\n                    <ion-label>{{item_sp.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n        \n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n                <ion-item *ngFor="let item_wd of data_width" >\n                    <ion-label>{{item_wd.factor_name}}</ion-label>\n                    <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n                </ion-item>\n            </ion-list>\n        \n            <button ion-button (click)="clickservice()"></button>\n    </form>\n            <!--<ion-list radio-group>\n                  <ion-item *ngFor="let item of data_well">\n                    <ion-label>{{ item.factor_name }}</ion-label>\n                    <ion-radio value="item"></ion-radio>\n                  </ion-item>\n            </ion-list>\n            <ion-list radio-group >\n                    <ion-item *ngFor="let item_hr of data_road">\n                    <ion-label>{{ item_hr.factor_name }}</ion-label>\n                    <ion-radio value="item_hr"></ion-radio>\n                    </ion-item>\n            </ion-list>-->\n            \n        <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n            <ion-item *ngFor="let item_hr of items_height_road" >\n                <ion-label>{{item_hr.name}}</ion-label>\n                <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n            </ion-item>\n        </ion-list>-->\n        \n            <!--<ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                <ion-item *ngFor="let item_sp of items_shape" >\n                    <ion-label>{{item_sp.name}}</ion-label>\n                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                </ion-item>\n            </ion-list>-->\n        \n        \n  \n    </ion-content>'/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/map-direction/map-direction.html"*/,
+            selector: 'page-map-direction',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/map-direction/map-direction.html"*/'<ion-header header-ios>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n    </ion-navbar>\n  </ion-header>\n<!--<ion-content padding >\n    <div #map id="map"></div>\n    <div id="warnings-panel"></div>\n    \n        \n<div *ngIf="load_success == 1 ">\n        <div style="text-align:center;">\n                <span class="step" id="step1"></span>\n                <span class="step" id="step2"></span>\n                <span class="step" id="step3"></span>\n                <span class="step" id="step4"></span>\n        </div>\n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>\n        <div class="tab">\n            <p>sadasd</p>\n        </div>\n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n            <ion-item *ngFor="let item of data_well" >\n                <ion-label>{{item.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n            <ion-item *ngFor="let item_hr of data_road" >\n                <ion-label>{{item_hr.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n            <ion-item *ngFor="let item_sp of data_shape" >\n                <ion-label>{{item_sp.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n            <ion-item *ngFor="let item_wd of data_width" >\n                <ion-label>{{item_wd.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n            </ion-item>\n        </ion-list>\n        \n        <div style="float:left;">\n                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">\n                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    \n                </button>\n            </div>\n            <div style="float:right;">\n                <button ion-button round class="grad" id="nextBtn" (click)="nextPrev(1)">\n                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    \n                </button>\n                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>\n            </div>\n</div>\n</ion-content>-->\n<ion-content padding>\n        <div #map id="map"></div>\n        <div id="warnings-panel"></div>\n        <form (ngSubmit)="logForm(form)">\n        \n        <div style="text-align:center;">\n            <span class="step" id="step1">1</span>\n            <span class="step" id="step2">2</span>\n            <span class="step" id="step1">3</span>\n            <span class="step" id="step2">4</span>\n        </div>\n        <div *ngIf="load_success == 1 ">\n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม</h1>\n        </div>\n        <div class="tab">\n                \n                <div *ngIf="load_success == 1 ">\n                <h2>1. ที่ดินของคุณมีลักษณะเป็นบ่อน้ำหรือไม่ ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n                        <ion-item *ngFor="let item of data_well" >\n                            <ion-label>{{item.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n                        </ion-item>\n                </ion-list>\n                </div>\n        </div>\n        <div class="tab">\n                <h2>2. ที่ดินของคุณมีลักษณะที่สูงกว่าถนนหรือไม่ ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n                        <ion-item *ngFor="let item_hr of data_road" >\n                            <ion-label>{{item_hr.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div class="tab">\n                <h2>3. ที่ดินของคุณมีลักษณะของรูปแปลงที่ดินเป็นอย่างไร ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                        <ion-item *ngFor="let item_sp of data_shape" >\n                            <ion-label>{{item_sp.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div class="tab">\n                <h2 style="text-align:center">4. ขนาดของที่ดินมีหน้ากว้างหรือหน้าแคบ ?</h2>\n                <ion-row>\n                    \n                    <ion-col style="text-align:right"  col-2>\n                        <p>Notice:</p>\n                    </ion-col>\n                    <ion-col style="text-align:left" col-8>\n                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวมากกว่า 50 เมตร คือ <b style="color:blue">หน้ากว้าง</b></p>\n                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวน้อยกว่า 50 เมตร คือ <b style="color:blue">หน้าแคบ</b></p>        \n                    </ion-col>\n                </ion-row>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n                        <ion-item *ngFor="let item_wd of data_width" >\n                            <ion-label>{{item_wd.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div style="float:left;">\n                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">\n                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    \n                </button>\n            </div>\n            <div style="float:right;">\n                <button ion-button round class="grad" *ngIf="load_success == 1 " id="nextBtn" (click)="nextPrev(1)">\n                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    \n                </button>\n                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>\n            </div>\n            <a href="" id="nextBtn" style="display:none"></a>\n    </form> \n        \n    </ion-content>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/map-direction/map-direction.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
             __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__["a" /* RestProvider */]])
@@ -525,643 +1699,7 @@ var MapDirectionPage = (function () {
 
 /***/ }),
 
-/***/ 171:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__user_user__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_direction_map_direction__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__estimate_estimate__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery__ = __webpack_require__(777);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_ion_digit_keyboard__ = __webpack_require__(268);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-var HomePage = (function () {
-    function HomePage(navCtrl, app, navParams, afAuth, nativeStorage, toast, modalCtrl, restProvider, http, loadingCtrl) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.app = app;
-        this.navParams = navParams;
-        this.afAuth = afAuth;
-        this.nativeStorage = nativeStorage;
-        this.toast = toast;
-        this.modalCtrl = modalCtrl;
-        this.restProvider = restProvider;
-        this.http = http;
-        this.loadingCtrl = loadingCtrl;
-        this.textSearch = '';
-        this.switch = "map";
-        this.search = false;
-        this.userReady = false;
-        this.navCtrl = navCtrl;
-        this.presentLoading();
-        this.restProvider.getProvince()
-            .then(function (prov) {
-            _this.items_prov = prov;
-            _this.loading.dismiss();
-        });
-    }
-    HomePage.prototype.ionViewDidLoad = function () {
-        this.typesearch = "1";
-        this.showMap();
-    };
-    HomePage.prototype.select = function (item) {
-        var _this = this;
-        this.log_hr = item.province_id;
-        this.presentLoading();
-        //this.restProvider.addUser(this.log_hr);
-        //this.restProvider.getAmphur(this.log_hr);
-        this.restProvider.getAmphur(this.log_hr)
-            .then(function (amp) {
-            _this.amphur = amp;
-            _this.loading.dismiss();
-        });
-        this.province_id = this.log_hr;
-        return this.province_id;
-    };
-    HomePage.prototype.selectAmphur = function (amphur) {
-        this.log_amphur = amphur.amphur_code;
-        this.amphur_code = this.log_amphur;
-        return this.amphur_code;
-    };
-    HomePage.prototype.presentLoading = function () {
-        this.loading = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        this.loading.present();
-    };
-    HomePage.prototype.toggleSearch = function () {
-        if (this.search) {
-            this.search = false;
-        }
-        else {
-            this.search = true;
-        }
-    };
-    HomePage.prototype.resizeMap = function () {
-        var _this = this;
-        setTimeout(function () {
-            google.maps.event.trigger(_this.map, 'resize');
-        }, 200);
-    };
-    HomePage.prototype.showMap = function () {
-        var location = new google.maps.LatLng(51.507351, -0.127758);
-        var options = {
-            center: { lat: 13.75633, lng: 100.50177 },
-            zoom: 10,
-            disableDefaultUI: true,
-            streetViewControl: false,
-            mapTypeId: 'roadmap' //roadmap , satellite , hybrid , terrain
-        };
-        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-        this.marker = new google.maps.Marker({ position: location,
-            //icon: 'assets/imgs/pinx.png',
-            animation: google.maps.Animation.DROP,
-            map: this.map });
-    };
-    HomePage.prototype.toggleBounce = function () {
-        if (this.marker.getAnimation() !== null) {
-            this.marker.setAnimation(null);
-        }
-        else {
-            this.marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-    };
-    HomePage.prototype.changePosition = function (_data) {
-        var _this = this;
-        this.marker.setPosition(new google.maps.LatLng(_data.lat, _data.lng));
-        this.map.setCenter(new google.maps.LatLng(_data.lat, _data.lng));
-        this.map.setZoom(18);
-        this.textSearch = _data.deed_number;
-        var infoWindow = new google.maps.InfoWindow({ content: '<div id="iw-container">' +
-                '<div class="iw-title"><center>Smart Property Assess</center></div>' +
-                '<div class="iw-content">' +
-                '<p>ราคาประเมินกรมที่ดิน : <font color="blue">' + _data.cost_appraisal.toLocaleString() + ' บาท</font></p>' +
-                '<p>ขนาดที่ดิน : <font color="blue">' + _data.size + ' ตารางวา </font></p>' +
-                '<p>พิกัดที่ดิน : <font color="blue">' + _data.lat + ',' + _data.lng + ' </font></p>' +
-                '</div>' +
-                '<div class="iw-bottom-gradient"></div>' +
-                '<div class="row" style="background-color:orange;">' +
-                '<button id = "myid" style="background-color:green;color:white;width:140px;height:30px;font-size:16px;">ประเมินราคา</button>' +
-                '<button id = "closeid" style="background-color:orange;color:white;width:140px;height:30px;font-size:16px;bider-radius: 0px 0px 10px 0px;">ปิด</button>' +
-                '</div>' +
-                '</div>',
-            maxWidth: 350 });
-        var sendLatLng = _data.lat + ',' + _data.lng;
-        google.maps.event.addListenerOnce(infoWindow, 'domready', function () {
-            document.getElementById('closeid').addEventListener('click', function () {
-                infoWindow.close(_this.map, _this.marker);
-            });
-            document.getElementById('myid').addEventListener('click', function () {
-                _this.nativeStorage.setItem('std', {
-                    lattitude: _data.lat,
-                    longitude: _data.lng,
-                    appraisal: _data.cost_appraisal,
-                    size: _data.size,
-                    province_id: _data.province_id,
-                    amphur_code: _data.amphur_code
-                }).then(function () {
-                    var loading = _this.loadingCtrl.create({
-                        content: 'กำลังประเมินราคา'
-                    });
-                    loading.present();
-                    setTimeout(function () {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__map_direction_map_direction__["a" /* MapDirectionPage */]);
-                    }, 1000);
-                    setTimeout(function () {
-                        loading.dismiss();
-                    }, 1000);
-                }, function (error) {
-                    console.log(error);
-                });
-            });
-        });
-        infoWindow.open(this.map, this.marker);
-        this.marker.addListener('click', this.toggleBounce(), function () {
-            //infoWindow.open(this.map, this.marker);
-        });
-        google.maps.event.addListener(infoWindow, 'domready', function () {
-            // Reference to the DIV that wraps the bottom of infowindow
-            var iwOuter = __WEBPACK_IMPORTED_MODULE_9_jquery__('.gm-style-iw');
-            /* Since this div is in a position prior to .gm-div style-iw.
-             * We use jQuery and create a iwBackground variable,
-             * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
-            */
-            var iwBackground = iwOuter.prev();
-            // Removes background shadow DIV
-            iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
-            // Removes white background DIV
-            iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
-            // Moves the infowindow 115px to the right.
-            // Moves the shadow of the arrow 76px to the left margin.
-            iwBackground.children(':nth-child(1)').attr('style', function (i, s) { return s; });
-            // Moves the arrow 76px to the left margin.
-            iwBackground.children(':nth-child(3)').attr('style', function (i, s) { return s; });
-            // Changes the desired tail shadow color.
-            iwBackground.children(':nth-child(3)').find('div').children().css({ display: 'none' });
-            // Reference to the div that groups the close button elements.
-            var iwCloseBtn = iwOuter.next();
-            iwCloseBtn.css({ display: 'none' });
-            // Apply the desired effect to the close button
-            // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
-            if (__WEBPACK_IMPORTED_MODULE_9_jquery__('.iw-content').height() < 140) {
-                __WEBPACK_IMPORTED_MODULE_9_jquery__('.iw-bottom-gradient').css({ display: 'none' });
-            }
-            // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
-            iwCloseBtn.mouseout(function () {
-                __WEBPACK_IMPORTED_MODULE_9_jquery__(this).css({ opacity: '1' });
-            });
-        });
-    };
-    HomePage.prototype.btnSearch = function () {
-        var _this = this;
-        if (this.textSearch != "" && this.textSearch != undefined) {
-            this.presentLoading();
-            this.restProvider.getMarker(this.textSearch, this.province_id, this.amphur_code)
-                .then(function (data) {
-                _this.place = data;
-                _this.loading.dismiss();
-                if (_this.searchStringInArray(_this.place) == '-1') {
-                    alert('ไม่พบสถานที่ในฐานข้อมูล');
-                }
-                else {
-                    _this.changePosition(_this.searchStringInArray(_this.place));
-                    _this.search = false;
-                }
-            });
-        }
-        else {
-            alert('กรุณากรอกข้อมูล');
-        }
-    };
-    HomePage.prototype.searchStringInArray = function (strArray) {
-        for (var i = 0; i < strArray.length; i++) {
-            if (strArray[i].id) {
-                return strArray[i];
-            }
-        }
-        return -1;
-    };
-    HomePage.prototype.ionViewWillLoad = function () {
-        var _this = this;
-        this.afAuth.authState.subscribe(function (data) {
-            if (data.email && data.uid) {
-                _this.toast.create({
-                    message: 'Welcome to Smart Property Assess: ' + data.email,
-                    duration: 1000
-                }).present();
-            }
-            else {
-            }
-        });
-        this.nativeStorage.getItem('user')
-            .then(function (data) {
-            _this.user = {
-                name: data.name,
-                gender: data.gender,
-                picture: data.picture,
-                email: data.email
-            };
-            if (data.email && data.uid) {
-                _this.toast.create({
-                    message: 'Welcome to Smart Property Assess: ' + data.name,
-                    duration: 3000
-                }).present();
-            }
-            _this.userReady = true;
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    HomePage.prototype.nextProfile = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__user_user__["a" /* UserPage */]);
-    };
-    HomePage.prototype.openEs = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__estimate_estimate__["a" /* EstimatePage */]);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_10__components_ion_digit_keyboard__["a" /* IonDigitKeyboardCmp */]),
-        __metadata("design:type", Object)
-    ], HomePage.prototype, "keyboard", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_core__["t" /* ElementRef */])
-    ], HomePage.prototype, "mapRef", void 0);
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/home/home.html"*/'<ion-header hidden>\n    <ion-navbar color="secondary">\n      \n      <ion-title>\n        Map\n      </ion-title>\n      <ion-buttons end>\n        <button ion-button icon-only (click)=\'toggleSearch()\'>\n          <ion-icon name="search"></ion-icon>\n        </button>\n        <button ion-button icon-only (click)=\'choosePosition()\'>\n          <ion-icon name="ios-locate-outline"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-navbar>\n  </ion-header>\n    <div class="switch">\n      <button ion-button icon-only color="light" (click)=\'toggleSearch()\'><ion-icon name="search"></ion-icon></button>\n      <button ion-button color="light" (click)="(switch = \'map\'); resizeMap()" [class.active]="(switch == \'map\')" icon-only><ion-icon name="map"></ion-icon></button>\n      <button ion-button color="light" (click)="(switch = \'list\'); " [class.active]="(switch == \'list\')" icon-only><ion-icon name="list"></ion-icon></button>\n    </div>\n  \n    <div class="currentitem" *ngIf="currentregional">\n      <button ion-item no-lines (click)="viewPlace(currentregional.title)">\n        <h2>{{ currentregional.title }}</h2>\n        <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>\n      </button>\n    </div>\n  <ion-content>\n    \n  \n      <div [hidden]="!(switch == \'list\')">\n        <div header-background-image padding style="background-image: url(\n          assets/imgs/bg.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n        </div>\n        \n        <ion-list>\n          <ion-item>\n              <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">\n                  <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>\n                  Profile\n              </button>\n          </ion-item>\n          <ion-item>\n              <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                  <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>\n                  Market Place\n              </button>\n          </ion-item>\n          <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openEs()">\n                <ion-icon icon-small item-left name="md-exit" style="color:aquamarine"></ion-icon>\n                Appraisal\n            </button>\n        </ion-item>\n          <ion-item>\n              <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                  <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>\n                  About Us\n              </button>\n          </ion-item>\n        </ion-list>\n      </div>\n      \n      <div class="map" [class.hidemap]="!((switch == \'map\') || error)">\n        <div style="padding-top:40px;">\n            <div #searchbar id="floating-panel" [hidden]="!search">\n              <img src="assets/imgs/logo-real.png" style="width: 150px;height:140px;" alt="">\n                <ion-row padding>\n                    <ion-list no-lines>\n                        <!--<ion-item [class.active]="focus === \'textSearch\'" (touchend)="setFocus(\'textSearch\')">\n                            <ion-label><ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                            <ion-input type="number" disabled [ngModel]="textSearch" placeholder="ระบุเลขโฉนด" clearInput></ion-input>\n                        </ion-item>-->\n                        <ion-item>        \n                            <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                            <ion-input clearInput type="number" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>\n                        </ion-item>\n                        <br>\n                        <ion-item>\n                          <ion-label stacked>จังหวัด</ion-label>\n                          <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุจังหวัด">\n                            <ion-option *ngFor="let item of items_prov" (ionSelect)="select(item)" [value]="item">{{ item.province_name }}</ion-option>\n                          </ion-select>\n                        </ion-item>\n                        \n                        <ion-item>\n                          <ion-label stacked>เขต/อำเภอ</ion-label>\n                          <ion-select [(ngModel)]="provincec" interface="action-sheet" id="amphur" placeholder="กรุณาระบุเขต/อำเภอ">\n                            <ion-option *ngFor="let amphur of amphur" (ionSelect)="selectAmphur(amphur)" [value]="amphur" >{{ amphur.amphur_name }}</ion-option>\n                          </ion-select>\n                        </ion-item>\n                    </ion-list>\n                    \n                    \n                    \n                    <button ion-button block (click)="btnSearch()" #searchbar [hidden]="!search">ค้นหา</button>\n                    \n                </ion-row>\n                <ion-row padding>\n                </ion-row>  \n            </div>\n        </div>\n        \n              \n        <div id="map" #map></div>\n      </div>\n    \n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/home/home.html"*/
-        }),
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* App */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__["a" /* RestProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* LoadingController */]])
-    ], HomePage);
-    return HomePage;
-}());
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
-/***/ 172:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(53);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var UserPage = (function () {
-    function UserPage(navCtrl, fb, loadingCtrl, nativeStorage, afAuth, googlePlus) {
-        this.navCtrl = navCtrl;
-        this.fb = fb;
-        this.loadingCtrl = loadingCtrl;
-        this.nativeStorage = nativeStorage;
-        this.afAuth = afAuth;
-        this.googlePlus = googlePlus;
-        this.userReady = false;
-    }
-    UserPage.prototype.ionViewCanEnter = function () {
-        var _this = this;
-        this.nativeStorage.getItem('user')
-            .then(function (data) {
-            _this.user = {
-                name: data.name,
-                gender: data.gender,
-                picture: data.picture,
-                email: data.email
-            };
-            _this.userReady = true;
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    UserPage.prototype.doFbLogout = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: "Please wait..."
-        });
-        loader.present();
-        var result = this.afAuth.auth.signOut();
-        this.fb.logout()
-            .then(function (response) {
-            //user logged out so we will remove him from the NativeStorage
-            _this.nativeStorage.remove('user');
-            setTimeout(function () {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
-            }, 1000);
-            loader.dismiss();
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    UserPage.prototype.doGoogleLogout = function () {
-        var _this = this;
-        var nav = this.navCtrl;
-        var result = this.afAuth.auth.signOut();
-        this.googlePlus.logout()
-            .then(function (response) {
-            _this.nativeStorage.remove('user');
-            nav.push(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    UserPage.prototype.logout = function () {
-        var _this = this;
-        var loader = this.loadingCtrl.create({
-            content: "Please wait..."
-        });
-        loader.present();
-        var result = this.afAuth.auth.signOut();
-        this.nativeStorage.remove('user');
-        if (result) {
-            loader.dismiss();
-            setTimeout(function () {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
-            }, 1000);
-        }
-    };
-    UserPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-user',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/user/user.html"*/'<ion-header header-ios>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-toolbar>\n      User Details\n    </ion-toolbar>\n  </ion-navbar>\n</ion-header>\n  \n  \n  <ion-content parallax *ngIf=\'userReady\'>\n    <div class="bg">\n\n    </div>\n    <div class="main-cnt">\n      <img [src]="user.picture" class="dp">\n    </div>\n    <ion-card >\n      <ion-card-content>\n        <ion-card-title>\n          Welcome {{user.name}}!\n          </ion-card-title>\n        <p>\n          {{user.email}}\n        </p>\n      </ion-card-content>\n      <ion-row>\n        <ion-col>\n          <button ion-button block (click)="doFbLogout()">Logout</button>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n   \n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/user/user.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__["a" /* Facebook */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
-            __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__["a" /* GooglePlus */]])
-    ], UserPage);
-    return UserPage;
-}());
-
-//# sourceMappingURL=user.js.map
-
-/***/ }),
-
-/***/ 174:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/*
-  Generated class for the AuthProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var AuthProvider = (function () {
-    function AuthProvider(afAuth) {
-        this.afAuth = afAuth;
-        this.userProfile = __WEBPACK_IMPORTED_MODULE_3_firebase__["database"]().ref('users');
-    }
-    AuthProvider.prototype.signupUserService = function (account) {
-        var _this = this;
-        return this.afAuth.auth.createUserWithEmailAndPassword(account['email'], account['password']).then(function (newUser) {
-            _this.afAuth.auth.signInWithEmailAndPassword(account['email'], account['password']).then(function (authenticatedUser) {
-                _this.userProfile.child(authenticatedUser.uid).set(account);
-            });
-        });
-    };
-    AuthProvider.prototype.forgotPasswordUser = function (email) {
-        return this.afAuth.auth.sendPasswordResetEmail(email);
-    };
-    AuthProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]])
-    ], AuthProvider);
-    return AuthProvider;
-}());
-
-//# sourceMappingURL=auth.js.map
-
-/***/ }),
-
-/***/ 206:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(174);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var RegisterPage = (function () {
-    function RegisterPage(navCtrl, navParams, afAuth, authprovider, loadingCtrl, alertCtrl, toastCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.afAuth = afAuth;
-        this.authprovider = authprovider;
-        this.loadingCtrl = loadingCtrl;
-        this.alertCtrl = alertCtrl;
-        this.toastCtrl = toastCtrl;
-        this.user = {};
-    }
-    RegisterPage.prototype.doSignup = function () {
-        var _this = this;
-        var account = {
-            first_name: this.first_name,
-            last_name: this.last_name || '',
-            email: this.email,
-            phone: this.phone || '',
-            password: this.password,
-            city: this.city || '',
-            address: this.address || '',
-            isJobSeeker: this.isJobSeeker || ''
-        };
-        try {
-            var that = this;
-            var loader = this.loadingCtrl.create({
-                content: "Please wait...",
-            });
-            var result_1 = this.authprovider.signupUserService(account).then(function (authData) { return __awaiter(_this, void 0, void 0, function () {
-                var alert_1;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            if (!result_1) return [3 /*break*/, 2];
-                            alert_1 = this.alertCtrl.create({
-                                message: 'สมัครสมาชิก สำเร็จ',
-                                buttons: ['OK']
-                            });
-                            return [4 /*yield*/, alert_1.present()];
-                        case 1:
-                            _a.sent();
-                            loader.present();
-                            _a.label = 2;
-                        case 2:
-                            loader.dismiss();
-                            setTimeout(function () {
-                                that.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
-                            }, 5000);
-                            return [2 /*return*/];
-                    }
-                });
-            }); }, function (error) {
-                // Unable to log in
-                var toast = _this.toastCtrl.create({
-                    message: error,
-                    duration: 3000,
-                    position: 'top'
-                });
-                toast.present();
-                that.password = ""; //empty the password field
-            });
-        }
-        catch (e) {
-            console.error(e);
-        }
-    };
-    RegisterPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/register/register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  \n    <ion-navbar>\n      <ion-title>Register</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content padding>\n    <ion-grid>\n      <ion-row padding-horizontal align-items-start>\n          \n          <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>\n              <!---Logo\n              <img src="assets/imgs/logo-reales.png" style="width:150px;margin-top:20px;"/> -->\n              \n              <!--Form Title-->\n              <h1 ion-text style="color:lightgray;font-size:35px;" title>Register your new Account</h1>\n              \n              \n              <!---Input field email-->\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>EMAIL</ion-label>\n                  <ion-input required placeholder="Your e-mail address(eg. you@example.com)"  type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="email" name="email"></ion-input>\n              </ion-item>\n              <!---Input field password-->\n              <ion-item no-padding>\n                <ion-label color="dark" stacked>PASSWORD</ion-label>\n                <ion-input required placeholder="Enter your password" type="password" [(ngModel)]="password" name="password"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>FIRST NAME</ion-label>\n                  <ion-input required placeholder="Your Firstname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="first_name" name="first_name"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>LAST NAME</ion-label>\n                  <ion-input required placeholder="Your Lastname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="last_name" name="last_name"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>PHONE</ion-label>\n                  <ion-input required placeholder="Enter your number(eg. 0802222222)" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="phone" name="phone"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                <ion-label color="dark" stacked>ADDRESS</ion-label>\n                <ion-input required placeholder="Enter your Address" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="address" name="address"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                <ion-label color="dark" stacked>CITY</ion-label>\n                <ion-input required placeholder="Enter your City" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="city" name="city"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                <ion-label style="font-size:10px;">Agree to receive for news and information?</ion-label>\n                <ion-toggle [(ngModel)]="isJobSeeker" name="isJobSeeker"></ion-toggle>\n              </ion-item>\n              <!---Register button-->\n              <button ion-button margin-top float-right clear button-clear text-capitalize round (click)="doSignup()">Register</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n    \n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/register/register.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
-    ], RegisterPage);
-    return RegisterPage;
-}());
-
-//# sourceMappingURL=register.js.map
-
-/***/ }),
-
-/***/ 219:
+/***/ 228:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -1174,32 +1712,36 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 219;
+webpackEmptyAsyncContext.id = 228;
 
 /***/ }),
 
-/***/ 262:
+/***/ 270:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/appraisal/appraisal.module": [
-		857,
-		4
+		875,
+		5
 	],
 	"../pages/estimate/estimate.module": [
-		858,
-		3
+		876,
+		4
 	],
 	"../pages/list/list.module": [
-		859,
-		2
+		877,
+		3
 	],
 	"../pages/map-direction/map-direction.module": [
-		860,
-		1
+		878,
+		2
 	],
 	"../pages/register/register.module": [
-		861,
+		879,
+		1
+	],
+	"../pages/sell/sell.module": [
+		880,
 		0
 	]
 };
@@ -1214,343 +1756,29 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 262;
+webpackAsyncContext.id = 270;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 268:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components__ = __webpack_require__(269);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__components__["a"]; });
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 269:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ion_digit_keyboard_cmp_ion_digit_keyboard_cmp__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ion_digit_keyboard_cmp_ion_digit_keyboard_cmp__ = __webpack_require__(582);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__ion_digit_keyboard_cmp_ion_digit_keyboard_cmp__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 447:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppraisalPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__map_direction_map_direction__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_ion_digit_keyboard__ = __webpack_require__(268);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-/**
- * Generated class for the AppraisalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AppraisalPage = (function () {
-    function AppraisalPage(navCtrl, navParams, view, modalCtrl, nativeStorage, loadingCtrl, restProvider) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.view = view;
-        this.modalCtrl = modalCtrl;
-        this.nativeStorage = nativeStorage;
-        this.loadingCtrl = loadingCtrl;
-        this.restProvider = restProvider;
-        this.keyboardSettings = {
-            align: 'center',
-            //width: '85%',
-            visible: false,
-            leftActionOptions: {
-                iconName: 'ios-backspace-outline',
-                fontSize: '1.4em'
-            },
-            rightActionOptions: {
-                //iconName: 'ios-checkmark-circle-outline',
-                text: 'Done',
-                fontSize: '1.3em'
-            },
-            roundButtons: false,
-            showLetters: true,
-            swipeToHide: true,
-            // Available themes: IonDigitKeyboard.themes
-            theme: 'ionic'
-        };
-        this.userId = '';
-        this.userPassword = '';
-        this.focus = '';
-        this.currentTab = 0;
-        this.n = 0;
-        this.restProvider.getProvince()
-            .then(function (prov) {
-            _this.items_height_road = prov;
-            console.log(_this.items_height_road);
-        });
-        this.getItems();
-    }
-    AppraisalPage.prototype.getItems = function () {
-        this.items_well = [
-            { value: 0, name: "ที่ดินเป็นบ่อน้ำ" },
-            { value: 1, name: "ที่ดินไม่เป็นบ่อน้ำ" }
-        ],
-            this.items_shape = [
-                { value: 1, name: "สี่เหลี่ยม" },
-                { value: 2, name: "สี่เหลี่ยมด้านไม่เท่า" },
-                { value: 3, name: "อื่นๆ" }
-            ];
-    };
-    AppraisalPage.prototype.ngOnInit = function () {
-        var _this = this;
-        /**
-         * Since we want to prevent native keyboard to show up, we put the disabled
-         * attribute on the input, and manage focus programmaticaly.
-         */
-        this.keyboard.onClick.subscribe(function (key) {
-            var field = _this.focus;
-            if (typeof key == 'number') {
-                _this[field] += key;
-            }
-            else {
-                if (key == 'left')
-                    _this[field] = _this[field].substring(0, _this[field].length - 1);
-                if (key == 'right')
-                    _this.performLogin();
-            }
-        });
-        // (BLur) Clear focus field name on keyboard hide
-        this.keyboard.onHide.subscribe(function () {
-            _this.focus = '';
-        });
-    };
-    AppraisalPage.prototype.setFocus = function (field) {
-        this.focus = field;
-        this.keyboard.show();
-    };
-    AppraisalPage.prototype.performLogin = function () {
-        var _this = this;
-        this.keyboard.hide(function () {
-            // Alert after keyboard get hidden
-            alert('ID: "' + _this.userId + '"\nPassword: "' + _this.userPassword + '"');
-        });
-    };
-    AppraisalPage.prototype.hideKeyboard = function () {
-        this.keyboard.hide();
-    };
-    AppraisalPage.prototype.logForm = function (form) {
-        console.log(this.itemChecked_well.value, this.itemChecked_height_road.value);
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__map_direction_map_direction__["a" /* MapDirectionPage */], {
-            well: this.itemChecked_well.value,
-            height_road: this.itemChecked_height_road.value,
-            shape: this.itemChecked_shape.value
-        });
-    };
-    AppraisalPage.prototype.select = function (item) {
-        this.log = "SELECTED! " + item.value;
-    };
-    AppraisalPage.prototype.select_hr = function (item_hr) {
-        this.log_hr = item_hr.province_id;
-        console.log(this.log_hr);
-    };
-    AppraisalPage.prototype.select_sp = function (item_sp) {
-        this.log_sp = item_sp.value;
-    };
-    AppraisalPage.prototype.ionViewDidLoad = function () {
-        this.showTab(this.currentTab);
-    };
-    AppraisalPage.prototype.showTab = function (n) {
-        // This function will display the specified tab of the form...
-        var x = document.getElementsByClassName("tab");
-        x[n].style.display = "block";
-        //... and fix the Previous/Next buttons:
-        if (n == 0) {
-            document.getElementById("prevBtn").style.display = "none";
-        }
-        else {
-            document.getElementById("prevBtn").style.display = "inline";
-        }
-        if (n == (x.length - 1)) {
-            document.getElementById("nextBtn").innerHTML = "ประเมินราคา";
-        }
-        else {
-            document.getElementById("nextBtn").innerHTML = "ต่อไป";
-        }
-        //... and run a function that will display the correct step indicator:
-        this.fixStepIndicator(n);
-    };
-    AppraisalPage.prototype.appraisal = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__map_direction_map_direction__["a" /* MapDirectionPage */]);
-        console.log(this.well, this.select);
-    };
-    AppraisalPage.prototype.closeModal = function () {
-        this.view.dismiss();
-    };
-    AppraisalPage.prototype.nextPrev = function (n) {
-        var _this = this;
-        // This function will figure out which tab to display
-        var x = document.getElementsByClassName("tab");
-        // Exit the function if any field in the current tab is invalid:
-        if (n == 1 && !this.validateForm())
-            return false;
-        // Hide the current tab:
-        x[this.currentTab].style.display = "none";
-        // Increase or decrease the current tab by 1:
-        this.currentTab = this.currentTab + n;
-        // if you have reached the end of the form...
-        if (this.currentTab >= x.length) {
-            // ... the form gets submitted:
-            this.nativeStorage.setItem('myitem', { property: 'value', anotherProperty: 'anotherValue' })
-                .then(function () { return console.log('Stored item!'); }, function (error) { return console.error('Error storing item', error); });
-            var loading_1 = this.loadingCtrl.create({
-                content: 'กำลังประเมินราคา'
-            });
-            loading_1.present();
-            setTimeout(function () {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__map_direction_map_direction__["a" /* MapDirectionPage */], {
-                    well: _this.itemChecked_well.value,
-                    height_road: _this.itemChecked_height_road.value,
-                    shape: _this.itemChecked_shape.value
-                });
-            }, 8000);
-            setTimeout(function () {
-                loading_1.dismiss();
-            }, 8000);
-            console.log(this.itemChecked_well.value, this.itemChecked_height_road.value, this.itemChecked_shape.value);
-            return false;
-        }
-        // Otherwise, display the correct tab:
-        this.showTab(this.currentTab);
-    };
-    AppraisalPage.prototype.validateForm = function () {
-        // This function deals with validation of the form fields
-        var x, y, i, valid = true;
-        x = document.getElementsByClassName("tab");
-        y = x[this.currentTab].getElementsByTagName("input");
-        // A loop that checks every input field in the current tab:
-        for (i = 0; i < y.length; i++) {
-            // If a field is empty...
-            if (y[i].value == "") {
-                // add an "invalid" class to the field:
-                y[i].className += " invalid";
-                // and set the current valid status to false
-                valid = false;
-            }
-        }
-        // If the valid status is true, mark the step as finished and valid:
-        if (valid) {
-            document.getElementsByClassName("step")[this.currentTab].className += " finish";
-        }
-        return valid; // return the valid status
-    };
-    AppraisalPage.prototype.fixStepIndicator = function (n) {
-        // This function removes the "active" class of all steps...
-        var i, x = document.getElementsByClassName("step");
-        for (i = 0; i < x.length; i++) {
-            x[i].className = x[i].className.replace(" active", "");
-        }
-        //... and adds the "active" class on the current step:
-        x[n].className += " active";
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_5__components_ion_digit_keyboard__["a" /* IonDigitKeyboardCmp */]),
-        __metadata("design:type", Object)
-    ], AppraisalPage.prototype, "keyboard", void 0);
-    AppraisalPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-appraisal',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/appraisal/appraisal.html"*/'<!--\n  Generated template for the AppraisalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Appraisal</ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="closeModal()">ปิด</button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<!--<ion-content padding>\n    {{ log }}\n    \n    <form (ngSubmit)="logForm(form)">\n            <button ion-button secondary (click)="showKeyboard()">Show Keyboard</button>\n        <div style="text-align:center;">\n            <span class="step" id="step1">1</span>\n            <span class="step" id="step2">2</span>\n        </div>\n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>\n        \n        <div class="tab">\n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n        <ion-item *ngFor="let item of items_well" >\n            <ion-label>{{item.name}}</ion-label>\n            <ion-radio (ionSelect)="select(item)" [value]="item"></ion-radio>\n        </ion-item>\n        </ion-list>\n        \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n            <ion-item *ngFor="let item_hr of items_height_road" >\n                <ion-label>{{item_hr.name}}</ion-label>\n                <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n            </ion-item>\n        </ion-list>\n        </div>\n        <div class="tab">\n            <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                <ion-item *ngFor="let item_sp of items_shape" >\n                    <ion-label>{{item_sp.name}}</ion-label>\n                    <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                </ion-item>\n            </ion-list>\n        </div>\n        <div style="float:right;">\n            <button type="button" id="prevBtn" (click)="nextPrev(-1)">ย้อนกลับ</button>\n            <button type="button" id="nextBtn" (click)="nextPrev(1)">ต่อไป</button>\n          </div>\n        \n    </form> \n</ion-content>-->\n<ion-content padding>\n        <ion-list>\n            <ion-item [class.active]="focus === \'userId\'" (touchend)="setFocus(\'userId\')">\n                <ion-label stacked>User ID</ion-label>\n                <ion-input type="text" [ngModel]="userId"></ion-input>\n            </ion-item>\n    \n            <ion-item [class.active]="focus === \'userPassword\'" (touchend)="setFocus(\'userPassword\')">\n                <ion-label stacked>Password</ion-label>\n                <ion-input type="password" disabled [ngModel]="userPassword"></ion-input>\n            </ion-item>\n        </ion-list>\n    </ion-content>\n    \n    <ion-digit-keyboard\n        [align]="keyboardSettings.align"\n        [width]="keyboardSettings.width"\n        [visible]="keyboardSettings.visible"\n        [leftActionOptions]="keyboardSettings.leftActionOptions"\n        [rightActionOptions]="keyboardSettings.rightActionOptions"\n        [roundButtons]="keyboardSettings.roundButtons"\n        [showLetters]="keyboardSettings.showLetters"\n        [swipeToHide]="keyboardSettings.swipeToHide"\n        [theme]="keyboardSettings.theme"\n    >\n    <ion-toolbar no-border-bottom>\n            <ion-buttons start>\n                <button ion-button (click)="hideKeyboard()">Cancel</button>\n            </ion-buttons>\n            <ion-buttons end>\n                <button ion-button solid *ngIf="">Next</button>\n                <button ion-button (click)="hideKeyboard()">Done</button>\n            </ion-buttons>\n        </ion-toolbar>\n</ion-digit-keyboard>'/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/appraisal/appraisal.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_rest_rest__["a" /* RestProvider */]])
-    ], AppraisalPage);
-    return AppraisalPage;
-}());
-
-//# sourceMappingURL=appraisal.js.map
-
-/***/ }),
-
-/***/ 448:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the ListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ListPage = (function () {
-    function ListPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ListPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ListPage');
-    };
-    ListPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/list/list.html"*/'<!--\n  Generated template for the ListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>list</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/list/list.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
-    ], ListPage);
-    return ListPage;
-}());
-
-//# sourceMappingURL=list.js.map
-
-/***/ }),
-
-/***/ 449:
+/***/ 459:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(450);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(464);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1558,43 +1786,53 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 454:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(445);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(446);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(852);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(853);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_map_direction_map_direction__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_login_login__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_user_user__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_register_register__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_estimate_estimate__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_appraisal_appraisal__ = __webpack_require__(447);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_google_plus__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__app_firebase_config__ = __webpack_require__(854);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angularfire2_auth__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_auth_auth__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__directives_parallax_parallax__ = __webpack_require__(855);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_list_list__ = __webpack_require__(448);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_rest_rest__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_ion_digit_keyboard_ion_digit_keyboard_module__ = __webpack_require__(856);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(456);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(864);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_map_direction_map_direction__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_login_login__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_user_user__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_register_register__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_estimate_estimate__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_appraisal_appraisal__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_sell_sell__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_google_plus__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__app_firebase_config__ = __webpack_require__(865);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_auth_auth__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__directives_parallax_parallax__ = __webpack_require__(866);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_list_list__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_ion_digit_keyboard_ion_digit_keyboard_module__ = __webpack_require__(867);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_file__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_image_picker__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ionic_img_viewer__ = __webpack_require__(868);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -1633,29 +1871,32 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_user_user__["a" /* UserPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_register_register__["a" /* RegisterPage */],
-                __WEBPACK_IMPORTED_MODULE_22__directives_parallax_parallax__["a" /* ParallaxDirective */],
+                __WEBPACK_IMPORTED_MODULE_23__directives_parallax_parallax__["a" /* ParallaxDirective */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_estimate_estimate__["a" /* EstimatePage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_appraisal_appraisal__["a" /* AppraisalPage */]
+                __WEBPACK_IMPORTED_MODULE_24__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_appraisal_appraisal__["a" /* AppraisalPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_sell_sell__["a" /* SellPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_25__components_ion_digit_keyboard_ion_digit_keyboard_module__["a" /* IonDigitKeyboard */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_26__components_ion_digit_keyboard_ion_digit_keyboard_module__["a" /* IonDigitKeyboard */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/appraisal/appraisal.module#AppraisalPageModule', name: 'AppraisalPage', segment: 'appraisal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/estimate/estimate.module#EstimatePageModule', name: 'EstimatePage', segment: 'estimate', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list/list.module#ListPageModule', name: 'ListPage', segment: 'list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/map-direction/map-direction.module#MapDirectionPageModule', name: 'MapDirectionPage', segment: 'map-direction', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sell/sell.module#SellPageModule', name: 'SellPage', segment: 'sell', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_18_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_19__app_firebase_config__["a" /* FIREBASE_CONFIG */]),
-                __WEBPACK_IMPORTED_MODULE_20_angularfire2_auth__["b" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_19_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_20__app_firebase_config__["a" /* FIREBASE_CONFIG */]),
+                __WEBPACK_IMPORTED_MODULE_21_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_30_ionic_img_viewer__["a" /* IonicImageViewerModule */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */],
@@ -1664,18 +1905,22 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__pages_user_user__["a" /* UserPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_register_register__["a" /* RegisterPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_estimate_estimate__["a" /* EstimatePage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_appraisal_appraisal__["a" /* AppraisalPage */]
+                __WEBPACK_IMPORTED_MODULE_24__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_appraisal_appraisal__["a" /* AppraisalPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_sell_sell__["a" /* SellPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__["a" /* NativeStorage */],
                 __WEBPACK_IMPORTED_MODULE_6__ionic_native_facebook__["a" /* Facebook */],
-                __WEBPACK_IMPORTED_MODULE_17__ionic_native_google_plus__["a" /* GooglePlus */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_21__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_24__providers_rest_rest__["a" /* RestProvider */]
+                __WEBPACK_IMPORTED_MODULE_18__ionic_native_google_plus__["a" /* GooglePlus */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_22__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_25__providers_rest_rest__["a" /* RestProvider */],
+                __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_28__ionic_native_file__["a" /* File */],
+                __WEBPACK_IMPORTED_MODULE_29__ionic_native_image_picker__["a" /* ImagePicker */]
             ]
         })
     ], AppModule);
@@ -1686,14 +1931,100 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 480:
+/***/ 51:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/*
+  Generated class for the AuthProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var url = 'http://localhost/pHP-Slim-Restful-master/api/';
+var apiUrl = 'https://smartball.000webhostapp.com/PHP_DataUpload/api/';
+var AuthProvider = (function () {
+    function AuthProvider(afAuth, http) {
+        this.afAuth = afAuth;
+        this.http = http;
+        this.userProfile = __WEBPACK_IMPORTED_MODULE_4_firebase__["database"]().ref('users');
+    }
+    AuthProvider.prototype.signupUserService = function (account) {
+        var _this = this;
+        return this.afAuth.auth.createUserWithEmailAndPassword(account['email'], account['password']).then(function (newUser) {
+            _this.afAuth.auth.signInWithEmailAndPassword(account['email'], account['password']).then(function (authenticatedUser) {
+                _this.userProfile.child(authenticatedUser.uid).set(account);
+            });
+        });
+    };
+    AuthProvider.prototype.forgotPasswordUser = function (email) {
+        return this.afAuth.auth.sendPasswordResetEmail(email);
+    };
+    AuthProvider.prototype.postData = function (credentials, type) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+            _this.http.post(apiUrl + type, JSON.stringify(credentials), { headers: headers })
+                .subscribe(function (res) {
+                resolve(res.json());
+            }, function (err) {
+                reject(err);
+            });
+        });
+    };
+    AuthProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    ], AuthProvider);
+    return AuthProvider;
+}());
+
+//# sourceMappingURL=auth.js.map
+
+/***/ }),
+
+/***/ 581:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components__ = __webpack_require__(326);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__components__["a"]; });
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 582:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IonDigitKeyboardCmp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_gestures_gesture__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__(482);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular_gestures_gesture__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__(583);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2067,7 +2398,7 @@ var IonDigitKeyboardCmp = (function () {
     ], IonDigitKeyboardCmp.prototype, "resize", void 0);
     IonDigitKeyboardCmp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'ion-digit-keyboard',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/'<div (window:resize)="onWindowResize($event)" class="keyboard-{{theme}} align-{{align}} {{roundButtons ? \'round-buttons\' : \'\'}} {{showLetters == false ? \'no-letters\' : \'\'}}" [style.width]="width">\n	<ng-content select="ion-toolbar"></ng-content>\n    <div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 1)">\n				<div class="digit-keyboard-key-number">1\n					<div class="digit-keyboard-key-letters"></div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 2)">\n				<div class="digit-keyboard-key-number">2\n					<div class="digit-keyboard-key-letters">ABC</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 3)">\n				<div class="digit-keyboard-key-number">3\n					<div class="digit-keyboard-key-letters">DEF</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 4)">\n				<div class="digit-keyboard-key-number">4\n					<div class="digit-keyboard-key-letters">GHI</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 5)">\n				<div class="digit-keyboard-key-number">5\n					<div class="digit-keyboard-key-letters">JKL</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 6)">\n				<div class="digit-keyboard-key-number">6\n					<div class="digit-keyboard-key-letters">MNO</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 7)">\n				<div class="digit-keyboard-key-number">7\n					<div class="digit-keyboard-key-letters">PQRS</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 8)">\n				<div class="digit-keyboard-key-number">8\n					<div class="digit-keyboard-key-letters">TUV</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 9)">\n				<div class="digit-keyboard-key-number">9\n					<div class="digit-keyboard-key-letters">WXYZ</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="leftAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'left\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="leftAction.fontSize">\n                    <ion-icon *ngIf="leftAction.iconName" [name]="leftAction.iconName"></ion-icon>\n                    <div *ngIf="!leftAction.iconName && leftAction.text">{{leftAction.text}}</div>\n                </div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 0)">\n				<div class="digit-keyboard-key-number" style="margin-top: -0.30em;">0</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="rightAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'right\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="rightAction.fontSize">\n                    <ion-icon *ngIf="rightAction.iconName" [name]="rightAction.iconName"></ion-icon>\n                    <div *ngIf="!rightAction.iconName && rightAction.text">{{rightAction.text}}</div>\n                </div>\n			</div>\n		</div>\n	</div>\n</div>\n'/*ion-inline-end:"/Users/superball/project-app/AppNow/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/
+            selector: 'ion-digit-keyboard',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/'<div (window:resize)="onWindowResize($event)" class="keyboard-{{theme}} align-{{align}} {{roundButtons ? \'round-buttons\' : \'\'}} {{showLetters == false ? \'no-letters\' : \'\'}}" [style.width]="width">\n	<ng-content select="ion-toolbar"></ng-content>\n    <div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 1)">\n				<div class="digit-keyboard-key-number">1\n					<div class="digit-keyboard-key-letters"></div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 2)">\n				<div class="digit-keyboard-key-number">2\n					<div class="digit-keyboard-key-letters">ABC</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 3)">\n				<div class="digit-keyboard-key-number">3\n					<div class="digit-keyboard-key-letters">DEF</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 4)">\n				<div class="digit-keyboard-key-number">4\n					<div class="digit-keyboard-key-letters">GHI</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 5)">\n				<div class="digit-keyboard-key-number">5\n					<div class="digit-keyboard-key-letters">JKL</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 6)">\n				<div class="digit-keyboard-key-number">6\n					<div class="digit-keyboard-key-letters">MNO</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 7)">\n				<div class="digit-keyboard-key-number">7\n					<div class="digit-keyboard-key-letters">PQRS</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 8)">\n				<div class="digit-keyboard-key-number">8\n					<div class="digit-keyboard-key-letters">TUV</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 9)">\n				<div class="digit-keyboard-key-number">9\n					<div class="digit-keyboard-key-letters">WXYZ</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="leftAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'left\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="leftAction.fontSize">\n                    <ion-icon *ngIf="leftAction.iconName" [name]="leftAction.iconName"></ion-icon>\n                    <div *ngIf="!leftAction.iconName && leftAction.text">{{leftAction.text}}</div>\n                </div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 0)">\n				<div class="digit-keyboard-key-number" style="margin-top: -0.30em;">0</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="rightAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'right\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="rightAction.fontSize">\n                    <ion-icon *ngIf="rightAction.iconName" [name]="rightAction.iconName"></ion-icon>\n                    <div *ngIf="!rightAction.iconName && rightAction.text">{{rightAction.text}}</div>\n                </div>\n			</div>\n		</div>\n	</div>\n</div>\n'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["V" /* Renderer */]])
     ], IonDigitKeyboardCmp);
@@ -2079,14 +2410,14 @@ var IonDigitKeyboardCmp = (function () {
 
 /***/ }),
 
-/***/ 72:
+/***/ 61:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2111,13 +2442,15 @@ var RestProvider = (function () {
         this.http = http;
         this.nativeStorage = nativeStorage;
         this.apiUrl = 'http://services-spa.azurewebsites.net/api/values';
-        this.UrlProvince = 'http://services-spa.azurewebsites.net/api/province';
+        this.UrlProvince = 'https://smartball.000webhostapp.com/uploads/get_province.php';
+        this.UrlAmphur = 'http://services-spa.azurewebsites.net/api/province';
         this.UrlMarker = 'http://services-spa.azurewebsites.net/api/marker';
         this.UrlWell = 'http://services-spa.azurewebsites.net/api/well';
         this.UrlRoad = 'http://services-spa.azurewebsites.net/api/road';
         this.UrlShape = 'http://services-spa.azurewebsites.net/api/shape';
         this.UrlWidth = 'http://services-spa.azurewebsites.net/api/width';
-        this.UrlTotal = 'http://services-spa.azurewebsites.net/api/search/13.726959,100.776388';
+        this.UrlTotal = 'http://services-spa.azurewebsites.net/api/search';
+        this.UrlProduct = 'https://smartball.000webhostapp.com/uploads/get_product.php';
     }
     RestProvider.prototype.getData = function () {
         var _this = this;
@@ -2156,7 +2489,7 @@ var RestProvider = (function () {
         var _this = this;
         return new Promise(function (resolve) {
             _this.id = log_hr;
-            _this.http.get(_this.UrlProvince + '/' + _this.id).subscribe(function (data) {
+            _this.http.get(_this.UrlAmphur + '/' + _this.id).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);
@@ -2211,10 +2544,22 @@ var RestProvider = (function () {
             });
         });
     };
-    RestProvider.prototype.getTotal = function () {
+    RestProvider.prototype.getTotal = function (lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size) {
+        var _this = this;
+        var url = this.UrlTotal + '/' + lat + ',' + lon + ',' + province_id + ',' + amphur_code + ',' + well + ',' + road + ',' + shape + ',' + width + ',' + type_size + ',' + id + ',' + appraisal + ',' + size;
+        console.log(url);
+        return new Promise(function (resolve) {
+            _this.http.get(url).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getProduct = function () {
         var _this = this;
         return new Promise(function (resolve) {
-            _this.http.get(_this.UrlTotal).subscribe(function (data) {
+            _this.http.get(_this.UrlProduct).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);
@@ -2233,127 +2578,22 @@ var RestProvider = (function () {
 
 /***/ }),
 
-/***/ 83:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EstimatePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__ = __webpack_require__(94);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/**
- * Generated class for the EstimatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var EstimatePage = (function () {
-    function EstimatePage(navCtrl, navParams, nativeStorage, restProvider, loadingCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.nativeStorage = nativeStorage;
-        this.restProvider = restProvider;
-        this.loadingCtrl = loadingCtrl;
-        this.dataReady = false;
-        this.lon1 = 100.772072;
-        this.lon2 = 100.77227210000001;
-        this.lat2 = 13.7217572;
-        this.lat1 = 13.7201804;
-        this.retrieveData();
-    }
-    EstimatePage.prototype.retrieveData = function () {
-        var _this = this;
-        this.nativeStorage.getItem('data_service').then(function (data) {
-            _this.data_service = {
-                id: data.id,
-                well: data.well,
-                road: data.road,
-                shape: data.shape,
-                width: data.width,
-                size: data.size
-            };
-            _this.id = _this.data_service.id;
-            _this.well = _this.data_service.well;
-            _this.road = _this.data_service.road;
-            _this.shape = _this.data_service.shape;
-            _this.width = _this.data_service.width;
-            _this.size = _this.data_service.size;
-            _this.dataReady = true;
-            console.log(_this.size);
-            /*console.log(this.id);
-            console.log(this.well);
-            console.log(this.road);
-            console.log(this.shape);
-            console.log(this.width);*/
-            _this.getInfo(_this.id);
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    EstimatePage.prototype.getInfo = function (id) {
-        /*this.presentLoading();
-        this.restProvider.getTotal()
-        .then(data =>{
-          this.result = data;
-          console.log(this.result);
-          this.loading.dismiss();
-        })*/
-        console.log(id);
-    };
-    EstimatePage.prototype.presentLoading = function () {
-        this.loading = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        this.loading.present();
-    };
-    EstimatePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-estimate',template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/pages/estimate/estimate.html"*/'<!--\n  Generated template for the EstimatePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header header-ios>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n  </ion-navbar>\n</ion-header>\n  <ion-content padding *ngIf=\'dataReady\'>\n      <!--<p> {{ std.lattitude }} {{ std.longitude }} </p>\n      <p>{{ std.name }} </p>\n      <p>{{ std.appraisal }}</p>-->\n      <ion-col col-12 map-content transparent >\n          <ion-item-group >\n              \n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>\n                  <span>{{ result }} บาท/ตาราวา</span>\n              </ion-item>\n              <!--<ion-item border>\n                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n                <span>{{ km }} กิโลเมตร</span>\n            </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>\n                  <span>99 ตารางวา</span>\n              </ion-item>\n              <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>\n                  <span>8,900,000 บาท</span>\n              </ion-item>-->\n              <button ion-button float-right margin-top round outline color="light" style="color:aquamarine;width:120px;height:50px;font-size:24px;">ลงขาย</button>\n          </ion-item-group>\n      </ion-col>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/project-app/AppNow/src/pages/estimate/estimate.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__["a" /* LoadingController */]])
-    ], EstimatePage);
-    return EstimatePage;
-}());
-
-//# sourceMappingURL=estimate.js.map
-
-/***/ }),
-
-/***/ 853:
+/***/ 864:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(446);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(445);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_user_user__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_estimate_estimate__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2_auth__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(456);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_user_user__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_sell_sell__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_list_list__ = __webpack_require__(122);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2363,6 +2603,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2385,35 +2626,27 @@ var MyApp = (function () {
         this.pages = [
             { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */], icon: 'ios-home' },
             { title: 'Profile', component: __WEBPACK_IMPORTED_MODULE_6__pages_user_user__["a" /* UserPage */], icon: 'md-contact' },
-            { title: 'Market Place', component: __WEBPACK_IMPORTED_MODULE_6__pages_user_user__["a" /* UserPage */], icon: 'md-basket' },
+            { title: 'Market Place', component: __WEBPACK_IMPORTED_MODULE_10__pages_list_list__["a" /* ListPage */], icon: 'md-basket' },
             { title: 'About Us', component: __WEBPACK_IMPORTED_MODULE_6__pages_user_user__["a" /* UserPage */], icon: 'md-information-circle' },
-            { title: 'Es', component: __WEBPACK_IMPORTED_MODULE_8__pages_estimate_estimate__["a" /* EstimatePage */], icon: 'md-information-circle' }
+            { title: 'Es', component: __WEBPACK_IMPORTED_MODULE_8__pages_sell_sell__["a" /* SellPage */], icon: 'md-information-circle' }
         ];
-        platform.ready().then(function () {
-            // Here we will check if the user is already logged in
-            _this.afAuth.authState.subscribe(function (state) {
-                if (state.email && state.uid) {
+        if (localStorage.getItem('userData')) {
+            var data = JSON.parse(localStorage.getItem('userData'));
+            this.userDetails = data.userData;
+            //console.log(this.userDetails.name);
+            platform.ready().then(function () {
+                if (_this.userDetails.username) {
                     _this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */];
                 }
                 else {
                     _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
                 }
+                _this.statusBar.styleDefault();
             });
-            // because we don't want to ask users to log in each time they open the app
-            var env = _this;
-            _this.nativeStorage.getItem('user')
-                .then(function (data) {
-                // user is previously logged and we have his data
-                // we will let him access the app
-                google.maps.event.trigger(_this.map, 'resize');
-                env.splashScreen.hide();
-            }, function (error) {
-                //we don't have the user data so we will ask him to log in
-                env.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */]);
-                env.splashScreen.hide();
-            });
-            _this.statusBar.styleDefault();
-        });
+        }
+        else {
+            this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
+        }
     }
     MyApp.prototype.openPage = function (page) {
         var _this = this;
@@ -2424,13 +2657,13 @@ var MyApp = (function () {
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/superball/project-app/AppNow/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <div header-background-image padding style="background-image: url(\n          assets/imgs/bg.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n    </ion-header>\n  \n    <ion-content>\n      <ion-list>\n          <ion-item>\n            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n                <ion-icon icon-small item-left name="{{p.icon}}" style="color:aquamarine"></ion-icon>\n              {{p.title}}\n            </button>\n          </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/superball/project-app/AppNow/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <div header-background-image padding style="background-image: url(\n          assets/imgs/bg.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n    </ion-header>\n  \n    <ion-content>\n      <ion-list>\n          <ion-item>\n            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n                <ion-icon icon-small item-left name="{{p.icon}}" style="color:aquamarine"></ion-icon>\n              {{p.title}}\n            </button>\n          </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
@@ -2443,7 +2676,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 854:
+/***/ 865:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2460,7 +2693,7 @@ var FIREBASE_CONFIG = {
 
 /***/ }),
 
-/***/ 855:
+/***/ 866:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2520,15 +2753,15 @@ var ParallaxDirective = (function () {
 
 /***/ }),
 
-/***/ 856:
+/***/ 867:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IonDigitKeyboard; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components__ = __webpack_require__(326);
 /**
  * @name IonDigitKeyboard
  * @description A digital keyboard for Ionic 2.
@@ -2554,7 +2787,7 @@ var IonDigitKeyboard = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */]
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* IonicModule */]
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__components__["a" /* IonDigitKeyboardCmp */]
@@ -2570,5 +2803,5 @@ var IonDigitKeyboard = (function () {
 
 /***/ })
 
-},[449]);
+},[459]);
 //# sourceMappingURL=main.js.map

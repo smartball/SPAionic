@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { RestProvider } from '../../providers/rest/rest';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { SellPage } from '../sell/sell';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the EstimatePage page.
  *
@@ -37,17 +39,22 @@ export class EstimatePage {
   data_service:any;
   loading:any;
   dataReady: boolean = false;
+  load_success = 0;
   result:any;
   public lon1:any = 100.772072;
   public lon2:any = 100.77227210000001;
   public lat2:any = 13.7217572;
   public lat1:any = 13.7201804;
+  public data:any;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public nativeStorage: NativeStorage,
               public restProvider: RestProvider,
               public loadingCtrl: LoadingController) {
               this.retrieveData()
+              this.data = JSON.parse(localStorage.getItem('dataMap'));
+              
+              
   }
   
   retrieveData(){
@@ -67,7 +74,7 @@ export class EstimatePage {
         province_id: data.province_id,
         amphur_code: data.amphur_code
       };
-      this.id     = this.data_service.id;
+      this.id     = this.data_service.id; //ระยะทางจาการวัด
       this.well   = this.data_service.well;
       this.road   = this.data_service.road;
       this.shape  = this.data_service.shape;
@@ -82,6 +89,7 @@ export class EstimatePage {
       this.province_id = this.data_service.province_id;
       this.amphur_code = this.data_service.amphur_code;
       this.dataReady = true;
+      
       /*console.log(this.type_size);
       console.log(this.lat);
       console.log(this.lon);
@@ -100,7 +108,12 @@ export class EstimatePage {
       var results = data;
       this.result = results.toLocaleString();
       console.log(this.result);
+      var dataResults = {"results":results};
+      var dataResultsJson = JSON.stringify(dataResults);
+      localStorage.setItem('dataResults',dataResultsJson);
+      console.log(dataResultsJson);
       this.loading.dismiss();
+      this.load_success = 1;
     },error =>{
       console.log("พัง");
     })
@@ -108,11 +121,23 @@ export class EstimatePage {
   }
   presentLoading() {
     this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
+      spinner: "dots",
+      content: 'กำลังประมวลผลข้อมูล'
     });
     this.loading.present();
 }
-  
+  toSell(){
+    
+    this.presentLoading();
+    this.navCtrl.push(SellPage);
+    setTimeout(() => {
+      this.loading.dismiss();
+    }, 2000);
+    
+  }
+  toHome(){
+    this.navCtrl.setRoot(HomePage);
+  }
 
  
 }

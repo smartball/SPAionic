@@ -1,37 +1,37 @@
 <ion-header header-ios>
-  <ion-navbar transparent>
-    <button ion-button menuToggle>
-      <ion-icon name="menu" color="primary"></ion-icon>
-    </button>
-    <ion-toolbar>
-      User Details
-    </ion-toolbar>
-  </ion-navbar>
-</ion-header>
-  
-  
-  <ion-content parallax *ngIf='userReady'>
-    <div class="bg">
-
-    </div>
-    <div class="main-cnt">
-      <img [src]="user.picture" class="dp">
-    </div>
-    <ion-card >
-      <ion-card-content>
-        <ion-card-title>
-          Welcome {{user.name}}!
-          </ion-card-title>
-        <p>
-          {{user.email}}
-        </p>
-      </ion-card-content>
-      <ion-row>
-        <ion-col>
-          <button ion-button block (click)="doFbLogout()">Logout</button>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-   
-  </ion-content>
-  
+    <ion-navbar transparent>
+      <button ion-button menuToggle>
+        <ion-icon name="menu" color="primary"></ion-icon>
+      </button>
+      <ion-toolbar>
+        User Details
+      </ion-toolbar>
+    </ion-navbar>
+  </ion-header>
+    
+    
+    <ion-content parallax *ngIf='success == 1'>
+      <div>
+          <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="bg">
+      </div>
+      <div class="main-cnt">
+        <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="dp">
+      </div>
+      <ion-card *ngIf='success == 1'>
+        <ion-card-content>
+          <ion-card-title>
+              Welcome to {{userDetails.name}}
+            </ion-card-title>
+          <p>
+              Email: {{userDetails.email}}
+          </p>
+        </ion-card-content>
+        <ion-row>
+          <ion-col>
+            <button ion-button block (click)="logout()">Logout</button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+     
+    </ion-content>
+    

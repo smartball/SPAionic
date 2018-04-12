@@ -1,46 +1,49 @@
 <ion-content class="background">
-    <h1 style="margin-top:80px;">SMART PROPERT ASSESS</h1>
-    <ion-card>
-    
-      <ion-card-header>
-        
-        <a (click)="skip()" float-Right>Skip This</a><br>Login
-      </ion-card-header>
   
-      <ion-card-content>
-        <!-- Add card content here! -->
-        <ion-list no-lines>
-          <ion-item>
-          <ion-label floating>
-            Email Address
-          </ion-label>
-            <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-        </ion-item>
+  <h1 style="margin-top:80px;">SMART PROPERTY ASSESS</h1>
+  <ion-card>
+  
+    <ion-card-header>
+      
+      <a (click)="skip()" float-Right>Skip This</a>
+    </ion-card-header>
+
+    <ion-card-content >
+      <!-- Add card content here! -->
+      <ion-list no-lines>
         <ion-item>
-          <ion-label floating>
-              Password
-          </ion-label>
-            <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+        <ion-label floating>
+          Email or Username
+        </ion-label>
+          <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+            Password
+        </ion-label>
+          <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
+      </ion-item>
+        <ion-item>
+          <p>Forgot password?<a href="#" (click)="ForgotPassword()">Get Here</a></p>
         </ion-item>
-          <ion-item>
-            <p>Forgot password?<a href="#" (click)="ForgotPassword()">Get Here</a></p>
-          </ion-item>
-          <button ion-button color="danger" ion-left block (click)="login(user)">LOGIN</button>
-        </ion-list>
-        <b>OR</b>
-          <button ion-button color="primary" ion-left block (click)="doFbLogin()">
-            <ion-icon name="logo-facebook"></ion-icon>
-            <div>Login With Facebook</div>
-          </button>
-          <!--
-          <button ion-button color="danger" ion-left block (click)="googlelogin()">
-            <ion-icon name="logo-googleplus"></ion-icon>
-            <div>Login With Google</div>
-          </button> -->
-          <hr width="80%">
-          <b><a (click)="register()" >Create an Account</a></b>
-      </ion-card-content>
-    
-    </ion-card>
+        <ion-row style="margin-left:12%;margin-right:12%">
+        <button ion-button block round full class="btn" style="height:50px;" (click)="loginSql()">LOGIN</button>
+        </ion-row>
+      </ion-list>
+      <!--<b>OR</b>
+        <button ion-button color="primary" ion-left block (click)="doFbLogin()">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <div>Login With Facebook</div>
+        </button>-->
+        <!--
+        <button ion-button color="danger" ion-left block (click)="googlelogin()">
+          <ion-icon name="logo-googleplus"></ion-icon>
+          <div>Login With Google</div>
+        </button> -->
+        <hr width="80%">
+        <a (click)="register()" style="font-size:20px" >Create an Account</a>
+    </ion-card-content>
   
-  </ion-content>
+  </ion-card>
+
+</ion-content>

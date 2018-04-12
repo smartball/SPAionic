@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header hidden>
   
     <ion-navbar>
       <ion-title>Register</ion-title>
@@ -18,52 +18,73 @@
       <ion-row padding-horizontal align-items-start>
           
           <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
-              <!---Logo
-              <img src="assets/imgs/logo-reales.png" style="width:150px;margin-top:20px;"/> -->
               
-              <!--Form Title-->
+              
               <h1 ion-text style="color:lightgray;font-size:35px;" title>Register your new Account</h1>
-              
-              
-              <!---Input field email-->
+              <div class="uploadWrap" *ngIf="imageChosen == 0" >
+                  <ion-icon (click)="chooseImage()" name="ios-camera" class="camera" ></ion-icon>
+                  <ion-icon (click)="chooseImage()" class="user" name="ios-contact" style="color:#b9b8b8;"></ion-icon>
+              </div>
+              <div class="imgWrap" *ngIf="imageChosen == 1" >
+                  <ion-icon (click)="chooseImage()" name="ios-camera-outline" class="camera"></ion-icon>
+                  <img [src]="imagePath" class="img-user" (click)="chooseImage()" alt="">
+              </div>
               <ion-item no-padding>
                   <ion-label color="dark" stacked>EMAIL</ion-label>
-                  <ion-input required placeholder="Your e-mail address(eg. you@example.com)"  type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="email" name="email"></ion-input>
-              </ion-item>
-              <!---Input field password-->
-              <ion-item no-padding>
-                <ion-label color="dark" stacked>PASSWORD</ion-label>
-                <ion-input required placeholder="Enter your password" type="password" [(ngModel)]="password" name="password"></ion-input>
+                  <ion-input required placeholder="Your e-mail address" type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="userData.email"></ion-input>
               </ion-item>
               <ion-item no-padding>
-                  <ion-label color="dark" stacked>FIRST NAME</ion-label>
-                  <ion-input required placeholder="Your Firstname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="first_name" name="first_name"></ion-input>
+                  <ion-label color="dark" stacked>USERNAME</ion-label>
+                  <ion-input required placeholder="Your Lastname" type="text" required [(ngModel)]="userData.username"></ion-input>
+              </ion-item>
+              
+              <ion-item no-padding>
+                  <ion-label color="dark" stacked>FULL NAME</ion-label>
+                  <ion-input required placeholder="Your Firstname & Lastname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="userData.name"></ion-input>
               </ion-item>
               <ion-item no-padding>
-                  <ion-label color="dark" stacked>LAST NAME</ion-label>
-                  <ion-input required placeholder="Your Lastname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="last_name" name="last_name"></ion-input>
-              </ion-item>
-              <ion-item no-padding>
-                  <ion-label color="dark" stacked>PHONE</ion-label>
-                  <ion-input required placeholder="Enter your number(eg. 0802222222)" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="phone" name="phone"></ion-input>
-              </ion-item>
-              <ion-item no-padding>
-                <ion-label color="dark" stacked>ADDRESS</ion-label>
-                <ion-input required placeholder="Enter your Address" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="address" name="address"></ion-input>
-              </ion-item>
-              <ion-item no-padding>
-                <ion-label color="dark" stacked>CITY</ion-label>
-                <ion-input required placeholder="Enter your City" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="city" name="city"></ion-input>
-              </ion-item>
-              <ion-item no-padding>
-                <ion-label style="font-size:10px;">Agree to receive for news and information?</ion-label>
-                <ion-toggle [(ngModel)]="isJobSeeker" name="isJobSeeker"></ion-toggle>
-              </ion-item>
-              <!---Register button-->
-              <button ion-button margin-top float-right clear button-clear text-capitalize round (click)="doSignup()">Register</button>
+                  <ion-label color="dark" stacked>PASSWORD</ion-label>
+                  <ion-input required placeholder="Enter your password" type="password" [(ngModel)]="userData.password"></ion-input>
+                </ion-item>
+              
+              
+              <button ion-button full round (click)="signup()" class="img-grad">Register</button>
           </ion-col>
       </ion-row>
     </ion-grid>
     
   </ion-content>
+  <!--<ion-content padding class="appBackground">
+    <ion-card>
+      <ion-card-header>
+        Registration
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label stacked>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="userData.name"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input type="text" [(ngModel)]="userData.email"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label stacked>Username</ion-label>
+            <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label stacked>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
+          </ion-item>
+  
+          <button ion-button full color="success" (click)="signup()">Sign up</button>
+          <a href="#" (click)="login()">Login Page</a>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>-->
   

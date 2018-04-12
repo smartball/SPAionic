@@ -1,113 +1,112 @@
 <ion-header hidden>
-    <ion-navbar color="secondary">
-      
-      <ion-title>
-        Map
-      </ion-title>
-      <ion-buttons end>
-        <button ion-button icon-only (click)='toggleSearch()'>
-          <ion-icon name="search"></ion-icon>
-        </button>
-        <button ion-button icon-only (click)='choosePosition()'>
-          <ion-icon name="ios-locate-outline"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  </ion-header>
-    <div class="switch">
-      <button ion-button icon-only color="light" (click)='toggleSearch()'><ion-icon name="search"></ion-icon></button>
-      <button ion-button color="light" (click)="(switch = 'map'); resizeMap()" [class.active]="(switch == 'map')" icon-only><ion-icon name="map"></ion-icon></button>
-      <button ion-button color="light" (click)="(switch = 'list'); " [class.active]="(switch == 'list')" icon-only><ion-icon name="list"></ion-icon></button>
-    </div>
-  
-    <div class="currentitem" *ngIf="currentregional">
-      <button ion-item no-lines (click)="viewPlace(currentregional.title)">
-        <h2>{{ currentregional.title }}</h2>
-        <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>
-      </button>
-    </div>
-  <ion-content>
+  <ion-navbar color="secondary">
     
+    <ion-title>
+      Map
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='toggleSearch()'>
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)='choosePosition()'>
+        <ion-icon name="ios-locate-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+  <div class="switch">
+    <button ion-button icon-only color="light" (click)='toggleSearch()'><ion-icon name="search"></ion-icon></button>
+    <button ion-button color="light" class="grad" (click)="(switch = 'map'); resizeMap()" [class.active]="(switch == 'map')" icon-only><ion-icon name="map"></ion-icon></button>
+    <button ion-button color="light" menuToggle icon-only><ion-icon name="list"></ion-icon></button>
+  </div>
+
+  <div class="currentitem" *ngIf="currentregional">
+    <button ion-item no-lines (click)="viewPlace(currentregional.title)">
+      <h2>{{ currentregional.title }}</h2>
+      <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>
+    </button>
+  </div>
+<ion-content fullscreen>
   
-      <div [hidden]="!(switch == 'list')">
-        <div header-background-image padding style="background-image: url(
-          assets/imgs/bg.png);">
-          <img src="assets/imgs/logo-reales-bg.png"/>
-          <h2 ion-text color="light" header-title>Smart Property Assess</h2>
-          <p>Welcome to our Application for Real Estate Appraisal</p>
-        </div>
-        
-        <ion-list>
-          <ion-item>
-              <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">
-                  <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>
-                  Profile
-              </button>
-          </ion-item>
-          <ion-item>
-              <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">
-                  <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>
-                  Market Place
-              </button>
-          </ion-item>
-          <ion-item>
-            <button menuClose ion-item item-title main-menu no-lines border (click)="openEs()">
-                <ion-icon icon-small item-left name="md-exit" style="color:aquamarine"></ion-icon>
-                Appraisal
+
+    <div [hidden]="!(switch == 'list')">
+      <div header-background-image padding style="background-image: url(
+        assets/imgs/bg.png);">
+        <img src="assets/imgs/logo-reales-bg.png"/>
+        <h2 ion-text color="light" header-title>Smart Property Assess</h2>
+        <p>Welcome to our Application for Real Estate Appraisal</p>
+      </div>
+      
+      <ion-list>
+        <ion-item>
+            <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">
+                <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>
+                Profile
             </button>
         </ion-item>
-          <ion-item>
-              <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">
-                  <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>
-                  About Us
-              </button>
-          </ion-item>
-        </ion-list>
+        <ion-item>
+            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">
+                <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>
+                Market Place
+            </button>
+        </ion-item>
+        <ion-item>
+          <button menuClose ion-item item-title main-menu no-lines border (click)="openEs()">
+              <ion-icon icon-small item-left name="md-exit" style="color:aquamarine"></ion-icon>
+              Appraisal
+          </button>
+      </ion-item>
+        <ion-item>
+            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">
+                <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>
+                About Us
+            </button>
+        </ion-item>
+      </ion-list>
+    </div>
+    
+    <div class="map" [class.hidemap]="!((switch == 'map') || error)">
+      <div style="padding-top:40px;">
+          <div #searchbar id="floating-panel" [hidden]="!search">
+            <img src="assets/imgs/logo-real.png" style="width: 150px;height:140px;" alt="">
+              <ion-row padding>
+                  <ion-list no-lines>
+                      <!--<ion-item [class.active]="focus === 'textSearch'" (touchend)="setFocus('textSearch')">
+                          <ion-label><ion-icon name="ios-map-outline"></ion-icon></ion-label>
+                          <ion-input type="number" disabled [ngModel]="textSearch" placeholder="ระบุเลขโฉนด" clearInput></ion-input>
+                      </ion-item>-->
+                      <ion-item>        
+                          <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>
+                          <ion-input clearInput type="number" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>
+                      </ion-item>
+                      <br>
+                      <ion-item>
+                        <ion-label stacked>จังหวัด</ion-label>
+                        <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุจังหวัด">
+                          <ion-option *ngFor="let item of items_prov" (ionSelect)="select(item)" [value]="item">{{ item.PROVINCE_NAME }}</ion-option>
+                        </ion-select>
+                      </ion-item>
+                      
+                      <ion-item>
+                        <ion-label stacked>เขต/อำเภอ</ion-label>
+                        <ion-select [(ngModel)]="provincec" interface="action-sheet" id="amphur" placeholder="กรุณาระบุเขต/อำเภอ">
+                          <ion-option *ngFor="let amphur of amphur" (ionSelect)="selectAmphur(amphur)" [value]="amphur" >{{ amphur.AMPHUR_NAME }}</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  </ion-list>
+                  
+                  
+                  
+                  <button ion-button block (click)="btnSearch()" #searchbar [hidden]="!search">ค้นหา</button>
+                  
+              </ion-row>
+              <ion-row padding>
+              </ion-row>  
+          </div>
       </div>
       
-      <div class="map" [class.hidemap]="!((switch == 'map') || error)">
-        <div style="padding-top:40px;">
-            <div #searchbar id="floating-panel" [hidden]="!search">
-              <img src="assets/imgs/logo-real.png" style="width: 150px;height:140px;" alt="">
-                <ion-row padding>
-                    <ion-list no-lines>
-                        <!--<ion-item [class.active]="focus === 'textSearch'" (touchend)="setFocus('textSearch')">
-                            <ion-label><ion-icon name="ios-map-outline"></ion-icon></ion-label>
-                            <ion-input type="number" disabled [ngModel]="textSearch" placeholder="ระบุเลขโฉนด" clearInput></ion-input>
-                        </ion-item>-->
-                        <ion-item>        
-                            <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>
-                            <ion-input clearInput type="number" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>
-                        </ion-item>
-                        <br>
-                        <ion-item>
-                          <ion-label stacked>จังหวัด</ion-label>
-                          <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุจังหวัด">
-                            <ion-option *ngFor="let item of items_prov" (ionSelect)="select(item)" [value]="item">{{ item.province_name }}</ion-option>
-                          </ion-select>
-                        </ion-item>
-                        
-                        <ion-item>
-                          <ion-label stacked>เขต/อำเภอ</ion-label>
-                          <ion-select [(ngModel)]="provincec" interface="action-sheet" id="amphur" placeholder="กรุณาระบุเขต/อำเภอ">
-                            <ion-option *ngFor="let amphur of amphur" (ionSelect)="selectAmphur(amphur)" [value]="amphur" >{{ amphur.amphur_name }}</ion-option>
-                          </ion-select>
-                        </ion-item>
-                    </ion-list>
-                    
-                    
-                    
-                    <button ion-button block (click)="btnSearch()" #searchbar [hidden]="!search">ค้นหา</button>
-                    
-                </ion-row>
-                <ion-row padding>
-                </ion-row>  
-            </div>
-        </div>
-        
-              
-        <div id="map" #map></div>
-      </div>
-    
-  </ion-content>
+            
+      <div id="map" #map></div>
+    </div>
   
+</ion-content>

@@ -6,6 +6,7 @@ import { EstimatePage } from '../estimate/estimate';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { RestProvider } from '../../providers/rest/rest';
+import { AuthProvider } from '../../providers/auth/auth';
 declare var google;
 /**
  * Generated class for the MapDirectionPage page.
@@ -20,8 +21,9 @@ declare var google;
   templateUrl: 'map-direction.html',
 })
 export class MapDirectionPage {
-  pot: any;
-  
+    pot: any;
+    dataMap:any;
+    dataMapJson:any;
     @ViewChild('map') mapRef : ElementRef;
     size:any;
     appraisal:any;
@@ -53,9 +55,13 @@ export class MapDirectionPage {
     amphur_code:any;
     province_id: any;
     map:any;
+    deed_number:any;
     dataReady: boolean = false;
     currentTab = 0;
+    n = 0;
     loading:any;
+    load_success:any = 0;
+    dataSend:any;
     public itemChecked_well;
     public itemChecked_height_road;
     public itemChecked_shape;
@@ -65,19 +71,95 @@ export class MapDirectionPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams , 
               public plt : Platform, 
+              public authprovider: AuthProvider,
               public nativeStorage: NativeStorage,
               public loadingCtrl: LoadingController,
               public restProvider: RestProvider) {
-    this.plt.ready().then(() =>{
-       
-      this.showMap();
-    });
-   
-  }
- 
-
+                this.plt.ready().then(() =>{
+                  
+                 this.showMap();
+               });
   
-
+  }
+  logForm(form){
+   
+}
+  
+  ionViewDidLoad() {
+    
+    this.showTab(this.currentTab);
+  }
+  showTab(n) {
+    // This function will display the specified tab of the form...
+    var x = document.getElementsByClassName("tab") as HTMLCollectionOf<HTMLElement>;
+    x[n].style.display = "block";
+    
+    //... and fix the Previous/Next buttons:
+    if (n == 0) {
+      document.getElementById("prevBtn").style.display = "none";
+      document.getElementById("succ").style.display = "none";
+    } else {
+      
+      document.getElementById("prevBtn").style.display = "inline";
+    }
+    if (n == (x.length - 1)) {
+      document.getElementById("succ").style.display = "inline";
+      document.getElementById("nextBtn").style.display = "none";
+    } else {
+      document.getElementById("nextBtn").style.display = "inline";
+      document.getElementById("succ").style.display = "none";
+    }
+    //... and run a function that will display the correct step indicator:
+    this.fixStepIndicator(n)
+  }
+   
+  nextPrev(n) {
+    // This function will figure out which tab to display
+    var x = document.getElementsByClassName("tab") as HTMLCollectionOf<HTMLElement>;
+    // Exit the function if any field in the current tab is invalid:
+    if (n == 1 && !this.validateForm()) return false;
+    // Hide the current tab:
+    x[this.currentTab].style.display = "none";
+    // Increase or decrease the current tab by 1:
+    this.currentTab = this.currentTab + n;
+    // if you have reached the end of the form...
+    if (this.currentTab >= x.length) {
+      // ... the form gets submitted:
+      return false;
+    }
+    // Otherwise, display the correct tab:
+    this.showTab(this.currentTab);
+  }
+  validateForm() {
+    // This function deals with validation of the form fields
+    var x, y, i, valid = true;
+    x = document.getElementsByClassName("tab");
+    y = x[this.currentTab].getElementsByTagName("input");
+    // A loop that checks every input field in the current tab:
+    for (i = 0; i < y.length; i++) {
+      // If a field is empty...
+      if (y[i].value == "") {
+        // add an "invalid" class to the field:
+        y[i].className += " invalid";
+        // and set the current valid status to false
+        valid = false;
+      }
+    }
+    // If the valid status is true, mark the step as finished and valid:
+    if (valid) {
+      document.getElementsByClassName("step")[this.currentTab].className += " finish";
+    }
+    return valid; // return the valid status
+  }
+  fixStepIndicator(n) {
+    // This function removes the "active" class of all steps...
+    var i, x = document.getElementsByClassName("step");
+    for (i = 0; i < x.length; i++) {
+      x[i].className = x[i].className.replace(" active", "");
+    }
+    //... and adds the "active" class on the current step:
+    x[n].className += " active";
+  }
   showMap(){
     var markerArray = [];
     //declear>>>
@@ -106,8 +188,10 @@ export class MapDirectionPage {
           longitude: data.longitude,
           size: data.size,
           province_id: data.province_id,
-          amphur_code: data.amphur_code
+          amphur_code: data.amphur_code,
+          deed_number: data.deed_number
         };
+        this.deed_number = this.std.deed_number;
         this.appraisal = this.std.appraisal;
         this.size = this.std.size;
         this.amphur_code = this.std.amphur_code;
@@ -220,55 +304,95 @@ export class MapDirectionPage {
     
    }
    clickservice(){
-     this.nativeStorage.setItem('data_service',{
-       lat: this.lat,
-       lon: this.lon,
-       id: this.id_13,
-       well: this.well,
-       road: this.road,
-       shape: this.shape,
-       width: this.width,
-       size: this.size,
-       appraisal: this.appraisal,
-       distance: this.result_distance,
-       type_size: this.type_size,
-       province_id: this.province_id,
-       amphur_code: this.amphur_code
-     }).then(()=>{
-       //console.log(this.type_size);
-       /*console.log(this.well);
-       console.log(this.road);
-       console.log(this.shape);
-       console.log(this.width);
-       console.log(this.size);*/
-       let loading = this.loadingCtrl.create({
-        
-        content: 'กำลังประเมินราคา'
-      });
-    
-      loading.present();
-      
-      setTimeout(() => {
-        this.navCtrl.setRoot(EstimatePage);
-      }, 1000);
-    
-      setTimeout(() => {
-        loading.dismiss();
-      }, 1000);
+    this.nativeStorage.setItem('data_service',{
+      lat: this.lat,
+      lon: this.lon,
+      id: this.id_13,
+      well: this.well,
+      road: this.road,
+      shape: this.shape,
+      width: this.width,
+      size: this.size,
+      appraisal: this.appraisal,
+      distance: this.result_distance,
+      type_size: this.type_size,
+      province_id: this.province_id,
+      amphur_code: this.amphur_code,
+      deed_number: this.deed_number
+    }).then(()=>{
+      this.dataMap = {
+                     "deed_number":this.deed_number,
+                     "lat":this.lat,
+                     "lon":this.lon,
+                     "area_size":this.size,
+                     "dpm_appraisal":this.appraisal,
+                     "province":this.province_id,
+                     "amphur":this.amphur_code,
+                     "shape":this.shape,
+                     "road":this.road,
+                     "width":this.width,
+                     "distance":this.result_distance};
+      this.dataMapJson = JSON.stringify(this.dataMap);
+      console.log(this.dataMapJson); 
+      localStorage.setItem('dataMap',this.dataMapJson);
+      //console.log(this.type_size);
+      /*console.log(this.well);
+      console.log(this.road);
+      console.log(this.shape);
+      console.log(this.width);
+      console.log(this.size);*/
+      let loading = this.loadingCtrl.create({
        
-     },(error)=>{
-       console.log('พัง')
-     })
-   }
+       content: 'กำลังประเมินราคา'
+     });
+   
+     loading.present();
+     
+     setTimeout(() => {
+       this.navCtrl.setRoot(EstimatePage);
+     }, 1000);
+   
+     setTimeout(() => {
+       loading.dismiss();
+     }, 1000);
+      
+    },(error)=>{
+      console.log('พัง')
+    })
+  }
    ionViewWillEnter(){
     
     //console.log(this.result_distance,"result");
-    console.log(this.lat,"d1");
+    //console.log(this.lat,"d1");
     //console.log(this.pos_lat,"d2");
     
     this.showMap();
     this.presentLoading();
-    this.restProvider.getWell(this.province_id,this.amphur_code)
+    this.dataSend = {"province": this.province_id,"amphur":this.amphur_code};
+    this.authprovider.postData(this.dataSend,'checkWell').then((result) => {
+      this.data_well = result;
+    }, (err) => {
+      // Error log
+    });
+    this.authprovider.postData(this.dataSend,'checkRoad').then((result) => {
+      this.data_road = result;
+    }, (err) => {
+      // Error log
+    });
+    this.authprovider.postData(this.dataSend,'checkShape').then((result) => {
+      this.data_shape = result;
+    }, (err) => {
+      // Error log
+    });
+    this.authprovider.postData(this.dataSend,'checkWidth').then((result) => {
+      this.data_width = result;
+      this.load_success = 1;
+      this.loading.dismiss();
+    }, (err) => {
+      // Error log
+    });
+    
+    /*this.restProvider.getWell(this.province_id,this.amphur_code)
     .then(well =>{
       this.data_well = well;
       
@@ -290,8 +414,9 @@ export class MapDirectionPage {
     .then(width =>{
       this.data_width = width;
       this.loading.dismiss();
+      this.load_success = 1;
       console.log(this.data_width);
-    });
+    });*/
     
   }
   presentLoading() {
@@ -301,21 +426,20 @@ export class MapDirectionPage {
     this.loading.present();
 }
   select(item) {
-    this.well = item.id;
+    this.well = item.ID;
     return this.well;
   }
   select_hr(item_hr){
-  this.road = item_hr.id;
+  this.road = item_hr.ID;
   console.log(this.road);
   return this.road;
   }
   select_sp(item_sp) {
-    this.shape = item_sp.id;
+    this.shape = item_sp.ID;
     return this.shape;
   }
   select_wd(item_wd) {
-    this.width = item_wd.id;
+    this.width = item_wd.ID;
     return this.width;
   }
-  
 }

@@ -13,7 +13,7 @@ var METHOD_THIS_NAME = 'this';
 var CATCH_ERROR_NAME = 'error';
 var CATCH_STACK_NAME = 'stack';
 var _VALID_IDENTIFIER_RE = /^[$A-Z_][0-9A-Z_$]*$/i;
-var TypeScriptNodeEmitter = (function () {
+var TypeScriptNodeEmitter = /** @class */ (function () {
     function TypeScriptNodeEmitter() {
     }
     TypeScriptNodeEmitter.prototype.updateSourceFile = function (sourceFile, stmts, preamble) {
@@ -23,18 +23,23 @@ var TypeScriptNodeEmitter = (function () {
         var statements = [].concat.apply([], stmts.map(function (stmt) { return stmt.visitStatement(converter, null); }).filter(function (stmt) { return stmt != null; }));
         var preambleStmts = [];
         if (preamble) {
-            if (preamble.startsWith('/*') && preamble.endsWith('*/')) {
-                preamble = preamble.substr(2, preamble.length - 4);
-            }
-            var commentStmt = ts.createNotEmittedStatement(sourceFile);
-            ts.setSyntheticLeadingComments(commentStmt, [{ kind: ts.SyntaxKind.MultiLineCommentTrivia, text: preamble, pos: -1, end: -1 }]);
-            ts.setEmitFlags(commentStmt, ts.EmitFlags.CustomPrologue);
+            var commentStmt = this.createCommentStatement(sourceFile, preamble);
             preambleStmts.push(commentStmt);
         }
         var sourceStatments = preambleStmts.concat(converter.getReexports(), converter.getImports(), statements);
         converter.updateSourceMap(sourceStatments);
         var newSourceFile = ts.updateSourceFileNode(sourceFile, sourceStatments);
         return [newSourceFile, converter.getNodeMap()];
+    };
+    /** Creates a not emitted statement containing the given comment. */
+    TypeScriptNodeEmitter.prototype.createCommentStatement = function (sourceFile, comment) {
+        if (comment.startsWith('/*') && comment.endsWith('*/')) {
+            comment = comment.substr(2, comment.length - 4);
+        }
+        var commentStmt = ts.createNotEmittedStatement(sourceFile);
+        ts.setSyntheticLeadingComments(commentStmt, [{ kind: ts.SyntaxKind.MultiLineCommentTrivia, text: comment, pos: -1, end: -1 }]);
+        ts.setEmitFlags(commentStmt, ts.EmitFlags.CustomPrologue);
+        return commentStmt;
     };
     return TypeScriptNodeEmitter;
 }());
@@ -53,7 +58,7 @@ function createLiteral(value) {
 /**
  * Visits an output ast and produces the corresponding TypeScript synthetic nodes.
  */
-var _NodeEmitterVisitor = (function () {
+var _NodeEmitterVisitor = /** @class */ (function () {
     function _NodeEmitterVisitor() {
         this._nodeMap = new Map();
         this._importsWithPrefixes = new Map();

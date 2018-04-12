@@ -13,10 +13,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 
 export class UserPage {
-
+  imgs:any;
   user: any;
   userReady: boolean = false;
-
+  public userDetails: any;
+  success = 0;
   constructor(
     public navCtrl: NavController,
     public fb: Facebook,
@@ -24,67 +25,29 @@ export class UserPage {
     public nativeStorage: NativeStorage,
     public afAuth: AngularFireAuth,
     public googlePlus: GooglePlus
-  ) {}
-
-  ionViewCanEnter(){
-    this.nativeStorage.getItem('user')
-    .then((data) => {
-      this.user = {
-        name: data.name,
-        gender: data.gender,
-        picture: data.picture,
-        email: data.email
-      };
-      this.userReady = true;
-    }, (error) => {
-      console.log(error);
-    });
-  }
-
-  doFbLogout(){
-    var loader = this.loadingCtrl.create({
-      content: "Please wait..."
-    });
-    loader.present();
-    const result = this.afAuth.auth.signOut();
-    this.fb.logout()
-    .then((response) => {
-      //user logged out so we will remove him from the NativeStorage
-      this.nativeStorage.remove('user');
-      
-      setTimeout(() => {
+  ) {
+    this.imgs = 'assets/imgs/bg.png';
+    if(localStorage.getItem('userData')){
+      this.success = 1;
+      const data = JSON.parse(localStorage.getItem('userData'));
+      this.userDetails = data.userData;
+      console.log(this.userDetails.NAME_IMG);
+      }else{
         this.navCtrl.setRoot(LoginPage);
-        },1000);
-        loader.dismiss();
-    }, (error) => {
-      console.log(error);
-    });
-  }
-
-  doGoogleLogout(){
-    let nav = this.navCtrl;
-    const result = this.afAuth.auth.signOut();
-    this.googlePlus.logout()
-    .then((response) => {
-      this.nativeStorage.remove('user');
-      nav.push(LoginPage);
-    },(error) => {
-      console.log(error);
-    })
+      }
+    
   }
 
   logout(){
     var loader = this.loadingCtrl.create({
+      spinner: "dots",
       content: "Please wait..."
     });
     loader.present();
-    const result = this.afAuth.auth.signOut();
-    this.nativeStorage.remove('user');
-    if(result){
+    localStorage.clear();
+    setTimeout(() => {
       loader.dismiss();
-      setTimeout(() => {
-        this.navCtrl.setRoot(LoginPage);
-        },1000);
-    }
+      this.navCtrl.setRoot(LoginPage);
+    }, 2000);
   }
 }

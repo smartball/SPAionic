@@ -16,6 +16,7 @@ import { UserPage } from '../pages/user/user';
 import { RegisterPage } from '../pages/register/register';
 import { EstimatePage } from '../pages/estimate/estimate';
 import { AppraisalPage } from '../pages/appraisal/appraisal';
+import { SellPage } from '../pages/sell/sell';
 
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireModule } from 'angularfire2';
@@ -26,6 +27,12 @@ import { ParallaxDirective } from '../directives/parallax/parallax';
 import { ListPage } from '../pages/list/list';
 import { RestProvider } from '../providers/rest/rest';
 import { IonDigitKeyboard } from '../components/ion-digit-keyboard/ion-digit-keyboard.module';
+
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +45,8 @@ import { IonDigitKeyboard } from '../components/ion-digit-keyboard/ion-digit-key
     ParallaxDirective,
     EstimatePage,
     ListPage,
-    AppraisalPage
+    AppraisalPage,
+    SellPage
   ],
   imports: [
     BrowserModule,
@@ -48,6 +56,7 @@ import { IonDigitKeyboard } from '../components/ion-digit-keyboard/ion-digit-key
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     HttpModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +68,8 @@ import { IonDigitKeyboard } from '../components/ion-digit-keyboard/ion-digit-key
     RegisterPage,
     EstimatePage,
     ListPage,
-    AppraisalPage
+    AppraisalPage,
+    SellPage
   ],
   providers: [
     StatusBar,
@@ -69,7 +79,10 @@ import { IonDigitKeyboard } from '../components/ion-digit-keyboard/ion-digit-key
     GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    RestProvider
+    RestProvider,
+    FileTransfer, 
+    File,
+    ImagePicker
     
   ]
 })

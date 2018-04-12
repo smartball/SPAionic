@@ -1,0 +1,57 @@
+{
+  "_from": "com-sarriaroman-photoviewer",
+  "_id": "com-sarriaroman-photoviewer@1.1.16",
+  "_inBundle": false,
+  "_integrity": "sha512-Yuq4oNn5+jwKH9iD1Ybaj4a1GpsyscrgB1nJCmwFafTIXKdFW6gHc3l8i0ywTc1FGej4hKeqWT4XJsupMfOdNQ==",
+  "_location": "/com-sarriaroman-photoviewer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "com-sarriaroman-photoviewer",
+    "name": "com-sarriaroman-photoviewer",
+    "escapedName": "com-sarriaroman-photoviewer",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/com-sarriaroman-photoviewer/-/com-sarriaroman-photoviewer-1.1.16.tgz",
+  "_shasum": "94514d3cefcea90bbbe502a9868d275a87d47eed",
+  "_spec": "com-sarriaroman-photoviewer",
+  "_where": "/Users/superball/Documents/GitHub/SPAionic",
+  "author": {
+    "name": "Román A. Sarria"
+  },
+  "bugs": {
+    "url": "https://github.com/sarriaroman/photoviewer/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com-sarriaroman-photoviewer",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "This plugin is intended to show a picture from an URL into a Photo Viewer with zoom features.",
+  "homepage": "https://github.com/sarriaroman/photoviewer#readme",
+  "keywords": [
+    "cordova",
+    "photoviewer",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "com-sarriaroman-photoviewer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarriaroman/photoviewer.git"
+  },
+  "version": "1.1.16"
+}

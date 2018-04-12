@@ -29,4 +29,20 @@ page-estimate {
       .icon-star::before {
         margin: 0 !important;
       }
+      .grad{
+        
+        background: linear-gradient(to bottom right, aquamarine, #19b8f7);
+        
+      }
+      .grad-prev{
+        background: linear-gradient(to bottom right, rgb(243, 243, 243), #505050);
+      }
+      a{
+        padding-left: 37%;
+        text-decoration: none;
+        font-size: 16px;
+      }
+      ion-item-group{
+        margin-bottom:30%;
+      }
 }

@@ -1,46 +1,47 @@
-<!--
-  Generated template for the EstimatePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header header-ios>
-  <ion-navbar transparent>
-    <button ion-button menuToggle>
-      <ion-icon name="menu" color="primary"></ion-icon>
-    </button>
-    <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>
-  </ion-navbar>
-</ion-header>
-  <ion-content padding *ngIf='dataReady'>
-      <!--<p> {{ std.lattitude }} {{ std.longitude }} </p>
-      <p>{{ std.name }} </p>
-      <p>{{ std.appraisal }}</p>-->
-      <ion-col col-12 map-content transparent >
-          <ion-item-group >
-              
-              <ion-item border>
+<ion-header header-ios hidden>
+    <ion-navbar transparent>
+      <button ion-button menuToggle>
+        <ion-icon name="menu" color="primary"></ion-icon>
+      </button>
+      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>
+    </ion-navbar>
+  </ion-header>
+    <ion-content padding *ngIf='dataReady'>
+        <div *ngIf='load_success == 1'>
+            <h2 style="text-align:center;margin-top:15%">ผลการประเมินราคาอสังหาริมทรัพย์</h2>
+        <ion-col col-12 map-content transparent >
+            <ion-item-group>
+                
+                <ion-item border>
+                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
+                    <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>
+                    <span>{{ appraisal_parse }} บาท/ตาราวา</span>
+                </ion-item>
+                <ion-item border>
                   <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
-                  <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>
-                  <span>{{ appraisal_parse }} บาท/ตาราวา</span>
+                  <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>
+                  <span>{{ distance }} กิโลเมตร</span>
               </ion-item>
-              <ion-item border>
-                <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
-                <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>
-                <span>{{ distance }} กิโลเมตร</span>
-            </ion-item>
-              <ion-item border>
-                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
-                  <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>
-                  <span>{{ size }} ตารางวา</span>
-              </ion-item>
-              <ion-item border>
-                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
-                  <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>
-                  <span>{{ result }} บาท</span>
-              </ion-item>
-              <button ion-button float-right margin-top round outline color="light" style="color:aquamarine;width:120px;height:50px;font-size:24px;">ลงขาย</button>
-          </ion-item-group>
-      </ion-col>
-  </ion-content>
-  
+                <ion-item border>
+                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
+                    <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>
+                    <span>{{ size }} ตารางวา</span>
+                </ion-item>
+                <ion-item border>
+                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>
+                    <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>
+                    <span style="color:blue">{{ result }} บาท</span>
+                </ion-item>
+                <ion-row style="text-align:center">
+                    <ion-col col-12 style="padding-left:15%;padding-right:15%">
+                        <button ion-button round full color="light" (click)="toSell()" style="color:white;font-size:24px;height:50px;" class="grad">ลงขาย</button>
+                    </ion-col>
+                </ion-row>
+            </ion-item-group>
+            <a (click)="toHome()" >กลับสู่หน้าหลัก</a>
+        </ion-col>
+            
+        </div>
+    </ion-content>
+    

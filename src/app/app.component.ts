@@ -8,12 +8,17 @@ import { LoginPage } from '../pages/login/login';
 import { UserPage } from '../pages/user/user';
 import { HomePage } from '../pages/home/home';
 import { EstimatePage } from '../pages/estimate/estimate';
+import { SellPage } from '../pages/sell/sell';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { state } from '@angular/core/src/animation/dsl';
 import { AppraisalPage } from '../pages/appraisal/appraisal';
 import { IonDigitKeyboardCmp } from '../components/ion-digit-keyboard';
 import { MapDirectionPage } from '../pages/map-direction/map-direction';
+import { from } from 'rxjs/observable/from';
+import { RegisterPage } from '../pages/register/register';
+import { ListPage } from '../pages/list/list';
+
 declare var google: any;
 
 @Component({
@@ -21,6 +26,7 @@ declare var google: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  public userDetails: any;
   map: any;
   rootPage:any = LoginPage;
   authenticated: boolean;
@@ -35,36 +41,28 @@ export class MyApp {
       this.pages = [
         { title: 'Home', component: HomePage, icon:'ios-home' },
         { title: 'Profile', component: UserPage, icon:'md-contact' },
-        { title: 'Market Place', component: UserPage, icon:'md-basket' },
+        { title: 'Market Place', component: ListPage, icon:'md-basket' },
         { title: 'About Us', component: UserPage, icon:'md-information-circle' },
-        { title: 'Es', component: EstimatePage, icon:'md-information-circle' }
+        { title: 'Es', component: SellPage, icon:'md-information-circle' }
       ];
+      
+      if(localStorage.getItem('userData')){
+        const data = JSON.parse(localStorage.getItem('userData'));
+        this.userDetails = data.userData;
+      //console.log(this.userDetails.name);
         platform.ready().then(() => {
-            // Here we will check if the user is already logged in
-            this.afAuth.authState.subscribe(state =>{
-              if(state.email && state.uid){
-                this.rootPage = HomePage;
-              }else{
-                this.rootPage = LoginPage;
-              }
-            })
-            // because we don't want to ask users to log in each time they open the app
-            let env = this;
-            this.nativeStorage.getItem('user')
-            .then((data)=> {
-              // user is previously logged and we have his data
-              // we will let him access the app
-              google.maps.event.trigger(this.map, 'resize');
-              
-              env.splashScreen.hide();
-            },(error)=> {
-              //we don't have the user data so we will ask him to log in
-              env.nav.setRoot(LoginPage);
-              env.splashScreen.hide();
-            });
+          
+            if(this.userDetails.username){
+              this.rootPage = HomePage;
+            }else{
+              this.rootPage = LoginPage;
+            }
       
             this.statusBar.styleDefault();
           });
+        }else{
+          this.rootPage = LoginPage;
+        }
         }
         openPage(page) {
           // Reset the content nav to have just this page
