@@ -43,7 +43,7 @@ export class MyApp {
         { title: 'Profile', component: UserPage, icon:'md-contact' },
         { title: 'Market Place', component: ListPage, icon:'md-basket' },
         { title: 'About Us', component: UserPage, icon:'md-information-circle' },
-        { title: 'Es', component: SellPage, icon:'md-information-circle' }
+        
       ];
       
       if(localStorage.getItem('userData')){
@@ -53,7 +53,7 @@ export class MyApp {
         platform.ready().then(() => {
           
             if(this.userDetails.username){
-              this.rootPage = HomePage;
+              this.rootPage = AppraisalPage;
             }else{
               this.rootPage = LoginPage;
             }

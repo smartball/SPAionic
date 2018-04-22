@@ -1,26 +1,23 @@
-<ion-header header-ios>
-    <ion-navbar transparent>
-      <button ion-button menuToggle>
-        <ion-icon name="menu" color="primary"></ion-icon>
-      </button>
-      <ion-toolbar>
-        User Details
-      </ion-toolbar>
-    </ion-navbar>
-  </ion-header>
+<ion-header no-border>
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
     
     
-    <ion-content parallax *ngIf='success == 1'>
-      <div>
-          <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="bg">
-      </div>
-      <div class="main-cnt">
+    <ion-content *ngIf='success == 1'>
+      
+        
+      
         <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="dp">
-      </div>
-      <ion-card *ngIf='success == 1'>
-        <ion-card-content>
+      
+      <ion-card *ngIf='success == 1' class="card">
+        <ion-card-content no-margin>
           <ion-card-title>
-              Welcome to {{userDetails.name}}
+             {{userDetails.name}}
             </ion-card-title>
           <p>
               Email: {{userDetails.email}}

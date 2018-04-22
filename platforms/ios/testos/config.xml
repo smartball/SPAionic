@@ -86,7 +86,7 @@
     <name>testos</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://10.110.142.95:8100" />
+    <content original-src="index.html" src="http://10.110.154.90:8100" />
     <access origin="http://services-spa.azurewebsites.net" />
     <allow-navigation href="http://services-spa.azurewebsites.net" />
     <allow-intent href="http://*/*" />
@@ -115,6 +115,10 @@
     <allow-navigation href="http://10.110.157.60:8100" />
     <allow-navigation href="http://161.246.26.238:8100" />
     <allow-navigation href="http://10.110.142.95:8100" />
+    <allow-navigation href="http://10.110.149.13:8100" />
+    <allow-navigation href="http://10.251.13.60:8100" />
+    <allow-navigation href="http://192.168.100.102:8100" />
+    <allow-navigation href="http://10.110.154.90:8100" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <allow-navigation href="*" />

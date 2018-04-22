@@ -1,28 +1,60 @@
 .ios,.md{
     page-user {
+        height: 100%;
         .bg{
+            text-align: center;
+            height: 20%;
             width: 100%;
-            height: 200px;
-            background-size: cover;
-            filter: blur(1px);
+            max-height: 400px;
+            filter: blur(8px);
             background-position: center center;
+            min-height: 30%;
         }
         .main-cnt{
             width: 100%;
-            height: 5px;
+            height: 0px;
             background-color: ghostwhite;
         }
         .dp{
-            border-radius: 50%;
-            height: 100px;
-            width: 100px;
+            border: 4px solid rgb(209, 208, 208);
+            height: 25%;
+            width: 30%;
             z-index: 10;
-            margin-top: -100px;
+            margin-top: 30%;
             position: relative;
             left: 50%;
             margin-right: -50%;
             transform: translate(-50%,-50%);
-            box-shadow: -6px 15px 81px 3px rgba(0, 0, 0, 0.75);
+            //box-shadow: -6px 15px 81px 3px rgba(0, 0, 0, 0.75);
+        }
+        .card{
+            margin-top: -40%; 
+        }
+        ion-card-title{
+            padding-top: 22%;
+            text-align: center;
+            font-family: helvetica, arial, sans-serif;
+            font-size: 24px;
+        }
+        p{
+            text-align: center;
+        }
+        .bar-buttons,
+        .toolbar-title {
+          color: rgb(255, 255, 255);
+        }
+        ion-content {
+            background: url('../assets/imgs/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position-x: 50%;
+            min-height: 100%;
+            
+          }
+          .grad1 {
+            font-size: 20px;
+            font:bold;
+            background: linear-gradient(to bottom right, rgb(255, 236, 127), #f79e19);
+            margin-top:20px;  
         }
 }
 }

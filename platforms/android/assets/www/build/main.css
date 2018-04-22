@@ -27013,6 +27013,10 @@ page-estimate ion-item-group {
   margin-bottom: 30%;
 }
 
+page-home .gm-style-cc {
+  display: none;
+}
+
 page-home .grad {
   background: -webkit-gradient(linear, left top, right bottom, from(aquamarine), to(#19b8f7));
   background: linear-gradient(to bottom right, aquamarine, #19b8f7);
@@ -27499,32 +27503,74 @@ page-sell .img-grad {
   color: #b9b8b8;
 }
 
+.ios page-user, .md page-user {
+  height: 100%;
+}
+
 .ios page-user .bg, .md page-user .bg {
+  text-align: center;
+  height: 20%;
   width: 100%;
-  height: 200px;
-  background-size: cover;
-  -webkit-filter: blur(1px);
-  filter: blur(1px);
+  max-height: 400px;
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
   background-position: center center;
+  min-height: 30%;
 }
 
 .ios page-user .main-cnt, .md page-user .main-cnt {
   width: 100%;
-  height: 5px;
+  height: 0px;
   background-color: ghostwhite;
 }
 
 .ios page-user .dp, .md page-user .dp {
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  border: 4px solid #d1d0d0;
+  height: 25%;
+  width: 30%;
   z-index: 10;
-  margin-top: -100px;
+  margin-top: 30%;
   position: relative;
   left: 50%;
   margin-right: -50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-box-shadow: -6px 15px 81px 3px rgba(0, 0, 0, 0.75);
-  box-shadow: -6px 15px 81px 3px rgba(0, 0, 0, 0.75);
+}
+
+.ios page-user .card, .md page-user .card {
+  margin-top: -40%;
+}
+
+.ios page-user ion-card-title, .md page-user ion-card-title {
+  padding-top: 22%;
+  text-align: center;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 24px;
+}
+
+.ios page-user p, .md page-user p {
+  text-align: center;
+}
+
+.ios page-user .bar-buttons,
+.ios page-user .toolbar-title, .md page-user .bar-buttons,
+.md page-user .toolbar-title {
+  color: white;
+}
+
+.ios page-user ion-content, .md page-user ion-content {
+  background: url("http://www.ewallpapers.eu/sites/default/files/styles/1920x1080/public/1110933203.jpg?itok=VqImpihx") no-repeat center center fixed;
+  background-size: cover;
+  background-position-x: 50%;
+  min-height: 100%;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.ios page-user .grad1, .md page-user .grad1 {
+  font-size: 20px;
+  font: bold;
+  background: -webkit-gradient(linear, left top, right bottom, from(#ffec7f), to(#f79e19));
+  background: linear-gradient(to bottom right, #ffec7f, #f79e19);
+  margin-top: 20px;
 }

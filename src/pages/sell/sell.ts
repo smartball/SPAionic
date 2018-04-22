@@ -206,7 +206,7 @@ export class SellPage {
     }, (err) => {
       console.log(err);
     });
-    for(var i = 0; i < xx.length;){
+    for(var i = 0; i < this.myphoto.length;){
       ((i)=>{
         setTimeout(()=>{
           fileTransfer.upload(this.myphoto[i], 'https://smartball.000webhostapp.com/uploads/upload.php', options)

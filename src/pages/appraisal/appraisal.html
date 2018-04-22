@@ -1,74 +1,76 @@
 <ion-header>
-    
-      <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu" color="primary"></ion-icon>
-      </button>
-      <ion-title>
-          <ion-icon name="md-basket"></ion-icon>
-        Market Place
-      </ion-title>
-    </ion-navbar>
-    
-    </ion-header>
-    
-    <ion-content>
-       <ion-card>
-        <div class="block">
-            <ion-slides class="image-slider" loop="true" effect="coverflow" autoplay="10000" pager="true" zoom="true">
-                <ion-slide *ngFor="let img of product_img">
-                    <img src="https://smartball.000webhostapp.com/uploads/images/{{img.NAME_IMG}}" class="thumb-img" imageViewer>
-                </ion-slide>
-            </ion-slides>
-      <ion-fab right top class="Icon">
-        <button ion-fab (click)="event(product)">
-          <ion-icon name="pin"></ion-icon>
-        </button>
-      </ion-fab>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="md-basket"></ion-icon>
+      Market Place
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+  <div *ngIf="success == 1">
+    <ion-card>
+      <div class="block">
+        <ion-slides class="image-slider" loop="true" effect="coverflow" autoplay="10000" pager="true" zoom="true">
+          <ion-slide *ngFor="let img of product_img">
+            <img src="https://smartball.000webhostapp.com/uploads/images/{{img.NAME_IMG}}" class="thumb-img" imageViewer>
+          </ion-slide>
+        </ion-slides>
+        <ion-fab right top class="Icon">
+          <button ion-fab (click)="event(product)">
+            <ion-icon name="pin"></ion-icon>
+          </button>
+        </ion-fab>
       </div>
       <ion-item>
-            
-            <button ion-button icon-left clear item-end>
-              <ion-icon  name="md-pin"></ion-icon>
-              {{ product.PROVINCE_NAME }}, {{ product.AMPHUR_NAME }}
-            </button>
-          </ion-item>
+
+        <button ion-button icon-left clear item-end>
+          <ion-icon name="md-pin"></ion-icon>
+          {{ product.PROVINCE_NAME }}, 
+          {{ product.AMPHUR_NAME }}
+        </button>
+      </ion-item>
       <ion-item>
         <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>
         <label stacked>ราคาประกาศขาย</label>
         <h2 style="color:orangered">{{product.SELL_PRICE | number: '1.0-0'}} บาท</h2>
       </ion-item>
       <ion-item>
-        <ion-icon name="md-pricetags" style="color:orange" item-left large ></ion-icon>
+        <ion-icon name="md-pricetags" style="color:orange" item-left large></ion-icon>
         <label stacked>ราคาประเมิน</label>
         <h2 style="color:orange">{{product.AREA_APPRAISAL | number: '1.0-0'}} บาท</h2>
       </ion-item>
       <ion-item>
-        <ion-icon name="md-pricetag" style="color:cornflowerblue" item-left large ></ion-icon>
+        <ion-icon name="md-pricetag" style="color:cornflowerblue" item-left large></ion-icon>
         <label stacked>ราคาประเมินกรมที่ดิน</label>
         <h2 style="color:cornflowerblue">{{product.DPM_APPRAISAL | number: '1.0-0'}} บาท</h2>
-      </ion-item> 
+      </ion-item>
       <ion-item>
-        <ion-icon name="md-map" style="color:cornflowerblue" item-left large ></ion-icon>
+        <ion-icon name="md-map" style="color:cornflowerblue" item-left large></ion-icon>
         <label stacked>ขนาดที่ดิน</label>
         <h2 style="color:cornflowerblue">{{ product.SIZE }} ตารางวา</h2>
       </ion-item>
-          
+
       <ion-item>
-        <ion-icon name="navigate" style="color:cornflowerblue" item-left large ></ion-icon>
+        <ion-icon name="navigate" style="color:cornflowerblue" item-left large></ion-icon>
         <label stacked>ระยะห่างที่ดินถึงถนนหลัก</label>
         <h2 style="color:cornflowerblue">{{ product.DISTANCE }} กิโลเมตร</h2>
       </ion-item>
       <ion-item>
-            <ion-icon name="ios-phone-portrait-outline" style="color:cornflowerblue" item-left large ></ion-icon>
-            <label stacked>เบอร์โทรติดต่อ</label>
-            <h2 style="color:cornflowerblue" (click)="call()">{{ phone }}</h2>
-            
+        <ion-icon name="ios-phone-portrait-outline" style="color:cornflowerblue" item-left large></ion-icon>
+        <label stacked>เบอร์โทรติดต่อ</label>
+        <h2 style="color:cornflowerblue" (click)="call()">{{ phone }}</h2>
+
       </ion-item>
       <ion-item>
-            <ion-icon name="md-text" style="color:cornflowerblue" item-left large ></ion-icon>
-            <label stacked>รายละเอียดเพิ่มเติม</label>
-            <h2 style="color:cornflowerblue">{{ product.DESCRIPTION }}</h2>
+        <ion-icon name="md-text" style="color:cornflowerblue" item-left large></ion-icon>
+        <label stacked>รายละเอียดเพิ่มเติม</label>
+        <h2 style="color:cornflowerblue">{{ product.DESCRIPTION }}</h2>
       </ion-item>
       <ion-row style="text-align:center">
             <ion-item>
@@ -101,7 +103,8 @@
           
       </ion-grid>   
       </ion-row>  
-      
-    
+
+
     </ion-card>
-    </ion-content>
+  </div>
+</ion-content>

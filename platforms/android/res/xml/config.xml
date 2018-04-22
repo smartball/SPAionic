@@ -96,6 +96,10 @@
     <allow-navigation href="http://169.254.241.151:8100" />
     <allow-navigation href="http://10.110.157.60:8100" />
     <allow-navigation href="http://161.246.26.238:8100" />
+    <allow-navigation href="http://10.110.142.95:8100" />
+    <allow-navigation href="http://10.110.149.13:8100" />
+    <allow-navigation href="http://10.251.13.60:8100" />
+    <allow-navigation href="http://192.168.100.102:8100" />
     <allow-intent href="market:*" />
     <allow-navigation href="*" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />

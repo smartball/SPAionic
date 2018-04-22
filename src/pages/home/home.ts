@@ -45,6 +45,8 @@ export class HomePage {
   selectOptions: any;
   loading:any;
   dataSend: any;
+  getPolyline: any;
+  polylineData: any;
   public log_hr;
   public itemChecked_prov;
   public log_amphur;
@@ -114,7 +116,7 @@ export class HomePage {
   }
   
   showMap(){
-  	const location = new google.maps.LatLng(51.507351,-0.127758);
+  	const location = new google.maps.LatLng(0,0);
   	const options = {
   		center: {lat: 13.75633, lng: 100.50177},
       zoom:10,
@@ -122,7 +124,41 @@ export class HomePage {
   		streetViewControl:false,
   		mapTypeId:'roadmap'//roadmap , satellite , hybrid , terrain
   	};
-  	this.map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.marker = new google.maps.Marker({position:location,
+                                          //icon: 'assets/imgs/pinx.png',
+                                          animation: google.maps.Animation.DROP,
+                                          map:this.map});
+    
+  }
+  showMapSatellite(_data){
+  	const location = new google.maps.LatLng(0,0);
+  	const options = {
+  		center: {lat: 13.75633, lng: 100.50177},
+      zoom:10,
+      disableDefaultUI: true,
+  		streetViewControl:false,
+  		mapTypeId: 'satellite'//roadmap , satellite , hybrid , terrain
+  	};
+    this.map = new google.maps.Map(this.mapRef.nativeElement,options);
+    var polylinePlanCoordinates  = [];
+    var polyline_data = _data;
+    
+
+    for (var i=0;i< polyline_data.length;i++ ){
+      //console.log(JSON.stringify(polyline_data[i].LAT));
+      polylinePlanCoordinates.push(new google.maps.LatLng(polyline_data[i].LAT, polyline_data[i].LNG));
+    }
+
+    var flightPath = new google.maps.Polyline({
+      path: polylinePlanCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+
+    flightPath.setMap(this.map);
     this.marker = new google.maps.Marker({position:location,
                                           //icon: 'assets/imgs/pinx.png',
                                           animation: google.maps.Animation.DROP,
@@ -140,7 +176,7 @@ export class HomePage {
     
     this.marker.setPosition( new google.maps.LatLng( _data.lat,_data.lng ) );
     this.map.setCenter(new google.maps.LatLng( _data.lat,_data.lng ));
-    this.map.setZoom(18);
+    this.map.setZoom(22);
     
     this.textSearch = _data.deed_number;
     
@@ -218,20 +254,48 @@ export class HomePage {
     });
     });
   }
-  btnSearch(){
+
+  polyLine(){
+    return new Promise(resolve => {
+      setTimeout(() => {
+        this.getPolyline = {"province":this.province_id,
+                            "amphur":this.amphur_code,
+                            "deed_number":this.textSearch};
+        this.authprovider.postData(this.getPolyline,'getPolyline').then((result) => {
+        this.polylineData = result;
+        this.showMapSatellite(this.polylineData);
+        }, (err) => {
+        // Error log
+        });
+      }, 100);
+    });
+  }
+  async btnSearch(){
     
     if(this.textSearch != "" && this.textSearch != undefined)
     {
       this.presentLoading();
-      this.restProvider.getMarker(this.textSearch,this.province_id, this.amphur_code)
+      await this.restProvider.getMarker(this.textSearch,this.province_id, this.amphur_code)
       .then(data => {
         this.place = data;
-        this.loading.dismiss();
+        
         if(this.searchStringInArray(this.place) == '-1'){
           alert('ไม่พบสถานที่ในฐานข้อมูล');
+          this.loading.dismiss();
         }else{
-          this.changePosition(this.searchStringInArray(this.place));
+          this.getPolyline = {"province":this.province_id,
+                              "amphur":this.amphur_code,
+                              "deed_number":this.textSearch};
+          this.authprovider.postData(this.getPolyline,'getPolyline').then(async (result) => {
+          this.polylineData = result;
+          this.showMapSatellite(this.polylineData);
+          await this.changePosition(this.searchStringInArray(this.place));
+          this.loading.dismiss();
           this.search = false;
+          }, (err) => {
+          // Error log
+          });
+          
         }
       });
     }else{
