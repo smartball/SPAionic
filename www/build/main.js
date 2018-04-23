@@ -10,9 +10,9 @@ webpackJsonp([7],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_rest_rest__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_direction_map_direction__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__estimate_estimate__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery__ = __webpack_require__(581);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_jquery__);
@@ -205,7 +205,7 @@ var HomePage = (function () {
         var _this = this;
         this.marker.setPosition(new google.maps.LatLng(_data.lat, _data.lng));
         this.map.setCenter(new google.maps.LatLng(_data.lat, _data.lng));
-        this.map.setZoom(22);
+        this.map.setZoom(19);
         this.textSearch = _data.deed_number;
         var infoWindow = new google.maps.InfoWindow({ content: '<div id="iw-container">' +
                 '<div class="iw-title"><center>Smart Property Assess</center></div>' +
@@ -370,7 +370,7 @@ var HomePage = (function () {
     ], HomePage.prototype, "mapRef", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/home/home.html"*/'<ion-header hidden>\n  <ion-navbar color="secondary">\n    \n    <ion-title>\n      Map\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)=\'toggleSearch()\'>\n        <ion-icon name="search"></ion-icon>\n      </button>\n      <button ion-button icon-only (click)=\'choosePosition()\'>\n        <ion-icon name="ios-locate-outline"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n  <div class="switch">\n    <button ion-button icon-only color="light" (click)=\'toggleSearch()\'><ion-icon name="search"></ion-icon></button>\n    <button ion-button color="light" class="grad" (click)="(switch = \'map\'); resizeMap()" [class.active]="(switch == \'map\')" icon-only><ion-icon name="map"></ion-icon></button>\n    <button ion-button color="light" menuToggle icon-only><ion-icon name="list"></ion-icon></button>\n  </div>\n\n  <div class="currentitem" *ngIf="currentregional">\n    <button ion-item no-lines (click)="viewPlace(currentregional.title)">\n      <h2>{{ currentregional.title }}</h2>\n      <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>\n    </button>\n  </div>\n<ion-content fullscreen>\n  \n\n    <div [hidden]="!(switch == \'list\')">\n      <div header-background-image padding style="background-image: url(\n        assets/imgs/bg.png);">\n        <img src="assets/imgs/logo-reales-bg.png"/>\n        <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n        <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n      \n      <ion-list>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">\n                <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>\n                Profile\n            </button>\n        </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>\n                Market Place\n            </button>\n        </ion-item>\n        <ion-item>\n          <button menuClose ion-item item-title main-menu no-lines border (click)="openEs()">\n              <ion-icon icon-small item-left name="md-exit" style="color:aquamarine"></ion-icon>\n              Appraisal\n          </button>\n      </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>\n                About Us\n            </button>\n        </ion-item>\n      </ion-list>\n    </div>\n    \n    <div class="map" [class.hidemap]="!((switch == \'map\') || error)">\n      <div style="padding-top:40px;">\n          <div #searchbar id="floating-panel" [hidden]="!search">\n            <img src="assets/imgs/logo-real.png" style="width: 150px;height:140px;" alt="">\n              <ion-row padding>\n                  <ion-list no-lines>\n                      <!--<ion-item [class.active]="focus === \'textSearch\'" (touchend)="setFocus(\'textSearch\')">\n                          <ion-label><ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                          <ion-input type="number" disabled [ngModel]="textSearch" placeholder="ระบุเลขโฉนด" clearInput></ion-input>\n                      </ion-item>-->\n                      <ion-item>        \n                          <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                          <ion-input clearInput type="number" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>\n                      </ion-item>\n                      <br>\n                      <ion-item>\n                        <ion-label stacked>จังหวัด</ion-label>\n                        <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุจังหวัด">\n                          <ion-option *ngFor="let item of items_prov" (ionSelect)="select(item)" [value]="item">{{ item.PROVINCE_NAME }}</ion-option>\n                        </ion-select>\n                      </ion-item>\n                      \n                      <ion-item>\n                        <ion-label stacked>เขต/อำเภอ</ion-label>\n                        <ion-select [(ngModel)]="provincec" interface="action-sheet" id="amphur" placeholder="กรุณาระบุเขต/อำเภอ">\n                          <ion-option *ngFor="let amphur of amphur" (ionSelect)="selectAmphur(amphur)" [value]="amphur" >{{ amphur.AMPHUR_NAME }}</ion-option>\n                        </ion-select>\n                      </ion-item>\n                  </ion-list>\n                  \n                  \n                  \n                  <button ion-button block (click)="btnSearch()" #searchbar [hidden]="!search">ค้นหา</button>\n                  \n              </ion-row>\n              <ion-row padding>\n              </ion-row>  \n          </div>\n      </div>\n      \n            \n      <div id="map" #map></div>\n    </div>\n  \n</ion-content>\n'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/home/home.html"*/'<ion-header hidden>\n  <ion-navbar color="secondary">\n    \n    <ion-title>\n      Map\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)=\'toggleSearch()\'>\n        <ion-icon name="search"></ion-icon>\n      </button>\n      <button ion-button icon-only (click)=\'choosePosition()\'>\n        <ion-icon name="ios-locate-outline"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n  <div class="switch">\n    <button ion-button icon-only color="light" (click)=\'toggleSearch()\'><ion-icon name="search"></ion-icon></button>\n    <button ion-button color="light" class="grad" (click)="(switch = \'map\'); resizeMap()" [class.active]="(switch == \'map\')" icon-only><ion-icon name="map"></ion-icon></button>\n    <button ion-button color="light" menuToggle icon-only><ion-icon name="list"></ion-icon></button>\n  </div>\n\n  <div class="currentitem" *ngIf="currentregional">\n    <button ion-item no-lines (click)="viewPlace(currentregional.title)">\n      <h2>{{ currentregional.title }}</h2>\n      <ion-note item-right icon-only><ion-icon name="ios-arrow-forward"></ion-icon></ion-note>\n    </button>\n  </div>\n<ion-content fullscreen>\n  \n\n    <div [hidden]="!(switch == \'list\')">\n      <div header-background-image padding style="background-image: url(\n        assets/imgs/bg.png);">\n        <img src="assets/imgs/logo-reales-bg.png"/>\n        <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n        <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n      \n      <ion-list>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="nextProfile()">\n                <ion-icon icon-small item-left name="md-contact" style="color:aquamarine"></ion-icon>\n                Profile\n            </button>\n        </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-basket" style="color:aquamarine"></ion-icon>\n                Market Place\n            </button>\n        </ion-item>\n        <ion-item>\n          <button menuClose ion-item item-title main-menu no-lines border (click)="openEs()">\n              <ion-icon icon-small item-left name="md-exit" style="color:aquamarine"></ion-icon>\n              Appraisal\n          </button>\n      </ion-item>\n        <ion-item>\n            <button menuClose ion-item item-title main-menu no-lines border (click)="openPage(p)">\n                <ion-icon icon-small item-left name="md-information-circle" style="color:aquamarine"></ion-icon>\n                About Us\n            </button>\n        </ion-item>\n      </ion-list>\n    </div>\n    \n    <div class="map" [class.hidemap]="!((switch == \'map\') || error)">\n      <div style="padding-top:40px;">\n          <div #searchbar id="floating-panel" [hidden]="!search">\n            <img src="assets/imgs/logo-real.png" style="width: 150px;height:140px;" alt="">\n              <ion-row padding>\n                  <ion-list no-lines>\n                      <!--<ion-item [class.active]="focus === \'textSearch\'" (touchend)="setFocus(\'textSearch\')">\n                          <ion-label><ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                          <ion-input type="number" disabled [ngModel]="textSearch" placeholder="ระบุเลขโฉนด" clearInput></ion-input>\n                      </ion-item>-->\n                      <ion-item>        \n                          <ion-label> <ion-icon name="ios-map-outline"></ion-icon></ion-label>\n                          <ion-input clearInput type="number" placeholder="ระบุเลขโฉนด" [(ngModel)]="textSearch"></ion-input>\n                      </ion-item>\n                      <br>\n                      <ion-item>\n                        <ion-label stacked>จังหวัด</ion-label>\n                        <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุจังหวัด">\n                          <ion-option *ngFor="let item of items_prov" (ionSelect)="select(item)" [value]="item">{{ item.PROVINCE_NAME }}</ion-option>\n                        </ion-select>\n                      </ion-item>\n                      \n                      <ion-item>\n                        <ion-label stacked>เขต/อำเภอ</ion-label>\n                        <ion-select [(ngModel)]="provincec" interface="action-sheet" id="amphur" placeholder="กรุณาระบุเขต/อำเภอ">\n                          <ion-option *ngFor="let amphur of amphur" (ionSelect)="selectAmphur(amphur)" [value]="amphur" >{{ amphur.AMPHUR_NAME }}</ion-option>\n                        </ion-select>\n                      </ion-item>\n                  </ion-list>\n                  \n                  \n                  \n                  <button ion-button block (click)="btnSearch()" #searchbar [hidden]="!search">ค้นหา</button>\n                  \n              </ion-row>\n              <ion-row padding>\n              </ion-row>  \n          </div>\n      </div>\n      \n            \n      <div id="map" #map></div>\n    </div>\n  \n</ion-content>\n'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/home/home.html"*/
         }),
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["r" /* NavController */],
@@ -404,7 +404,7 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__register_register__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_google_plus__ = __webpack_require__(177);
@@ -480,7 +480,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/login/login.html"*/'<ion-content class="background">\n  \n  <h1 style="margin-top:80px;">SMART PROPERTY ASSESS</h1>\n  <ion-card>\n  \n    <ion-card-header>\n      \n      <a (click)="skip()" float-Right>Skip This</a>\n    </ion-card-header>\n\n    <ion-card-content >\n      <!-- Add card content here! -->\n      <ion-list no-lines>\n        <ion-item>\n        <ion-label floating>\n          Email or Username\n        </ion-label>\n          <ion-input type="text" [(ngModel)]="userData.username"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>\n            Password\n        </ion-label>\n          <ion-input type="password" [(ngModel)]="userData.password"></ion-input>\n      </ion-item>\n        <ion-item>\n          <p>Forgot password?<a href="#" (click)="ForgotPassword()">Get Here</a></p>\n        </ion-item>\n        <ion-row style="margin-left:12%;margin-right:12%">\n        <button ion-button block round full class="btn" style="height:50px;" (click)="loginSql()">LOGIN</button>\n        </ion-row>\n      </ion-list>\n      <!--<b>OR</b>\n        <button ion-button color="primary" ion-left block (click)="doFbLogin()">\n          <ion-icon name="logo-facebook"></ion-icon>\n          <div>Login With Facebook</div>\n        </button>-->\n        <!--\n        <button ion-button color="danger" ion-left block (click)="googlelogin()">\n          <ion-icon name="logo-googleplus"></ion-icon>\n          <div>Login With Google</div>\n        </button> -->\n        <hr width="80%">\n        <a (click)="register()" style="font-size:20px" >Create an Account</a>\n    </ion-card-content>\n  \n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/login/login.html"*/'<ion-header hidden>\n  <ion-navbar color="secondary">\n    \n    <ion-title>\n      Login\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content class="background">\n  \n  <h1 style="margin-top:80px;">SMART PROPERTY ASSESS</h1>\n  <ion-card>\n  \n    <ion-card-header>\n      \n      <a (click)="skip()" float-Right>Skip This</a>\n    </ion-card-header>\n\n    <ion-card-content >\n      <!-- Add card content here! -->\n      <ion-list no-lines>\n        <ion-item>\n        <ion-label floating>\n          Email or Username\n        </ion-label>\n          <ion-input type="text" [(ngModel)]="userData.username"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>\n            Password\n        </ion-label>\n          <ion-input type="password" [(ngModel)]="userData.password"></ion-input>\n      </ion-item>\n        <ion-item>\n          <p>Forgot password?<a href="#" (click)="ForgotPassword()">Get Here</a></p>\n        </ion-item>\n        <ion-row style="margin-left:12%;margin-right:12%">\n        <button ion-button block round full class="btn" style="height:50px;" (click)="loginSql()">LOGIN</button>\n        </ion-row>\n      </ion-list>\n      <!--<b>OR</b>\n        <button ion-button color="primary" ion-left block (click)="doFbLogin()">\n          <ion-icon name="logo-facebook"></ion-icon>\n          <div>Login With Facebook</div>\n        </button>-->\n        <!--\n        <button ion-button color="danger" ion-left block (click)="googlelogin()">\n          <ion-icon name="logo-googleplus"></ion-icon>\n          <div>Login With Google</div>\n        </button> -->\n        <hr width="80%">\n        <a (click)="register()" style="font-size:20px" >Create an Account</a>\n    </ion-card-content>\n  \n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__["a" /* Facebook */],
@@ -510,7 +510,7 @@ var LoginPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular_components_loading_loading_controller__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sell_sell__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__home_home__ = __webpack_require__(106);
@@ -634,7 +634,7 @@ var EstimatePage = (function () {
     };
     EstimatePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-estimate',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/estimate/estimate.html"*/'\n<ion-header header-ios hidden>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n    </ion-navbar>\n  </ion-header>\n    <ion-content padding *ngIf=\'dataReady\'>\n        <div *ngIf=\'load_success == 1\'>\n            <h2 style="text-align:center;margin-top:15%">ผลการประเมินราคาอสังหาริมทรัพย์</h2>\n        <ion-col col-12 map-content transparent >\n            <ion-item-group>\n                \n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>\n                    <span>{{ appraisal_parse }} บาท/ตาราวา</span>\n                </ion-item>\n                <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n                  <span>{{ distance }} กิโลเมตร</span>\n              </ion-item>\n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>\n                    <span>{{ size }} ตารางวา</span>\n                </ion-item>\n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>\n                    <span style="color:blue">{{ result }} บาท</span>\n                </ion-item>\n                <ion-row style="text-align:center">\n                    <ion-col col-12 style="padding-left:15%;padding-right:15%">\n                        <button ion-button round full color="light" (click)="toSell()" style="color:white;font-size:24px;height:50px;" class="grad">ลงขาย</button>\n                    </ion-col>\n                </ion-row>\n            </ion-item-group>\n            <a (click)="toHome()" >กลับสู่หน้าหลัก</a>\n        </ion-col>\n            \n        </div>\n    </ion-content>\n    '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/estimate/estimate.html"*/,
+            selector: 'page-estimate',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/estimate/estimate.html"*/'\n<ion-header header-ios hidden>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n    </ion-navbar>\n  </ion-header>\n    <ion-content padding *ngIf=\'dataReady\'>\n        <div *ngIf=\'load_success == 1\'>\n            <h2 style="text-align:center;margin-top:15%">ผลการประเมินราคาอสังหาริมทรัพย์</h2>\n        <ion-col col-12 map-content transparent >\n            <ion-item-group>\n                \n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ราคาประเมินกรมที่ดิน</h5>\n                    <span>{{ appraisal_parse }} บาท/ตาราวา</span>\n                </ion-item>\n                <ion-item border>\n                  <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                  <h5 no-paddnig style="color:lightgray">ระยะห่างจากที่ดินถึงถนนหลัก</h5>\n                  <span>{{ distance }} กิโลเมตร</span>\n              </ion-item>\n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ขนาดที่ดิน</h5>\n                    <span>{{ size }} ตารางวา</span>\n                </ion-item>\n                <ion-item border>\n                    <ion-icon icon-medium name="md-checkmark-circle-outline" style="color:aquamarine" item-start></ion-icon>\n                    <h5 no-paddnig style="color:lightgray">ราคาประเมินราคาขาย(ตลาด)</h5>\n                    <span style="color:blue">{{ result }} บาท</span>\n                </ion-item>\n                <ion-row style="text-align:center">\n                    <ion-col col-12 style="padding-left:15%;padding-right:15%">\n                        <button ion-button round full color="light" (click)="toSell()" style="color:white;font-size:24px;height:50px;" class="grad">ลงขาย</button>\n                    </ion-col>\n                </ion-row>\n            </ion-item-group>\n            <a (click)="toHome()" >กลับสู่หน้าหลัก</a>\n        </ion-col>\n            \n        </div>\n    </ion-content>\n    '/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/estimate/estimate.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
@@ -656,7 +656,7 @@ var EstimatePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__appraisal_appraisal__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(39);
@@ -758,7 +758,7 @@ var ListPage = (function () {
     ListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/list/list.html"*/'<!--\n  Generated template for the ListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  \n    <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title>\n          <ion-icon name="md-basket"></ion-icon>\n        Market Place\n      </ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-card *ngFor="let product of product" (click)="event(product)">\n      \n        <ion-item>\n          <ion-avatar item-start>\n            <img src="https://smartball.000webhostapp.com/uploads/images_user/{{product.USER_IMG}}">\n          </ion-avatar>\n          <h2>{{ product.name }}</h2>\n          <p></p>\n        </ion-item>\n      \n        <img src="https://smartball.000webhostapp.com/uploads/images_product/{{product.NAME_IMG}}" style="height:300px" >\n        \n        <ion-card-content>\n          \n          <ion-item>\n              <ion-icon name="md-text" style="color:cornflowerblue" item-left large ></ion-icon>\n              \n              <h2 style="color:cornflowerblue">{{ product.NAME }}</h2>\n        </ion-item>\n          <ion-item>\n          <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>\n          \n          <h2 style="color:orangered">{{product.SELL_PRICE | number: \'1.0-0\'}} บาท</h2>\n        </ion-item>\n        </ion-card-content>\n      \n        \n      </ion-card>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/list/list.html"*/,
+            selector: 'page-list',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/list/list.html"*/'<!--\n  Generated template for the ListPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  \n    <ion-navbar>\n      <button ion-button menuToggle>\n          <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title>\n          <ion-icon name="md-basket"></ion-icon>\n        Market Place\n      </ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-card *ngFor="let product of product" (click)="event(product)">\n      \n        <ion-item>\n          <ion-avatar item-start>\n            <img src="https://smartball.000webhostapp.com/uploads/images_user/{{product.USER_IMG}}">\n          </ion-avatar>\n          <h2>{{ product.name }}</h2>\n          <p></p>\n        </ion-item>\n      \n        <img src="https://smartball.000webhostapp.com/uploads/images_product/{{product.NAME_IMG}}" style="height:300px" >\n        \n        <ion-card-content>\n          \n          <ion-item>\n              <ion-icon name="md-text" style="color:cornflowerblue" item-left large ></ion-icon>\n              \n              <h2 style="color:cornflowerblue">{{ product.NAME }}</h2>\n        </ion-item>\n          <ion-item>\n          <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>\n          \n          <h2 style="color:orangered">{{product.SELL_PRICE | number: \'1.0-0\'}} บาท</h2>\n        </ion-item>\n        </ion-card-content>\n      \n        \n      </ion-card>\n  </ion-content>\n  '/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/list/list.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_5__angular_common__["c" /* CurrencyPipe */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
@@ -785,7 +785,7 @@ var ListPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_plus__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(57);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -838,7 +838,7 @@ var UserPage = (function () {
     };
     UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-user',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/user/user.html"*/'<ion-header no-border>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n    \n    \n    <ion-content *ngIf=\'success == 1\'>\n      \n        \n      \n        <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="dp">\n      \n      <ion-card *ngIf=\'success == 1\' class="card">\n        <ion-card-content no-margin>\n          <ion-card-title>\n             {{userDetails.name}}\n            </ion-card-title>\n          <p>\n              Email: {{userDetails.email}}\n          </p>\n        </ion-card-content>\n        <ion-row>\n          <ion-col>\n            <button ion-button block (click)="logout()">Logout</button>\n          </ion-col>\n        </ion-row>\n      </ion-card>\n     \n    </ion-content>\n    '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/user/user.html"*/
+            selector: 'page-user',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/user/user.html"*/'<ion-header no-border>\n  <ion-navbar transparent>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n    \n    \n    <ion-content *ngIf=\'success == 1\'>\n      \n        \n      \n        <img src="https://smartball.000webhostapp.com/uploads/images_user/{{userDetails.NAME_IMG}}" class="dp">\n      \n      <ion-card *ngIf=\'success == 1\' class="card">\n        <ion-card-content no-margin>\n          <ion-card-title>\n             {{userDetails.name}}\n            </ion-card-title>\n          <p>\n              Email: {{userDetails.email}}\n          </p>\n        </ion-card-content>\n        <ion-row>\n          <ion-col>\n            <button ion-button block (click)="logout()">Logout</button>\n          </ion-col>\n        </ion-row>\n      </ion-card>\n     \n    </ion-content>\n    '/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/user/user.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_facebook__["a" /* Facebook */],
@@ -862,7 +862,7 @@ var UserPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__ = __webpack_require__(578);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(39);
@@ -907,11 +907,16 @@ var AppraisalPage = (function () {
         this.restProvider = restProvider;
         this.success = 0;
         this.coordinate = [];
+        this.restProvider.getType()
+            .then(function (type) {
+            _this.itemType = type;
+            // console.log(JSON.stringify(this.itemType));
+        });
         var getId = this.navParams.get('id');
-        var getLat = this.navParams.get('lat');
-        var getLng = this.navParams.get('lng');
+        this.getLat = this.navParams.get('lat');
+        this.getLng = this.navParams.get('lng');
         var dataToSend = { "id": getId };
-        var dataTocoordinate = { "lat": getLat, "lng": getLng };
+        var dataTocoordinate = { "lat": this.getLat, "lng": this.getLng, "type": 'ซุปเปอร์มาร์เก็ต' };
         this.presentLoading();
         this.authprovider.postData(dataToSend, 'getProduct').then(function (result) {
             _this.product = result;
@@ -940,9 +945,6 @@ var AppraisalPage = (function () {
         });
         this.authprovider.postData(dataTocoordinate, 'nearBy').then(function (result) {
             _this.near = result;
-            for (var i = 0; i < _this.near.length; i++) {
-                _this.createMarker(_this.near[i]);
-            }
             _this.showMap(_this.near, dataTocoordinate);
             if (_this.near) {
                 var countNearBy = _this.near.length;
@@ -966,6 +968,12 @@ var AppraisalPage = (function () {
             // Error log
         });
     }
+    AppraisalPage.prototype.select = function (item) {
+        this.presentLoading();
+        console.log(item.TYPE, this.getLat);
+        var coordinate = { "lat": this.getLat, "lng": this.getLng, "type": item.TYPE };
+        this.setMap(coordinate);
+    };
     AppraisalPage.prototype.presentLoading = function () {
         this.loading = this.loadingCtrl.create({});
         this.loading.present();
@@ -1011,7 +1019,72 @@ var AppraisalPage = (function () {
             radius: 2000
         });
     };
-    AppraisalPage.prototype.createMarker = function (_data) {
+    AppraisalPage.prototype.setMap = function (data) {
+        var _this = this;
+        console.log(JSON.stringify(data));
+        this.authprovider.postData(data, 'nearBy').then(function (result) {
+            _this.near = result;
+            console.log(JSON.stringify(_this.near));
+            _this.loading.dismiss();
+            var infowindow = new google.maps.InfoWindow();
+            var location = new google.maps.LatLng(data.lat, data.lng);
+            var options = {
+                center: location,
+                zoom: 13.3,
+                mapTypeControl: false,
+                panControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                // draggable: false,
+                mapTypeId: 'roadmap' //roadmap , satellite , hybrid , terrain
+            };
+            var marker, i;
+            _this.map = new google.maps.Map(_this.mapRef.nativeElement, options);
+            for (i = 0; i < _this.near.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(_this.near[i].LAT, _this.near[i].LNG),
+                    map: _this.map
+                });
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(_this.near[i].NAME);
+                        infowindow.open(_this.map, marker);
+                    };
+                })(marker, i));
+            }
+            var cityCircle = new google.maps.Circle({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.05,
+                map: _this.map,
+                center: location,
+                radius: 2000
+            });
+            _this.success = 1;
+            // this.showMap(this.near, dataTocoordinate);
+            if (_this.near) {
+                var countNearBy = _this.near.length;
+                if (countNearBy === undefined) {
+                    _this.load = 1;
+                    _this.nearBy = _this.near;
+                }
+                else if (countNearBy > 2) {
+                    _this.load = 2;
+                    _this.nearBy = _this.near;
+                }
+                else {
+                    _this.load = 2;
+                    _this.nearBy = _this.near;
+                }
+            }
+            else {
+                alert("");
+            }
+        }, function (err) {
+            // Error log
+        });
     };
     AppraisalPage.prototype.event = function (product) {
         this.destination = product.LAT + ',' + product.LNG;
@@ -1034,7 +1107,7 @@ var AppraisalPage = (function () {
     ], AppraisalPage.prototype, "mapRef", void 0);
     AppraisalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-appraisal',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/appraisal/appraisal.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-title>\n      <ion-icon name="md-basket"></ion-icon>\n      Market Place\n    </ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n  \n  <div *ngIf="success == 1">\n    <ion-card>\n      \n      <div class="block">\n        <ion-slides class="image-slider" loop="true" effect="coverflow" autoplay="10000" pager="true" zoom="true">\n          <ion-slide *ngFor="let img of product_img">\n            <img src="https://smartball.000webhostapp.com/uploads/images/{{img.NAME_IMG}}" class="thumb-img" imageViewer>\n          </ion-slide>\n        </ion-slides>\n        <ion-fab right top class="Icon">\n          <button ion-fab (click)="event(product)">\n            <ion-icon name="pin"></ion-icon>\n          </button>\n        </ion-fab>\n      </div>\n      <ion-item>\n\n        <button ion-button icon-left clear item-end>\n          <ion-icon name="md-pin"></ion-icon>\n          {{ product.PROVINCE_NAME }}, \n          {{ product.AMPHUR_NAME }}\n        </button>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>\n        <label stacked>ราคาประกาศขาย</label>\n        <h2 style="color:orangered">{{product.SELL_PRICE | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-pricetags" style="color:orange" item-left large></ion-icon>\n        <label stacked>ราคาประเมิน</label>\n        <h2 style="color:orange">{{product.AREA_APPRAISAL | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-pricetag" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>ราคาประเมินกรมที่ดิน</label>\n        <h2 style="color:cornflowerblue">{{product.DPM_APPRAISAL | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-map" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>ขนาดที่ดิน</label>\n        <h2 style="color:cornflowerblue">{{ product.SIZE }} ตารางวา</h2>\n      </ion-item>\n\n      <ion-item>\n        <ion-icon name="navigate" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>ระยะห่างที่ดินถึงถนนหลัก</label>\n        <h2 style="color:cornflowerblue">{{ product.DISTANCE }} กิโลเมตร</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="ios-phone-portrait-outline" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>เบอร์โทรติดต่อ</label>\n        <h2 style="color:cornflowerblue" (click)="call()">{{ phone }}</h2>\n\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-text" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>รายละเอียดเพิ่มเติม</label>\n        <h2 style="color:cornflowerblue">{{ product.DESCRIPTION }}</h2>\n      </ion-item>\n      <ion-row style="text-align:center">\n            <ion-item>\n                    <ion-icon name="ios-compass" style="color:cornflowerblue" item-left large ></ion-icon>\n                    <label stacked>สถานที่ใกล้เคียงกับที่ดิน</label>\n                    <p>ภายในระยะ 2 กิโลเมตร</p>\n              </ion-item>\n      <ion-grid *ngIf=\'load == 2\'>\n            <ion-row *ngFor="let nearBy of nearBy">\n              \n              <ion-col col-6 style="border: lightgray solid 1px;">\n                    <h2>{{nearBy.NAME}}</h2>\n              </ion-col>\n              <ion-col col-6 style="border: lightgray solid 1px;">\n                    <h2>{{nearBy.distance | number: \'1.3-3\'}} กิโลเมตร</h2>\n                </ion-col>\n            </ion-row>\n            \n        </ion-grid>   \n        <ion-grid *ngIf=\'load == 1\'>\n          <ion-row style="border: lightgray solid 1px;">\n            \n            <ion-col col-6 >\n                  <h2>{{nearBy.NAME}}</h2>\n            </ion-col>\n            <ion-col col-6 >\n                  <h2>{{nearBy.distance}} ในระยะ 2 กิโลเมตร</h2>\n              </ion-col>\n          </ion-row>\n          \n      </ion-grid>   \n      </ion-row>  \n\n      \n    </ion-card>\n  </div>\n  <div id="map" #map></div>\n</ion-content>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/appraisal/appraisal.html"*/,
+            selector: 'page-appraisal',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/appraisal/appraisal.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu" color="primary"></ion-icon>\n    </button>\n    <ion-title>\n      <ion-icon name="md-basket"></ion-icon>\n      Market Place\n    </ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n  \n  <div *ngIf="success == 1">\n    <ion-card>\n      \n      <div class="block">\n        <ion-slides class="image-slider" loop="true" effect="coverflow" autoplay="10000" pager="true" zoom="true">\n          <ion-slide *ngFor="let img of product_img">\n            <img src="https://smartball.000webhostapp.com/uploads/images/{{img.NAME_IMG}}" class="thumb-img" imageViewer>\n          </ion-slide>\n        </ion-slides>\n        <ion-fab right top class="Icon">\n          <button ion-fab (click)="event(product)">\n            <ion-icon name="pin"></ion-icon>\n          </button>\n        </ion-fab>\n      </div>\n      <ion-item>\n\n        <button ion-button icon-left clear item-end>\n          <ion-icon name="md-pin"></ion-icon>\n          {{ product.PROVINCE_NAME }}, \n          {{ product.AMPHUR_NAME }}\n        </button>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-cash" style="color:orangered" item-start large></ion-icon>\n        <label stacked>ราคาประกาศขาย</label>\n        <h2 style="color:orangered">{{product.SELL_PRICE | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-pricetags" style="color:orange" item-left large></ion-icon>\n        <label stacked>ราคาประเมิน</label>\n        <h2 style="color:orange">{{product.AREA_APPRAISAL | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-pricetag" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>ราคาประเมินกรมที่ดิน</label>\n        <h2 style="color:cornflowerblue">{{product.DPM_APPRAISAL | number: \'1.0-0\'}} บาท</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-map" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>ขนาดที่ดิน</label>\n        <h2 style="color:cornflowerblue">{{ product.SIZE }} ตารางวา</h2>\n      </ion-item>\n\n      <ion-item>\n        <ion-icon name="navigate" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>ระยะห่างที่ดินถึงถนนหลัก</label>\n        <h2 style="color:cornflowerblue">{{ product.DISTANCE }} กิโลเมตร</h2>\n      </ion-item>\n      <ion-item>\n        <ion-icon name="ios-phone-portrait-outline" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>เบอร์โทรติดต่อ</label>\n        <h2 style="color:cornflowerblue" (click)="call()">{{ phone }}</h2>\n\n      </ion-item>\n      <ion-item>\n        <ion-icon name="md-text" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>รายละเอียดเพิ่มเติม</label>\n        <h2 style="color:cornflowerblue">{{ product.DESCRIPTION }}</h2>\n      </ion-item>\n      \n      <ion-row style="text-align:center">\n            <ion-item>\n                    <ion-icon name="ios-compass" style="color:cornflowerblue" item-left large ></ion-icon>\n                    <label stacked>สถานที่ใกล้เคียงกับที่ดิน</label>\n                    <p>ภายในระยะ 2 กิโลเมตร</p>\n              </ion-item>\n              <ion-item>\n                <ion-label stacked style="font-size:16px;color:cornflowerblue;text-align:center;">เลือกประเภทที่ต้องการค้นหาเพิ่มเติม</ion-label>\n                <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุประเภท">\n                  <ion-option *ngFor="let item of itemType" (ionSelect)="select(item)" [value]="item">{{ item.TYPE }}</ion-option>\n                </ion-select>\n              </ion-item>\n      <ion-grid *ngIf=\'load == 2\'>\n            <ion-row *ngFor="let nearBy of nearBy">\n              \n              <ion-col col-6 style="border: lightgray solid 1px;">\n                    <h2>{{nearBy.NAME}}</h2>\n              </ion-col>\n              <ion-col col-6 style="border: lightgray solid 1px;">\n                    <h2>{{nearBy.distance | number: \'1.3-3\'}} กิโลเมตร</h2>\n                </ion-col>\n            </ion-row>\n            \n        </ion-grid>   \n        <ion-grid *ngIf=\'load == 1\'>\n          <ion-row style="border: lightgray solid 1px;">\n            \n            <ion-col col-6 >\n                  <h2>{{nearBy.NAME}}</h2>\n            </ion-col>\n            <ion-col col-6 >\n                  <h2>{{nearBy.distance}} ในระยะ 2 กิโลเมตร</h2>\n              </ion-col>\n          </ion-row>\n          \n      </ion-grid>   \n      </ion-row>  \n\n      \n    </ion-card>\n  </div>\n  <div id="map" #map></div>\n</ion-content>'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/appraisal/appraisal.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_5__ionic_native_launch_navigator__["a" /* LaunchNavigator */], __WEBPACK_IMPORTED_MODULE_6__angular_common__["c" /* CurrencyPipe */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_call_number__["a" /* CallNumber */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
@@ -1285,7 +1358,7 @@ var SellPage = (function () {
     };
     SellPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-sell',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/sell/sell.html"*/'<!--\n  Generated template for the SellPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar transparent>\n  <button ion-button menuToggle>\n    <ion-icon name="menu" color="primary"></ion-icon>\n  </button>\n  <ion-title>ลงขาย</ion-title>\n</ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n      \n      <ion-row>\n          <ion-col col-12>\n              <ion-label color="primary" style="font-size: 16px;" stacked>ตั้งชื่อประกาศขาย</ion-label>\n              <ion-input required placeholder="ex.ขายบ้านถูกราคา 1 ล้านบาท"  type="text"  [(ngModel)]="name"></ion-input>\n          </ion-col>\n      </ion-row>\n     \n      <ion-row>\n        <ion-col col-6>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ขนาดที่ดิน</ion-label>\n            <ion-input required type="text" [value]="dataMaps.area_size" style="color:blue" disabled></ion-input>\n        </ion-col>\n        <ion-col col-6>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาประเมิน</ion-label>\n            <ion-input required type="text" [value]="result" style="color:blue" disabled></ion-input>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาขาย</ion-label>\n            <ion-input required placeholder="999,999"  type="number"  [(ngModel)]="sell_price"></ion-input>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n            <ion-label color="primary" style="font-size: 16px;" stacked>เบอร์โทร</ion-label>\n            <ion-input required placeholder="0895555555"  type="tel" [(ngModel)]="phone"></ion-input>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>      \n            <ion-label color="primary" style="font-size: 16px;" stacked>รายละเอียด</ion-label>\n            <textarea name="" id="" style="width:100%" placeholder="ใส่รายละเอียดของอสังหาริมทรัพย์เพิ่มเติม" rows="10" [(ngModel)]="description"></textarea>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n              <div *ngIf="imageChosen == 1 " >\n                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>\n                <ion-grid style="border: gray solid 2px;border-radius:5px;" >\n                    <ion-row>\n                      <ion-col width-50 *ngFor="let myphoto of myphoto" col-4>\n                          <ion-card class="block">\n                            \n                              <ion-icon name="ios-trash" class="deleteIcon" (click)="deletePhoto(index)"></ion-icon>\n                              <img [src]="myphoto" (click)="getImage()" class="img-st" alt="">\n                                \n                          </ion-card>\n                      </ion-col>\n                    </ion-row>\n                    <div class="border-st"> \n                        <ion-icon name="ios-reverse-camera-outline" class="plus" (click)="takePhoto()"></ion-icon>\n                    </div>\n                </ion-grid>  \n            </div>   \n            <div class="uploadWrap" *ngIf="imageChosen == 0" >\n                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>\n                <ion-icon (click)="takePhoto()" name="md-images" class="img-grad" style="color:#b9b8b8;"></ion-icon>\n            </div>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col col-12>\n          <button ion-button round (click)="up()" full class="grad1">Upload</button>\n        </ion-col>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/sell/sell.html"*/,
+            selector: 'page-sell',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/sell/sell.html"*/'<!--\n  Generated template for the SellPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar transparent>\n  <button ion-button menuToggle>\n    <ion-icon name="menu" color="primary"></ion-icon>\n  </button>\n  <ion-title>ลงขาย</ion-title>\n</ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n      \n      <ion-row>\n          <ion-col col-12>\n              <ion-label color="primary" style="font-size: 16px;" stacked>ตั้งชื่อประกาศขาย</ion-label>\n              <ion-input required placeholder="ex.ขายบ้านถูกราคา 1 ล้านบาท"  type="text"  [(ngModel)]="name"></ion-input>\n          </ion-col>\n      </ion-row>\n     \n      <ion-row>\n        <ion-col col-6>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ขนาดที่ดิน</ion-label>\n            <ion-input required type="text" [value]="dataMaps.area_size" style="color:blue" disabled></ion-input>\n        </ion-col>\n        <ion-col col-6>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาประเมิน</ion-label>\n            <ion-input required type="text" [value]="result" style="color:blue" disabled></ion-input>\n        </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n            <ion-label color="primary" style="font-size: 16px;" stacked>ราคาขาย</ion-label>\n            <ion-input required placeholder="999,999"  type="number"  [(ngModel)]="sell_price"></ion-input>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n            <ion-label color="primary" style="font-size: 16px;" stacked>เบอร์โทร</ion-label>\n            <ion-input required placeholder="0895555555"  type="tel" [(ngModel)]="phone"></ion-input>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>      \n            <ion-label color="primary" style="font-size: 16px;" stacked>รายละเอียด</ion-label>\n            <textarea name="" id="" style="width:100%" placeholder="ใส่รายละเอียดของอสังหาริมทรัพย์เพิ่มเติม" rows="10" [(ngModel)]="description"></textarea>\n          </ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n              <div *ngIf="imageChosen == 1 " >\n                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>\n                <ion-grid style="border: gray solid 2px;border-radius:5px;" >\n                    <ion-row>\n                      <ion-col width-50 *ngFor="let myphoto of myphoto" col-4>\n                          <ion-card class="block">\n                            \n                              <ion-icon name="ios-trash" class="deleteIcon" (click)="deletePhoto(index)"></ion-icon>\n                              <img [src]="myphoto" (click)="getImage()" class="img-st" alt="">\n                                \n                          </ion-card>\n                      </ion-col>\n                    </ion-row>\n                    <div class="border-st"> \n                        <ion-icon name="ios-reverse-camera-outline" class="plus" (click)="takePhoto()"></ion-icon>\n                    </div>\n                </ion-grid>  \n            </div>   \n            <div class="uploadWrap" *ngIf="imageChosen == 0" >\n                <ion-label color="primary" style="font-size: 16px;" stacked>รูปภาพอสังหาริมทรัพย์</ion-label>\n                <ion-icon (click)="takePhoto()" name="md-images" class="img-grad" style="color:#b9b8b8;"></ion-icon>\n            </div>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <ion-col col-12>\n          <button ion-button round (click)="up()" full class="grad1">Upload</button>\n        </ion-col>\n    </ion-row>\n</ion-content>\n'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/sell/sell.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_8__angular_common__["c" /* CurrencyPipe */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
@@ -1315,7 +1388,7 @@ var SellPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_file_transfer__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_file__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(580);
@@ -1472,7 +1545,7 @@ var RegisterPage = (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/register/register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header hidden>\n  \n    <ion-navbar>\n      <ion-title>Register</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content padding>\n    <ion-grid>\n      <ion-row padding-horizontal align-items-start>\n          \n          <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>\n              \n              \n              <h1 ion-text style="color:lightgray;font-size:35px;" title>Register your new Account</h1>\n              <div class="uploadWrap" *ngIf="imageChosen == 0" >\n                  <ion-icon (click)="chooseImage()" name="ios-camera" class="camera" ></ion-icon>\n                  <ion-icon (click)="chooseImage()" class="user" name="ios-contact" style="color:#b9b8b8;"></ion-icon>\n              </div>\n              <div class="imgWrap" *ngIf="imageChosen == 1" >\n                  <ion-icon (click)="chooseImage()" name="ios-camera-outline" class="camera"></ion-icon>\n                  <img [src]="imagePath" class="img-user" (click)="chooseImage()" alt="">\n              </div>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>EMAIL</ion-label>\n                  <ion-input required placeholder="Your e-mail address" type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="userData.email"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>USERNAME</ion-label>\n                  <ion-input required placeholder="Your Lastname" type="text" required [(ngModel)]="userData.username"></ion-input>\n              </ion-item>\n              \n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>FULL NAME</ion-label>\n                  <ion-input required placeholder="Your Firstname & Lastname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="userData.name"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>PASSWORD</ion-label>\n                  <ion-input required placeholder="Enter your password" type="password" [(ngModel)]="userData.password"></ion-input>\n                </ion-item>\n              \n              \n              <button ion-button full round (click)="signup()" class="img-grad">Register</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n    \n  </ion-content>\n  <!--<ion-content padding class="appBackground">\n    <ion-card>\n      <ion-card-header>\n        Registration\n      </ion-card-header>\n      <ion-card-content>\n        <ion-list>\n          <ion-item>\n            <ion-label stacked>Name</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.name"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Email</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.email"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Username</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.username"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="userData.password"></ion-input>\n          </ion-item>\n  \n          <button ion-button full color="success" (click)="signup()">Sign up</button>\n          <a href="#" (click)="login()">Login Page</a>\n        </ion-list>\n      </ion-card-content>\n    </ion-card>\n  </ion-content>-->\n  '/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/register/register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/register/register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header hidden>\n  \n    <ion-navbar>\n      <ion-title>Register</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content padding>\n    <ion-grid>\n      <ion-row padding-horizontal align-items-start>\n          \n          <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>\n              \n              \n              <h1 ion-text style="color:lightgray;font-size:35px;" title>Register your new Account</h1>\n              <div class="uploadWrap" *ngIf="imageChosen == 0" >\n                  <ion-icon (click)="chooseImage()" name="ios-camera" class="camera" ></ion-icon>\n                  <ion-icon (click)="chooseImage()" class="user" name="ios-contact" style="color:#b9b8b8;"></ion-icon>\n              </div>\n              <div class="imgWrap" *ngIf="imageChosen == 1" >\n                  <ion-icon (click)="chooseImage()" name="ios-camera-outline" class="camera"></ion-icon>\n                  <img [src]="imagePath" class="img-user" (click)="chooseImage()" alt="">\n              </div>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>EMAIL</ion-label>\n                  <ion-input required placeholder="Your e-mail address" type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="userData.email"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>USERNAME</ion-label>\n                  <ion-input required placeholder="Your Lastname" type="text" required [(ngModel)]="userData.username"></ion-input>\n              </ion-item>\n              \n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>FULL NAME</ion-label>\n                  <ion-input required placeholder="Your Firstname & Lastname" type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="userData.name"></ion-input>\n              </ion-item>\n              <ion-item no-padding>\n                  <ion-label color="dark" stacked>PASSWORD</ion-label>\n                  <ion-input required placeholder="Enter your password" type="password" [(ngModel)]="userData.password"></ion-input>\n                </ion-item>\n              \n              \n              <button ion-button full round (click)="signup()" class="img-grad">Register</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n    \n  </ion-content>\n  <!--<ion-content padding class="appBackground">\n    <ion-card>\n      <ion-card-header>\n        Registration\n      </ion-card-header>\n      <ion-card-content>\n        <ion-list>\n          <ion-item>\n            <ion-label stacked>Name</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.name"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Email</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.email"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Username</ion-label>\n            <ion-input type="text" [(ngModel)]="userData.username"></ion-input>\n          </ion-item>\n  \n          <ion-item>\n            <ion-label stacked>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="userData.password"></ion-input>\n          </ion-item>\n  \n          <button ion-button full color="success" (click)="signup()">Sign up</button>\n          <a href="#" (click)="login()">Login Page</a>\n        </ion-list>\n      </ion-card-content>\n    </ion-card>\n  </ion-content>-->\n  '/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/register/register.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
@@ -1505,7 +1578,7 @@ var RegisterPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__estimate_estimate__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_loading_loading_controller__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_rest_rest__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_auth_auth__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1891,7 +1964,7 @@ var MapDirectionPage = (function () {
     ], MapDirectionPage.prototype, "mapRef", void 0);
     MapDirectionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-map-direction',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/map-direction/map-direction.html"*/'<ion-header header-ios>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n    </ion-navbar>\n  </ion-header>\n<!--<ion-content padding >\n    <div #map id="map"></div>\n    <div id="warnings-panel"></div>\n    \n        \n<div *ngIf="load_success == 1 ">\n        <div style="text-align:center;">\n                <span class="step" id="step1"></span>\n                <span class="step" id="step2"></span>\n                <span class="step" id="step3"></span>\n                <span class="step" id="step4"></span>\n        </div>\n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>\n        <div class="tab">\n            <p>sadasd</p>\n        </div>\n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n            <ion-item *ngFor="let item of data_well" >\n                <ion-label>{{item.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n            <ion-item *ngFor="let item_hr of data_road" >\n                <ion-label>{{item_hr.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n            <ion-item *ngFor="let item_sp of data_shape" >\n                <ion-label>{{item_sp.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n            <ion-item *ngFor="let item_wd of data_width" >\n                <ion-label>{{item_wd.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n            </ion-item>\n        </ion-list>\n        \n        <div style="float:left;">\n                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">\n                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    \n                </button>\n            </div>\n            <div style="float:right;">\n                <button ion-button round class="grad" id="nextBtn" (click)="nextPrev(1)">\n                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    \n                </button>\n                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>\n            </div>\n</div>\n</ion-content>-->\n<ion-content padding>\n        <div #map id="map"></div>\n        <div id="warnings-panel"></div>\n        <form (ngSubmit)="logForm(form)">\n        \n        <div style="text-align:center;">\n            <span class="step" id="step1">1</span>\n            <span class="step" id="step2">2</span>\n            <span class="step" id="step1">3</span>\n            <span class="step" id="step2">4</span>\n        </div>\n        <div *ngIf="load_success == 1 ">\n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม</h1>\n        </div>\n        <div class="tab">\n                \n                <div *ngIf="load_success == 1 ">\n                <h2>1. ที่ดินของคุณมีลักษณะเป็นบ่อน้ำหรือไม่ ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n                        <ion-item *ngFor="let item of data_well" >\n                            <ion-label>{{item.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n                        </ion-item>\n                </ion-list>\n                </div>\n        </div>\n        <div class="tab">\n                <h2>2. ที่ดินของคุณมีลักษณะที่สูงกว่าถนนหรือไม่ ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n                        <ion-item *ngFor="let item_hr of data_road" >\n                            <ion-label>{{item_hr.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div class="tab">\n                <h2>3. ที่ดินของคุณมีลักษณะของรูปแปลงที่ดินเป็นอย่างไร ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                        <ion-item *ngFor="let item_sp of data_shape" >\n                            <ion-label>{{item_sp.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div class="tab">\n                <h2 style="text-align:center">4. ขนาดของที่ดินมีหน้ากว้างหรือหน้าแคบ ?</h2>\n                <ion-row>\n                    \n                    <ion-col style="text-align:right"  col-2>\n                        <p>Notice:</p>\n                    </ion-col>\n                    <ion-col style="text-align:left" col-8>\n                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวมากกว่า 50 เมตร คือ <b style="color:blue">หน้ากว้าง</b></p>\n                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวน้อยกว่า 50 เมตร คือ <b style="color:blue">หน้าแคบ</b></p>        \n                    </ion-col>\n                </ion-row>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n                        <ion-item *ngFor="let item_wd of data_width" >\n                            <ion-label>{{item_wd.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div style="float:left;">\n                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">\n                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    \n                </button>\n            </div>\n            <div style="float:right;">\n                <button ion-button round class="grad" *ngIf="load_success == 1 " id="nextBtn" (click)="nextPrev(1)">\n                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    \n                </button>\n                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>\n            </div>\n            <a href="" id="nextBtn" style="display:none"></a>\n    </form> \n        \n    </ion-content>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/map-direction/map-direction.html"*/,
+            selector: 'page-map-direction',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/map-direction/map-direction.html"*/'<ion-header header-ios>\n    <ion-navbar transparent>\n      <button ion-button menuToggle>\n        <ion-icon name="menu" color="primary"></ion-icon>\n      </button>\n      <ion-title text-left><h5 style="font-size:15px;">ประเมินราคาอสังหาริมทรัพย์</h5></ion-title>\n    </ion-navbar>\n  </ion-header>\n<!--<ion-content padding >\n    <div #map id="map"></div>\n    <div id="warnings-panel"></div>\n    \n        \n<div *ngIf="load_success == 1 ">\n        <div style="text-align:center;">\n                <span class="step" id="step1"></span>\n                <span class="step" id="step2"></span>\n                <span class="step" id="step3"></span>\n                <span class="step" id="step4"></span>\n        </div>\n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม:</h1>\n        <div class="tab">\n            <p>sadasd</p>\n        </div>\n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n            <ion-item *ngFor="let item of data_well" >\n                <ion-label>{{item.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n            <ion-item *ngFor="let item_hr of data_road" >\n                <ion-label>{{item_hr.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n            <ion-item *ngFor="let item_sp of data_shape" >\n                <ion-label>{{item_sp.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n            </ion-item>\n        </ion-list>\n    \n    \n        <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n            <ion-item *ngFor="let item_wd of data_width" >\n                <ion-label>{{item_wd.factor_name}}</ion-label>\n                <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n            </ion-item>\n        </ion-list>\n        \n        <div style="float:left;">\n                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">\n                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    \n                </button>\n            </div>\n            <div style="float:right;">\n                <button ion-button round class="grad" id="nextBtn" (click)="nextPrev(1)">\n                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    \n                </button>\n                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>\n            </div>\n</div>\n</ion-content>-->\n<ion-content padding>\n        <div #map id="map"></div>\n        <div id="warnings-panel"></div>\n        <form (ngSubmit)="logForm(form)">\n        \n        <div style="text-align:center;">\n            <span class="step" id="step1">1</span>\n            <span class="step" id="step2">2</span>\n            <span class="step" id="step1">3</span>\n            <span class="step" id="step2">4</span>\n        </div>\n        <div *ngIf="load_success == 1 ">\n        <h1 id="h1">กรอกข้อมูลเพิ่มเติม</h1>\n        </div>\n        <div class="tab">\n                \n                <div *ngIf="load_success == 1 ">\n                <h2>1. ที่ดินของคุณมีลักษณะเป็นบ่อน้ำหรือไม่ ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_well"> \n                        <ion-item *ngFor="let item of data_well" >\n                            <ion-label>{{item.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select(item)"  [value]="item"></ion-radio>\n                        </ion-item>\n                </ion-list>\n                </div>\n        </div>\n        <div class="tab">\n                <h2>2. ที่ดินของคุณมีลักษณะที่สูงกว่าถนนหรือไม่ ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_height_road"> \n                        <ion-item *ngFor="let item_hr of data_road" >\n                            <ion-label>{{item_hr.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_hr(item_hr)" [value]="item_hr"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div class="tab">\n                <h2>3. ที่ดินของคุณมีลักษณะของรูปแปลงที่ดินเป็นอย่างไร ?</h2>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_shape"> \n                        <ion-item *ngFor="let item_sp of data_shape" >\n                            <ion-label>{{item_sp.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_sp(item_sp)" [value]="item_sp"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div class="tab">\n                <h2 style="text-align:center">4. ขนาดของที่ดินมีหน้ากว้างหรือหน้าแคบ ?</h2>\n                <ion-row>\n                    \n                    <ion-col style="text-align:right"  col-2>\n                        <p>Notice:</p>\n                    </ion-col>\n                    <ion-col style="text-align:left" col-8>\n                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวมากกว่า 50 เมตร คือ <b style="color:blue">หน้ากว้าง</b></p>\n                        <p>ด้านของที่ดินในส่วนที่ ติดถนนมีความยาวน้อยกว่า 50 เมตร คือ <b style="color:blue">หน้าแคบ</b></p>        \n                    </ion-col>\n                </ion-row>\n                <ion-list radio-group name="radio" [(ngModel)]="itemChecked_width"> \n                        <ion-item *ngFor="let item_wd of data_width" >\n                            <ion-label>{{item_wd.FACTOR_NAME}}</ion-label>\n                            <ion-radio (ionSelect)="select_wd(item_wd)" [value]="item_wd"></ion-radio>\n                        </ion-item>\n                </ion-list>\n        </div>\n        <div style="float:left;">\n                <button ion-button round  id="prevBtn" class="grad-prev" (click)="nextPrev(-1)">\n                        <ion-icon name="md-arrow-round-back" style="font-size:30px;"></ion-icon>    \n                </button>\n            </div>\n            <div style="float:right;">\n                <button ion-button round class="grad" *ngIf="load_success == 1 " id="nextBtn" (click)="nextPrev(1)">\n                    <ion-icon name="md-arrow-round-forward" style="font-size:30px;"></ion-icon>    \n                </button>\n                <button ion-button round (click)="clickservice()" class="grad" id="succ"> ประเมินราคา </button>\n            </div>\n            <a href="" id="nextBtn" style="display:none"></a>\n    </form> \n        \n    </ion-content>'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/map-direction/map-direction.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_params__["a" /* NavParams */],
@@ -1916,6 +1989,7 @@ var MapDirectionPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1928,6 +2002,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the NearByPage page.
  *
@@ -1935,16 +2010,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var NearByPage = (function () {
-    function NearByPage(navCtrl, navParams, loadingCtrl, authprovider) {
+    function NearByPage(navCtrl, navParams, loadingCtrl, restProvider, authprovider) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.loadingCtrl = loadingCtrl;
+        this.restProvider = restProvider;
         this.authprovider = authprovider;
         this.presentLoading();
-        var getLat = this.navParams.get('lat');
-        var getLng = this.navParams.get('lng');
-        var dataTocoordinate = { "lat": getLat, "lng": getLng };
+        this.restProvider.getType()
+            .then(function (type) {
+            _this.itemType = type;
+            // console.log(JSON.stringify(this.itemType));
+        });
+        this.getLat = this.navParams.get('lat');
+        this.getLng = this.navParams.get('lng');
+        var dataTocoordinate = { "lat": this.getLat, "lng": this.getLng, "type": 'ซุปเปอร์มาร์เก็ต' };
         this.authprovider.postData(dataTocoordinate, 'nearBy').then(function (result) {
             _this.near = result;
             _this.loading.dismiss();
@@ -1972,6 +2053,12 @@ var NearByPage = (function () {
             // Error log
         });
     }
+    NearByPage.prototype.select = function (item) {
+        this.presentLoading();
+        console.log(item.TYPE, this.getLat);
+        var coordinate = { "lat": this.getLat, "lng": this.getLng, "type": item.TYPE };
+        this.setMap(coordinate);
+    };
     NearByPage.prototype.showMap = function (data, posistionLand) {
         var _this = this;
         var infowindow = new google.maps.InfoWindow();
@@ -2011,6 +2098,109 @@ var NearByPage = (function () {
             radius: 2000
         });
     };
+    NearByPage.prototype.setMap = function (data) {
+        var _this = this;
+        console.log(JSON.stringify(data));
+        this.authprovider.postData(data, 'nearBy').then(function (result) {
+            _this.near = result;
+            console.log(JSON.stringify(_this.near));
+            _this.loading.dismiss();
+            var infowindow = new google.maps.InfoWindow();
+            var location = new google.maps.LatLng(data.lat, data.lng);
+            var options = {
+                center: location,
+                zoom: 13.3,
+                mapTypeControl: false,
+                panControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                // draggable: false,
+                mapTypeId: 'roadmap' //roadmap , satellite , hybrid , terrain
+            };
+            var marker, i;
+            _this.map = new google.maps.Map(_this.mapRef.nativeElement, options);
+            for (i = 0; i < _this.near.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(_this.near[i].LAT, _this.near[i].LNG),
+                    map: _this.map
+                });
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(_this.near[i].NAME);
+                        infowindow.open(_this.map, marker);
+                    };
+                })(marker, i));
+            }
+            var cityCircle = new google.maps.Circle({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.05,
+                map: _this.map,
+                center: location,
+                radius: 2000
+            });
+            _this.success = 1;
+            // this.showMap(this.near, dataTocoordinate);
+            if (_this.near) {
+                var countNearBy = _this.near.length;
+                if (countNearBy === undefined) {
+                    _this.load = 1;
+                    _this.nearBy = _this.near;
+                }
+                else if (countNearBy > 2) {
+                    _this.load = 2;
+                    _this.nearBy = _this.near;
+                }
+                else {
+                    _this.load = 2;
+                    _this.nearBy = _this.near;
+                }
+            }
+            else {
+                alert("");
+            }
+        }, function (err) {
+            // Error log
+        });
+        // var infowindow = new google.maps.InfoWindow();
+        // const location = new google.maps.LatLng(posistionLand.lat, posistionLand.lng);
+        // const options = {
+        //   center: location,
+        //   zoom: 13.3,
+        //   mapTypeControl: false,
+        //   panControl: false,
+        //   scaleControl: false,
+        //   streetViewControl: false,
+        //   // draggable: false,
+        //   mapTypeId: 'roadmap'//roadmap , satellite , hybrid , terrain
+        // };
+        // var marker, i;
+        // this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+        // for (i = 0; i < data.length; i++) {
+        //   marker = new google.maps.Marker({
+        //     position: new google.maps.LatLng(data[i].LAT, data[i].LNG),
+        //     map: this.map
+        //   });
+        //   google.maps.event.addListener(marker, 'click', ((marker, i) => {
+        //     return () => {
+        //       infowindow.setContent(data[i].NAME);
+        //       infowindow.open(this.map, marker);
+        //     }
+        //   })(marker, i));
+        // }
+        // var cityCircle = new google.maps.Circle({
+        //   strokeColor: '#FF0000',
+        //   strokeOpacity: 0.8,
+        //   strokeWeight: 2,
+        //   fillColor: '#FF0000',
+        //   fillOpacity: 0.05,
+        //   map: this.map,
+        //   center: location,
+        //   radius: 2000
+        // });
+    };
     NearByPage.prototype.presentLoading = function () {
         this.loading = this.loadingCtrl.create({});
         this.loading.present();
@@ -2021,11 +2211,12 @@ var NearByPage = (function () {
     ], NearByPage.prototype, "mapRef", void 0);
     NearByPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-near-by',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/pages/near-by/near-by.html"*/'<!--\n  Generated template for the NearByPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>nearBy</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div id="map" #map></div>\n  <ion-card  *ngIf="success == 1">\n    <ion-row style="text-align:center">\n      <ion-item>\n        <ion-icon name="ios-compass" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>สถานที่ใกล้เคียงกับที่ดิน</label>\n        <p>ภายในระยะ 2 กิโลเมตร</p>\n      </ion-item>\n      <ion-grid *ngIf=\'load == 2\'>\n        <ion-row *ngFor="let nearBy of nearBy">\n    \n          <ion-col col-6 style="border: lightgray solid 1px;">\n            <h2>{{nearBy.NAME}}</h2>\n          </ion-col>\n          <ion-col col-6 style="border: lightgray solid 1px;">\n            <h2>{{nearBy.distance | number: \'1.3-3\'}} กิโลเมตร</h2>\n          </ion-col>\n        </ion-row>\n    \n      </ion-grid>\n      <ion-grid *ngIf=\'load == 1\'>\n        <ion-row style="border: lightgray solid 1px;">\n    \n          <ion-col col-6>\n            <h2>{{nearBy.NAME}}</h2>\n          </ion-col>\n          <ion-col col-6>\n            <h2>{{nearBy.distance}} ในระยะ 2 กิโลเมตร</h2>\n          </ion-col>\n        </ion-row>\n    \n      </ion-grid>\n    </ion-row>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/pages/near-by/near-by.html"*/,
+            selector: 'page-near-by',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/pages/near-by/near-by.html"*/'<!--\n  Generated template for the NearByPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>สถานที่ใกล้เคียง</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-item>\n    <ion-label stacked style="font-size:16px;color:cornflowerblue;text-align:center;">เลือกประเภทที่ต้องการค้นหาเพิ่มเติม</ion-label>\n    <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุประเภท">\n      <ion-option *ngFor="let item of itemType" (ionSelect)="select(item)" [value]="item">{{ item.TYPE }}</ion-option>\n    </ion-select>\n  </ion-item>\n  <div id="map" #map></div>\n  <ion-card  *ngIf="success == 1">\n    <ion-row style="text-align:center">\n      <ion-item>\n        <ion-icon name="ios-compass" style="color:cornflowerblue" item-left large></ion-icon>\n        <label stacked>สถานที่ใกล้เคียงกับที่ดิน</label>\n        <p>ภายในระยะ 2 กิโลเมตร</p>\n      </ion-item>\n      <ion-grid *ngIf=\'load == 2\'>\n        <ion-row *ngFor="let nearBy of nearBy">\n    \n          <ion-col col-6 style="border: lightgray solid 1px;">\n            <h2>{{nearBy.NAME}}</h2>\n          </ion-col>\n          <ion-col col-6 style="border: lightgray solid 1px;">\n            <h2>{{nearBy.distance | number: \'1.3-3\'}} กิโลเมตร</h2>\n          </ion-col>\n        </ion-row>\n    \n      </ion-grid>\n      <ion-grid *ngIf=\'load == 1\'>\n        <ion-row style="border: lightgray solid 1px;">\n    \n          <ion-col col-6>\n            <h2>{{nearBy.NAME}}</h2>\n          </ion-col>\n          <ion-col col-6>\n            <h2>{{nearBy.distance}} ในระยะ 2 กิโลเมตร</h2>\n          </ion-col>\n        </ion-row>\n    \n      </ion-grid>\n    </ion-row>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/pages/near-by/near-by.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_rest_rest__["a" /* RestProvider */],
             __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
     ], NearByPage);
     return NearByPage;
@@ -2121,7 +2312,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2227,11 +2418,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_google_plus__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__app_firebase_config__ = __webpack_require__(866);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angularfire2_auth__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_auth_auth__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__directives_parallax_parallax__ = __webpack_require__(867);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_list_list__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_rest_rest__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_rest_rest__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_ion_digit_keyboard_ion_digit_keyboard_module__ = __webpack_require__(868);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_file_transfer__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_file__ = __webpack_require__(174);
@@ -2348,6 +2539,185 @@ var AppModule = (function () {
 }());
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 56:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//import { homeProvider } from '../../pages/home/home'
+
+/*
+  Generated class for the RestProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var RestProvider = (function () {
+    function RestProvider(http, nativeStorage) {
+        this.http = http;
+        this.nativeStorage = nativeStorage;
+        this.apiUrl = 'http://services-spa.azurewebsites.net/api/values';
+        this.UrlProvince = 'https://smartball.000webhostapp.com/uploads/get_province.php';
+        this.UrlAmphur = 'http://services-spa.azurewebsites.net/api/province';
+        this.UrlMarker = 'http://services-spa.azurewebsites.net/api/marker';
+        this.UrlWell = 'http://services-spa.azurewebsites.net/api/well';
+        this.UrlRoad = 'http://services-spa.azurewebsites.net/api/road';
+        this.UrlShape = 'http://services-spa.azurewebsites.net/api/shape';
+        this.UrlWidth = 'http://services-spa.azurewebsites.net/api/width';
+        this.UrlTotal = 'http://services-spa.azurewebsites.net/api/search';
+        this.UrlProduct = 'https://smartball.000webhostapp.com/uploads/get_product.php';
+        this.UrlType = 'https://smartball.000webhostapp.com/uploads/get_type.php';
+    }
+    RestProvider.prototype.getData = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.apiUrl).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getMarker = function (deed_number, province_id, amphur_code) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.deed_number = deed_number;
+            _this.province_id = province_id;
+            _this.amphur_code = amphur_code;
+            _this.http.get(_this.UrlMarker + '/' + _this.deed_number + ',' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getProvince = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.UrlProvince).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getAmphur = function (log_hr) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.id = log_hr;
+            _this.http.get(_this.UrlAmphur + '/' + _this.id).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getWell = function (province_id, amphur_code) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.province_id = province_id;
+            _this.amphur_code = amphur_code;
+            _this.http.get(_this.UrlWell + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getRoad = function (province_id, amphur_code) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.province_id = province_id;
+            _this.amphur_code = amphur_code;
+            _this.http.get(_this.UrlRoad + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getShape = function (province_id, amphur_code) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.province_id = province_id;
+            _this.amphur_code = amphur_code;
+            _this.http.get(_this.UrlShape + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getWidth = function (province_id, amphur_code) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.province_id = province_id;
+            _this.amphur_code = amphur_code;
+            _this.http.get(_this.UrlWidth + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getTotal = function (lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size) {
+        var _this = this;
+        var url = this.UrlTotal + '/' + lat + ',' + lon + ',' + province_id + ',' + amphur_code + ',' + well + ',' + road + ',' + shape + ',' + width + ',' + type_size + ',' + id + ',' + appraisal + ',' + size;
+        console.log(url);
+        return new Promise(function (resolve) {
+            _this.http.get(url).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getProduct = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.UrlProduct).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider.prototype.getType = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.UrlType).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    RestProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */]])
+    ], RestProvider);
+    return RestProvider;
+}());
+
+//# sourceMappingURL=rest.js.map
 
 /***/ }),
 
@@ -2743,7 +3113,7 @@ var IonDigitKeyboardCmp = (function () {
     ], IonDigitKeyboardCmp.prototype, "resize", void 0);
     IonDigitKeyboardCmp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'ion-digit-keyboard',template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/'<div (window:resize)="onWindowResize($event)" class="keyboard-{{theme}} align-{{align}} {{roundButtons ? \'round-buttons\' : \'\'}} {{showLetters == false ? \'no-letters\' : \'\'}}" [style.width]="width">\n	<ng-content select="ion-toolbar"></ng-content>\n    <div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 1)">\n				<div class="digit-keyboard-key-number">1\n					<div class="digit-keyboard-key-letters"></div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 2)">\n				<div class="digit-keyboard-key-number">2\n					<div class="digit-keyboard-key-letters">ABC</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 3)">\n				<div class="digit-keyboard-key-number">3\n					<div class="digit-keyboard-key-letters">DEF</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 4)">\n				<div class="digit-keyboard-key-number">4\n					<div class="digit-keyboard-key-letters">GHI</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 5)">\n				<div class="digit-keyboard-key-number">5\n					<div class="digit-keyboard-key-letters">JKL</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 6)">\n				<div class="digit-keyboard-key-number">6\n					<div class="digit-keyboard-key-letters">MNO</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 7)">\n				<div class="digit-keyboard-key-number">7\n					<div class="digit-keyboard-key-letters">PQRS</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 8)">\n				<div class="digit-keyboard-key-number">8\n					<div class="digit-keyboard-key-letters">TUV</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 9)">\n				<div class="digit-keyboard-key-number">9\n					<div class="digit-keyboard-key-letters">WXYZ</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="leftAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'left\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="leftAction.fontSize">\n                    <ion-icon *ngIf="leftAction.iconName" [name]="leftAction.iconName"></ion-icon>\n                    <div *ngIf="!leftAction.iconName && leftAction.text">{{leftAction.text}}</div>\n                </div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 0)">\n				<div class="digit-keyboard-key-number" style="margin-top: -0.30em;">0</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="rightAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'right\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="rightAction.fontSize">\n                    <ion-icon *ngIf="rightAction.iconName" [name]="rightAction.iconName"></ion-icon>\n                    <div *ngIf="!rightAction.iconName && rightAction.text">{{rightAction.text}}</div>\n                </div>\n			</div>\n		</div>\n	</div>\n</div>\n'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/
+            selector: 'ion-digit-keyboard',template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/'<div (window:resize)="onWindowResize($event)" class="keyboard-{{theme}} align-{{align}} {{roundButtons ? \'round-buttons\' : \'\'}} {{showLetters == false ? \'no-letters\' : \'\'}}" [style.width]="width">\n	<ng-content select="ion-toolbar"></ng-content>\n    <div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 1)">\n				<div class="digit-keyboard-key-number">1\n					<div class="digit-keyboard-key-letters"></div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 2)">\n				<div class="digit-keyboard-key-number">2\n					<div class="digit-keyboard-key-letters">ABC</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 3)">\n				<div class="digit-keyboard-key-number">3\n					<div class="digit-keyboard-key-letters">DEF</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 4)">\n				<div class="digit-keyboard-key-number">4\n					<div class="digit-keyboard-key-letters">GHI</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 5)">\n				<div class="digit-keyboard-key-number">5\n					<div class="digit-keyboard-key-letters">JKL</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 6)">\n				<div class="digit-keyboard-key-number">6\n					<div class="digit-keyboard-key-letters">MNO</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 7)">\n				<div class="digit-keyboard-key-number">7\n					<div class="digit-keyboard-key-letters">PQRS</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 8)">\n				<div class="digit-keyboard-key-number">8\n					<div class="digit-keyboard-key-letters">TUV</div>\n				</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 9)">\n				<div class="digit-keyboard-key-number">9\n					<div class="digit-keyboard-key-letters">WXYZ</div>\n				</div>\n			</div>\n		</div>\n	</div>\n	<div class="digit-keyboard-row" [style.zoom]="zoom">\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="leftAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'left\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="leftAction.fontSize">\n                    <ion-icon *ngIf="leftAction.iconName" [name]="leftAction.iconName"></ion-icon>\n                    <div *ngIf="!leftAction.iconName && leftAction.text">{{leftAction.text}}</div>\n                </div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper">\n			<div class="digit-keyboard-key" (touchend)="btnClick($event, 0)">\n				<div class="digit-keyboard-key-number" style="margin-top: -0.30em;">0</div>\n			</div>\n		</div>\n		<div class="digit-keyboard-key-wrapper" [style.visibility]="rightAction.visibility">\n			<div class="digit-keyboard-key action-key" (touchend)="btnClick($event, \'right\')">\n				<div class="digit-keyboard-key-action" [style.font-size]="rightAction.fontSize">\n                    <ion-icon *ngIf="rightAction.iconName" [name]="rightAction.iconName"></ion-icon>\n                    <div *ngIf="!rightAction.iconName && rightAction.text">{{rightAction.text}}</div>\n                </div>\n			</div>\n		</div>\n	</div>\n</div>\n'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/components/ion-digit-keyboard/components/ion-digit-keyboard-cmp/ion-digit-keyboard-cmp.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["V" /* Renderer */]])
     ], IonDigitKeyboardCmp);
@@ -2752,174 +3122,6 @@ var IonDigitKeyboardCmp = (function () {
 
 !function () { var t = document.createElement("script"); t.type = "text/javascript", t.innerText = "var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-91756356-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();"; var e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(t, e); }();
 //# sourceMappingURL=ion-digit-keyboard-cmp.js.map
-
-/***/ }),
-
-/***/ 61:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__ = __webpack_require__(38);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-//import { homeProvider } from '../../pages/home/home'
-
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var RestProvider = (function () {
-    function RestProvider(http, nativeStorage) {
-        this.http = http;
-        this.nativeStorage = nativeStorage;
-        this.apiUrl = 'http://services-spa.azurewebsites.net/api/values';
-        this.UrlProvince = 'https://smartball.000webhostapp.com/uploads/get_province.php';
-        this.UrlAmphur = 'http://services-spa.azurewebsites.net/api/province';
-        this.UrlMarker = 'http://services-spa.azurewebsites.net/api/marker';
-        this.UrlWell = 'http://services-spa.azurewebsites.net/api/well';
-        this.UrlRoad = 'http://services-spa.azurewebsites.net/api/road';
-        this.UrlShape = 'http://services-spa.azurewebsites.net/api/shape';
-        this.UrlWidth = 'http://services-spa.azurewebsites.net/api/width';
-        this.UrlTotal = 'http://services-spa.azurewebsites.net/api/search';
-        this.UrlProduct = 'https://smartball.000webhostapp.com/uploads/get_product.php';
-    }
-    RestProvider.prototype.getData = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.http.get(_this.apiUrl).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getMarker = function (deed_number, province_id, amphur_code) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.deed_number = deed_number;
-            _this.province_id = province_id;
-            _this.amphur_code = amphur_code;
-            _this.http.get(_this.UrlMarker + '/' + _this.deed_number + ',' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getProvince = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.http.get(_this.UrlProvince).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getAmphur = function (log_hr) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.id = log_hr;
-            _this.http.get(_this.UrlAmphur + '/' + _this.id).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getWell = function (province_id, amphur_code) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.province_id = province_id;
-            _this.amphur_code = amphur_code;
-            _this.http.get(_this.UrlWell + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getRoad = function (province_id, amphur_code) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.province_id = province_id;
-            _this.amphur_code = amphur_code;
-            _this.http.get(_this.UrlRoad + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getShape = function (province_id, amphur_code) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.province_id = province_id;
-            _this.amphur_code = amphur_code;
-            _this.http.get(_this.UrlShape + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getWidth = function (province_id, amphur_code) {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.province_id = province_id;
-            _this.amphur_code = amphur_code;
-            _this.http.get(_this.UrlWidth + '/' + _this.province_id + ',' + _this.amphur_code).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getTotal = function (lat, lon, province_id, amphur_code, well, road, shape, width, type_size, id, appraisal, size) {
-        var _this = this;
-        var url = this.UrlTotal + '/' + lat + ',' + lon + ',' + province_id + ',' + amphur_code + ',' + well + ',' + road + ',' + shape + ',' + width + ',' + type_size + ',' + id + ',' + appraisal + ',' + size;
-        console.log(url);
-        return new Promise(function (resolve) {
-            _this.http.get(url).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider.prototype.getProduct = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.http.get(_this.UrlProduct).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    RestProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_native_storage__["a" /* NativeStorage */]])
-    ], RestProvider);
-    return RestProvider;
-}());
-
-//# sourceMappingURL=rest.js.map
 
 /***/ }),
 
@@ -2936,7 +3138,7 @@ var RestProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_user_user__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2_auth__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_list_list__ = __webpack_require__(121);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3003,7 +3205,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/superball/Documents/GitHub/SPAionic/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <div header-background-image padding style="background-image: url(\n          assets/imgs/bg.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n    </ion-header>\n  \n    <ion-content>\n      <ion-list>\n          <ion-item>\n            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n                <ion-icon icon-small item-left name="{{p.icon}}" style="color:aquamarine"></ion-icon>\n              {{p.title}}\n            </button>\n          </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/superball/Documents/GitHub/SPAionic/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/superball/Downloads/SPAionic-master/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-header>\n        <div header-background-image padding style="background-image: url(\n          assets/imgs/bg.png);">\n          <img src="assets/imgs/logo-reales-bg.png"/>\n          <h2 ion-text color="light" header-title>Smart Property Assess</h2>\n          <p>Welcome to our Application for Real Estate Appraisal</p>\n      </div>\n    </ion-header>\n  \n    <ion-content>\n      <ion-list>\n          <ion-item>\n            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n                <ion-icon icon-small item-left name="{{p.icon}}" style="color:aquamarine"></ion-icon>\n              {{p.title}}\n            </button>\n          </ion-item>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/superball/Downloads/SPAionic-master/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */],

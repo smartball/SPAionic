@@ -359,6 +359,14 @@ module.exports = [
     "clobbers": [
       "CameraPopoverHandle"
     ]
+  },
+  {
+    "id": "cordova-plugin-crop.CropPlugin",
+    "file": "plugins/cordova-plugin-crop/www/crop.js",
+    "pluginId": "cordova-plugin-crop",
+    "clobbers": [
+      "plugins.crop"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -381,7 +389,8 @@ module.exports.metadata =
   "uk.co.workingedge.phonegap.plugin.launchnavigator": "4.2.0",
   "cordova-plugin-statusbar": "2.4.1",
   "mx.ferreyra.callnumber": "0.0.2",
-  "cordova-plugin-camera": "4.0.2"
+  "cordova-plugin-camera": "4.0.2",
+  "cordova-plugin-crop": "0.3.1"
 };
 // BOTTOM OF METADATA
 });

@@ -26941,6 +26941,12 @@ ion-digit-keyboard > div.keyboard-messenger .digit-keyboard-key:active .digit-ke
   color: rgba(255, 255, 255, 0.5);
 }
 
+page-appraisal ion-select {
+  border: 2px solid gray;
+  border-radius: 8px;
+  text-align: center;
+}
+
 page-appraisal .block {
   position: relative;
 }
@@ -26958,6 +26964,11 @@ page-appraisal .block Button {
 
 page-appraisal .thumb-img {
   height: 300px;
+  width: 100%;
+}
+
+page-appraisal #map {
+  height: 50%;
   width: 100%;
 }
 
@@ -27017,9 +27028,23 @@ page-home .gm-style-cc {
   display: none;
 }
 
+page-home a[href^="http://maps.google.com/maps"] {
+  display: none !important;
+}
+
+page-home a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+
 page-home .grad {
   background: -webkit-gradient(linear, left top, right bottom, from(aquamarine), to(#19b8f7));
   background: linear-gradient(to bottom right, aquamarine, #19b8f7);
+}
+
+page-home a {
+  font-size: 16px;
+  padding-left: 20%;
+  color: orangered;
 }
 
 page-home .select-md .select-icon, page-home .select-ios.select-icon {
@@ -27174,7 +27199,7 @@ page-home #iw-container .iw-content {
   line-height: 18px;
   font-weight: 400;
   margin-right: 1px;
-  padding: 15px 5px 20px 15px;
+  padding: 0px 5px 20px 15px;
   max-height: 140px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -27373,6 +27398,18 @@ page-login .font {
   background-color: #4CAF50;
 }
 
+page-near-by #map {
+  height: 50%;
+  width: 100%;
+}
+
+page-near-by ion-select {
+  border: 2px solid gray;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 page-register .img-grad {
   font-size: 20px;
   font: bold;
@@ -27559,12 +27596,10 @@ page-sell .img-grad {
 }
 
 .ios page-user ion-content, .md page-user ion-content {
-  background: url("http://www.ewallpapers.eu/sites/default/files/styles/1920x1080/public/1110933203.jpg?itok=VqImpihx") no-repeat center center fixed;
+  background: url("../assets/imgs/background.jpg") no-repeat center center fixed;
   background-size: cover;
   background-position-x: 50%;
   min-height: 100%;
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
 }
 
 .ios page-user .grad1, .md page-user .grad1 {

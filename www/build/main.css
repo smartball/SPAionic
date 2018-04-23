@@ -26941,6 +26941,12 @@ ion-digit-keyboard > div.keyboard-messenger .digit-keyboard-key:active .digit-ke
   color: rgba(255, 255, 255, 0.5);
 }
 
+page-appraisal ion-select {
+  border: 2px solid gray;
+  border-radius: 8px;
+  text-align: center;
+}
+
 page-appraisal .block {
   position: relative;
 }
@@ -27395,6 +27401,13 @@ page-login .font {
 page-near-by #map {
   height: 50%;
   width: 100%;
+}
+
+page-near-by ion-select {
+  border: 2px solid gray;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 page-register .img-grad {

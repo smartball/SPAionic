@@ -7,12 +7,30 @@
     "files": {}
   },
   "installed_plugins": {
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "com.synconset.imagepicker": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-facebook4": {
-      "APP_ID": "160319811228422",
-      "APP_NAME": "hasauth",
+      "APP_ID": "122621955076543",
+      "APP_NAME": "Login",
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-googleplus": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-ionic-webview": {
@@ -24,37 +42,19 @@
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "ionic-plugin-keyboard": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-googleplus": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "com.synconset.imagepicker": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "com-sarriaroman-photoviewer": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
     "mx.ferreyra.callnumber": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-camera": {
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },

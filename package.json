@@ -39,7 +39,7 @@
     "angularfire2": "^5.0.0-rc.5-next",
     "call-number": "^1.0.1",
     "com-sarriaroman-photoviewer": "^1.1.16",
-    "cordova-android": "6.3.0",
+    "cordova-android": "7.0.0",
     "cordova-ios": "4.4.0",
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-camera": "^4.0.2",

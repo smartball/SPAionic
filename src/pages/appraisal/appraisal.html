@@ -74,11 +74,18 @@
         <label stacked>รายละเอียดเพิ่มเติม</label>
         <h2 style="color:cornflowerblue">{{ product.DESCRIPTION }}</h2>
       </ion-item>
+      
       <ion-row style="text-align:center">
             <ion-item>
                     <ion-icon name="ios-compass" style="color:cornflowerblue" item-left large ></ion-icon>
                     <label stacked>สถานที่ใกล้เคียงกับที่ดิน</label>
                     <p>ภายในระยะ 2 กิโลเมตร</p>
+              </ion-item>
+              <ion-item>
+                <ion-label stacked style="font-size:16px;color:cornflowerblue;text-align:center;">เลือกประเภทที่ต้องการค้นหาเพิ่มเติม</ion-label>
+                <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุประเภท">
+                  <ion-option *ngFor="let item of itemType" (ionSelect)="select(item)" [value]="item">{{ item.TYPE }}</ion-option>
+                </ion-select>
               </ion-item>
       <ion-grid *ngIf='load == 2'>
             <ion-row *ngFor="let nearBy of nearBy">

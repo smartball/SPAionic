@@ -7,13 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>nearBy</ion-title>
+    <ion-title>สถานที่ใกล้เคียง</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+  <ion-item>
+    <ion-label stacked style="font-size:16px;color:cornflowerblue;text-align:center;">เลือกประเภทที่ต้องการค้นหาเพิ่มเติม</ion-label>
+    <ion-select interface="action-sheet" id="province" placeholder="กรุณาระบุประเภท">
+      <ion-option *ngFor="let item of itemType" (ionSelect)="select(item)" [value]="item">{{ item.TYPE }}</ion-option>
+    </ion-select>
+  </ion-item>
   <div id="map" #map></div>
   <ion-card  *ngIf="success == 1">
     <ion-row style="text-align:center">

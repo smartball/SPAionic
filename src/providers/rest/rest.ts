@@ -29,6 +29,7 @@ export class RestProvider {
   UrlWidth = 'http://services-spa.azurewebsites.net/api/width';
   UrlTotal = 'http://services-spa.azurewebsites.net/api/search';
   UrlProduct = 'https://smartball.000webhostapp.com/uploads/get_product.php';
+  UrlType = 'https://smartball.000webhostapp.com/uploads/get_type.php';
   constructor(public http: HttpClient,
               public nativeStorage: NativeStorage,
               //public homeProvider: homeProvider
@@ -145,6 +146,16 @@ export class RestProvider {
     
     return new Promise(resolve => {
       this.http.get(this.UrlProduct).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }  
+  getType() {
+
+    return new Promise(resolve => {
+      this.http.get(this.UrlType).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

@@ -177,7 +177,7 @@ export class HomePage {
     
     this.marker.setPosition( new google.maps.LatLng( _data.lat,_data.lng ) );
     this.map.setCenter(new google.maps.LatLng( _data.lat,_data.lng ));
-    this.map.setZoom(22);
+    this.map.setZoom(19);
     
     this.textSearch = _data.deed_number;
     
