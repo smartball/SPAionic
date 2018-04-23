@@ -16,5 +16,21 @@ page-appraisal {
     height: 300px;
     width: 100%;
   }
-      
+  #map {
+        height: 50%;
+        width: 100%;
+    }
+  // // hide logo google
+  // a[href^="http://maps.google.com/maps"],
+  // a[href^="https://maps.google.com/maps"],
+  // a[href^="https://www.google.com/maps"] {
+  //     display: none !important;
+  // }
+  // .gm-bundled-control .gmnoprint {
+  //     display: block;
+  // }
+  // .gmnoprint:not(.gm-bundled-control) {
+  //     display: none;
+  // }
+  
 }

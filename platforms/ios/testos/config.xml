@@ -3,10 +3,6 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
-    <feature name="Console">
-        <param name="ios-package" value="CDVLogger" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="HandleOpenUrl">
         <param name="ios-package" value="CDVHandleOpenURL" />
         <param name="onload" value="true" />
@@ -86,7 +82,7 @@
     <name>testos</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://10.110.154.90:8100" />
+    <content src="index.html" />
     <access origin="http://services-spa.azurewebsites.net" />
     <allow-navigation href="http://services-spa.azurewebsites.net" />
     <allow-intent href="http://*/*" />
@@ -119,6 +115,7 @@
     <allow-navigation href="http://10.251.13.60:8100" />
     <allow-navigation href="http://192.168.100.102:8100" />
     <allow-navigation href="http://10.110.154.90:8100" />
+    <allow-navigation href="http://10.110.170.181:8100" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <allow-navigation href="*" />

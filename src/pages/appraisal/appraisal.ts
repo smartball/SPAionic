@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ModalController, LoadingController, Platform } from 'ionic-angular';
 
 import { NativeStorage } from '@ionic-native/native-storage';
@@ -8,6 +8,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { CurrencyPipe } from '@angular/common';
 import { CallNumber } from '@ionic-native/call-number';
+declare var google: any;
 /**
  * Generated class for the AppraisalPage page.
  *
@@ -22,6 +23,7 @@ import { CallNumber } from '@ionic-native/call-number';
   providers: [LaunchNavigator, CurrencyPipe, CallNumber]
 })
 export class AppraisalPage {
+  @ViewChild('map') mapRef: ElementRef;
   data: any;
   responseData: any;
   dataSend: any;
@@ -38,6 +40,9 @@ export class AppraisalPage {
   loading: any;
   success = 0;
   near: any;
+  map: any;
+  marker: any;
+  coordinate = [];
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public view: ViewController,
@@ -56,7 +61,7 @@ export class AppraisalPage {
     const getLng = this.navParams.get('lng')
     const dataToSend = { "id": getId }
     const dataTocoordinate = { "lat": getLat, "lng": getLng }
-    
+
     this.presentLoading()
     this.authprovider.postData(dataToSend, 'getProduct').then((result) => {
       this.product = result;
@@ -64,7 +69,6 @@ export class AppraisalPage {
         console.log(this.product.PROVINCE_NAME)
         const ph = this.product.PHONE;
         this.phone = ph.slice(0, 3) + "-" + ph.slice(3, 6) + "-" + ph.slice(6);
-        // console.log(JSON.stringify(this.product));
       }
       else {
         alert("");
@@ -77,7 +81,6 @@ export class AppraisalPage {
       if (this.product_img) {
         this.loading.dismiss()
         this.success = 1
-        // console.log(JSON.stringify(this.product_img));
       }
       else {
         alert("");
@@ -87,6 +90,11 @@ export class AppraisalPage {
     });
     this.authprovider.postData(dataTocoordinate, 'nearBy').then((result) => {
       this.near = result;
+      for (var i = 0; i < this.near.length; i++) {
+        this.createMarker(this.near[i]);
+        
+      }
+      this.showMap(this.near,dataTocoordinate);
       if (this.near) {
         const countNearBy = this.near.length
         if (countNearBy === undefined) {
@@ -102,11 +110,7 @@ export class AppraisalPage {
           this.load = 2;
           this.nearBy = this.near
         }
-        
-        // this.nearSend = JSON.stringify(this.responseData);
-        // console.log(JSON.stringify(this.near));
-        // localStorage.setItem('near', this.nearSend);
-        // this.navCtrl.push(AppraisalPage);
+
       }
       else {
 
@@ -116,36 +120,60 @@ export class AppraisalPage {
       // Error log
     });
 
-    // this.product = JSON.parse(localStorage.getItem('itemData'));
-    // this.product_img = JSON.parse(localStorage.getItem('imgData'));
-    // var near = JSON.parse(localStorage.getItem('near'));
-    // this.start = "";
-    // var count = Object.keys(this.near).length;
-
-    // console.log(count);
-    // if(count == 2){
-    //   this.load = 1;
-    //   this.nearBy = JSON.parse(localStorage.getItem('near'));
-    //   console.log('sdad');
-    // }
-
-    // else if(count > 2){
-    //   this.load = 2;
-    //   this.nearBy = JSON.parse(localStorage.getItem('near'));
-    // }
-    // else{
-    //   this.load = 2;
-    //   this.nearBy = JSON.parse(localStorage.getItem('near'));
-    // }
-
-    // var ph = this.product.PHONE;
-    // this.phone = ph.slice(0,3)+"-"+ph.slice(3,6)+"-"+ph.slice(6);
   }
   presentLoading() {
     this.loading = this.loadingCtrl.create({
 
     });
     this.loading.present();
+  }
+  ionViewDidLoad() {
+    
+
+  }
+  showMap(data,posistionLand) {
+    var infowindow = new google.maps.InfoWindow();
+    const location = new google.maps.LatLng(posistionLand.lat, posistionLand.lng);
+    const options = {
+      center: location,
+      zoom: 13.7,
+      mapTypeControl: false,
+      panControl: false,
+      scaleControl: false,
+      streetViewControl: false,
+      // draggable: false,
+      mapTypeId: 'roadmap'//roadmap , satellite , hybrid , terrain
+    };
+    
+    var marker, i;
+    this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+    for (i = 0; i < data.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(data[i].LAT, data[i].LNG),
+        map: this.map
+      });
+      
+      google.maps.event.addListener(marker, 'click', ((marker, i) =>{
+        return ()=> {
+          infowindow.setContent(data[i].NAME);
+          infowindow.open(this.map, marker);
+        }
+      })(marker, i));
+    }
+    
+    var cityCircle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.05,
+      map: this.map,
+      center: location,
+      radius: 2000
+    });
+  }
+  createMarker(_data) {
+    
   }
   event(product) {
     this.destination = product.LAT + ',' + product.LNG;

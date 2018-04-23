@@ -14,6 +14,7 @@ import * as $ from 'jquery';
 import { IonDigitKeyboardCmp } from '../../components/ion-digit-keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AuthProvider } from '../../providers/auth/auth';
+import { NearByPage } from '../near-by/near-by';
 declare var google:any;
 
 @Component({
@@ -161,7 +162,7 @@ export class HomePage {
     flightPath.setMap(this.map);
     this.marker = new google.maps.Marker({position:location,
                                           //icon: 'assets/imgs/pinx.png',
-                                          animation: google.maps.Animation.DROP,
+                                          // animation: google.maps.Animation.DROP,
                                           map:this.map});
     
   }
@@ -188,7 +189,8 @@ export class HomePage {
       '<p>ราคาประเมินกรมที่ดิน : <font color="blue">'+_data.cost_appraisal.toLocaleString()+' บาท</font></p>' +
       '<p>ขนาดที่ดิน : <font color="blue">'+_data.size +' ตารางวา </font></p>' +
       '<p>พิกัดที่ดิน : <font color="blue">'+_data.lat.toFixed(6)+','+_data.lng+' </font></p>' +
-      
+      '<div class="row" style="text-align:center;"><a id="nextNearby">ดูสถานที่ใกล้เคียงกับที่ดิน</a></div>'+
+      // '<button id = "nextNearby">ดูสถานที่ใกล้เคียงกับที่ดิน</button>'+
     '</div>' +
     '<div class="iw-bottom-gradient"></div>' +
     '<div class="row" style="background-color:orange;">'+
@@ -197,7 +199,14 @@ export class HomePage {
     '</div>'+
     '</div>',
           maxWidth: 350});
+    // document.getElementById('nextNearby').addEventListener('click', () => {
+    //         this.navCtrl.push(NearByPage);
+    //       });
+          
           google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+            document.getElementById('nextNearby').addEventListener('click', () => {
+              this.navCtrl.push(NearByPage, { lat: _data.lat, lng: _data.lng})
+            })
             document.getElementById('closeid').addEventListener('click', () => {
               infoWindow.close(this.map, this.marker);
             });
@@ -233,8 +242,8 @@ export class HomePage {
            });
           });    
     infoWindow.open(this.map, this.marker);
-    this.marker.addListener('click', this.toggleBounce(), () => {
-      //infoWindow.open(this.map, this.marker);
+    this.marker.addListener('click', () => {
+      infoWindow.open(this.map, this.marker);
     });
     google.maps.event.addListener(infoWindow, 'domready', () => {
     var iwOuter = $('.gm-style-iw');

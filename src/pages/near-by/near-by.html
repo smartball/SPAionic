@@ -1,0 +1,51 @@
+<!--
+  Generated template for the NearByPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>nearBy</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div id="map" #map></div>
+  <ion-card  *ngIf="success == 1">
+    <ion-row style="text-align:center">
+      <ion-item>
+        <ion-icon name="ios-compass" style="color:cornflowerblue" item-left large></ion-icon>
+        <label stacked>สถานที่ใกล้เคียงกับที่ดิน</label>
+        <p>ภายในระยะ 2 กิโลเมตร</p>
+      </ion-item>
+      <ion-grid *ngIf='load == 2'>
+        <ion-row *ngFor="let nearBy of nearBy">
+    
+          <ion-col col-6 style="border: lightgray solid 1px;">
+            <h2>{{nearBy.NAME}}</h2>
+          </ion-col>
+          <ion-col col-6 style="border: lightgray solid 1px;">
+            <h2>{{nearBy.distance | number: '1.3-3'}} กิโลเมตร</h2>
+          </ion-col>
+        </ion-row>
+    
+      </ion-grid>
+      <ion-grid *ngIf='load == 1'>
+        <ion-row style="border: lightgray solid 1px;">
+    
+          <ion-col col-6>
+            <h2>{{nearBy.NAME}}</h2>
+          </ion-col>
+          <ion-col col-6>
+            <h2>{{nearBy.distance}} ในระยะ 2 กิโลเมตร</h2>
+          </ion-col>
+        </ion-row>
+    
+      </ion-grid>
+    </ion-row>
+  </ion-card>
+</ion-content>

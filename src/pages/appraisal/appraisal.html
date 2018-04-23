@@ -13,8 +13,10 @@
 </ion-header>
 
 <ion-content >
+  
   <div *ngIf="success == 1">
     <ion-card>
+      
       <div class="block">
         <ion-slides class="image-slider" loop="true" effect="coverflow" autoplay="10000" pager="true" zoom="true">
           <ion-slide *ngFor="let img of product_img">
@@ -104,7 +106,8 @@
       </ion-grid>   
       </ion-row>  
 
-
+      
     </ion-card>
   </div>
+  <div id="map" #map></div>
 </ion-content>

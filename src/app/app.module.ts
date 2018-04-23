@@ -32,6 +32,7 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { NearByPage } from '../pages/near-by/near-by';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     EstimatePage,
     ListPage,
     AppraisalPage,
-    SellPage
+    SellPage,
+    NearByPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     EstimatePage,
     ListPage,
     AppraisalPage,
-    SellPage
+    SellPage,
+    NearByPage
   ],
   providers: [
     StatusBar,

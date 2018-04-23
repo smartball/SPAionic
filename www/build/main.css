@@ -26961,6 +26961,11 @@ page-appraisal .thumb-img {
   width: 100%;
 }
 
+page-appraisal #map {
+  height: 50%;
+  width: 100%;
+}
+
 page-estimate #map {
   height: 30%;
   width: 100%;
@@ -27017,9 +27022,23 @@ page-home .gm-style-cc {
   display: none;
 }
 
+page-home a[href^="http://maps.google.com/maps"] {
+  display: none !important;
+}
+
+page-home a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+
 page-home .grad {
   background: -webkit-gradient(linear, left top, right bottom, from(aquamarine), to(#19b8f7));
   background: linear-gradient(to bottom right, aquamarine, #19b8f7);
+}
+
+page-home a {
+  font-size: 16px;
+  padding-left: 20%;
+  color: orangered;
 }
 
 page-home .select-md .select-icon, page-home .select-ios.select-icon {
@@ -27174,7 +27193,7 @@ page-home #iw-container .iw-content {
   line-height: 18px;
   font-weight: 400;
   margin-right: 1px;
-  padding: 15px 5px 20px 15px;
+  padding: 0px 5px 20px 15px;
   max-height: 140px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -27371,6 +27390,11 @@ page-login .font {
 
 .ios page-map-direction .step.finish, .md page-map-direction .step.finish {
   background-color: #4CAF50;
+}
+
+page-near-by #map {
+  height: 50%;
+  width: 100%;
 }
 
 page-register .img-grad {

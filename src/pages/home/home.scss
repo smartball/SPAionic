@@ -1,11 +1,17 @@
 page-home {
     .gm-style-cc { display:none; }
-    
+    a[href^="http://maps.google.com/maps"]{display:none !important}
+    a[href^="https://maps.google.com/maps"]{display:none !important}
     .grad{
         
         background: linear-gradient(to bottom right, aquamarine, #19b8f7);
         
       }
+    a{
+        font-size: 16px;
+        padding-left: 20%;
+        color:orangered;
+    }
     .select-md .select-icon,.select-ios.select-icon {
         position: absolute;
         width: 82px;
@@ -142,7 +148,7 @@ page-home {
         line-height: 18px;
         font-weight: 400;
         margin-right: 1px;
-        padding: 15px 5px 20px 15px;
+        padding: 0px 5px 20px 15px;
         max-height: 140px;
         overflow-y: auto;
         overflow-x: hidden;

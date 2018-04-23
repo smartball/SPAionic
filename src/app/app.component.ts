@@ -53,7 +53,7 @@ export class MyApp {
         platform.ready().then(() => {
           
             if(this.userDetails.username){
-              this.rootPage = AppraisalPage;
+              this.rootPage = HomePage;
             }else{
               this.rootPage = LoginPage;
             }
